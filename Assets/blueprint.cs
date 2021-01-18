@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class hasComponent
+{
+    public static bool HasComponent<T>(this GameObject flag) where T : Component
+    {
+        return flag.GetComponent<T>() != null;
+    }
+}
+
 public class blueprint : MonoBehaviour
 {
     RaycastHit hit;
     Vector3 movePoint;
     public GameObject prefab;
     public string CollisionName;
-    private GameObject plane;
-
+    private GameObject plane;    
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +54,14 @@ public class blueprint : MonoBehaviour
         {
             
             GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0,0.11f,0), transform.rotation);
-            prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
+            if (prefab.HasComponent<ObjController>())
+            {
+                prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
+            }
             int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;                      
             chiefDesk.name = prefab.name + num++ ;
             Destroy(gameObject);
+            //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
         }
     }
     void OnCollisionEnter(Collision col)
@@ -69,4 +80,6 @@ public class blueprint : MonoBehaviour
     {
         transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(0, 255, 0, 0.2f);
     }
+
+
 }

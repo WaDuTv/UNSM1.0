@@ -17,10 +17,12 @@ public class ObjController : MonoBehaviour
     private void Start()
     {
         inGameUIManager = InGameUIManager.GetInstance();
+        
         maincam = GameObject.FindGameObjectWithTag("worldcam");
     }
     public void OnMouseDown()
     {
+        
         inGameUIManager.SwitchCanvas(CanvasType.None);
         deskcam.SetActive(true);
         if (maincam.gameObject.activeSelf)
@@ -38,6 +40,7 @@ public class ObjController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
+            inGameUIManager.SwitchCanvas(CanvasType.MainMenu);
             maincam.SetActive(true);
             deskcam.SetActive(false);            
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = true;

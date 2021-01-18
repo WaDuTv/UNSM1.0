@@ -8,7 +8,8 @@ public enum CanvasType
     None,
     build_canvas,
     PauseMenu,
-    OptionsMenu
+    OptionsMenu,
+    MainMenu
 }
 public class InGameUIManager : Singleton<InGameUIManager>
 {
@@ -19,7 +20,7 @@ public class InGameUIManager : Singleton<InGameUIManager>
     {
         canvasControllerList = GetComponentsInChildren<CanvasController>().ToList();
         canvasControllerList.ForEach(x => x.gameObject.SetActive(false));
-        SwitchCanvas(CanvasType.build_canvas);
+        SwitchCanvas(CanvasType.MainMenu);
 
     }
 

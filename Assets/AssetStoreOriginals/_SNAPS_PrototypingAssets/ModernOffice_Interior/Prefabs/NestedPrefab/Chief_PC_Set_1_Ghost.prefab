@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: -3680554696174334439}
   - component: {fileID: -472394037100767683}
   - component: {fileID: 4551382621923490537}
+  - component: {fileID: -6323496999889758311}
   m_Layer: 0
-  m_Name: PC_Set Ghost
+  m_Name: Chief_PC_Set_1_Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +113,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-6323496999889758311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366013302418820549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd07c8beae991648b2b397d8f71b2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 366013302418820549, guid: e42ae3d072cf744498536e6a81655e0b, type: 3}
+  CollisionName: 
 --- !u!1 &1507051924632037082
 GameObject:
   m_ObjectHideFlags: 0
