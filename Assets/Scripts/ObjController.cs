@@ -10,13 +10,16 @@ public class ObjController : MonoBehaviour
     public float transspeed = 0.125f;
     Transform currentView;
 
+    InGameUIManager inGameUIManager;
+
     private void Start()
     {
+        inGameUIManager = InGameUIManager.GetInstance();
         maincam = GameObject.FindGameObjectWithTag("worldcam");
     }
     public void OnMouseDown()
     {
-        
+        inGameUIManager.SwitchCanvas(CanvasType.None);
         deskcam.SetActive(true);
         if (maincam.gameObject.activeSelf)
         {
@@ -26,16 +29,13 @@ public class ObjController : MonoBehaviour
         
 
     }
-    void Update()
+
+    //public void LeaveMenu()
+    private void LateUpdate()
     {
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            
-            if (maincam.gameObject.activeSelf)
-            {
-            
-            }
             maincam.SetActive(true);
             deskcam.SetActive(false);            
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = true;
@@ -43,4 +43,5 @@ public class ObjController : MonoBehaviour
         }
 
     }
+   
 }

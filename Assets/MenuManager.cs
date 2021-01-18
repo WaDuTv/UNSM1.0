@@ -16,13 +16,6 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Worldview").activeSelf)
-        {
-            buildUI.SetActive(true);
-        }
-        else
-        {
-            buildUI.SetActive(false);
-        }
+
     }
 }
