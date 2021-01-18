@@ -9838,7 +9838,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7339377456052824850, guid: 89a38f7064dbe2144be84aa78b002227,
+          type: 3}
         m_TargetAssemblyTypeName: build_script, Assembly-CSharp
         m_MethodName: spawn_desk_bluerint
         m_Mode: 1
