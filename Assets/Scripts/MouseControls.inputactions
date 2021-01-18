@@ -1,0 +1,77 @@
+{
+    "name": "MouseControls",
+    "maps": [
+        {
+            "name": "Mouse",
+            "id": "0639ee43-3416-4000-8424-e0463db8c6a2",
+            "actions": [
+                {
+                    "name": "Zoom",
+                    "type": "PassThrough",
+                    "id": "51c53b84-eab3-4239-877c-4b5d60bb7144",
+                    "expectedControlType": "Axis",
+                    "processors": "Normalize(min=-1,max=1),Invert",
+                    "interactions": ""
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "93136769-e798-443d-9955-5204e4eca354",
+                    "expectedControlType": "Button",
+                    "processors": "Normalize(min=-1,max=1),Invert",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "3f7d4bf2-a551-4aa1-b22d-0d5a22ee45d7",
+                    "expectedControlType": "Vector2",
+                    "processors": "Normalize(min=-1,max=1),Invert",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "461b669d-778e-4bc3-a654-41068db41c8b",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26bcc028-6269-4590-8cfd-e6317cdcb817",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc5f3ff3-d139-4003-a265-d73a4a0908ed",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "asd",
+            "bindingGroup": "asd",
+            "devices": []
+        }
+    ]
+}

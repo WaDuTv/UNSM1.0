@@ -1,0 +1,50 @@
+{
+    "name": "Maincontrols",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "7eb7623e-32cc-4168-a461-1b421609034a",
+            "actions": [
+                {
+                    "name": "SwapCam",
+                    "type": "Button",
+                    "id": "4b0ca0e8-65a3-46b0-817e-98cceef49bae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8d4ed33e-db4b-4d20-803c-8819467277ba",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "SwapCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
