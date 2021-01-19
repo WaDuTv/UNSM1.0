@@ -70,7 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deskcam: {fileID: 1899446857057513844}
   maincam: {fileID: 0}
-  maincontroller: {fileID: 0}
+  buildMenuUI: {fileID: 0}
+  deskMenuUI: {fileID: 774839829671641543, guid: 1593e0b62cfb70f4981a67b1fd5452a2,
+    type: 3}
   transspeed: 0.125
 --- !u!1 &1899446857057513844
 GameObject:
@@ -211,7 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deskcam: {fileID: 1899446857057513844}
   maincam: {fileID: 866261719156372785, guid: 97af2156aabb2284daa16818d65df304, type: 3}
-  maincontroller: {fileID: 0}
+  buildMenuUI: {fileID: 0}
+  deskMenuUI: {fileID: 0}
   transspeed: 0.125
 --- !u!1001 &1238142922682361334
 PrefabInstance:
