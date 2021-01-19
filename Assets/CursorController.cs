@@ -21,7 +21,7 @@ public class CursorController : MonoBehaviour
 
         controls = new MouseControls();
         ChangeCursor(cursor);
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
         mainCamera = Camera.main;
 
     }
@@ -42,6 +42,11 @@ public class CursorController : MonoBehaviour
         controls.Mouse.Click.performed += _ => EndedClick();
     }
 
+    private void Update()
+    {
+        //HighlightObject();
+    }
+
     private void StartedClick()
     {
         ChangeCursor(cursorClicked);
@@ -52,6 +57,7 @@ public class CursorController : MonoBehaviour
         ChangeCursor(cursor);
         DetectObject();
     }
+
 
     private void DetectObject()
     {
@@ -70,11 +76,43 @@ public class CursorController : MonoBehaviour
                     deskcam.SetActive(true);
                    
                 }
-
-                Debug.Log("3d Hit:" + hit.collider.gameObject.name + " Active Cameras" + Camera.allCameras);
+                    Debug.Log("3d Hit:" + hit.collider.gameObject.name + " Active Cameras" + Camera.allCameras);
             }
         }
     }
+
+    //public void HighlightObject()
+    //{
+    //    //3D
+    //    Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(ray, out hit))
+    //    {
+    //        if (hit.collider != null)
+    //        {
+    //            if (hit.collider.gameObject.tag == "Furniture")
+    //            {
+    //                if (hit.collider.gameObject.GetComponent<Outline>() == null)
+    //                {
+    //                    var outline = hit.collider.gameObject.AddComponent<Outline>();
+
+    //                    outline.OutlineMode = Outline.Mode.OutlineAll;
+    //                    outline.OutlineColor = Color.yellow;
+    //                    outline.OutlineWidth = 1f;
+    //                }
+    //                if (hit.collider.gameObject.GetComponent<Outline>() != null)
+    //                    hit.collider.gameObject.GetComponent<Outline>();
+    //                Destroy(hit.collider.gameObject.GetComponent<Outline>());
+    //            }
+
+    //        }
+    //        if (hit.collider == null)
+    //        {
+
+    //        }
+    //    }
+    //}
+
 
     private void ChangeCursor(Texture2D cursorType)
     {
