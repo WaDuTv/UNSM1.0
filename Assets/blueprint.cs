@@ -67,6 +67,10 @@ public class blueprint : MonoBehaviour
             Destroy(gameObject);
             //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
         }
+        if (Input.GetMouseButton(1))
+            {
+                Destroy(gameObject);
+            }
     }
     void OnCollisionEnter(Collision col)
     {
