@@ -42,18 +42,22 @@ public class blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
         {
-            transform.position = hit.point + new Vector3(0, 0.11f, 0);
+            transform.position = hit.point + new Vector3(0, 0.2f, 0);
         }
 
-        if (Input.GetKey(KeyCode.U))
+        if (Input.GetKey(KeyCode.Period))
         {
             transform.RotateAround(transform.position, Vector3.up, 200 * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.Comma))
+        {
+            transform.RotateAround(transform.position, -Vector3.up, 200 * Time.deltaTime);
         }
 
         if (Input.GetMouseButton(0))
         {
             
-            GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0,0.11f,0), transform.rotation);
+            GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0,0.1f,0), transform.rotation);
             if (prefab.HasComponent<ObjController>())
             {
                 prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
