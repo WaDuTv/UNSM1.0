@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
     public TextMeshProUGUI[] UI_DATE_TEXT;
     public TimeFormat timeFormat = TimeFormat.Hour_24;
     public DateFormat dateFormat = DateFormat.DD_MM_YYYY;
-    public float secPerMin = 1;
+    public float secPerMin = 1 * GameSpeed.timeFactor;
 
     private string _time;
     private string _date;
