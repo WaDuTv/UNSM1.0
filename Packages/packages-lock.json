@@ -83,33 +83,21 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.render-pipelines.core": {
-      "version": "10.2.2",
-      "depth": 1,
+    "com.unity.purchasing": {
+      "version": "2.1.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.render-pipelines.high-definition": {
-      "version": "10.2.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.render-pipelines.core": "10.2.2",
-        "com.unity.shadergraph": "10.2.2",
-        "com.unity.visualeffectgraph": "10.2.2",
-        "com.unity.render-pipelines.high-definition-config": "10.2.2"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.render-pipelines.high-definition-config": {
+    "com.unity.render-pipelines.core": {
       "version": "10.2.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.render-pipelines.core": "10.2.2"
+        "com.unity.ugui": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -208,15 +196,6 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.visualeffectgraph": {
-      "version": "10.2.2",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.shadergraph": "10.2.2"
-      },
       "url": "https://packages.unity.com"
     },
     "nuget.castle-core": {
