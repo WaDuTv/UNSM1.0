@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531fe2c5ee7ea1d4e9bcfe0a62d2a650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpFunction: {fileID: -7862430414832101820}
   deskcam: {fileID: 1899446857057513844}
   maincam: {fileID: 0}
   buildMenuUI: {fileID: 0}
@@ -212,23 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6290474550443552672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7772998762987940240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531fe2c5ee7ea1d4e9bcfe0a62d2a650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deskcam: {fileID: 1899446857057513844}
-  maincam: {fileID: 866261719156372785, guid: 97af2156aabb2284daa16818d65df304, type: 3}
-  buildMenuUI: {fileID: 0}
-  deskMenuUI: {fileID: 0}
-  transspeed: 0.125
 --- !u!1001 &1238142922682361334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,12 +585,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247e5b33a1b1dba43a82e14ad7191756, type: 3}
---- !u!1 &7772998762987940240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1776277804425246, guid: 247e5b33a1b1dba43a82e14ad7191756,
-    type: 3}
-  m_PrefabInstance: {fileID: 7771368745078638990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7766559624399666566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4836093174739976, guid: 247e5b33a1b1dba43a82e14ad7191756,
