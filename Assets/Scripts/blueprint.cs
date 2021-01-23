@@ -77,7 +77,7 @@ public class blueprint : MonoBehaviour
         CollisionName = col.gameObject.name;
         if (col.gameObject.tag == "Furniture")
         {
-            transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.2f);
+            transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(255, 0, 0);
             Debug.Log("Hier steht schon was! " + CollisionName);
             Debug.Log(transform.name + transform.GetComponent<Renderer>().sharedMaterial.color + transform.name);
         }
@@ -86,7 +86,7 @@ public class blueprint : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(0, 255, 0, 0.2f);
+        transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(0, 255, 0);
     }
 
 

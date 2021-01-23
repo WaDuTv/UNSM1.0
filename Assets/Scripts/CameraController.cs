@@ -14,6 +14,11 @@ public class CameraController : MonoBehaviour
     public float rotationAmount;
     public Vector3 zoomAmount;
     public Vector3 zoomAmountMouse;
+    public float maxLeft;
+    public float maxRight;
+    public float maxUp;
+    public float maxDown;
+
 
     public Vector3 newPosition;
     public Quaternion newRotation;
@@ -49,6 +54,37 @@ public class CameraController : MonoBehaviour
         {
             followTransform = null;
         }
+
+        if (transform.position.x <= maxLeft || transform.position.x >= maxRight || transform.position.z <= maxDown || transform.position.z >= maxUp)
+        {
+            normalSpeed = 0f;
+            fastSpeed = 0f;
+        }
+        if (transform.position.x <= maxLeft)
+        {
+            newPosition.x = newPosition.x = -43;
+            normalSpeed = 0.2f;
+            fastSpeed = 0.5f;
+        }
+        if (transform.position.x >= maxRight)
+        {
+            newPosition.x = newPosition.x = 59;
+            normalSpeed = 0.2f;
+            fastSpeed = 0.5f;
+        }
+        if (transform.position.z <= maxDown)
+        {
+            newPosition.z = newPosition.z = -45;
+            normalSpeed = 0.2f;
+            fastSpeed = 0.5f;
+        }
+        if (transform.position.z >= maxUp)
+        {
+            newPosition.z = newPosition.z = 43;
+            normalSpeed = 0.2f;
+            fastSpeed = 0.5f;
+        }
+
     }
     void HandleMouseInput()
     {
