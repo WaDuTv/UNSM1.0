@@ -16,7 +16,24 @@ public class blueprint : MonoBehaviour
     Vector3 movePoint;
     public GameObject prefab;
     public string CollisionName;
-    private GameObject plane;    
+    private GameObject plane;
+
+    private MouseControls mouseControls;
+
+    private void Awake()
+    {
+        mouseControls = new MouseControls();
+    }
+
+    private void OnEnable()
+    {
+        mouseControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        mouseControls.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,19 +71,43 @@ public class blueprint : MonoBehaviour
             transform.RotateAround(transform.position, -Vector3.up, 200 * Time.deltaTime);
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            
-            GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0,0.1f,0), transform.rotation);
+
+            GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
             if (prefab.HasComponent<ObjController>())
             {
                 prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
             }
-            int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;                      
-            chiefDesk.name = prefab.name + num++ ;
-            Destroy(gameObject);
+            int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
+            chiefDesk.name = prefab.name + num++;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                
+                return;
+            }            
+            else
+            {
+                Destroy(gameObject);
+            }
+            
             //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
         }
+
+        //if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
+        //{
+
+        //    GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
+        //    if (prefab.HasComponent<ObjController>())
+        //    {
+        //        prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
+        //    }
+        //    int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
+        //    chiefDesk.name = prefab.name + num++;
+        //    Debug.Log("Plant again!");
+        //    //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
+        //}
+
         if (Input.GetMouseButton(1))
             {
                 Destroy(gameObject);

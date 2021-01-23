@@ -28,6 +28,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "Normalize(min=-1,max=1),Invert",
                     "interactions": ""
+                },
+                {
+                    "name": "Shop",
+                    "type": "Button",
+                    "id": "13625ff8-56cc-4f3a-83ee-45bfa2e5a190",
+                    "expectedControlType": "Button",
+                    "processors": "Normalize(min=-1,max=1),Invert",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -63,6 +71,39 @@
                     "action": "Position",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Buy Multiple",
+                    "id": "076f87d3-de58-447b-8e76-2dd684b969bf",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shop",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "29283255-61bb-4ecb-a17b-6dba34fc2f50",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "asd",
+                    "action": "Shop",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "b77e4536-4dc0-4164-9db2-1094c1fb5861",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "asd",
+                    "action": "Shop",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

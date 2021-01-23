@@ -41,6 +41,14 @@ public class @MouseControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""Normalize(min=-1,max=1),Invert"",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shop"",
+                    ""type"": ""Button"",
+                    ""id"": ""13625ff8-56cc-4f3a-83ee-45bfa2e5a190"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""Normalize(min=-1,max=1),Invert"",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -76,6 +84,39 @@ public class @MouseControls : IInputActionCollection, IDisposable
                     ""action"": ""Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Buy Multiple"",
+                    ""id"": ""076f87d3-de58-447b-8e76-2dd684b969bf"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shop"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""29283255-61bb-4ecb-a17b-6dba34fc2f50"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""asd"",
+                    ""action"": ""Shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""b77e4536-4dc0-4164-9db2-1094c1fb5861"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""asd"",
+                    ""action"": ""Shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -93,6 +134,7 @@ public class @MouseControls : IInputActionCollection, IDisposable
         m_Mouse_Zoom = m_Mouse.FindAction("Zoom", throwIfNotFound: true);
         m_Mouse_Click = m_Mouse.FindAction("Click", throwIfNotFound: true);
         m_Mouse_Position = m_Mouse.FindAction("Position", throwIfNotFound: true);
+        m_Mouse_Shop = m_Mouse.FindAction("Shop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -145,6 +187,7 @@ public class @MouseControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Mouse_Zoom;
     private readonly InputAction m_Mouse_Click;
     private readonly InputAction m_Mouse_Position;
+    private readonly InputAction m_Mouse_Shop;
     public struct MouseActions
     {
         private @MouseControls m_Wrapper;
@@ -152,6 +195,7 @@ public class @MouseControls : IInputActionCollection, IDisposable
         public InputAction @Zoom => m_Wrapper.m_Mouse_Zoom;
         public InputAction @Click => m_Wrapper.m_Mouse_Click;
         public InputAction @Position => m_Wrapper.m_Mouse_Position;
+        public InputAction @Shop => m_Wrapper.m_Mouse_Shop;
         public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -170,6 +214,9 @@ public class @MouseControls : IInputActionCollection, IDisposable
                 @Position.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
                 @Position.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
                 @Position.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
+                @Shop.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnShop;
+                @Shop.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnShop;
+                @Shop.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnShop;
             }
             m_Wrapper.m_MouseActionsCallbackInterface = instance;
             if (instance != null)
@@ -183,6 +230,9 @@ public class @MouseControls : IInputActionCollection, IDisposable
                 @Position.started += instance.OnPosition;
                 @Position.performed += instance.OnPosition;
                 @Position.canceled += instance.OnPosition;
+                @Shop.started += instance.OnShop;
+                @Shop.performed += instance.OnShop;
+                @Shop.canceled += instance.OnShop;
             }
         }
     }
@@ -201,5 +251,6 @@ public class @MouseControls : IInputActionCollection, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPosition(InputAction.CallbackContext context);
+        void OnShop(InputAction.CallbackContext context);
     }
 }
