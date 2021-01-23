@@ -92,7 +92,7 @@ public class CameraController : MonoBehaviour
         {
             newZoom += Input.mouseScrollDelta.y * zoomAmountMouse;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
@@ -105,7 +105,7 @@ public class CameraController : MonoBehaviour
                 dragStartPosition = ray.GetPoint(entry);
             }
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
@@ -119,10 +119,11 @@ public class CameraController : MonoBehaviour
 
                 newPosition = transform.position + dragStartPosition - dragCurrentPosition;
             }
-            if (Input.GetMouseButtonDown(2))
-            {
-                rotateStartPosition = Input.mousePosition;
-            }
+            
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            rotateStartPosition = Input.mousePosition;
         }
         if (Input.GetMouseButton(2))
         {
