@@ -85,7 +85,19 @@ public class UISelectionIndicator : MonoBehaviour
             {
                 this.transform.GetChild(i).gameObject.SetActive(false);
             }
-        }
+        }       
 
     }
+    public void ActiveThis()
+    {
+        UISelectionIndicator indicators = this.transform.GetComponent<UISelectionIndicator>();
+        if (indicators.enabled == false)
+        {
+            indicators.enabled = true;
+        }
+    }
 }
+
+
+
+

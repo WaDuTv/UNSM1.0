@@ -12,6 +12,7 @@ public class ObjController : MonoBehaviour
     public GameObject buildMenuUI;
     public GameObject deskMenuUI;
     public float transspeed = 0.125f;
+    public GameObject indicators;
 
     private void Start()
     {        
@@ -22,7 +23,8 @@ public class ObjController : MonoBehaviour
     }
     public void OnMouseDown()
     {
-
+        indicators = GameObject.Find("UI Selection Indicator");
+        indicators.GetComponent<UISelectionIndicator>().enabled = false;
         pickUpFunction.enabled = false;
         deskcam.SetActive(true);
         if (maincam.activeSelf)

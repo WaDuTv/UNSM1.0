@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
@@ -88,10 +89,11 @@ public class CameraController : MonoBehaviour
     }
     void HandleMouseInput()
     {
-        if (Input.mouseScrollDelta.y != 0)
-        {
-            newZoom += Input.mouseScrollDelta.y * zoomAmountMouse;
-        }
+        zoomView();
+        //if (Input.mouseScrollDelta.y != 0)
+        //{
+        //    newZoom += Input.mouseScrollDelta.y * zoomAmountMouse;
+        //}
         if (Input.GetMouseButtonDown(1))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
@@ -183,5 +185,19 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
+    }
+
+
+    void zoomView()
+    {
+        
+        CinemachineVirtualCamera zoomCam = GameObject.Find("Worldview").GetComponent<CinemachineVirtualCamera>();
+
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            zoomCam.m_Lens.FieldOfView = zoomCam.m_Lens.FieldOfView + Input.mouseScrollDelta.y * Time.deltaTime;
+        }
+
+
     }
 }
