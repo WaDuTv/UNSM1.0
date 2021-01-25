@@ -24,10 +24,12 @@ public class SelectionIndicator : MonoBehaviour
             foreach(Renderer r in rs)
             {
                 bigBounds.Encapsulate(r.bounds);
-            }                       
+            }
+
+            float padding = 1.0f;
 
             this.transform.position = new Vector3(bigBounds.center.x, bigBounds.center.y, bigBounds.center.z);
-            this.transform.localScale = new Vector3(bigBounds.size.x*1.1f, bigBounds.size.y * 1.1f, bigBounds.size.z * 1.1f);
+            this.transform.localScale = new Vector3(bigBounds.size.x* padding, bigBounds.size.y * padding, bigBounds.size.z * padding);
         }
         else
         {
