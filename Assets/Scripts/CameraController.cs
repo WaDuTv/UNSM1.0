@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     public float maxRight;
     public float maxUp;
     public float maxDown;
-
+    public GameObject worldviewcam;
 
     public Vector3 newPosition;
     public Quaternion newRotation;
@@ -189,15 +189,16 @@ public class CameraController : MonoBehaviour
 
 
     void zoomView()
-    {
-        
-        CinemachineVirtualCamera zoomCam = GameObject.Find("Worldview").GetComponent<CinemachineVirtualCamera>();
-
-        if (Input.mouseScrollDelta.y != 0)
+    {        
+        if (worldviewcam.activeSelf)
         {
-            zoomCam.m_Lens.FieldOfView = zoomCam.m_Lens.FieldOfView + Input.mouseScrollDelta.y * Time.deltaTime;
-        }
+            CinemachineVirtualCamera zoomCam = GameObject.Find("Worldview").GetComponent<CinemachineVirtualCamera>();
 
+            if (Input.mouseScrollDelta.y != 0)
+            {
+                zoomCam.m_Lens.FieldOfView = zoomCam.m_Lens.FieldOfView + Input.mouseScrollDelta.y * Time.deltaTime;
+            }
+        }
 
     }
 }

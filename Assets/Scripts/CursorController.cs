@@ -64,7 +64,7 @@ public class CursorController : MonoBehaviour
         //3D
         Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit,Mathf.Infinity, (1 << 7)))
         {
             if(hit.collider !=null)
             {
@@ -76,7 +76,7 @@ public class CursorController : MonoBehaviour
                     deskcam.SetActive(true);
                    
                 }
-                    Debug.Log("3d Hit:" + hit.collider.gameObject.name + " Active Cameras" + Camera.allCameras);
+                    //Debug.Log("3d Hit:" + hit.collider.gameObject.name + " Active Cameras" + Camera.allCameras);
             }
         }
     }

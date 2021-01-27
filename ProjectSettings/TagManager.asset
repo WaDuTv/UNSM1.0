@@ -8,6 +8,8 @@ TagManager:
   - ChiefDesk
   - worldcam
   - Selectable
+  - Structure
+  - CanFade
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
+  - Selectable
   - 
   - 
   - 

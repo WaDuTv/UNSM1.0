@@ -42,7 +42,7 @@ public class blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
         {
-            transform.position = hit.point;
+            transform.position = hit.point;            
         }
 
         movePoint = Input.mousePosition;

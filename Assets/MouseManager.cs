@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
+    public LayerMask canSelect;
     public GameObject hoveredObject;
     //public GameObject selectedObject;
     // Start is called before the first frame update
@@ -18,10 +19,12 @@ public class MouseManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
         
-        if(Physics.Raycast(ray, out hitInfo) && hitInfo.transform.gameObject.tag == "Selectable")
+
+        if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, canSelect) && hitInfo.transform.gameObject.tag == "Selectable")
         {
             GameObject hitObject = hitInfo.transform.gameObject;
-            Debug.Log("Mouse is over:" + hitObject.tag);
+            //Debug.DrawRay(Camera.main.transform.position,hitObject.transform.position, Color.green);
+            //Debug.Log("Mouse is over:" + hitObject.name);
             SelectObject(hitObject);
         }
         else 

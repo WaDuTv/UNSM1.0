@@ -6,6 +6,7 @@ using System.Linq;
 
 public class ObjController : MonoBehaviour
 {
+    MouseManager mm;
     public PickUp pickUpFunction;
     public GameObject deskcam;
     public GameObject maincam;
@@ -13,31 +14,61 @@ public class ObjController : MonoBehaviour
     public GameObject deskMenuUI;
     public float transspeed = 0.125f;
     public GameObject indicators;
+    public GameObject fademanager;
+    //public FadeObjects faderadius;
 
     private void Start()
-    {        
+    {
+        mm = GameObject.FindObjectOfType<MouseManager>();
         deskMenuUI = GameObject.Find("MenuManager");
         buildMenuUI = GameObject.Find("BuildCanvas");
         maincam = GameObject.FindGameObjectWithTag("worldcam");
 
     }
+
+    private void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, (1 << 7)))
+        {
+            if (hit.collider != null)
+            {
+                OnMouseDown();                
+            }
+        }
+    }
     public void OnMouseDown()
     {
-        indicators = GameObject.Find("UI Selection Indicator");
-        indicators.GetComponent<UISelectionIndicator>().enabled = false;
-        pickUpFunction.enabled = false;
-        deskcam.SetActive(true);
-        if (maincam.activeSelf)
-        {
-            maincam.SetActive(false);
+        if(Input.GetMouseButton(0))
+        {                   
+                      
+            pickUpFunction.enabled = false;
+            deskcam.SetActive(true);
+            if (maincam.activeSelf)
+            {
+                maincam.SetActive(false);
         
+            }
+            buildMenuUI.SetActive(false);                        
+            FadeObjects fadesettings = fademanager.GetComponent<FadeObjects>();
+            fadesettings.maxTransparency = 1f;
+            fadesettings.radius = 0f;
+            //fademanager.GetComponent<FadeObjects>().enabled = false;
+            indicators.SetActive(false);
+            deskMenuUI.GetComponent<MenuManager>().deskUI.SetActive(true);        
+            GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;
         }
-        buildMenuUI.SetActive(false);
 
-        deskMenuUI.GetComponent<MenuManager>().deskUI.SetActive(true);        
-        GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;
-        
+    }
 
+    public void ReactivateFunctions()
+    {
+        indicators.SetActive(true);
+        //fademanager.GetComponent<FadeObjects>().enabled = true;
+        FadeObjects fadesettings = fademanager.GetComponent<FadeObjects>();
+        fadesettings.maxTransparency = 0f;
+        fadesettings.radius = 4f;
     }
   
 }
