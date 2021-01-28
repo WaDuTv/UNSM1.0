@@ -47,12 +47,12 @@ public class Clock : MonoBehaviour
 
     private void Awake()
     {
-        hr = EnviroSky.instance.GameTime.Hours;
-        min = EnviroSky.instance.GameTime.Minutes;
+        //hr = EnviroSky.instance.GameTime.Hours;
+        //min = EnviroSky.instance.GameTime.Minutes;
 
-        day = EnviroSky.instance.GameTime.Days/30*month;
-        month = EnviroSky.instance.GameTime.Days / 30;
-        year = EnviroSky.instance.GameTime.Years;
+        //day = EnviroSky.instance.GameTime.Days/30*month;
+        //month = EnviroSky.instance.GameTime.Days / 30;
+        //year = EnviroSky.instance.GameTime.Years;
 
         //if(hr <= 12)
         //{
@@ -69,9 +69,10 @@ public class Clock : MonoBehaviour
         hr = EnviroSky.instance.GameTime.Hours;
         min = EnviroSky.instance.GameTime.Minutes;
 
-        day = EnviroSky.instance.GameTime.Days / 30 * month;
-        month = EnviroSky.instance.GameTime.Days / 30;
+        day = 1+EnviroSky.instance.GameTime.Days - (30 * (month-1));
+        month = (int)Mathf.Ceil(1+EnviroSky.instance.GameTime.Days / 30);
         year = EnviroSky.instance.GameTime.Years;
+        Debug.Log(month);
 
         //if(timer >= secPerMin)
         //{
