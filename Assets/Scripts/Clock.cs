@@ -47,60 +47,69 @@ public class Clock : MonoBehaviour
 
     private void Awake()
     {
-        hr = 12;
-        min = 0;
+        hr = EnviroSky.instance.GameTime.Hours;
+        min = EnviroSky.instance.GameTime.Minutes;
 
-        day = 18;
-        month = 06;
-        year = 1982;
+        day = EnviroSky.instance.GameTime.Days/30*month;
+        month = EnviroSky.instance.GameTime.Days / 30;
+        year = EnviroSky.instance.GameTime.Years;
 
-        if(hr <= 12)
-        {
-            isAm = true;
-        }
+        //if(hr <= 12)
+        //{
+        //    isAm = true;
+        //}
 
-        SetTimeDateString();
+        //SetTimeDateString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer >= secPerMin)
-        {
-            min++;
-            if(min >= maxMin)
-            {
-                min = 0;
-                hr++;
-                if (hr >= maxHr)
-                {
-                    hr = 0;
-                    day++;
-                    if (day >= maxDay)
-                    {
-                        day = 1;
-                        month++;
-                        if (month >= maxMonths)
-                        {
-                            month = 1;
-                            year++;
-                        }
-                    }
-                }
-            }
+
+        hr = EnviroSky.instance.GameTime.Hours;
+        min = EnviroSky.instance.GameTime.Minutes;
+
+        day = EnviroSky.instance.GameTime.Days / 30 * month;
+        month = EnviroSky.instance.GameTime.Days / 30;
+        year = EnviroSky.instance.GameTime.Years;
+
+        //if(timer >= secPerMin)
+        //{
+        //    min++;
+        //    if(min >= maxMin)
+        //    {
+        //        min = 0;
+        //        hr++;
+        //        if (hr >= maxHr)
+        //        {
+        //            hr = 0;
+        //            day++;
+        //            if (day >= maxDay)
+        //            {
+        //                day = 1;
+        //                month++;
+        //                if (month >= maxMonths)
+        //                {
+        //                    month = 1;
+        //                    year++;
+        //                }
+        //            }
+        //        }
+        //    }
 
             SetTimeDateString();
 
-            timer = 0;
-        }
-        else 
-        {
-            timer += Time.deltaTime;
-        }
+        //    timer = 0;
+        //}
+        //else 
+        //{
+        //    timer += Time.deltaTime;
+        //}
     }
 
     void SetTimeDateString()
-    {
+    {       
+
         switch (timeFormat)
         {
             case TimeFormat.Hour_12:

@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return null;
         
         loadingScreen.gameObject.SetActive(false);
     }

@@ -13,7 +13,7 @@ public class PickUp : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
+            if (Terrain.activeTerrain.GetComponent<Collider>().Raycast(ray, out hit, 50000.0f))
             {
                 transform.position = hit.point;//+ new Vector3(0, 0, 0); <= Lift up
                 Debug.Log("Moved Something!");
