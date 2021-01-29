@@ -220,16 +220,4 @@ public class Clock : MonoBehaviour
 
     }
 
-    void SaveData()
-    {
-        saveSystem.Add("Current_Hour", hr);
-        saveSystem.Add("Current_Minute", min);
-
-        saveSystem.Add("Current_Day", day);
-        saveSystem.Add("Current_Month", month);
-        saveSystem.Add("Current_Year", year);
-
-        saveSystem.Save();
-    }
-
 }
