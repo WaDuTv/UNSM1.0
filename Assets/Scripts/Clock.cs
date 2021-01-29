@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using TigerForge;
 
 
 public class Clock : MonoBehaviour
@@ -9,18 +10,19 @@ public class Clock : MonoBehaviour
     public TimeFormat timeFormat = TimeFormat.Hour_24;
     public DateFormat dateFormat = DateFormat.DD_MM_YYYY;
     public float secPerMin = 1 * GameSpeed.timeFactor;
+    EasyFileSave saveSystem;
 
     private string _time;
     private string _date;
 
     private bool isAm;
 
-    int hr;
-    int min;
+    public int hr;
+    public int min;
 
-    int day;
-    int month;
-    int year;
+    public int day;
+    public int month;
+    public int year;
 
     int maxHr = 24;
     int maxMin = 60;
@@ -61,6 +63,12 @@ public class Clock : MonoBehaviour
 
         //SetTimeDateString();
     }
+
+    void Start()
+    {
+        saveSystem = new EasyFileSave("save_time");
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -211,4 +219,17 @@ public class Clock : MonoBehaviour
         }
 
     }
+
+    void SaveData()
+    {
+        saveSystem.Add("Current_Hour", hr);
+        saveSystem.Add("Current_Minute", min);
+
+        saveSystem.Add("Current_Day", day);
+        saveSystem.Add("Current_Month", month);
+        saveSystem.Add("Current_Year", year);
+
+        saveSystem.Save();
+    }
+
 }
