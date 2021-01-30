@@ -19,13 +19,13 @@ public class SelectionManager : MonoBehaviour
         {            
             Destroy(_currentSelection.GetComponent<Outline>());
             //_currentSelection = null;
-            Debug.Log("No Object Highlighted");            
+                    
         }
         if (_currentSelection == _newSelection)
         {
             //Destroy(_currentSelection.GetComponent<Outline>());
             //_currentSelection = null;
-            Debug.Log("Waiting");
+            
         }
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -41,11 +41,11 @@ public class SelectionManager : MonoBehaviour
                     outline.OutlineColor = Color.yellow;
                     outline.OutlineWidth = 5f;
                     _currentSelection = currentSelection.transform;                    
-                    Debug.Log("Object Highlighted");
+                    
                 }
             if (currentSelection.CompareTag(selectableTag) && currentSelection.GetComponent<Outline>() != null)
             {
-                Debug.Log("Waiting...");
+                
             }
 
         }

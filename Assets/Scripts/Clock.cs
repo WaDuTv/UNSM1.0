@@ -80,7 +80,7 @@ public class Clock : MonoBehaviour
         day = 1+EnviroSky.instance.GameTime.Days - (30 * (month-1));
         month = (int)Mathf.Ceil(1+EnviroSky.instance.GameTime.Days / 30);
         year = EnviroSky.instance.GameTime.Years;
-        Debug.Log(month);
+        
 
         //if(timer >= secPerMin)
         //{

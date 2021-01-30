@@ -2,11 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 public class saveManager : MonoBehaviour
 {
-    EasyFileSave saveData;    
+    private static saveManager instance;
+
+    public List<SavableObject> SavableObjects { get; private set; }
+
+    public static saveManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<saveManager>();
+            }
+            return instance;
+        }
+
+    }
+
+    EasyFileSave saveData;
+
+    private void Awake()
+    {
+        SavableObjects = new List<SavableObject>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -14,10 +37,12 @@ public class saveManager : MonoBehaviour
         saveData = new EasyFileSave("save_file");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        QuickSave();
+        QuickLoad();
+
     }
 
     public void SaveData()
@@ -33,17 +58,24 @@ public class saveManager : MonoBehaviour
         saveData.Add("Camera_Position", GameObject.Find("MainCameraRig").transform.position);
         saveData.Add("Camera_Rotation", GameObject.Find("MainCameraRig").transform.rotation);
 
-
-
         saveData.Save();
         Debug.Log("Game Data saved!");
+
+        //BELOW: Save Objects-Loop
+
+        PlayerPrefs.SetInt("ObjectCount", SavableObjects.Count);
+
+        for (int i = 0; i < SavableObjects.Count; i++)
+        {
+            SavableObjects[i].Save(i);
+        }
     }
     public void LoadData()
     {
         if (saveData.Load())
         {   //Loading values from Save-File
 
-            //Load Tame& Date
+            //Load Time& Date
             int currentHour = saveData.GetInt("Current_Hour");
             int currentMinute = saveData.GetInt("Current_Minute");            
 
@@ -62,11 +94,39 @@ public class saveManager : MonoBehaviour
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
             
-
-
             saveData.Dispose();
-            Debug.Log("Loaded the followind Data. Time: " + currentHour + ":" + currentMinute + " ,Date: " + currentDay + "."  + current_Year);
-            
+
+            //BELOW: Load Objects-Loop
+
+            foreach (SavableObject obj in SavableObjects)
+            {
+                if(obj != null)
+                {
+                    Destroy(obj.gameObject);
+                }
+            }
+
+            SavableObjects.Clear();
+
+            int objectCount = PlayerPrefs.GetInt("ObjectCount");
+
+            for (int i = 0; i < objectCount; i++)
+            {
+                string[] value = PlayerPrefs.GetString(i.ToString()).Split('_');
+                GameObject tmp = null;
+                switch (value[0]) //Add different Object Types here too
+                {
+                    case "Plant":
+                       tmp = Instantiate(Resources.Load("Plant") as GameObject);
+                        break;
+                        
+                }
+
+                if(tmp != null)
+                {
+                    tmp.GetComponent<SavableObject>().Load(value);
+                }                                                
+            }
         }
     }
 
@@ -84,6 +144,28 @@ public class saveManager : MonoBehaviour
         {
             LoadData();
         }
+    }
+
+    public Vector3 StringToVector(string value)
+    {
+        value = value.Trim(new char[] {'(',')'});
+        //Debug.Log(value);
+        value = value.Replace(" ", "");
+        //Debug.Log(value);
+        string[] pos = value.Split(',');
+        //Debug.Log(new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2])));
+        return new Vector3(float.Parse(pos[0])/10f, float.Parse(pos[1]) / 10f, float.Parse(pos[2]) / 10f);        
+    }
+
+    public Quaternion StringToQuaternion(string value)
+    {
+        value = value.Trim(new char[] { '(', ')' });
+        //Debug.Log(value);
+        value = value.Replace(" ", "");
+        //Debug.Log(value);
+        string[] pos = value.Split(',');
+        //Debug.Log(new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2])));
+        return new Quaternion(float.Parse(pos[0]) / 10f, float.Parse(pos[1]) / 10f, float.Parse(pos[2]) / 10f, float.Parse(pos[3]) / 10f);
     }
 }
 
