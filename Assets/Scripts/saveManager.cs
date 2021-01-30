@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
+using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 public class saveManager : MonoBehaviour
 {
     private static saveManager instance;
+
+    public GameObject shopSystem;
 
     public List<SavableObject> SavableObjects { get; private set; }
 
@@ -43,6 +46,8 @@ public class saveManager : MonoBehaviour
         QuickSave();
         QuickLoad();
 
+        //Debug.Log(GameObject.Find("Money").GetComponent<TextMeshProUGUI>().text);
+
     }
 
     public void SaveData()
@@ -57,6 +62,10 @@ public class saveManager : MonoBehaviour
         //Save CameraPosition
         saveData.Add("Camera_Position", GameObject.Find("MainCameraRig").transform.position);
         saveData.Add("Camera_Rotation", GameObject.Find("MainCameraRig").transform.rotation);
+
+        //Save Money
+        saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
+
 
         saveData.Save();
         Debug.Log("Game Data saved!");
@@ -86,6 +95,9 @@ public class saveManager : MonoBehaviour
             Vector3 cameraPosition = saveData.GetUnityVector3("Camera_Position");
             Quaternion cameraRotation = saveData.GetUnityQuaternion("Camera_Rotation");
 
+            //Load Money
+            int currentMoney = saveData.GetInt("Money");
+
             //Feeding Values to Game
 
             EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
@@ -93,6 +105,8 @@ public class saveManager : MonoBehaviour
 
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
+
+            shopSystem.GetComponent<ShopScript>().bankamount = currentMoney;
             
             saveData.Dispose();
 
