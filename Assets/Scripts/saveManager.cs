@@ -63,7 +63,7 @@ public class saveManager : MonoBehaviour
 
         //BELOW: Save Objects-Loop
 
-        PlayerPrefs.SetInt("ObjectCount", SavableObjects.Count);
+        PlayerPrefs.SetInt(Application.loadedLevel.ToString(), SavableObjects.Count);
 
         for (int i = 0; i < SavableObjects.Count; i++)
         {
@@ -108,11 +108,11 @@ public class saveManager : MonoBehaviour
 
             SavableObjects.Clear();
 
-            int objectCount = PlayerPrefs.GetInt("ObjectCount");
+            int objectCount = PlayerPrefs.GetInt(Application.loadedLevel.ToString());
 
             for (int i = 0; i < objectCount; i++)
             {
-                string[] value = PlayerPrefs.GetString(i.ToString()).Split('_');
+                string[] value = PlayerPrefs.GetString(Application.loadedLevel +"-"+ i.ToString()).Split('_');
                 GameObject tmp = null;
                 switch (value[0]) //Add different Object Types here too
                 {
