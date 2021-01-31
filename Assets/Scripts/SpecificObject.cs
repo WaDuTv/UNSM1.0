@@ -10,7 +10,7 @@ public class SpecificObject : SavableObject
     [SerializeField]
     private float strength; //Example value
     [SerializeField]
-    private float cost;
+    public int cost;
 
     // Update is called once per frame
     void Update()
@@ -26,7 +26,7 @@ public class SpecificObject : SavableObject
 
     public override void Load(string[] values)
     {
-        cost = float.Parse(values[4]);
+        cost = int.Parse(values[4]);
         speed = float.Parse(values[5]);
         base.Load(values);
     }

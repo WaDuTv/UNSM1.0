@@ -44,7 +44,7 @@ public class CursorController : MonoBehaviour
 
     private void Update()
     {
-        //HighlightObject();
+        
     }
 
     private void StartedClick()
@@ -64,55 +64,23 @@ public class CursorController : MonoBehaviour
         //3D
         Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit,Mathf.Infinity, (1 << 7)))
+        if(Physics.Raycast(ray, out hit,Mathf.Infinity/*, (1 << 7))*/))
         {
             if(hit.collider !=null)
             {
-               if(hit.collider.gameObject.tag == "ChiefDesk")
-                {
-                    // deskcam = GameObject.FindGameObjectWithTag("ChiefDesk").GetComponentInChildren<desk;
-                    //deskcam.SetActive(true); 
-                    deskcam = hit.collider.gameObject.GetComponentInParent<ObjController>().deskcam;
-                    deskcam.SetActive(true);
+                //hit.collider.gameObject.GetComponent<IClicked>().OnClickAction();
+               //if(hit.collider.gameObject.tag == "ChiefDesk")
+               // {
+               //     // deskcam = GameObject.FindGameObjectWithTag("ChiefDesk").GetComponentInChildren<desk;
+               //     //deskcam.SetActive(true); 
+               //     deskcam = hit.collider.gameObject.GetComponentInParent<ObjController>().deskcam;
+               //     deskcam.SetActive(true);
                    
-                }
-                    //Debug.Log("3d Hit:" + hit.collider.gameObject.name + " Active Cameras" + Camera.allCameras);
+               // }
+                 Debug.Log("3d Hit:" + hit.collider.gameObject.name);
             }
         }
     }
-
-    //public void HighlightObject()
-    //{
-    //    //3D
-    //    Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(ray, out hit))
-    //    {
-    //        if (hit.collider != null)
-    //        {
-    //            if (hit.collider.gameObject.tag == "Furniture")
-    //            {
-    //                if (hit.collider.gameObject.GetComponent<Outline>() == null)
-    //                {
-    //                    var outline = hit.collider.gameObject.AddComponent<Outline>();
-
-    //                    outline.OutlineMode = Outline.Mode.OutlineAll;
-    //                    outline.OutlineColor = Color.yellow;
-    //                    outline.OutlineWidth = 1f;
-    //                }
-    //                if (hit.collider.gameObject.GetComponent<Outline>() != null)
-    //                    hit.collider.gameObject.GetComponent<Outline>();
-    //                Destroy(hit.collider.gameObject.GetComponent<Outline>());
-    //            }
-
-    //        }
-    //        if (hit.collider == null)
-    //        {
-
-    //        }
-    //    }
-    //}
-
 
     private void ChangeCursor(Texture2D cursorType)
     {

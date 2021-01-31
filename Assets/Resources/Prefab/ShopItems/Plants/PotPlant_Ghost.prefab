@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 208870551147695096}
   - component: {fileID: 3844072574834461265}
   m_Layer: 0
-  m_Name: PotPlant_01_Ghost
+  m_Name: PotPlant_Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
   CollisionName: 
+  shopSystem: {fileID: 0}
+  objPrice: 1000
 --- !u!1 &2905889623281145029
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public class blueprint : MonoBehaviour
     public string CollisionName;
     private GameObject plane;
 
+    public ShopScript shopSystem;
+
+    public int objPrice;
+
     private MouseControls mouseControls;
 
     private void Awake()
@@ -47,6 +51,8 @@ public class blueprint : MonoBehaviour
 
         movePoint = Input.mousePosition;
 
+        shopSystem = GameObject.Find("ShopManager").GetComponent<ShopScript>();
+
     }
     // Update is called once per frame
     void Update()
@@ -73,14 +79,16 @@ public class blueprint : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
-            GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
+            int currentMoney = shopSystem.bankamount;
+            int newMoney = currentMoney - objPrice;
+            shopSystem.bankamount = newMoney;
+            GameObject obj = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
             if (prefab.HasComponent<ObjController>())
             {
-                prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
+                prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");                
             }
             int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
-            chiefDesk.name = prefab.name + num++;
+            obj.name = prefab.name + num++;
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 
