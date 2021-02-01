@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TigerForge;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private saveManager sm;
     public GameObject loadingScreen;
     public ProgressBar bar;
     public TextMeshProUGUI textField;
+    EasyFileSave saveData;
 
     private void Awake()
-    {
+    {        
         instance = this;
 
         SceneManager.LoadSceneAsync((int)SceneIndexes.MainMenu, LoadSceneMode.Additive);
@@ -33,6 +36,24 @@ public class GameManager : MonoBehaviour
     }
 
     float totalSceneProgress;
+    public void LoadSavedGame()
+    {
+        loadingScreen.gameObject.SetActive(true);
+
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.MainMenu));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Main, LoadSceneMode.Additive));
+        
+        StartCoroutine(GetSceneLoadProgress());
+        SceneManager.sceneLoaded += LoadData;
+    }
+
+    void LoadData(Scene scene, LoadSceneMode mode)
+    {
+        sm = GameObject.Find("SaveManager").GetComponent<saveManager>();
+        sm.LoadData();
+    }
+
+    
     public IEnumerator GetSceneLoadProgress()
     {
         for (int i = 0; i < scenesLoading.Count ; i++)
@@ -62,4 +83,5 @@ public class GameManager : MonoBehaviour
         
         loadingScreen.gameObject.SetActive(false);
     }
+
 }

@@ -10,7 +10,7 @@ public class saveManager : MonoBehaviour
 {
     private static saveManager instance;
 
-    public GameObject shopSystem;
+    private GameObject shopSystem;
 
     public List<SavableObject> SavableObjects { get; private set; }
 
@@ -31,6 +31,7 @@ public class saveManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         SavableObjects = new List<SavableObject>();
     }
 
@@ -82,7 +83,7 @@ public class saveManager : MonoBehaviour
     public void LoadData()
     {
         if (saveData.Load())
-        {   //Loading values from Save-File
+        {   //Loading values from Save-File            
 
             //Load Time& Date
             int currentHour = saveData.GetInt("Current_Hour");
@@ -99,13 +100,14 @@ public class saveManager : MonoBehaviour
             int currentMoney = saveData.GetInt("Money");
 
             //Feeding Values to Game
-
+            
             EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
             Time.timeScale = 0f;
 
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
             GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
 
+            shopSystem = GameObject.Find("ShopManager");
             shopSystem.GetComponent<ShopScript>().bankamount = currentMoney;
             
             saveData.Dispose();
@@ -142,6 +144,11 @@ public class saveManager : MonoBehaviour
                 }                                                
             }
         }
+        if(saveData.Load() == false)
+        {
+            Debug.Log("No saved Data");
+        }
+           
     }
 
     public void QuickSave()
@@ -162,23 +169,17 @@ public class saveManager : MonoBehaviour
 
     public Vector3 StringToVector(string value)
     {
-        value = value.Trim(new char[] {'(',')'});
-        //Debug.Log(value);
-        value = value.Replace(" ", "");
-        //Debug.Log(value);
-        string[] pos = value.Split(',');
-        //Debug.Log(new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2])));
+        value = value.Trim(new char[] {'(',')'});        
+        value = value.Replace(" ", "");       
+        string[] pos = value.Split(',');        
         return new Vector3(float.Parse(pos[0])/10f, float.Parse(pos[1]) / 10f, float.Parse(pos[2]) / 10f);        
     }
 
     public Quaternion StringToQuaternion(string value)
     {
-        value = value.Trim(new char[] { '(', ')' });
-        //Debug.Log(value);
-        value = value.Replace(" ", "");
-        //Debug.Log(value);
+        value = value.Trim(new char[] { '(', ')' });        
+        value = value.Replace(" ", "");        
         string[] pos = value.Split(',');
-        //Debug.Log(new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2])));
         return new Quaternion(float.Parse(pos[0]) / 10f, float.Parse(pos[1]) / 10f, float.Parse(pos[2]) / 10f, float.Parse(pos[3]) / 10f);
     }
 }
