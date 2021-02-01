@@ -90,10 +90,7 @@ public class CameraController : MonoBehaviour
     void HandleMouseInput()
     {
         zoomView();
-        //if (Input.mouseScrollDelta.y != 0)
-        //{
-        //    newZoom += Input.mouseScrollDelta.y * zoomAmountMouse;
-        //}
+
         if (Input.GetMouseButtonDown(1))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);

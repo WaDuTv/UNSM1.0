@@ -79,41 +79,11 @@ public class Clock : MonoBehaviour
 
         day = 1+EnviroSky.instance.GameTime.Days - (30 * (month-1));
         month = (int)Mathf.Ceil(1+EnviroSky.instance.GameTime.Days / 30);
-        year = EnviroSky.instance.GameTime.Years;
-        
+        year = EnviroSky.instance.GameTime.Years;        
 
-        //if(timer >= secPerMin)
-        //{
-        //    min++;
-        //    if(min >= maxMin)
-        //    {
-        //        min = 0;
-        //        hr++;
-        //        if (hr >= maxHr)
-        //        {
-        //            hr = 0;
-        //            day++;
-        //            if (day >= maxDay)
-        //            {
-        //                day = 1;
-        //                month++;
-        //                if (month >= maxMonths)
-        //                {
-        //                    month = 1;
-        //                    year++;
-        //                }
-        //            }
-        //        }
-        //    }
+        SetTimeDateString();
 
-            SetTimeDateString();
 
-        //    timer = 0;
-        //}
-        //else 
-        //{
-        //    timer += Time.deltaTime;
-        //}
     }
 
     void SetTimeDateString()

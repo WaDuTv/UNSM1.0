@@ -63,11 +63,7 @@ public class blueprint : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
-        //transform.Find("positioningPlane").GetComponent<Renderer>().material.color = new Color(0, 255, 0, 0.2f);
-
-        
-
+    {   
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Terrain.activeTerrain.GetComponent<Collider>().Raycast(ray, out hit, 50000.0f))
