@@ -65,6 +65,7 @@ public class saveManager : MonoBehaviour
         saveData.Add("Camera_Rotation", GameObject.Find("MainCameraRig").transform.rotation);
 
         //Save Money
+        shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
 
 

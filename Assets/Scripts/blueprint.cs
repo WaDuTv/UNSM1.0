@@ -24,6 +24,10 @@ public class blueprint : MonoBehaviour
 
     private MouseControls mouseControls;
 
+    public Vector3 targetAngle = new Vector3(0f, 0f, 0f);
+
+    private Vector3 currentAngle;
+
     private void Awake()
     {
         mouseControls = new MouseControls();
@@ -42,6 +46,9 @@ public class blueprint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        currentAngle = transform.eulerAngles;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
@@ -68,53 +75,47 @@ public class blueprint : MonoBehaviour
             transform.position = hit.point + new Vector3(0, 0.2f, 0);
         }
 
-        if (Input.GetKey(KeyCode.Period))
+        if (Input.GetKeyDown(KeyCode.Period))
         {
-            transform.RotateAround(transform.position, Vector3.up, 200 * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.up, 90f);
         }
-        if (Input.GetKey(KeyCode.Comma))
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
-            transform.RotateAround(transform.position, -Vector3.up, 200 * Time.deltaTime);
+            transform.RotateAround(transform.position, -Vector3.up, 90f);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            int currentMoney = shopSystem.bankamount;
-            int newMoney = currentMoney - objPrice;
-            shopSystem.bankamount = newMoney;
-            GameObject obj = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
-            if (prefab.HasComponent<ObjController>())
+            int currentMoney = shopSystem.bankamount;            
+            if(currentMoney >= objPrice)
             {
+                int newMoney = currentMoney - objPrice;
+                shopSystem.bankamount = newMoney;
+                GameObject obj = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
+                 if (prefab.HasComponent<ObjController>())
+                {
                 prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");                
-            }
-            int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
-            obj.name = prefab.name + num++;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
+                }
+                int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
+                obj.name = prefab.name + num++;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
                 
                 return;
-            }            
+                }            
+                else
+                {
+                Destroy(gameObject);
+                }
+            }
             else
             {
-                Destroy(gameObject);
+                Debug.Log("Not enough Money");
+                Destroy(this.gameObject);
             }
-            
-            //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
         }
 
-        //if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
-        //{
 
-        //    GameObject chiefDesk = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
-        //    if (prefab.HasComponent<ObjController>())
-        //    {
-        //        prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");
-        //    }
-        //    int num = GameObject.FindGameObjectsWithTag(prefab.tag).Length;
-        //    chiefDesk.name = prefab.name + num++;
-        //    Debug.Log("Plant again!");
-        //    //Debug.Log(this.GetComponent<build_script>().plant_01_blueprint.name.Replace("_Ghost", string.Empty));
-        //}
 
         if (Input.GetMouseButton(1))
             {
