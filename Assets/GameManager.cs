@@ -17,10 +17,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {        
-        instance = this;
-
+        instance = this;        
         SceneManager.LoadSceneAsync((int)SceneIndexes.MainMenu, LoadSceneMode.Additive);
 
+    }
+
+    private void Update()
+    {
+        //Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
@@ -30,7 +34,7 @@ public class GameManager : MonoBehaviour
         loadingScreen.gameObject.SetActive(true);
 
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.MainMenu));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Main, LoadSceneMode.Additive));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Main, LoadSceneMode.Additive));        
 
         StartCoroutine(GetSceneLoadProgress());    
     }
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.MainMenu));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Main, LoadSceneMode.Additive));
         
-        StartCoroutine(GetSceneLoadProgress());
+        StartCoroutine(GetSceneLoadProgress());        
         SceneManager.sceneLoaded += LoadData;
     }
 

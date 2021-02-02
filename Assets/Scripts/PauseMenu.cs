@@ -46,7 +46,10 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         int buildIndex = 0;
-        SceneManager.LoadScene(buildIndex);
+        int y = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadSceneAsync(buildIndex);
+        SceneManager.UnloadSceneAsync(y);
+        Debug.Log("Cleared Data");
     }
     public void QuitGame()
     {

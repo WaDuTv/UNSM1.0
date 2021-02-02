@@ -24,6 +24,8 @@ public class blueprint : MonoBehaviour
 
     private MouseControls mouseControls;
 
+    [SerializeField] private LayerMask mouseColliderLayerMask;
+
     public Vector3 targetAngle = new Vector3(0f, 0f, 0f);
 
     private Vector3 currentAngle;
@@ -68,7 +70,11 @@ public class blueprint : MonoBehaviour
 
         if (Terrain.activeTerrain.GetComponent<Collider>().Raycast(ray, out hit, 50000.0f))
         {
-            transform.position = hit.point + new Vector3(0, 0.2f, 0);
+            transform.position = hit.point + new Vector3(0, 0.5f, 0);
+        }
+        else
+        {
+            Debug.Log("Du kannst hier nicht bauen");
         }
 
         if (Input.GetKeyDown(KeyCode.Period))
@@ -82,12 +88,13 @@ public class blueprint : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            
             int currentMoney = shopSystem.bankamount;            
-            if(currentMoney >= objPrice)
-            {
+            if(currentMoney >= objPrice && (Physics.Raycast(ray, out RaycastHit hit, 999f, mouseColliderLayerMask)))
+            {                
                 int newMoney = currentMoney - objPrice;
                 shopSystem.bankamount = newMoney;
-                GameObject obj = Instantiate(prefab, transform.position - new Vector3(0, 0.1f, 0), transform.rotation);
+                GameObject obj = Instantiate(prefab, transform.position - new Vector3(0, 0.5f, 0), transform.rotation);
                  if (prefab.HasComponent<ObjController>())
                 {
                 prefab.GetComponent<ObjController>().maincam = GameObject.FindGameObjectWithTag("worldcam");                
@@ -106,8 +113,7 @@ public class blueprint : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not enough Money");
-                Destroy(this.gameObject);
+                Debug.Log("Not enough Money");                
             }
         }
 

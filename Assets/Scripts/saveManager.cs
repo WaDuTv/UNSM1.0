@@ -4,7 +4,8 @@ using UnityEngine;
 using TigerForge;
 using TMPro;
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class saveManager : MonoBehaviour
 {
@@ -14,24 +15,21 @@ public class saveManager : MonoBehaviour
 
     public List<SavableObject> SavableObjects { get; private set; }
 
-    public static saveManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<saveManager>();
-            }
-            return instance;
-        }
-
-    }
+    public static saveManager Instance { get; private set; }
 
     EasyFileSave saveData;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        //DontDestroyOnLoad(this);
         SavableObjects = new List<SavableObject>();
     }
 
@@ -100,7 +98,7 @@ public class saveManager : MonoBehaviour
             //Load Money
             int currentMoney = saveData.GetInt("Money");
 
-            //Feeding Values to Game
+            //Feeding Values to Game <-- FIX: Don't do this on MainMenu-Reload, or on Click on "Play"
             
             EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
             Time.timeScale = 0f;
@@ -166,6 +164,11 @@ public class saveManager : MonoBehaviour
         {
             LoadData();
         }
+    }
+
+    public void DisposeData()
+    {
+        
     }
 
     public Vector3 StringToVector(string value)

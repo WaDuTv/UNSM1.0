@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         GameManager.instance.LoadSavedGame(); //Needs refinement of GameManager LoadScript if multiple Levels, for wich Level to Load (Write Scene in SaveManager to save)        
+        
         Debug.Log("Loading Game");
     }
         
