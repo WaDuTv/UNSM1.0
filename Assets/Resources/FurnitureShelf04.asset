@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FurnitureShelf04
   m_EditorClassIdentifier: 
   prefab: {fileID: 4481777221271996, guid: a3e50a23ffd19c04fb4557c2f94b3a0d, type: 3}
-  Prefabname: Shelf_04
+  Prefabname: Shelf

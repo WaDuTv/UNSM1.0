@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlantPotPlant
   m_EditorClassIdentifier: 
   prefab: {fileID: 4063334258460450, guid: 7e4d0f164b07d6045919c269526fcd64, type: 3}
-  Prefabname: PotPlant
+  Prefabname: Plant

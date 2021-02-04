@@ -72,11 +72,12 @@ public class saveManager : MonoBehaviour
 
         //BELOW: Save Objects-Loop
 
-        PlayerPrefs.SetInt(Application.loadedLevel.ToString(), SavableObjects.Count);
+        PlayerPrefs.SetInt("ObjectCount", SavableObjects.Count);
 
         for (int i = 0; i < SavableObjects.Count; i++)
         {
             SavableObjects[i].Save(i);
+            Debug.Log("Saved" + SavableObjects[i].GetComponent<SpecificObject>().cost);
         }
     }
     public void LoadData()
@@ -98,59 +99,68 @@ public class saveManager : MonoBehaviour
             //Load Money
             int currentMoney = saveData.GetInt("Money");
 
-            //Feeding Values to Game <-- FIX: Don't do this on MainMenu-Reload, or on Click on "Play"
-            
-            EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
-            Time.timeScale = 0f;
-
-            GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
-            GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
-
-            shopSystem = GameObject.Find("ShopManager");
-            shopSystem.GetComponent<ShopScript>().bankamount = currentMoney;
-            
-            saveData.Dispose();
-
-            //BELOW: Load Objects-Loop
-
-            foreach (SavableObject obj in SavableObjects)
+            //Feeding Values to Game
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                if(obj != null)
+                Scene scene = SceneManager.GetSceneAt(i);
+                if ((scene.name == "Main"))
                 {
-                    Destroy(obj.gameObject);
+                    EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
+                    Time.timeScale = 0f;
+
+                    GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
+                    GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
+
+                    shopSystem = GameObject.Find("ShopManager");
+                    shopSystem.GetComponent<ShopScript>().bankamount = currentMoney;
+
+                    saveData.Dispose();
+
+                    //BELOW: Load Objects-Loop
+
+                    foreach (SavableObject obj in SavableObjects)
+                    {
+                        if (obj != null)
+                        {
+                            Destroy(obj.gameObject);
+                        }
+                    }
+
+                    SavableObjects.Clear();
+
+                    int objectCount = PlayerPrefs.GetInt("ObjectCount");
+
+                    for (int o = 0; o < objectCount; o++)
+                    {
+                        string[] value = PlayerPrefs.GetString(o.ToString()).Split('_');
+                        GameObject tmp = null;
+                        switch (value[0]) //Add different Object Types here too
+                        {
+
+                            case "Plant":
+                                tmp = Instantiate(Resources.Load("PlantPotPlant") as GameObject);
+                                Debug.Log(tmp.name);
+                                break;
+                            case "Shelf":
+                                tmp = Instantiate(Resources.Load("FurnitureShelf04") as GameObject);
+                                Debug.Log(tmp.name);
+                                break;
+                            case "Chair":
+                                tmp = Instantiate(Resources.Load("Chair") as GameObject);
+                                Debug.Log(tmp.name);
+                                break;
+                        }
+
+                        if (tmp != null)
+                        {
+                            tmp.GetComponent<SavableObject>().Load(value);
+                        }
+                    }
                 }
             }
-
-            SavableObjects.Clear();
-
-            int objectCount = PlayerPrefs.GetInt(Application.loadedLevel.ToString());
-
-            for (int i = 0; i < objectCount; i++)
-            {
-                string[] value = PlayerPrefs.GetString(Application.loadedLevel +"-"+ i.ToString()).Split('_');
-                GameObject tmp = null;
-                switch (value[0]) //Add different Object Types here too
-                {
-                    case "PlantPotPlant":
-                       tmp = Instantiate(Resources.Load("PlantPotPlant") as GameObject);
-                        break;
-                    case "FurnitureShelf04":
-                        tmp = Instantiate(Resources.Load("FurnitureShelf04") as GameObject);
-                        break;
-                    case "DecorationClock":
-                        tmp = Instantiate(Resources.Load("DecorationClock") as GameObject);
-                        break;
-
-
-
-                }
-
-                if (tmp != null)
-                {
-                    tmp.GetComponent<SavableObject>().Load(value);
-                }                                                
+                    
             }
-        }
+            
         if(saveData.Load() == false)
         {
             Debug.Log("No saved Data");
