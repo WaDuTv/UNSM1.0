@@ -111,9 +111,14 @@ public class blueprint : MonoBehaviour
                 Destroy(gameObject);
                 }
             }
-            else
+            else if(currentMoney >= objPrice && !Physics.Raycast(ray, out RaycastHit hit1, 999f, mouseColliderLayerMask))
             {
-                Debug.Log("Not enough Money");                
+                Debug.Log("Du darfst hier nicht bauen!" + hit1);                
+            }
+            else if (currentMoney < objPrice && Physics.Raycast(ray, out RaycastHit hit2, 999f, mouseColliderLayerMask))
+            {
+                Debug.Log("Not enough Money" + hit2);
+                Destroy(gameObject);
             }
         }
 

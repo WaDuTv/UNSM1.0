@@ -11,7 +11,7 @@ public class ShopScript : MonoBehaviour
     public int bankamount;
     public Button plantButton;
     public TextMeshProUGUI bankAmountText;
-    public build_script buildScript;
+    public BuildScript buildScript;
 
 
     // Start is called before the first frame update
@@ -30,13 +30,8 @@ public class ShopScript : MonoBehaviour
     {           
         if (bankamount >= price)
         {
-            Debug.Log("Geld vor Kauf:" + bankamount);
-            if(EventSystem.current.currentSelectedGameObject.name == "Plant_01")
-            {                
-                buildScript.spawn_plant_01_bluerint();                                
-                bankAmountText.text = bankamount.ToString();
-                
-            }           
+            Debug.Log("Geld vor Kauf:" + bankamount);                                    
+                bankAmountText.text = bankamount.ToString();                      
         }
         else
         {

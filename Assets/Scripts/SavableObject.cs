@@ -5,6 +5,7 @@ using UnityEngine;
 enum ObjectType //Add Prefab Names here
 {
     Plant,
+    Furniture
 }
 
 public abstract class SavableObject : MonoBehaviour
