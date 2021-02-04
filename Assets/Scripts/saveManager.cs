@@ -131,13 +131,21 @@ public class saveManager : MonoBehaviour
                 GameObject tmp = null;
                 switch (value[0]) //Add different Object Types here too
                 {
-                    case "Plant":
-                       tmp = Instantiate(Resources.Load("Plant") as GameObject);
+                    case "PlantPotPlant":
+                       tmp = Instantiate(Resources.Load("PlantPotPlant") as GameObject);
                         break;
-                        
+                    case "FurnitureShelf04":
+                        tmp = Instantiate(Resources.Load("FurnitureShelf04") as GameObject);
+                        break;
+                    case "DecorationClock":
+                        tmp = Instantiate(Resources.Load("DecorationClock") as GameObject);
+                        break;
+
+
+
                 }
 
-                if(tmp != null)
+                if (tmp != null)
                 {
                     tmp.GetComponent<SavableObject>().Load(value);
                 }                                                
