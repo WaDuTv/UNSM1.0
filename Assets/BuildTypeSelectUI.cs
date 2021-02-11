@@ -20,7 +20,7 @@ public class BuildTypeSelectUI : MonoBehaviour
             btnTransform.gameObject.SetActive(true);
 
             btnTransform.GetComponent<RectTransform>().anchoredPosition += new Vector2(index *60,0);
-            btnTransform.Find("Label").GetComponent<TextMeshProUGUI>().text = buildingTypeSO.Prefabname;
+            btnTransform.Find("Label").GetComponent<TextMeshProUGUI>().text = buildingTypeSO.nameString;
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
             {

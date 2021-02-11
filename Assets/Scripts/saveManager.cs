@@ -66,7 +66,6 @@ public class saveManager : MonoBehaviour
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
 
-
         saveData.Save();
         Debug.Log("Game Data saved!");
 
@@ -140,13 +139,13 @@ public class saveManager : MonoBehaviour
                             case "Plant":
                                 tmp = Instantiate(Resources.Load("PlantPotPlant") as GameObject);
                                 Debug.Log(tmp.name);
-                                break;
+                                break;                            
                             case "Shelf":
                                 tmp = Instantiate(Resources.Load("FurnitureShelf04") as GameObject);
                                 Debug.Log(tmp.name);
                                 break;
                             case "Chair":
-                                tmp = Instantiate(Resources.Load("Chair") as GameObject);
+                                tmp = Instantiate(Resources.Load("FurnitureShelf04 1") as GameObject);
                                 Debug.Log(tmp.name);
                                 break;
                         }
@@ -199,7 +198,7 @@ public class saveManager : MonoBehaviour
 
     public Quaternion StringToQuaternion(string value)
     {
-        value = value.Trim(new char[] { '(', ')' });        
+        value = value.Trim(new char[] {'(', ')'});        
         value = value.Replace(" ", "");        
         string[] pos = value.Split(',');
         return new Quaternion(float.Parse(pos[0]) / 10f, float.Parse(pos[1]) / 10f, float.Parse(pos[2]) / 10f, float.Parse(pos[3]) / 10f);
