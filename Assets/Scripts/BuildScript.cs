@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class BuildScript : MonoBehaviour
 {
-    private BuildingTypeSO activeBuildingType;
-    private BuildingTypeSO finalBuildingType;
+    private BuildingTypeSO activeBuildingType;    
     [SerializeField] private BuildingTypeSO _temp;
-    private List<BuildingTypeSO> objList;
+    public GridBuildingSystem3D gridBuildingSystem3D;
+    public List<BuildingTypeSO> objList;
+    
 
     private void Start()
     {
-        activeBuildingType = _temp;
+        //objList = gridBuildingSystem3D.placedObjectTypeSOList;
+        activeBuildingType = _temp;    
     }
     private void Update()
-    {        
-        //Debug.Log(activeBuildingType.prefab);
+    {                
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Placement of" + activeBuildingType.prefab);
+            
         }
     }
 
     public void SetActiveBuildingType(BuildingTypeSO buildingTypeSO)
-    {
+    {        
         activeBuildingType = buildingTypeSO;
         Instantiate(activeBuildingType.prefab);
     }

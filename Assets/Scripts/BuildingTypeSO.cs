@@ -30,6 +30,7 @@ public class BuildingTypeSO : ScriptableObject
     public Transform visual;
     public int width;
     public int height;
+    public int objectPrice;
 
     public int GetRotationAngle(Dir dir)
     {

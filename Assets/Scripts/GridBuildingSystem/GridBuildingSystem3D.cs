@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using CodeMonkey.Utils;
 
 public class GridBuildingSystem3D : MonoBehaviour {
@@ -14,8 +15,10 @@ public class GridBuildingSystem3D : MonoBehaviour {
 
     private Grid<GridObject> grid;
     [SerializeField] public List<BuildingTypeSO> placedObjectTypeSOList = null;
-    private BuildingTypeSO placedObjectTypeSO;
+    public BuildingTypeSO placedObjectTypeSO;
     private BuildingTypeSO.Dir dir;
+
+    public ShopScript shopSystem;
 
     private void Awake() {
         Instance = this;
@@ -74,33 +77,58 @@ public class GridBuildingSystem3D : MonoBehaviour {
             Vector2Int placedObjectOrigin = new Vector2Int(x, z);
             placedObjectOrigin = grid.ValidateGridPosition(placedObjectOrigin);
 
-            // Test Can Build
-            List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
-            bool canBuild = true;
-            foreach (Vector2Int gridPosition in gridPositionList) {
-                if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild()) {
-                    canBuild = false;
-                    break;
-                }
-            }
+            int currentMoney = shopSystem.bankamount;
 
-            if (canBuild) 
+            if (currentMoney >= placedObjectTypeSO.objectPrice)
             {
-                Vector2Int rotationOffset = placedObjectTypeSO.GetRotationOffset(dir);
-                Vector3 placedObjectWorldPosition = grid.GetWorldPosition(placedObjectOrigin.x, placedObjectOrigin.y) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
 
-                PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);
-
-                foreach (Vector2Int gridPosition in gridPositionList) {
-                    grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
+                // Test Can Build
+                List<Vector2Int> gridPositionList = placedObjectTypeSO.GetGridPositionList(placedObjectOrigin, dir);
+                bool canBuild = true;
+                foreach (Vector2Int gridPosition in gridPositionList)
+                {
+                    if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild())
+                    {
+                        canBuild = false;
+                        break;
+                    }
                 }
 
-                OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+                if (canBuild)
+                {
+                    Vector2Int rotationOffset = placedObjectTypeSO.GetRotationOffset(dir);
+                    Vector3 placedObjectWorldPosition = grid.GetWorldPosition(placedObjectOrigin.x, placedObjectOrigin.y) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
 
-                //DeselectObjectType();
-            } else {
-                // Cannot build here
-                UtilsClass.CreateWorldTextPopup("Cannot Build Here!", mousePosition);
+                    if (EventSystem.current.IsPointerOverGameObject())
+                        return;
+
+                    PlacedObject placedObject = PlacedObject.Create(placedObjectWorldPosition, placedObjectOrigin, dir, placedObjectTypeSO);
+
+                    foreach (Vector2Int gridPosition in gridPositionList)
+                    {
+                        grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
+                    }
+
+                    OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+
+                    //DeselectObjectType();
+
+                    int newMoney = currentMoney - placedObjectTypeSO.objectPrice;
+                    shopSystem.bankamount = newMoney;
+
+                }
+                else
+                {
+                    // Cannot build here
+                    UtilsClass.CreateWorldTextPopup("Cannot Build Here!", mousePosition);
+                }
+
+            }
+            else
+            {
+                // Not enough money
+                UtilsClass.CreateWorldTextPopup("Not enough Money!", mousePosition);
+                DeselectObjectType();
             }
         }
 
@@ -140,7 +168,7 @@ public class GridBuildingSystem3D : MonoBehaviour {
         placedObjectTypeSO = null; RefreshSelectedObjectType();
     }
 
-    private void RefreshSelectedObjectType() {
+    public void RefreshSelectedObjectType() {
         OnSelectedChanged?.Invoke(this, EventArgs.Empty);
     }
 
@@ -173,6 +201,6 @@ public class GridBuildingSystem3D : MonoBehaviour {
 
     public BuildingTypeSO GetPlacedObjectTypeSO() {
         return placedObjectTypeSO;
-    }
+    }    
 
 }

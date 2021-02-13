@@ -6,12 +6,16 @@ using TMPro;
 
 public class BuildTypeSelectUI : MonoBehaviour
 {
-    [SerializeField] public List<BuildingTypeSO> buildingTypeSOList;
-    [SerializeField] private BuildScript blueprint;
+    public List<BuildingTypeSO> buildingTypeSOList;
+    public GridBuildingSystem3D gridBuildingSystem;
+    //[SerializeField] private BuildScript blueprint;
 
     private void Awake()
     {
         int index = 0;
+
+        buildingTypeSOList = gridBuildingSystem.placedObjectTypeSOList;
+
         Transform btnTemplate = transform.Find("Plant_01");
         btnTemplate.gameObject.SetActive(false);
         foreach(BuildingTypeSO buildingTypeSO in buildingTypeSOList)
@@ -24,7 +28,8 @@ public class BuildTypeSelectUI : MonoBehaviour
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
             {
-                blueprint.SetActiveBuildingType(buildingTypeSO);
+                gridBuildingSystem.placedObjectTypeSO = buildingTypeSO;
+                gridBuildingSystem.RefreshSelectedObjectType();
                 
             });
             
