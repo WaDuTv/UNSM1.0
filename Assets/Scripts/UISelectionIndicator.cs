@@ -77,7 +77,8 @@ public class UISelectionIndicator : MonoBehaviour
             rt.sizeDelta = new Vector2(max_x - min_x, max_y - min_y);
 
             TextMeshProUGUI objectInfo = GetComponentInChildren<TextMeshProUGUI>();
-            objectInfo.text = mm.hoveredObject.name;
+            objectInfo.text = mm.hoveredObject.GetComponent<ObjectInfos>().objectName
+                +"\n"+"\n" + mm.hoveredObject.GetComponent<ObjectInfos>().objectInfo;
         }
         else
         {

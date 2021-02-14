@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7196309679832685577}
   - component: {fileID: 2286826302312216943}
   - component: {fileID: 8427372065371930941}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Area (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,6 +107,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d5503dc008f4045b35700e2a30bab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8401985164854659384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041701087282947482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94766b8c508550b4eb8d1c22d4c1e549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Topfpflanze
+  objectInfo: "Etwas gr\xFCn im B\xFCro hat noch niemandem geschadet."
 --- !u!1 &4471700883413585326
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +132,8 @@ GameObject:
   - component: {fileID: 6425345062576996973}
   - component: {fileID: 8964824305642372711}
   - component: {fileID: 1763633730971280608}
-  m_Layer: 0
+  - component: {fileID: -9080647851702281341}
+  m_Layer: 7
   m_Name: Plant
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -189,6 +204,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9080647851702281341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4471700883413585326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94766b8c508550b4eb8d1c22d4c1e549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Topfpflanze
+  objectInfo: "Etwas gr\xFCn im B\xFCro hat noch nie gschadet."
 --- !u!1 &5694248069590563200
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +230,7 @@ GameObject:
   - component: {fileID: 5524602022551772776}
   - component: {fileID: 8717279396427853977}
   - component: {fileID: 5870043353744861196}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,6 +328,10 @@ PrefabInstance:
     - target: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
       propertyPath: m_Name
       value: PlantPotPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4063334258460450, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
       propertyPath: m_RootOrder
