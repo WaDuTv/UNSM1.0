@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6425345062576996973}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7196309679832685577
 MeshFilter:
@@ -95,6 +95,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6778399331290180008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041701087282947482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d5503dc008f4045b35700e2a30bab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4471700883413585326
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +120,7 @@ GameObject:
   - component: {fileID: 1763633730971280608}
   m_Layer: 0
   m_Name: Plant
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +137,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3043641481041116634}
-  - {fileID: 645412229005547477}
   - {fileID: 285302250770447204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -191,7 +202,7 @@ GameObject:
   - component: {fileID: 8717279396427853977}
   - component: {fileID: 5870043353744861196}
   m_Layer: 0
-  m_Name: Area
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,11 +216,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5694248069590563200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6425345062576996973}
-  m_RootOrder: 1
+  m_Father: {fileID: 3043641481041116634}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5524602022551772776
 MeshFilter:
@@ -336,6 +347,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6905085472614732942, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
+--- !u!1 &3041701087282947482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284,
+    type: 3}
+  m_PrefabInstance: {fileID: 3040844927321586424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3043641481041116634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4063334258460450, guid: d0b68ffbaf9452b4da1dcb4d8afe2284,

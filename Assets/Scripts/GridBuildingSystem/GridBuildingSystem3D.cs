@@ -108,7 +108,7 @@ public class GridBuildingSystem3D : MonoBehaviour {
                     {
                         grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
                     }
-
+                    
                     OnObjectPlaced?.Invoke(this, EventArgs.Empty);
 
                     //DeselectObjectType();
