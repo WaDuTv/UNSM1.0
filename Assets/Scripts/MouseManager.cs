@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseManager : MonoBehaviour
 {
     public LayerMask canSelect;
+    public LayerMask canSelect2;
     public GameObject hoveredObject;
     //public GameObject selectedObject;
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class MouseManager : MonoBehaviour
         RaycastHit hitInfo;
         
 
-        if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, canSelect) && hitInfo.transform.gameObject.tag == "Selectable")
+        if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, canSelect) || Physics.Raycast(ray, out hitInfo, Mathf.Infinity, canSelect2) && hitInfo.transform.gameObject.tag == "Selectable")
         {
             GameObject hitObject = hitInfo.transform.gameObject;
             //Debug.DrawRay(Camera.main.transform.position,hitObject.transform.position, Color.green);

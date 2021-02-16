@@ -5,8 +5,7 @@ using UnityEngine;
 enum ObjectType //Add Prefab Names here
 {
     Plant,
-    Shelf,
-    Chair
+    PlantBig,
 }
 
 public abstract class SavableObject : MonoBehaviour
@@ -17,7 +16,7 @@ public abstract class SavableObject : MonoBehaviour
     [SerializeField]
     private ObjectType objectType;
     
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     private void Start()
     {
         saveManager.Instance.SavableObjects.Add(this);

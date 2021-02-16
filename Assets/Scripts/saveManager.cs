@@ -66,8 +66,11 @@ public class saveManager : MonoBehaviour
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
 
+        //Save PlacedObjects
+
+
         saveData.Save();
-        Debug.Log("Game Data saved!");
+        Debug.Log("Game Data saved to: " + saveData.GetFileName());
 
         //BELOW: Save Objects-Loop
 
@@ -96,7 +99,7 @@ public class saveManager : MonoBehaviour
             Quaternion cameraRotation = saveData.GetUnityQuaternion("Camera_Rotation");
 
             //Load Money
-            int currentMoney = saveData.GetInt("Money");
+            int currentMoney = saveData.GetInt("Money");        
 
             //Feeding Values to Game
             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -137,15 +140,11 @@ public class saveManager : MonoBehaviour
                         {
 
                             case "Plant":
-                                tmp = Instantiate(Resources.Load("PlantPotPlant") as GameObject);
-                                Debug.Log(tmp.name);
-                                break;                            
-                            case "Shelf":
-                                tmp = Instantiate(Resources.Load("FurnitureShelf04") as GameObject);
+                                tmp = Instantiate(Resources.Load("Plant") as GameObject);
                                 Debug.Log(tmp.name);
                                 break;
-                            case "Chair":
-                                tmp = Instantiate(Resources.Load("FurnitureShelf04 1") as GameObject);
+                            case "PlantBig":
+                                tmp = Instantiate(Resources.Load("Plant_big") as GameObject);
                                 Debug.Log(tmp.name);
                                 break;
                         }

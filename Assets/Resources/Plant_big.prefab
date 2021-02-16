@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7196309679832685577}
   - component: {fileID: 2286826302312216943}
   - component: {fileID: 8427372065371930941}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Area (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2806071893532684241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041701087282947482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94766b8c508550b4eb8d1c22d4c1e549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: "Gro\xDFe Topfpflanze"
+  objectInfo: "Irgendwie sieht sie nicht gr\xF6\xDFer aus, als die kleine."
 --- !u!114 &9166296991767206903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +133,8 @@ GameObject:
   - component: {fileID: 2114309770553639055}
   - component: {fileID: -2391775465133151694}
   - component: {fileID: -350528744054003265}
-  m_Layer: 0
+  - component: {fileID: 3981995438353654961}
+  m_Layer: 14
   m_Name: Plant_big
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -202,6 +217,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d5503dc008f4045b35700e2a30bab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3981995438353654961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4471700883413585326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fcbc40fbfe7494584c0ccb12cfc2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 1
+  speed: 0
+  strength: 0
+  cost: 0
+  description: 
 --- !u!1 &5694248069590563200
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +246,7 @@ GameObject:
   - component: {fileID: 5524602022551772776}
   - component: {fileID: 8717279396427853977}
   - component: {fileID: 5870043353744861196}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,6 +344,10 @@ PrefabInstance:
     - target: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
       propertyPath: m_Name
       value: PlantPotPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419866165108578, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4063334258460450, guid: d0b68ffbaf9452b4da1dcb4d8afe2284, type: 3}
       propertyPath: m_RootOrder
