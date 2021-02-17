@@ -13,10 +13,10 @@ public class BlurPanel : Image
 
     CanvasGroup canvas;
 
-    protected override void Reset()
-    {
-        color = Color.black * 0.1f;
-    }
+    //protected override void Reset()
+    //{
+    //    color = Color.black * 0.1f;
+    //}
 
     protected override void Awake()
     {
