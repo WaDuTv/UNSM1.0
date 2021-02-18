@@ -5,6 +5,8 @@ using TigerForge;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
 
 
 public class saveManager : MonoBehaviour
@@ -12,6 +14,10 @@ public class saveManager : MonoBehaviour
     private static saveManager instance;
 
     private GameObject shopSystem;
+
+    public GameObject languageCanvas;
+    public GameObject languageDropdown;
+
 
     public List<SavableObject> SavableObjects { get; private set; }
 
@@ -31,6 +37,8 @@ public class saveManager : MonoBehaviour
         }
         //DontDestroyOnLoad(this);
         SavableObjects = new List<SavableObject>();
+
+        saveData = new EasyFileSave("save_file");
     }
 
     // Start is called before the first frame update
@@ -46,6 +54,29 @@ public class saveManager : MonoBehaviour
         QuickLoad();
 
         //Debug.Log(GameObject.Find("Money").GetComponent<TextMeshProUGUI>().text);
+
+    }
+
+    public void SaveLanguage()
+    {
+        saveData.Add("game_language", GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value);
+        saveData.Save();
+        //Debug.Log("Language Setting Saved: " + saveData.GetFileName());
+        //Debug.Log(GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value);
+    }
+
+    public void LoadLanguage()
+    {
+        if (saveData.Load())
+        {
+            languageCanvas = GameObject.Find("Canvas");
+            //int gameLanguage = saveData.GetInt("game_language");
+
+            languageDropdown = languageCanvas.transform.Find("LanguageDropdown").gameObject;
+            Debug.Log(languageDropdown);
+            //GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value = gameLanguage;
+        }
+
 
     }
 
@@ -65,9 +96,7 @@ public class saveManager : MonoBehaviour
         //Save Money
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
-
-        //Save PlacedObjects
-
+       
 
         saveData.Save();
         Debug.Log("Game Data saved to: " + saveData.GetFileName());

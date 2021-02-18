@@ -3,20 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
+using TMPro;
+using TigerForge;
 
 public class SettingsMenu : MonoBehaviour
 {
+
+    public saveManager sm;
+
     public AudioMixer audioMixer;
 
     public Dropdown resolutionDropdown;
 
     public Dropdown qualityDropdown;
 
+    public TMP_Dropdown languageDropdown;
+
     Resolution[] resolutions;
 
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
+        sm = GameObject.Find("SaveManager").GetComponent<saveManager>();        
 
         resolutions = Screen.resolutions;
 
@@ -36,7 +50,7 @@ public class SettingsMenu : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-
+        
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
@@ -44,6 +58,11 @@ public class SettingsMenu : MonoBehaviour
         int currentQualityLevel = QualitySettings.GetQualityLevel();
         qualityDropdown.value = currentQualityLevel;
         qualityDropdown.RefreshShownValue();
+     
+    }
+
+    private void Update()
+    {
 
     }
 
@@ -67,4 +86,22 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    public void setLanguage()
+    {
+        
+        //// Wait for the localization system to initialize, loading Locales, preloading, etc.
+        //yield return LocalizationSettings.InitializationOperation;
+
+        // This variable selects the language. For example, if in the table your first language is English then 0 = English. If the second language in the table is Russian then 1 = Russian etc.
+        int i = languageDropdown.value;
+
+        // This part changes the language     
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[i];
+
+        sm.SaveLanguage();
+       
+    }
+
 }
+
+

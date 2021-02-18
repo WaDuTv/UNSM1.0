@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: ca1684ff379d9f444a7b703cbd10e614
+  m_Entries:
+  - m_Id: 415392653312
+    m_Key: load_tab_menu_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 988846284800
+    m_Key: options_menu_tab_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1328249364480
+    m_Key: quit_menu_tab_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163218581676032
+    m_Key: main_menu__new_game_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163614289092608
+    m_Key: main_menu_load_last_save_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164066011439104
+    m_Key: general_settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164281925820416
+    m_Key: graphics_settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164498662285312
+    m_Key: audio_settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164802430558208
+    m_Key: main_menu_tab_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164996572307456
+    m_Key: controls_settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165379323518976
+    m_Key: general_settings_selectLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165706835746816
+    m_Key: audio_settings_MainVolume_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 166045693566976
+    m_Key: graphics_settings_selectResolution_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 166339429064704
+    m_Key: graphics_settings_selectQuality_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 166604303556608
+    m_Key: graphics_settings_selectFullscreen_Text
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1613609765818
