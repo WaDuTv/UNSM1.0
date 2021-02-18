@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     {
         GameManager.instance.LoadGame();
         Debug.Log("Starting Game");
+        GameObject.Find("SaveManager").GetComponent<saveManager>().SaveData();
     }
 
     public void LoadGame()

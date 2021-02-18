@@ -78,5 +78,41 @@ MonoBehaviour:
     m_Localized: 'Fullscreen:'
     m_Metadata:
       m_Items: []
+  - m_Id: 213359074271232
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 213698267635712
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 218008938405888
+    m_Localized: 'Your name:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 218798830706688
+    m_Localized: Enter your name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219530900332544
+    m_Localized: 'Name of your studio:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219981918035968
+    m_Localized: "Enter the name of your studio...\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 221289907544064
+    m_Localized: 'Select your country:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222646202851328
+    m_Localized: 'Difficulty:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 245319825940480
+    m_Localized: Start game
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

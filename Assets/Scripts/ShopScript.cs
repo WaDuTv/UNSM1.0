@@ -16,7 +16,8 @@ public class ShopScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        bankamount = GameObject.Find("CompanyManager").GetComponent<CompanyManager>().startingMoney;
         bankAmountText.text = bankamount.ToString();
     }
 

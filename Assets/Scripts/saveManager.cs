@@ -14,6 +14,7 @@ public class saveManager : MonoBehaviour
     private static saveManager instance;
 
     private GameObject shopSystem;
+    private GameObject companyManager;
 
     public GameObject languageCanvas;
     public GameObject languageDropdown;
@@ -61,27 +62,30 @@ public class saveManager : MonoBehaviour
     {
         saveData.Add("game_language", GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value);
         saveData.Save();
-        //Debug.Log("Language Setting Saved: " + saveData.GetFileName());
-        //Debug.Log(GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value);
+        Debug.Log("Language Setting Saved: " + GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value + " @ "+saveData.GetFileName());        
     }
 
-    public void LoadLanguage()
-    {
-        if (saveData.Load())
-        {
-            languageCanvas = GameObject.Find("Canvas");
-            //int gameLanguage = saveData.GetInt("game_language");
-
-            languageDropdown = languageCanvas.transform.Find("LanguageDropdown").gameObject;
-            Debug.Log(languageDropdown);
-            //GameObject.Find("LanguageDropdown").GetComponent<TMP_Dropdown>().value = gameLanguage;
-        }
+    //public void LoadLanguage()
+    //{
+    //    if (saveData.Load())
+    //    {
+    //        int currentLanguage = saveData.GetInt("game_language");
+            
+    //        Debug.Log("Loaded Language" + currentLanguage);
+    //    }
 
 
-    }
+    //}
 
     public void SaveData()
     {
+        //Save Company-Start-Values and Difficulty
+        companyManager = GameObject.Find("CompanyManager");
+        saveData.Add("Player_Name", companyManager.GetComponent<CompanyManager>().playerName);
+        saveData.Add("Company_Name", companyManager.GetComponent<CompanyManager>().companyName);
+        saveData.Add("Home_Country", companyManager.GetComponent<CompanyManager>().country);
+        saveData.Add("Set_Difficulty", companyManager.GetComponent<CompanyManager>().difficulty);
+
         //Save Date & Time
         saveData.Add("Current_Hour", EnviroSky.instance.GameTime.Hours);
         saveData.Add("Current_Minute", EnviroSky.instance.GameTime.Minutes);
@@ -114,7 +118,13 @@ public class saveManager : MonoBehaviour
     public void LoadData()
     {
         if (saveData.Load())
-        {   //Loading values from Save-File            
+        {   //Loading values from Save-File
+
+            //Load Company-Values & Difficulty
+            string playerName = saveData.GetString("Player_Name");
+            string companyName = saveData.GetString("Company_Name");
+            int setCountry = saveData.GetInt("Home_Country");
+            int setDifficulty = saveData.GetInt("Set_Difficulty");
 
             //Load Time& Date
             int currentHour = saveData.GetInt("Current_Hour");
@@ -136,6 +146,11 @@ public class saveManager : MonoBehaviour
                 Scene scene = SceneManager.GetSceneAt(i);
                 if ((scene.name == "Main"))
                 {
+                    companyManager = GameObject.Find("CompanyManager");
+                    companyManager.GetComponent<CompanyManager>().playerName = playerName;
+                    companyManager.GetComponent<CompanyManager>().companyName = companyName;
+                    companyManager.GetComponent<CompanyManager>().country = setCountry;
+
                     EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
                     Time.timeScale = 0f;
 

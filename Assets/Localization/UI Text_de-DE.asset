@@ -78,5 +78,41 @@ MonoBehaviour:
     m_Localized: 'Vollbild:'
     m_Metadata:
       m_Items: []
+  - m_Id: 213359074271232
+    m_Localized: Neues Spiel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 213698267635712
+    m_Localized: "Zur\xFCck"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 218008938405888
+    m_Localized: 'Dein Name:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 218798830706688
+    m_Localized: 'Gib deinen Namen ein... '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219530900332544
+    m_Localized: 'Name deines Studios:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219981918035968
+    m_Localized: Gib den Namen deines Studios ein...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 221289907544064
+    m_Localized: "W\xE4hle dein Land:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222646202851328
+    m_Localized: 'Schwierigkeit:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 245319825940480
+    m_Localized: Spiel starten
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
