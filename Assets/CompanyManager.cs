@@ -30,6 +30,13 @@ public class CompanyManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    private void Start()
+    {
+        country = 0;
+        difficulty = 0;
+        startingMoney = 20000;
+    }
+
     // Update is called once per frame
     void Update()
     {

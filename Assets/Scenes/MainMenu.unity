@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1925,7 +1925,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 165706835746816
+      m_KeyId: 2142921613312
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -1999,7 +1999,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 219981918035968
+      m_KeyId: 4413814267904
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -2326,7 +2326,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 166045693566976
+      m_KeyId: 2780841697280
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -3474,7 +3474,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 164281925820416
+      m_KeyId: 1272024719360
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -4717,7 +4717,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 218008938405888
+      m_KeyId: 3524219166720
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -4986,7 +4986,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 415392653312
+      m_KeyId: 424578179072
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -5936,7 +5936,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 164066011439104
+      m_KeyId: 1091090833408
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -7060,6 +7060,7 @@ GameObject:
   - component: {fileID: 546366937}
   - component: {fileID: 546366936}
   - component: {fileID: 546366935}
+  - component: {fileID: 546366938}
   m_Layer: 5
   m_Name: LanguageDropdown
   m_TagString: Untagged
@@ -7145,19 +7146,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753053863}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: setLanguage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &546366936
 MonoBehaviour:
@@ -7197,6 +7186,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546366933}
   m_CullTransparentMesh: 1
+--- !u!114 &546366938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546366933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ff00f3d6451da4683c394b1df0d7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 546366935}
 --- !u!1 &556078961
 GameObject:
   m_ObjectHideFlags: 0
@@ -7289,7 +7291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &560254497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7514,7 +7516,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 222646202851328
+      m_KeyId: 3972376354816
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -7760,7 +7762,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 213359074271232
+      m_KeyId: 3173155921920
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -9550,7 +9552,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 164996572307456
+      m_KeyId: 1467164712960
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -10246,7 +10248,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 213698267635712
+      m_KeyId: 3428354154496
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -10892,7 +10894,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 166339429064704
+      m_KeyId: 2577774469120
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -11933,7 +11935,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 218798830706688
+      m_KeyId: 4199741186048
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -12578,7 +12580,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 163614289092608
+      m_KeyId: 824551202816
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -12818,7 +12820,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 163218581676032
+      m_KeyId: 720339525632
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -13114,7 +13116,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 219530900332544
+      m_KeyId: 3709309607936
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -13709,7 +13711,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 988846284800
+      m_KeyId: 531625205760
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -14976,7 +14978,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 164802430558208
+      m_KeyId: 245728862208
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -17683,7 +17685,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 1328249364480
+      m_KeyId: 622394138624
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -18747,7 +18749,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 221289907544064
+      m_KeyId: 3841006559232
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -19016,7 +19018,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 166604303556608
+      m_KeyId: 2877054836736
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -19869,7 +19871,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 165379323518976
+      m_KeyId: 1754671669248
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -21605,13 +21607,25 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 245319825940480
+      m_KeyId: 4668249137152
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067207964}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2067207964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22304,7 +22318,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ca1684ff379d9f444a7b703cbd10e614
     m_TableEntryReference:
-      m_KeyId: 164498662285312
+      m_KeyId: 1390924849152
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []

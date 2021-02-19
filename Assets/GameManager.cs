@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.AddressableAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TigerForge;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
+
 {
+    public AssetReference assetReference;
+
     public static GameManager instance;
     private saveManager sm;
     public GameObject loadingScreen;
@@ -20,6 +24,11 @@ public class GameManager : MonoBehaviour
         instance = this;        
         SceneManager.LoadSceneAsync((int)SceneIndexes.MainMenu, LoadSceneMode.Additive);
 
+    }
+
+    private void Start()
+    {
+        //assetReference.InstantiateAsync();
     }
 
     private void Update()
@@ -87,5 +96,4 @@ public class GameManager : MonoBehaviour
         
         loadingScreen.gameObject.SetActive(false);
     }
-
 }

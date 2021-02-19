@@ -18,100 +18,100 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 164498662285312
-    m_Localized: Ton
-    m_Metadata:
-      m_Items: []
-  - m_Id: 415392653312
-    m_Localized: Laden
-    m_Metadata:
-      m_Items: []
-  - m_Id: 988846284800
-    m_Localized: Optionen
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1328249364480
-    m_Localized: Beenden
-    m_Metadata:
-      m_Items: []
-  - m_Id: 163218581676032
-    m_Localized: Neues Spiel
-    m_Metadata:
-      m_Items: []
-  - m_Id: 163614289092608
-    m_Localized: Letzten Spielstand laden
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164066011439104
-    m_Localized: Allgemein
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164281925820416
-    m_Localized: Grafik
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164802430558208
+  - m_Id: 245728862208
     m_Localized: Haupt
     m_Metadata:
       m_Items: []
-  - m_Id: 164996572307456
-    m_Localized: Steuerung
+  - m_Id: 424578179072
+    m_Localized: Laden
     m_Metadata:
       m_Items: []
-  - m_Id: 165379323518976
-    m_Localized: 'Sprache:'
+  - m_Id: 531625205760
+    m_Localized: Optionen
     m_Metadata:
       m_Items: []
-  - m_Id: 165706835746816
-    m_Localized: "Gesamtlautst\xE4rke:"
+  - m_Id: 622394138624
+    m_Localized: Beenden
     m_Metadata:
       m_Items: []
-  - m_Id: 166045693566976
-    m_Localized: "Ausl\xF6sung:"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 166339429064704
-    m_Localized: "Qualit\xE4t:"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 166604303556608
-    m_Localized: 'Vollbild:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 213359074271232
+  - m_Id: 720339525632
     m_Localized: Neues Spiel
     m_Metadata:
       m_Items: []
-  - m_Id: 213698267635712
+  - m_Id: 824551202816
+    m_Localized: Letzten Spielstand laden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091090833408
+    m_Localized: Allgemein
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272024719360
+    m_Localized: Grafik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1390924849152
+    m_Localized: Ton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467164712960
+    m_Localized: Steuerung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1754671669248
+    m_Localized: 'Sprache:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2142921613312
+    m_Localized: "Gesamtlautst\xE4rke:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577774469120
+    m_Localized: "Qualit\xE4t:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2780841697280
+    m_Localized: "Aufl\xF6sung:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2877054836736
+    m_Localized: 'Vollbild:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3173155921920
+    m_Localized: Neues Spiel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3428354154496
     m_Localized: "Zur\xFCck"
     m_Metadata:
       m_Items: []
-  - m_Id: 218008938405888
+  - m_Id: 3524219166720
     m_Localized: 'Dein Name:'
     m_Metadata:
       m_Items: []
-  - m_Id: 218798830706688
-    m_Localized: 'Gib deinen Namen ein... '
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219530900332544
+  - m_Id: 3709309607936
     m_Localized: 'Name deines Studios:'
     m_Metadata:
       m_Items: []
-  - m_Id: 219981918035968
-    m_Localized: Gib den Namen deines Studios ein...
-    m_Metadata:
-      m_Items: []
-  - m_Id: 221289907544064
+  - m_Id: 3841006559232
     m_Localized: "W\xE4hle dein Land:"
     m_Metadata:
       m_Items: []
-  - m_Id: 222646202851328
+  - m_Id: 3972376354816
     m_Localized: 'Schwierigkeit:'
     m_Metadata:
       m_Items: []
-  - m_Id: 245319825940480
-    m_Localized: Spiel starten
+  - m_Id: 4199741186048
+    m_Localized: Gib deinen Namen ein...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4413814267904
+    m_Localized: Gib den Namen deines Studios ein...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4668249137152
+    m_Localized: Spiel beginnen
     m_Metadata:
       m_Items: []
   references:

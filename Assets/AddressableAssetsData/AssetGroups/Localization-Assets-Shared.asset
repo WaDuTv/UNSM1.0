@@ -15,10 +15,17 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: 52440e6549ab68f48906a46e1a323d4b
+  m_GUID: 8fb6f5d403a8215438e425fdbd2991af
   m_SerializeEntries:
   - m_GUID: ca1684ff379d9f444a7b703cbd10e614
     m_Address: UI Text Shared Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: eafed475ccb2c824cb6700546776aae0
+    m_Address: UI Assets Shared Data
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}

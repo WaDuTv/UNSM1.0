@@ -22,52 +22,41 @@ MonoBehaviour:
     id: 4
   m_StringDatabase:
     id: 5
-  m_SelectedLocale: {fileID: 0}
   references:
     version: 1
     00000000:
-      type: {class: CommandLineLocaleSelector, ns: UnityEngine.Localization.Settings,
-        asm: Unity.Localization}
-      data:
-        m_CommandLineArgument: -language =
-    00000001:
-      type: {class: SystemLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
-      data: {}
-    00000002:
       type: {class: SpecificLocaleSelector, ns: UnityEngine.Localization.Settings,
         asm: Unity.Localization}
       data:
         m_LocaleId:
-          m_Code: de-DE
+          m_Code: en
+    00000001:
+      type: {class: CommandLineLocaleSelector, ns: UnityEngine.Localization.Settings,
+        asm: Unity.Localization}
+      data:
+        m_CommandLineArgument: -language =
+    00000002:
+      type: {class: SystemLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
     00000003:
       type: {class: LocalesProvider, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
-      data:
-        m_Locales:
-        - {fileID: 11400000, guid: 71de58d6758071d428b0e7f3b4fea007, type: 2}
-        - {fileID: 11400000, guid: 21042a334eb63bb4187685b0666604b1, type: 2}
     00000004:
       type: {class: LocalizedAssetDatabase, ns: UnityEngine.Localization.Settings,
         asm: Unity.Localization}
       data:
         m_DefaultTableReference:
-          m_TableCollectionName: 
-          m_Valid: 0
-          <ReferenceType>k__BackingField: 0
-        m_UseFallback: 0
+          m_TableCollectionName: UI Assets_en
+        m_UseFallback: 1
     00000005:
       type: {class: LocalizedStringDatabase, ns: UnityEngine.Localization.Settings,
         asm: Unity.Localization}
       data:
         m_DefaultTableReference:
-          m_TableCollectionName: 
-          m_Valid: 0
-          <ReferenceType>k__BackingField: 0
-        m_UseFallback: 0
+          m_TableCollectionName: UI Text_en
+        m_UseFallback: 1
         m_MissingTranslationState: 1
         m_NoTranslationFoundMessage: No translation found for '{key}' in {table.TableCollectionName}
         m_SmartFormat:
           id: 6
-        m_MissingTranslationTable: {fileID: 0}
     00000006:
       type: {class: SmartFormatter, ns: UnityEngine.Localization.SmartFormat, asm: Unity.Localization}
       data:
@@ -92,7 +81,6 @@ MonoBehaviour:
         - id: 20
         - id: 21
         - id: 22
-        m_NotEmptyFormatterExtensionNames: []
     00000007:
       type: {class: SmartSettings, ns: UnityEngine.Localization.SmartFormat.Core.Settings,
         asm: Unity.Localization}
@@ -127,23 +115,18 @@ MonoBehaviour:
     0000000A:
       type: {class: DictionarySource, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
-      data: {}
     0000000B:
       type: {class: ValueTupleSource, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
-      data: {}
     0000000C:
       type: {class: XmlSource, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
-      data: {}
     0000000D:
       type: {class: ReflectionSource, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
-      data: {}
     0000000E:
       type: {class: DefaultSource, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
-      data: {}
     0000000F:
       type: {class: PluralLocalizationFormatter, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
@@ -171,7 +154,6 @@ MonoBehaviour:
         - t
         - 
         m_DefaultFormatOptions: 4646
-        m_DefaultTwoLetterIsoLanguageName: en
     00000012:
       type: {class: XElementFormatter, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}
@@ -203,7 +185,6 @@ MonoBehaviour:
       data:
         m_Names:
         - ismatch
-        <RegexOptions>k__BackingField: 0
     00000016:
       type: {class: DefaultFormatter, ns: UnityEngine.Localization.SmartFormat.Extensions,
         asm: Unity.Localization}

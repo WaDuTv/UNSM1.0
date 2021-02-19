@@ -15,100 +15,100 @@ MonoBehaviour:
   m_TableCollectionName: UI Text
   m_TableCollectionNameGuidString: ca1684ff379d9f444a7b703cbd10e614
   m_Entries:
-  - m_Id: 415392653312
-    m_Key: load_tab_menu_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 988846284800
-    m_Key: options_menu_tab_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1328249364480
-    m_Key: quit_menu_tab_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 163218581676032
-    m_Key: main_menu__new_game_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 163614289092608
-    m_Key: main_menu_load_last_save_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164066011439104
-    m_Key: general_settings_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164281925820416
-    m_Key: graphics_settings_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164498662285312
-    m_Key: audio_settings_button
-    m_Metadata:
-      m_Items: []
-  - m_Id: 164802430558208
+  - m_Id: 245728862208
     m_Key: main_menu_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 164996572307456
-    m_Key: controls_settings_button
+  - m_Id: 424578179072
+    m_Key: load_menu_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 165379323518976
-    m_Key: general_settings_selectLanguage
+  - m_Id: 531625205760
+    m_Key: options_menu_tab_Button
     m_Metadata:
       m_Items: []
-  - m_Id: 165706835746816
-    m_Key: audio_settings_MainVolume_Text
+  - m_Id: 622394138624
+    m_Key: quit_menu_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 166045693566976
-    m_Key: graphics_settings_selectResolution_Text
+  - m_Id: 720339525632
+    m_Key: main_page_newGame_button
     m_Metadata:
       m_Items: []
-  - m_Id: 166339429064704
-    m_Key: graphics_settings_selectQuality_Text
+  - m_Id: 824551202816
+    m_Key: main_page_loadLastSave_button
     m_Metadata:
       m_Items: []
-  - m_Id: 166604303556608
-    m_Key: graphics_settings_selectFullscreen_Text
+  - m_Id: 1091090833408
+    m_Key: options_menu_general_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 213359074271232
-    m_Key: new_game_menu_tab
+  - m_Id: 1272024719360
+    m_Key: options_menu_graphics_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 213698267635712
-    m_Key: new_game_menu_tab_back_button
+  - m_Id: 1390924849152
+    m_Key: options_menu_audio_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 218008938405888
-    m_Key: new_game_setup_playername_text
+  - m_Id: 1467164712960
+    m_Key: options_menu_controls_tab_button
     m_Metadata:
       m_Items: []
-  - m_Id: 218798830706688
-    m_Key: new_game_setup_playername_placeholder
+  - m_Id: 1754671669248
+    m_Key: general_options_page_ChangeLanguage_text
     m_Metadata:
       m_Items: []
-  - m_Id: 219530900332544
-    m_Key: new_game_setup_copanyname_text
+  - m_Id: 2142921613312
+    m_Key: audio_options_page_MainVolumeSlider_text
     m_Metadata:
       m_Items: []
-  - m_Id: 219981918035968
-    m_Key: new_game_setup_companyname_placeholder
+  - m_Id: 2577774469120
+    m_Key: graphics_options_page_QualitySettings_text
     m_Metadata:
       m_Items: []
-  - m_Id: 221289907544064
-    m_Key: "new_game_setup_countrySelect_text\t"
+  - m_Id: 2780841697280
+    m_Key: graphics_options_page_ResolutionSettings_text
     m_Metadata:
       m_Items: []
-  - m_Id: 222646202851328
-    m_Key: "new_game_setup_difficultySelect_text\t"
+  - m_Id: 2877054836736
+    m_Key: graphics_options_page_FullscreenToggle_text
     m_Metadata:
       m_Items: []
-  - m_Id: 245319825940480
-    m_Key: new_game_setup_startGame_button
+  - m_Id: 3173155921920
+    m_Key: newGame_menu_newGame_tab_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3428354154496
+    m_Key: newGame_menu_back_tab_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3524219166720
+    m_Key: newGame_page_PlayerName_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3709309607936
+    m_Key: newGame_page_CompanyName_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3841006559232
+    m_Key: newGame_page_SelectCountry_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3972376354816
+    m_Key: newGame_page_SelectDifficulty_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4199741186048
+    m_Key: newGame_page_PlayerNamePlaceholder_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4413814267904
+    m_Key: newGame_page_CompanyNamePlaceholder_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4668249137152
+    m_Key: newGame_page_StartGame_Button
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -121,4 +121,4 @@ MonoBehaviour:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1613609765818
+        m_CustomEpoch: 1613734089877

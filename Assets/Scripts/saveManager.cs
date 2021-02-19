@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 using TMPro;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;

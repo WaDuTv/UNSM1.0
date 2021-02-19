@@ -255,6 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677285177}
   - component: {fileID: 677285176}
+  - component: {fileID: 677285178}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -274,6 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2e52658dc23084dbd9a1b2410acb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assetReference:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   loadingScreen: {fileID: 379509790}
   bar: {fileID: 675877173}
   textField: {fileID: 1755597099}
@@ -291,6 +296,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677285178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677285175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ebe3cc12dad936488614e02ca280a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1654689676
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eafdfe32389b8b4497d96b606fe15e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageCanvas: {fileID: 0}
   languageDropdown: {fileID: 0}
 --- !u!4 &1671981056
 Transform:
