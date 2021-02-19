@@ -111,6 +111,10 @@ MonoBehaviour:
     m_Key: newGame_page_StartGame_Button
     m_Metadata:
       m_Items: []
+  - m_Id: 1047321124331520
+    m_Key: main_overlay_ui_build_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -114,5 +114,9 @@ MonoBehaviour:
     m_Localized: Start game
     m_Metadata:
       m_Items: []
+  - m_Id: 1047321124331520
+    m_Localized: Build
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

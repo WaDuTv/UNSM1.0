@@ -12,7 +12,7 @@ public class saveLoadButtonFunction : MonoBehaviour
     }
     public void Load()
     {
-        sm.GetComponent<saveManager>().LoadData();
+        //sm.GetComponent<saveManager>().LoadData();
     }
 
     public void Save()

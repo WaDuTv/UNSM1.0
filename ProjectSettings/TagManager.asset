@@ -16,6 +16,8 @@ TagManager:
   - Synty Medium Farm
   - Synty Small Farm
   - Synty Tree
+  - SaveNameInputField
+  - SaveManager
   layers:
   - Default
   - TransparentFX

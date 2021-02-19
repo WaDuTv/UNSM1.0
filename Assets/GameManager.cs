@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject loadingScreen;
     public ProgressBar bar;
     public TextMeshProUGUI textField;
+    public string saveName;
+
     EasyFileSave saveData;
 
     private void Awake()
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
     void LoadData(Scene scene, LoadSceneMode mode)
     {
         sm = GameObject.Find("SaveManager").GetComponent<saveManager>();
-        sm.LoadData();
+        sm.LoadData(saveName);
     }
 
     

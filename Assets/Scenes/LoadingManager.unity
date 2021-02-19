@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 1671981055}
   m_Layer: 0
   m_Name: SaveManager
-  m_TagString: Untagged
+  m_TagString: SaveManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,6 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languageCanvas: {fileID: 0}
   languageDropdown: {fileID: 0}
+  saveName: {fileID: 0}
 --- !u!4 &1671981056
 Transform:
   m_ObjectHideFlags: 0

@@ -18,12 +18,14 @@ public class saveManager : MonoBehaviour
     public GameObject languageCanvas;
     public GameObject languageDropdown;
 
+    public TMP_InputField saveName;
+
 
     public List<SavableObject> SavableObjects { get; private set; }
 
     public static saveManager Instance { get; private set; }
 
-    EasyFileSave saveData;
+    public EasyFileSave saveData;
 
     private void Awake()
     {
@@ -38,13 +40,14 @@ public class saveManager : MonoBehaviour
         //DontDestroyOnLoad(this);
         SavableObjects = new List<SavableObject>();
 
-        saveData = new EasyFileSave("save_file");
+        //saveData = new EasyFileSave("save_file");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        saveData = new EasyFileSave("save_file");
+        
+        //saveData = new EasyFileSave("save_file");
     }
 
 
@@ -78,6 +81,9 @@ public class saveManager : MonoBehaviour
 
     public void SaveData()
     {
+        saveName = GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>();
+        saveData = new EasyFileSave(saveName.text);
+
         //Save Company-Start-Values and Difficulty
         companyManager = GameObject.Find("CompanyManager");
         saveData.Add("Player_Name", companyManager.GetComponent<CompanyManager>().playerName);
@@ -99,23 +105,29 @@ public class saveManager : MonoBehaviour
         //Save Money
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
-       
 
-        saveData.Save();
-        Debug.Log("Game Data saved to: " + saveData.GetFileName());
-
-        //BELOW: Save Objects-Loop
-
-        PlayerPrefs.SetInt("ObjectCount", SavableObjects.Count);
+        //Save Objects
+        saveData.Add("ObjectCount", SavableObjects.Count);
 
         for (int i = 0; i < SavableObjects.Count; i++)
         {
             SavableObjects[i].Save(i);
             Debug.Log("Saved" + SavableObjects[i].GetComponent<SpecificObject>().cost);
         }
+
+        saveData.Save();
+        Debug.Log("Game Data saved to: " + saveData.GetFileName());
+
+        //BELOW: Save Objects-Loop
+        
+        //PlayerPrefs.SetInt("ObjectCount"+saveName, SavableObjects.Count);
+
+        
     }
-    public void LoadData()
+    public void LoadData(string saveName)
     {
+        
+        saveData = new EasyFileSave(saveName);
         if (saveData.Load())
         {   //Loading values from Save-File
 
@@ -137,7 +149,10 @@ public class saveManager : MonoBehaviour
             Quaternion cameraRotation = saveData.GetUnityQuaternion("Camera_Rotation");
 
             //Load Money
-            int currentMoney = saveData.GetInt("Money");        
+            int currentMoney = saveData.GetInt("Money");
+
+            // Load Objects
+            int currentObjects = saveData.GetInt("ObjectCount");
 
             //Feeding Values to Game
             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -149,6 +164,8 @@ public class saveManager : MonoBehaviour
                     companyManager.GetComponent<CompanyManager>().playerName = playerName;
                     companyManager.GetComponent<CompanyManager>().companyName = companyName;
                     companyManager.GetComponent<CompanyManager>().country = setCountry;
+                    companyManager.GetComponent<CompanyManager>().startingMoney = 0;
+
 
                     EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
                     Time.timeScale = 0f;
@@ -173,7 +190,7 @@ public class saveManager : MonoBehaviour
 
                     SavableObjects.Clear();
 
-                    int objectCount = PlayerPrefs.GetInt("ObjectCount");
+                    int objectCount = currentObjects;
 
                     for (int o = 0; o < objectCount; o++)
                     {
@@ -221,7 +238,7 @@ public class saveManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F6))
         {
-            LoadData();
+            //LoadData();
         }
     }
 
