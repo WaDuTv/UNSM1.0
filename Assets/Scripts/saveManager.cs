@@ -149,6 +149,8 @@ public class saveManager : MonoBehaviour
                     companyManager.GetComponent<CompanyManager>().playerName = playerName;
                     companyManager.GetComponent<CompanyManager>().companyName = companyName;
                     companyManager.GetComponent<CompanyManager>().country = setCountry;
+                    companyManager.GetComponent<CompanyManager>().startingMoney = 0;
+
 
                     EnviroSky.instance.SetTime(current_Year, currentDay, currentHour, currentMinute, 0);
                     Time.timeScale = 0f;
