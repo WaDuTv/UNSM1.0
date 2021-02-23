@@ -37,6 +37,11 @@ public class MouseManager : MonoBehaviour
         //{
         //    selectedObject = hoveredObject;
         //}
+        if(Input.GetKeyDown(KeyCode.F8))
+        {
+            ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
+        }
+
     }
 
 

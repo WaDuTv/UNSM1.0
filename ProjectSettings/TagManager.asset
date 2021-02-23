@@ -18,6 +18,7 @@ TagManager:
   - Synty Tree
   - SaveNameInputField
   - SaveManager
+  - savedGamesView
   layers:
   - Default
   - TransparentFX
