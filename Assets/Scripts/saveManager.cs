@@ -81,7 +81,10 @@ public class saveManager : MonoBehaviour
 
     public void SaveData()
     {
+        if(GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>() != null)
+        { 
         saveName = GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>();
+        }
         saveData = new EasyFileSave(saveName.text);
 
         //Save Company-Start-Values and Difficulty

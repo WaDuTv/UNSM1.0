@@ -115,6 +115,34 @@ MonoBehaviour:
     m_Key: main_overlay_ui_build_button
     m_Metadata:
       m_Items: []
+  - m_Id: 3241271012679680
+    m_Key: pause_menu_main_resume_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3241698936545280
+    m_Key: pause_menu_main_backToMenu_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242141683081216
+    m_Key: pause_menu_tab_Main_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242690558091264
+    m_Key: pause_menu_tab_save_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242994213117952
+    m_Key: pause_menu_tab_load_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3243193719382016
+    m_Key: pause_menu_tab_options_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3243441363673088
+    m_Key: pause_menu_tab_quit_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

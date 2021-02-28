@@ -24,8 +24,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         sm = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<saveManager>();
         sm.SaveData();
-        ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
-        ShowInGameLoadScreen();    
+        ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);            
         Debug.Log("Saved Game. Filename: " + sm.saveData.GetFileName());
     }
 
@@ -74,7 +73,7 @@ public class SaveLoadManager : MonoBehaviour
             Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
             texture.filterMode = FilterMode.Trilinear;
             texture.LoadImage(bytes);
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.0f), 1.0f);
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 1920, 1080), new Vector2(0.5f, 0.0f), 1.0f);
 
             if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
             {
@@ -129,7 +128,7 @@ public class SaveLoadManager : MonoBehaviour
                 Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
                 texture.filterMode = FilterMode.Trilinear;
                 texture.LoadImage(bytes);
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0.5f,0.0f),1.0f);
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 1920,1080), new Vector2(0.5f,0.0f),1.0f);
                 
                 if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
                 {

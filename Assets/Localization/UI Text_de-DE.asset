@@ -118,5 +118,33 @@ MonoBehaviour:
     m_Localized: Bauen
     m_Metadata:
       m_Items: []
+  - m_Id: 3241271012679680
+    m_Localized: Weiterspielen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3241698936545280
+    m_Localized: "Hauptmen\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242141683081216
+    m_Localized: "Pausenmen\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242690558091264
+    m_Localized: Speichern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3242994213117952
+    m_Localized: Laden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3243193719382016
+    m_Localized: Optionen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3243441363673088
+    m_Localized: Beenden
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
