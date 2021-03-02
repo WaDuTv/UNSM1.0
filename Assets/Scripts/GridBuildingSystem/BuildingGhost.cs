@@ -19,7 +19,7 @@ public class BuildingGhost : MonoBehaviour {
 
     private void LateUpdate() {
         Vector3 targetPosition = GridBuildingSystem3D.Instance.GetMouseWorldSnappedPosition();
-        targetPosition.y = 17f;
+        targetPosition.y = 0;
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 15f);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, GridBuildingSystem3D.Instance.GetPlacedObjectRotation(), Time.deltaTime * 15f);
@@ -38,7 +38,7 @@ public class BuildingGhost : MonoBehaviour {
             visual.parent = transform;
             visual.localPosition = Vector3.zero;
             visual.localEulerAngles = Vector3.zero;
-            SetLayerRecursive(visual.gameObject, 11);
+            SetLayerRecursive(visual.gameObject, 13);
         }
     }
 

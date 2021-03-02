@@ -31,6 +31,12 @@ MonoBehaviour:
     - default
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 2790e93704f9fa04cb4552768165d202
+    m_Address: Assets/My_Assets/Suburban Structure Kit/Materials/WallGrey.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fd80968c727a5644494f38a9a01473bd, type: 2}
   m_SchemaSet:

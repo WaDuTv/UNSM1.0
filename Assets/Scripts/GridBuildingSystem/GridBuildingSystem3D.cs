@@ -23,10 +23,10 @@ public class GridBuildingSystem3D : MonoBehaviour {
     private void Awake() {
         Instance = this;
 
-        int gridWidth = 10;
-        int gridHeight = 11;
-        float cellSize = 1f;
-        grid = new Grid<GridObject>(gridWidth, gridHeight, cellSize, new Vector3(-1, 17, -48), (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
+        int gridWidth = 40;
+        int gridHeight = 35;
+        float cellSize = 0.5f;
+        grid = new Grid<GridObject>(gridWidth, gridHeight, cellSize, new Vector3(-3f, 0, -5f), (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
 
         placedObjectTypeSO = null;
     }

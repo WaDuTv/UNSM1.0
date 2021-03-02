@@ -15,6 +15,6 @@ MonoBehaviour:
   nameString: Big Plant
   prefab: {fileID: 6425345062576996973, guid: e1cd655173e9d084aae6a68671999e95, type: 3}
   visual: {fileID: 6425345062576996973, guid: 4b6da2cb317b9324ea4d7ba5cf91c337, type: 3}
-  width: 2
-  height: 1
+  width: 4
+  height: 2
   objectPrice: 5000

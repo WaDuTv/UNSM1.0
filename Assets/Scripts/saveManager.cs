@@ -87,6 +87,9 @@ public class saveManager : MonoBehaviour
         }
         saveData = new EasyFileSave(saveName.text);
 
+        //Save latest Savefile Name
+        saveData.Add("latestSaveName", saveName.text);
+
         //Save Company-Start-Values and Difficulty
         companyManager = GameObject.Find("CompanyManager");
         saveData.Add("Player_Name", companyManager.GetComponent<CompanyManager>().playerName);

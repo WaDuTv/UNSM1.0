@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public ProgressBar bar;
     public TextMeshProUGUI textField;
     public string saveName;
+    public string latestSave;
 
     EasyFileSave saveData;
 
