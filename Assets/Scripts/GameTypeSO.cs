@@ -7,12 +7,11 @@ public class GameTypeSO : ScriptableObject
 {
 
     public string gameGenre;
-    
+
     public int optimumGraphics;
     public int optimumSound;
     public int optimumGameplay;
-    public int optimumContent;
-    public int obtimumGameplay;
+    public int optimumContent;    
     public int optimumControls;
     
     public int audienceRating_kids;

@@ -20,9 +20,9 @@ public class ObjController : MonoBehaviour
     private void Start()
     {
         mm = GameObject.FindObjectOfType<MouseManager>();
-        deskMenuUI = GameObject.Find("MenuManager");
-        buildMenuUI = GameObject.Find("BuildCanvas");
-        maincam = GameObject.FindGameObjectWithTag("worldcam");
+        //deskMenuUI = GameObject.Find("MenuManager");
+        //buildMenuUI = GameObject.Find("BuildCanvas");
+        //maincam = GameObject.FindGameObjectWithTag("worldcam");
 
     }
 
@@ -41,23 +41,23 @@ public class ObjController : MonoBehaviour
     public void OnMouseDown()
     {
         if(Input.GetMouseButton(0))
-        {                   
-                      
-            pickUpFunction.enabled = false;
-            deskcam.SetActive(true);
-            if (maincam.activeSelf)
-            {
-                maincam.SetActive(false);
-        
-            }
-            buildMenuUI.SetActive(false);                        
-            FadeObjects fadesettings = fademanager.GetComponent<FadeObjects>();
-            fadesettings.maxTransparency = 1f;
-            fadesettings.radius = 0f;
+        {
+
+            //pickUpFunction.enabled = false;
+            //deskcam.SetActive(true);
+            //if (maincam.activeSelf)
+            //{
+            //    maincam.SetActive(false);
+
+            //}
+            //buildMenuUI.SetActive(false);
+            //FadeObjects fadesettings = fademanager.GetComponent<FadeObjects>();
+            //fadesettings.maxTransparency = 1f;
+            //fadesettings.radius = 0f;
             //fademanager.GetComponent<FadeObjects>().enabled = false;
-            indicators.SetActive(false);
-            deskMenuUI.GetComponent<MenuManager>().deskUI.SetActive(true);        
-            GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;
+            //indicators.SetActive(false);
+            deskMenuUI.SetActive(true);        
+            //GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;
         }
 
     }

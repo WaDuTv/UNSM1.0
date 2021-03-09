@@ -107,6 +107,7 @@ public class GridBuildingSystem3D : MonoBehaviour {
                     foreach (Vector2Int gridPosition in gridPositionList)
                     {
                         grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
+                        Debug.Log(gridPosition.ToString());                        
                     }
                     
                     OnObjectPlaced?.Invoke(this, EventArgs.Empty);
@@ -115,7 +116,7 @@ public class GridBuildingSystem3D : MonoBehaviour {
 
                     int newMoney = currentMoney - placedObjectTypeSO.objectPrice;
                     shopSystem.bankamount = newMoney;
-
+                    
                 }
                 else
                 {
