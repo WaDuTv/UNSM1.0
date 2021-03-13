@@ -6,8 +6,6 @@ public class EconomyManager : MonoBehaviour
 {
     public static EconomyManager instance { get; private set; }
 
-    public List<GameTypeSO> gameTypes;
-
     // Start is called before the first frame update
     void Start()
     {

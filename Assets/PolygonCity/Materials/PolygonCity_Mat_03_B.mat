@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonCity_Mat_03_B
-  m_Shader: {fileID: -6465566751694194690, guid: aa4c55393caf03e4f83354203dfe2339,
+  m_Shader: {fileID: -6465566751694194690, guid: d56cffc8c4aac67428e343152fa22558,
     type: 3}
   m_ShaderKeywords: _METALLICGLOSSMAP _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 5
@@ -90,8 +90,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_2A455339: 0.5
     - Vector1_2b094c3a10cc4d0d8c574c9f38928e4e: 0.1
     - Vector1_548b620842fc45f588ea60d37701cc48: 32
+    - Vector1_5A9E5888: 0
+    - Vector1_CD9CB9E8: 0.1
+    - Vector1_F5DCAAE8: 0.5
     - Vector1_ead694211b5e4ce0823db9a1d8bf905b: 0.7
     - _AlphaClip: 0
     - _Blend: 0
@@ -128,6 +132,7 @@ Material:
     - Color_8515f4c22c404ab0af9f6bc40c80fe99: {r: 0.7098039, g: 0.7098039, b: 0.7098039,
         a: 0}
     - Color_8bb0d18c97af4ecbb8f9b2289cf2c37a: {r: 1, g: 1, b: 1, a: 0}
+    - Color_FA669E8D: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
