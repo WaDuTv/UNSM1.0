@@ -6,7 +6,7 @@ public class ScreenshotHandler : MonoBehaviour
 {
     private static ScreenshotHandler instance;
 
-    private Camera myCamera;
+    public Camera myCamera;
     private bool takeScreenshotOnNextFrame;
 
     public SaveLoadManager slm;
@@ -14,7 +14,7 @@ public class ScreenshotHandler : MonoBehaviour
     private void Awake()
     {        
         instance = this;
-        myCamera = gameObject.GetComponent<Camera>();
+        myCamera = Camera.main;
         System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/Screens4save");
     }
 

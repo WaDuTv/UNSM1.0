@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     public GameObject MainMenuUI;
+    public tweenStuff tweenBGBlur;
 
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 ShowPauseMenu();
+                //tweenBGBlur.TweenBlurValue();
                 Invoke("Pause", 0.9f);
             }
         }

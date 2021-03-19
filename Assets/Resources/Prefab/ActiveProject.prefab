@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3589714108457886874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2689530085973233917}
+  - component: {fileID: 3715336546138888184}
+  - component: {fileID: 6670049508498223261}
+  m_Layer: 0
+  m_Name: ActiveProject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2689530085973233917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589714108457886874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3715336546138888184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589714108457886874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6076b3947022874082a9edd836adf8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectName: 
+  mainGenre: 
+  subGenre: 
+  Theme: 
+  gameSize: 
+  targetAudience: 
+  setGraphics: 0
+  setSound: 0
+  setGameplay: 0
+  setContent: 0
+  setControls: 0
+  setPrice: 0
+  defaultPrice: 0
+  setDevelopmentTime: 0
+  optimumGraphics: 0
+  optimumSound: 0
+  optimumGameplay: 0
+  optimumContent: 0
+  optimumControls: 0
+  optimumDevelopmentTime: 0
+  startDay: 0
+  startYear: 0
+  endDay: 0
+  endYear: 0
+  isFinished: 0
+  assignedStaff: []
+  finishedGameContainer: {fileID: 0}
+  developmentInYears: 0
+--- !u!114 &6670049508498223261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589714108457886874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e47f56befa1044e9f0ba809634c9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectSettings: {fileID: 0}
+  totalAmountoffStaffMembers: 0
+  staffTotalProgramming: 0
+  staffTotalSound: 0
+  staffTotalGraphics: 0
+  staffTotalDesign: 0
+  staffAverageProgramming: 0
+  staffAverageSound: 0
+  staffAverageGraphics: 0
+  staffAverageDesign: 0
+  staffContainer: {fileID: 0}
+  staffList: []
+  graphicsScore: 0
+  soundScore: 0
+  gameplayScore: 0
+  contentScore: 0
+  controlsScore: 0
+  baseScore: 0
+  priceRatio: 0
+  finalScore: 0

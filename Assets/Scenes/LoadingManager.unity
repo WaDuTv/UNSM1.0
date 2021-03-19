@@ -282,6 +282,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 379509790}
   bar: {fileID: 675877173}
   textField: {fileID: 1755597099}
+  saveName: 
+  latestSave: 
 --- !u!4 &677285177
 Transform:
   m_ObjectHideFlags: 0
@@ -415,6 +417,10 @@ MonoBehaviour:
   languageCanvas: {fileID: 0}
   languageDropdown: {fileID: 0}
   saveName: {fileID: 0}
+  HiredStaffContainer: {fileID: 0}
+  workerPrefab: {fileID: 4112824406894923111, guid: 6c9cb237fbf3b1f4cbb7046d87b0cf58,
+    type: 3}
+  hiredWorkers: []
 --- !u!4 &1671981056
 Transform:
   m_ObjectHideFlags: 0

@@ -8,17 +8,17 @@ public class GameTypeSO : ScriptableObject
 
     public string gameGenre;
 
-    public int optimumGraphics;
-    public int optimumSound;
-    public int optimumGameplay;
-    public int optimumContent;    
-    public int optimumControls;
+    public float optimumGraphics;
+    public float optimumSound;
+    public float optimumGameplay;
+    public float optimumContent;    
+    public float optimumControls;    
     
-    public int audienceRating_kids;
-    public int audienceRating_teenagers;
-    public int audienceRating_adults;
-    public int audienceRating_seniors;
-    public int audienceRating_everyone;
+    public float audienceRating_kids;
+    public float audienceRating_teenagers;
+    public float audienceRating_adults;
+    public float audienceRating_seniors;
+    public float audienceRating_everyone;
 
     public bool isBooming;
 
