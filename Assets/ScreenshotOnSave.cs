@@ -18,6 +18,7 @@ public class ScreenshotOnSave : MonoBehaviour
 
     public void ScreenShotOnSave()
     {
-        ScreenshotHandler.TakeScreenShot_Static(300,300);
+        //ScreenshotHandler.TakeScreenShot_Static(300,300);
+        ScreenCapture.CaptureScreenshot("test");
     }
 }
