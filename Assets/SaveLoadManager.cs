@@ -81,26 +81,43 @@ public class SaveLoadManager : MonoBehaviour
                 Transform btnTransform = Instantiate(btnTemplate, transform);
                 btnTransform.gameObject.SetActive(true);
 
-                btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");
+            btnTransform.gameObject.GetComponent<Image>().enabled = true;
+            btnTransform.gameObject.GetComponent<Button>().enabled = true;
+            btnTransform.gameObject.GetComponent<Image>().enabled = true;
+            btnTransform.gameObject.GetComponent<LayoutElement>().enabled = true;
+            btnTransform.gameObject.GetComponent<VerticalLayoutGroup>().enabled = true;
+            btnTransform.gameObject.GetComponent<Image>().enabled = true;
 
-            //byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
-            //Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
-            //texture.filterMode = FilterMode.Trilinear;
-            //texture.LoadImage(bytes);
-            //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 1920, 1080), new Vector2(0.5f, 0.0f), 1.0f);
+            btnTransform.Find("Image").GetComponent<Image>().enabled = true;
+            btnTransform.Find("Image").GetComponent<LayoutElement>().enabled = true;
 
-            //if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
-            //{
-            //    btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = sprite;
-            //}
-            //else
-            //{
-            //    btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = defaultPreview;
-            //}
+            btnTransform.Find("PreviewImage").GetComponent<Image>().enabled = true;
+            btnTransform.Find("PreviewImage").GetComponent<LayoutElement>().enabled = true;
+            //btnTransform.Find("PreviewImage").GetComponent<LayoutElement>().preferredWidth = (-1 * btnTransform.GetComponent<RectTransform>().sizeDelta.x) / 3;
+            btnTransform.Find("PreviewImage").GetComponent<LayoutElement>().preferredHeight = btnTransform.Find("PreviewImage").GetComponent<LayoutElement>().preferredWidth / 16 * 9;
+
+            btnTransform.Find("Image").Find("Text (TMP)").GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+            btnTransform.Find("Image").Find("Text (TMP)").GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+            btnTransform.Find("Image").Find("Text (TMP)").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+            btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");     
+
+            if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
+            {
+                byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
+                Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
+                texture.filterMode = FilterMode.Trilinear;
+                texture.LoadImage(bytes);
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 1920, 1080), new Vector2(0.5f, 0.0f), 1.0f);
+                btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = sprite;
+            }
+            else
+            {
+                btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = defaultPreview;
+            }
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;
+                    GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;
 
                     GameObject.Find("Game Manager").GetComponent<GameManager>().LoadSavedGame();
                 });
@@ -136,17 +153,11 @@ public class SaveLoadManager : MonoBehaviour
                 Transform btnTransform = Instantiate(btnTemplate, transform);
                 btnTransform.gameObject.SetActive(true);
 
-                btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");
+                btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");
 
-            //byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
-            //Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
-            //texture.filterMode = FilterMode.Trilinear;
-            //texture.LoadImage(bytes);
-            //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 1920, 1080), new Vector2(0.5f, 0.0f), 1.0f);
-
-            if (File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
+            if (File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
             {
-                byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
+                byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
                 Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false); //Make dynamic
                 texture.filterMode = FilterMode.Trilinear;
                 texture.LoadImage(bytes);
@@ -161,8 +172,8 @@ public class SaveLoadManager : MonoBehaviour
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;                    
-                    sm.LoadData(btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text);
+                    GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;                    
+                    sm.LoadData(btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text);
                 });
 
                 index++;
@@ -197,27 +208,27 @@ public class SaveLoadManager : MonoBehaviour
             Transform btnTransform = Instantiate(btnTemplate, transform);
             btnTransform.gameObject.SetActive(true);
 
-            btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");
+            btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = saveFiles[index].Name.Replace(".dat", "");
 
-            //byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
-            //Texture2D texture = new Texture2D(300, 300, TextureFormat.ARGB32, false); //Make dynamic
-            //texture.filterMode = FilterMode.Trilinear;
-            //texture.LoadImage(bytes);
-            //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 300, 300), new Vector2(0.5f, 0.0f), 1.0f);
+            if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
+            {
 
-            //if (System.IO.File.Exists(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png"))
-            //{
-            //    btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = sprite;
-            //}
-            //else
-            //{
-            //    btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = defaultPreview;
-            //}
+                byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/Screens4save/" + btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text + ".png");
+                Texture2D texture = new Texture2D(300, 300, TextureFormat.ARGB32, false); //Make dynamic
+                texture.filterMode = FilterMode.Trilinear;
+                texture.LoadImage(bytes);
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, 300, 300), new Vector2(0.5f, 0.0f), 1.0f);
+                btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = sprite;
+            }
+            else
+            {
+                btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = defaultPreview;
+            }
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
             {
-                GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;
-                sm.LoadData(btnTransform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text);
+                GameObject.Find("Game Manager").GetComponent<GameManager>().saveName = btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text;
+                sm.LoadData(btnTransform.Find("Image").Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text);
             });
 
             index++;

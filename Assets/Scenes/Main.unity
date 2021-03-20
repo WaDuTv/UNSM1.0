@@ -320,6 +320,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7413586}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &7710989
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &9017650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29830,7 +29866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7e9a4b406159644aa24bae9473f3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCamera: {fileID: 0}
+  myCamera: {fileID: 833348333}
   slm: {fileID: 1736520218}
 --- !u!1 &835603912
 GameObject:
@@ -39385,6 +39421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveName: {fileID: 0}
+  screenCapDirectory: 
+  fileType: .png
+  canvas: {fileID: 0}
+  blur: {fileID: 0}
   sm: {fileID: 0}
   loadArea: {fileID: 1051400452}
   loadButtonPrefab: {fileID: 1075789129659608856, guid: 241292e67e3fe2345bafaeff5d3a5caf,
@@ -52079,6 +52119,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287908036}
   m_CullTransparentMesh: 1
+--- !u!84 &1288863844
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enviro Reflection Final Cubemap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 48
+  m_MipMap: 1
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 4
+  m_VolumeDepth: 1
 --- !u!1 &1290547839
 GameObject:
   m_ObjectHideFlags: 0
@@ -60272,42 +60348,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1387204304}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1387360571
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1391265160
 GameObject:
   m_ObjectHideFlags: 0
@@ -61338,6 +61378,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1209323470}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1448470334
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 2048
+  m_Height: 2048
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1449562184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65548,42 +65624,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1596276959}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1599716010
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Enviro Reflection Final Cubemap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 48
-  m_MipMap: 1
-  m_GenerateMips: 0
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 4
-  m_VolumeDepth: 1
 --- !u!4 &1599985072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4631730319309726, guid: 5a2b2aefafe7a2f4bb79271e2b6b2e62,
@@ -69560,6 +69600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveName: {fileID: 1384981268}
+  screenCapDirectory: 
+  fileType: .png
+  canvas: {fileID: 92807002}
+  blur: {fileID: 806446413}
   sm: {fileID: 0}
   loadArea: {fileID: 1736520216}
   loadButtonPrefab: {fileID: 1075789129659608856, guid: 241292e67e3fe2345bafaeff5d3a5caf,
@@ -71703,42 +71747,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!84 &1809279737
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 2048
-  m_Height: 2048
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1809404736
 GameObject:
   m_ObjectHideFlags: 0
@@ -75252,11 +75260,11 @@ MonoBehaviour:
   LST: 670.2833
   lastHourUpdate: 12
   hourTime: 0
-  cloudAnim: {x: 0.1, y: 0.98527265, z: 0.2851248}
-  cloudFlatBaseAnim: {x: 0, y: 0.68666536}
-  cloudFlatDetailAnim: {x: 0, y: 0.74865466}
-  cloudAnimNonScaled: {x: 0, y: -1.313772}
-  cirrusAnim: {x: 0, y: -0.5605414}
+  cloudAnim: {x: 0.1, y: 0.39273244, z: -0.69454}
+  cloudFlatBaseAnim: {x: 0, y: 0.6274105}
+  cloudFlatDetailAnim: {x: 0, y: 0.51163876}
+  cloudAnimNonScaled: {x: 0, y: -1.3730283}
+  cirrusAnim: {x: 0, y: -0.58582294}
   windIntensity: 0.24999999
   shadowIntensityMod: 0
   interiorMode: 0
@@ -75391,9 +75399,9 @@ MonoBehaviour:
   currentActiveCloudsQualityPreset: {fileID: 11400000, guid: a836f7605a4cd2b46977d5caf63945fc,
     type: 2}
   cloudsRenderTarget: {fileID: 0}
-  weatherMap: {fileID: 1387360571}
+  weatherMap: {fileID: 7710989}
   satRenderTarget: {fileID: 0}
-  cloudShadowMap: {fileID: 1809279737}
+  cloudShadowMap: {fileID: 1448470334}
   skyMat: {fileID: 1935257501}
   skyReflectionMat: {fileID: 0}
   cloudsQualityList:
@@ -80169,7 +80177,7 @@ ReflectionProbe:
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
-  m_CustomBakedTexture: {fileID: 1599716010}
+  m_CustomBakedTexture: {fileID: 1288863844}
 --- !u!1001 &2034170478
 PrefabInstance:
   m_ObjectHideFlags: 0
