@@ -35,8 +35,7 @@ public class SaveLoadManager : MonoBehaviour
     public void OnSave()
     {
         sm = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<saveManager>();
-        sm.SaveData();
-        //ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
+        sm.SaveData();        
         StartCoroutine(CaptureScreen());        
         Debug.Log("Saved Game. Filename: " + sm.saveData.GetFileName());
         
@@ -113,6 +112,7 @@ public class SaveLoadManager : MonoBehaviour
             else
             {
                 btnTransform.Find("PreviewImage").GetComponent<Image>().sprite = defaultPreview;
+                btnTransform.Find("PreviewImage").GetComponent<Image>().color = new Color32(50, 58, 69, 255);
             }
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() =>
@@ -236,12 +236,7 @@ public class SaveLoadManager : MonoBehaviour
         }
 
 
-    }
-
-    void CreateSprite()
-    {
-        ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
-    }
+    }  
 
     public IEnumerator CaptureScreen()
     {

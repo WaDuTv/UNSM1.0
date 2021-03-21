@@ -15,9 +15,9 @@ public class SettingsMenu : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    public Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
 
-    public Dropdown qualityDropdown;
+    public TMP_Dropdown qualityDropdown;
 
     public TMP_Dropdown languageDropdown;
 

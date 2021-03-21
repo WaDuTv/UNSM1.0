@@ -146,5 +146,17 @@ MonoBehaviour:
     m_Localized: Quit
     m_Metadata:
       m_Items: []
+  - m_Id: 10521704154849280
+    m_Localized: Did you know...?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522311532011520
+    m_Localized: Create new game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522746649108480
+    m_Localized: Continue last game
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -143,6 +143,18 @@ MonoBehaviour:
     m_Key: pause_menu_tab_quit_button
     m_Metadata:
       m_Items: []
+  - m_Id: 10521704154849280
+    m_Key: main_page_trivia_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522311532011520
+    m_Key: main_page_start_new_game_bottom_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522746649108480
+    m_Key: main_page_loadLastSave_Header_Text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -19,3 +19,5 @@ MonoBehaviour:
   - Load
   - Options
   - Quit
+  - Quit - Yes
+  - Quit - No

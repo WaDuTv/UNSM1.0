@@ -146,5 +146,17 @@ MonoBehaviour:
     m_Localized: Beenden
     m_Metadata:
       m_Items: []
+  - m_Id: 10521704154849280
+    m_Localized: Wusstest du...?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522311532011520
+    m_Localized: Neues Spiel einrichten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10522746649108480
+    m_Localized: Letztes Spiel fortsetzen
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
