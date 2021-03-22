@@ -155,6 +155,10 @@ MonoBehaviour:
     m_Key: main_page_loadLastSave_Header_Text
     m_Metadata:
       m_Items: []
+  - m_Id: 11281041584349184
+    m_Key: new
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

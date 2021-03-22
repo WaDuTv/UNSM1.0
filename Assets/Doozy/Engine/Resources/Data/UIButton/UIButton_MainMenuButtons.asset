@@ -21,3 +21,5 @@ MonoBehaviour:
   - Quit
   - Quit - Yes
   - Quit - No
+  - Create New Game
+  - StartGame

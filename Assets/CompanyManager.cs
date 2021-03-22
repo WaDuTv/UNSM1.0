@@ -15,6 +15,11 @@ public class CompanyManager : MonoBehaviour
 
     public static CompanyManager Instance { get; private set; }
 
+    public TMP_InputField getPlayername;
+    public TMP_InputField getCompanyname;
+    public TMP_Dropdown getDifficulty;
+    public TMP_Dropdown getCountry;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,20 +50,20 @@ public class CompanyManager : MonoBehaviour
 
     public void ChangePlayerName()
     {
-        playerName = GameObject.Find("PlayernameInput").GetComponent<TMP_InputField>().text;
+        playerName = getPlayername.text;
     }
     public void ChangeCompanyName()
     {
-        companyName = GameObject.Find("Companynameinput").GetComponent<TMP_InputField>().text;
+        companyName = getCompanyname.text;
     }
 
     public void ChangeCountry()
     {
-        country = GameObject.Find("CountrySelection").GetComponent<TMP_Dropdown>().value;
+        country = getCountry.value;
     }
     public void ChangeDifficulty()
     {
-        difficulty = GameObject.Find("DifficultySelection").GetComponent<TMP_Dropdown>().value;
+        difficulty = getDifficulty.value;
     }
 
     public void SetStartingParameters()
