@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Doozy.Engine.UI;
 using System.Linq;
 
 public class ObjController : MonoBehaviour
@@ -15,6 +16,12 @@ public class ObjController : MonoBehaviour
     public float transspeed = 0.125f;
     public GameObject indicators;
     public GameObject fademanager;
+    public GameObject desktopGraph;
+    public UICanvas desktopCanvas;
+    public UIView desktopView;
+    public UIView overviewView;
+
+    
     //public FadeObjects faderadius;
 
     private void Start()
@@ -56,7 +63,11 @@ public class ObjController : MonoBehaviour
             //fadesettings.radius = 0f;
             //fademanager.GetComponent<FadeObjects>().enabled = false;
             //indicators.SetActive(false);
-            deskMenuUI.SetActive(true);        
+            desktopGraph.SetActive(true);
+            desktopView.Show();
+            overviewView.Show();
+            
+            
             //GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;
         }
 
