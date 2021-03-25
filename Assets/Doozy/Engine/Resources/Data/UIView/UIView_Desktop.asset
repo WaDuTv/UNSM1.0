@@ -15,7 +15,9 @@ MonoBehaviour:
   CategoryName: Desktop
   DatabaseType: 2
   Names:
-  - MainDesktop
-  - CreateNewProject
-  - Overview
+  - 
   - CanvasView
+  - CreateNewProject
+  - CreateNewProjectMain
+  - MainDesktop
+  - Overview

@@ -15694,8 +15694,8 @@ RectTransform:
   - {fileID: 342008901}
   - {fileID: 124918869}
   - {fileID: 1320736920}
-  m_Father: {fileID: 776717028}
-  m_RootOrder: 0
+  m_Father: {fileID: 527925943}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22940,6 +22940,7 @@ RectTransform:
   m_Children:
   - {fileID: 2067270327}
   - {fileID: 776717028}
+  - {fileID: 348956453}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36384,8 +36385,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 348956453}
+  m_Children: []
   m_Father: {fileID: 527925943}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94280,11 +94280,11 @@ MonoBehaviour:
   LST: 670.2833
   lastHourUpdate: 12
   hourTime: 0
-  cloudAnim: {x: 0.1, y: 0.32741287, z: -0.49939343}
-  cloudFlatBaseAnim: {x: 0, y: 0.8202055}
-  cloudFlatDetailAnim: {x: 0, y: -0.7152746}
-  cloudAnimNonScaled: {x: 0, y: -3.180176}
-  cirrusAnim: {x: 0, y: 0.64310974}
+  cloudAnim: {x: 0.1, y: 0.20931178, z: -0.69465446}
+  cloudFlatBaseAnim: {x: 0, y: 0.8083952}
+  cloudFlatDetailAnim: {x: 0, y: -0.76251495}
+  cloudAnimNonScaled: {x: 0, y: -3.1919844}
+  cirrusAnim: {x: 0, y: 0.63807064}
   windIntensity: 0.24999999
   shadowIntensityMod: 0
   interiorMode: 0

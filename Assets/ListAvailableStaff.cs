@@ -12,7 +12,7 @@ public class ListAvailableStaff : MonoBehaviour
     public TMP_InputField newGameName;
 
     private Image _backgroundImage;
-    private HorizontalLayoutGroup _mainGroup;
+    private VerticalLayoutGroup _mainGroup;
     private TMP_Text _staffNametext;
     private TMP_Text _staffInfotext;
 
@@ -51,7 +51,7 @@ public class ListAvailableStaff : MonoBehaviour
             btnTransform.gameObject.name = "current_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
             btnTransform.gameObject.GetComponent<workerNameHolder>().workerName = "worker_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
             _backgroundImage = btnTransform.gameObject.GetComponent<Image>();
-            _mainGroup = btnTransform.gameObject.GetComponent<HorizontalLayoutGroup>();
+            _mainGroup = btnTransform.gameObject.GetComponent<VerticalLayoutGroup>();
             _staffNametext = btnTransform.Find("StaffName").GetComponent<TMP_Text>();
             _staffInfotext = btnTransform.Find("Staffinfo").GetComponent<TMP_Text>();
 
@@ -112,7 +112,7 @@ public class ListAvailableStaff : MonoBehaviour
             btnTransform.gameObject.name = "current_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
             btnTransform.gameObject.GetComponent<workerNameHolder>().workerName = "worker_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
             _backgroundImage = btnTransform.gameObject.GetComponent<Image>();
-            _mainGroup = btnTransform.gameObject.GetComponent<HorizontalLayoutGroup>();
+            _mainGroup = btnTransform.gameObject.GetComponent<VerticalLayoutGroup>();
             _staffNametext = btnTransform.Find("StaffName").GetComponent<TMP_Text>();
             _staffInfotext = btnTransform.Find("Staffinfo").GetComponent<TMP_Text>();
 
