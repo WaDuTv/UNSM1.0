@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Text;
 using TMPro;
 using UnityEngine.UI;
+using Doozy.Engine.UI;
 
 public class GameDevelopmentProgressbarCalculation : MonoBehaviour
 {
@@ -22,14 +23,19 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
 
     public GameObject progressBarFill;
 
+    public UIView developmentOverview;
+
+    public Button showDevelopmentOverviewButton;
+    public UIButton showDevelopmentOverviewUIButton;
+
+    public string projectName;
+
     [SerializeField]
     private List<GameObject> activeProjectsList;
     [SerializeField]
     private string barName;
     [SerializeField]
-    private string[] splitArray;
-    [SerializeField]
-    private string projectName;
+    private string[] splitArray;    
     [SerializeField]
     private int daysPast;
 
@@ -44,6 +50,9 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         projectName = splitArray[1];
         displayedName.text = projectName;
         progressBarFill = this.transform.Find("ProgressBar").gameObject;
+        developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
+        showDevelopmentOverviewUIButton.enabled = false;
+        showDevelopmentOverviewButton.enabled = false;
     }
 
     // Update is called once per frame
@@ -68,6 +77,8 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         if (progress == 100)
         {
             progressBarFill.GetComponent<ProgressBar>().color = Color.green;
+            showDevelopmentOverviewUIButton.enabled = true;
+            showDevelopmentOverviewButton.enabled = true;
         }
     }
 
@@ -101,4 +112,10 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
             progress = daysPast / developmentTime * 100;            
         }
     }
+
+    public void EnableDevelopmentOverview()
+    {
+        developmentOverview.Show();
+    }
+    
 }

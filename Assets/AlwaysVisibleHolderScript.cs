@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlwaysVisibleHolderScript : MonoBehaviour
 {
     public ListAvailableStaff listAvailableStaffScript;
+    public GameObject developmentOverviewBodyView;
     // Start is called before the first frame update
     void Start()
     {

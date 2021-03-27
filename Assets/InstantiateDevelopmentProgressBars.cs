@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Doozy.Engine.UI;
 
 
 public class InstantiateDevelopmentProgressBars : MonoBehaviour
@@ -10,6 +11,8 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
 
     public GameObject progressBarPrefab;
     public Transform progressBarParent;
+
+    public UIView developmentOverview;
 
     [SerializeField]
     private List<GameObject> progressBarList;
@@ -71,5 +74,6 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
             progressBar.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, index * -85);
             index++;
         }
-    } 
+    }
+    
 }
