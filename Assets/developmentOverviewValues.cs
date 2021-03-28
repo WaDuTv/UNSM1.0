@@ -35,15 +35,12 @@ public class developmentOverviewValues : MonoBehaviour
     private List<string> lastNames;
     // Start is called before the first frame update
     void Start()
-    {        
-        finishedGamesContainer = GameObject.Find("CurrentActiveProjects").transform; /*<< Just for Testing, else use line below*/
-        //finishedGamesContainer = GameObject.Find("MyFinishedGames").transform;
-        thisProject = finishedGamesContainer.Find(gameInProgressStats.projectName).gameObject;
-        staffContainer = GameObject.Find("CompanyStaff").transform;
-        staffList = thisProject.GetComponent<ProjectInDevelopment>().assignedStaff;
+    {
+        //finishedGamesContainer = GameObject.Find("CurrentActiveProjects").transform; /*<< Just for Testing, else use line below*/        
+        staffContainer = GameObject.Find("CompanyStaff").transform;        
         gameInProgressStats = this.gameObject.GetComponent<GameDevelopmentProgressbarCalculation>();
         developmentOverviewView = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>().developmentOverviewBodyView;
-        GetAndSetValues();
+        //GetAndSetValues();
     }
 
     // Update is called once per frame
@@ -54,6 +51,10 @@ public class developmentOverviewValues : MonoBehaviour
 
     public void GetAndSetValues()
     {
+        finishedGamesContainer = GameObject.Find("MyFinishedGames").transform;
+        thisProject = finishedGamesContainer.Find(gameInProgressStats.projectName).gameObject;
+        staffList = thisProject.GetComponent<ProjectInDevelopment>().assignedStaff;
+
         programmingStats = new List<int>();
         soundStats = new List<int>();
         graphicStats = new List<int>();
@@ -168,10 +169,28 @@ public class developmentOverviewValues : MonoBehaviour
 
         _LeadingStaff.Find("GameDesignLeader").GetComponent<TMP_Text>().text = designLead;
 
-        //Set Development Summary
+        //Set Development Summary (Wanted Values VS. SetValues)
+        Transform _barContainers = developmentOverviewView.transform.Find("Body").Find("Right").Find("DevelopmentSummary").Find("BarContainers").transform;
 
+        float _graphicsProgress = (finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().setGraphics / finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().maxGraphics) * 100;
+        float _soundProgress = (finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().setSound / finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().maxSound) * 100;
+        float _gameplayProgress = (finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().setGameplay / finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().maxGraphics) * 100;
+        float _contentProgress = (finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().setGraphics / finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().maxGraphics) * 100;
+        float _controlsProgress = (finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().setGraphics / finishedGamesContainer.Find(gameInProgressStats.projectName).GetComponent<CalculateGameScore>().maxGraphics) * 100;
 
+        _barContainers.Find("GraphicsBarContainer").Find("Graphics Progress Bar").GetComponent<Slider>().value = _graphicsProgress;
+        _barContainers.Find("SoundBarContainer").Find("Sound Progress Bar").GetComponent<Slider>().value = _soundProgress;
+        _barContainers.Find("GameplayBarContainer").Find("Gameplay Progress Bar").GetComponent<Slider>().value = _gameplayProgress;
+        _barContainers.Find("ContentBarContainer").Find("Content Progress Bar").GetComponent<Slider>().value = _contentProgress;
+        _barContainers.Find("ControlsBarContainer").Find("Controls Progress Bar").GetComponent<Slider>().value = _controlsProgress;
+
+        _barContainers.Find("GraphicsBarContainer").Find("Graphics%").GetComponent <TMP_Text>().text = Mathf.Round(_graphicsProgress).ToString() + "%";
+        _barContainers.Find("SoundBarContainer").Find("Sound%").GetComponent<TMP_Text>().text = Mathf.Round(_soundProgress).ToString() + "%";
+        _barContainers.Find("GameplayBarContainer").Find("Gameplay%").GetComponent<TMP_Text>().text = Mathf.Round(_gameplayProgress).ToString() + "%";
+        _barContainers.Find("ContentBarContainer").Find("Content%").GetComponent<TMP_Text>().text = Mathf.Round(_contentProgress).ToString() + "%";
+        _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = Mathf.Round(_controlsProgress).ToString() + "%";
     }
+
 
 }
 

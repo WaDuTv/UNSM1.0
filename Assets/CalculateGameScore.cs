@@ -27,29 +27,20 @@ public class CalculateGameScore : MonoBehaviour
     [SerializeField]
     private float staffAverageDesign;
 
-    [SerializeField]
-    private float maxGraphics;
-    [SerializeField]
-    private float maxSound;
-    [SerializeField]
-    private float maxGameplay;
-    [SerializeField]
-    private float maxContent;
-    [SerializeField]
-    private float maxControls;
-    [SerializeField]
-    private float optimumSum;
+    
+    public float maxGraphics;    
+    public float maxSound;    
+    public float maxGameplay;    
+    public float maxContent;    
+    public float maxControls;    
+    public float optimumSum;
 
-    [SerializeField]
-    private float setGraphics;
-    [SerializeField]
-    private float setSound;
-    [SerializeField]
-    private float setGameplay;
-    [SerializeField]
-    private float setContent;
-    [SerializeField]
-    private float setControls;
+    
+    public float setGraphics;
+    public float setSound;    
+    public float setGameplay;    
+    public float setContent;    
+    public float setControls;
 
 
     private float graphicsRatio;

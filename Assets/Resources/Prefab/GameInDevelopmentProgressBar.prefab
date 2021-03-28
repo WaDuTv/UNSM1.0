@@ -597,6 +597,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5396729147144938209}
+        m_TargetAssemblyTypeName: developmentOverviewValues, Assembly-CSharp
+        m_MethodName: GetAndSetValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1266499105776330277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,8 +1496,8 @@ MonoBehaviour:
         SoundName: No Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
-    PresetCategory: Uncategorized
-    PresetName: Default
+    PresetCategory: Scale
+    PresetName: ClickInFast
     PunchAnimation:
       AnimationType: 4
       Move:
@@ -2903,6 +2915,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInProgressStats: {fileID: 4213179373719244012}
+  projectLead: 
+  graphicsLead: 
+  soundLead: 
+  leadingProgrammer: 
+  designLead: 
   developmentOverviewView: {fileID: 0}
   finishedGamesContainer: {fileID: 0}
   thisProject: {fileID: 0}
+  staffContainer: {fileID: 0}
+  staffList: []
