@@ -191,7 +191,10 @@ public class developmentOverviewValues : MonoBehaviour
         _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = Mathf.Round(_controlsProgress).ToString() + "%";
     }
 
-
+    public void DetstroyDevelopmentProgressBar()
+    {        
+        Destroy(this.gameObject);
+    }
 }
 
 

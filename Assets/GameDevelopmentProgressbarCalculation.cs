@@ -28,6 +28,8 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     public Button showDevelopmentOverviewButton;
     public UIButton showDevelopmentOverviewUIButton;
 
+    public sendToReview sendToReviewButton;
+
     public string projectName;
 
     [SerializeField]
@@ -53,6 +55,7 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
         showDevelopmentOverviewUIButton.enabled = false;
         showDevelopmentOverviewButton.enabled = false;
+        sendToReviewButton = GameObject.Find("Button - Send to Review").GetComponent<sendToReview>();
     }
 
     // Update is called once per frame
@@ -60,7 +63,10 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     {
         currentDay = EnviroSky.instance.GameTime.Days;
         currentYear = EnviroSky.instance.GameTime.Years;
-        CalculateProgress();
+        if (progress < 100)
+        { 
+            CalculateProgress();
+        }
         UpdateProgressBar();
         if(progress <=33)
         {
@@ -115,6 +121,8 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
 
     public void EnableDevelopmentOverview()
     {
+        sendToReviewButton.barName = barName;
+        sendToReviewButton.projectName = projectName;
         developmentOverview.Show();
     }
     

@@ -37,8 +37,14 @@ public class ProjectInDevelopment : MonoBehaviour
     public int endDay;
     public int endYear;
 
+    public int sendAwayDay;
+    public int sendAwayYear;
+    public int reviewDay;
+    public int reviewYear;
+
     public bool isFinished = false;
     public bool isRated = false;
+    public bool hasBeenSent = false;
     
     public List<string> assignedStaff;
 
@@ -84,13 +90,17 @@ public class ProjectInDevelopment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnviroSky.instance.GameTime.Days >= endDay && EnviroSky.instance.GameTime.Years >= endYear && isRated == false)
+        if(EnviroSky.instance.GameTime.Days >= endDay && EnviroSky.instance.GameTime.Years >= endYear && isFinished == false && isRated == false)
         {
             isFinished = true;            
             this.transform.parent = finishedGameContainer;
-            GetComponent<CalculateGameScore>().GameScore();
-            isRated = true;
+            GetComponent<CalculateGameScore>().GameScore();            
         }
+        if (EnviroSky.instance.GameTime.Days >= reviewDay && EnviroSky.instance.GameTime.Years >= reviewYear && isFinished ==true  && hasBeenSent == true)
+        {
+            isRated = true;            
+        }
+
     }
 
     public void StartDevelopmentCycle()
@@ -116,5 +126,24 @@ public class ProjectInDevelopment : MonoBehaviour
         {
             endYear = startYear + developmentInYears;
         }
+    }
+
+    public void sendToRating()
+    {
+        sendAwayDay = EnviroSky.instance.GameTime.Days;
+        sendAwayYear = EnviroSky.instance.GameTime.Years;
+
+        reviewDay = sendAwayDay + Random.Range(5, 11);
+
+        if(reviewDay < 360)
+        {
+            reviewYear = sendAwayYear;
+        }
+        if(reviewDay > 360)
+        {
+            reviewDay = reviewDay - 360;
+            reviewYear = sendAwayYear + 1;
+        }
+        hasBeenSent = true;
     }
 }

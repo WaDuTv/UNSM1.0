@@ -27394,42 +27394,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502697398}
   m_CullTransparentMesh: 1
---- !u!84 &503934304
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Enviro Reflection Final Cubemap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 48
-  m_MipMap: 1
-  m_GenerateMips: 0
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 4
-  m_VolumeDepth: 1
 --- !u!4 &507545300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4151591542341572, guid: e2c2e76c8b743534e8a82c2bf7dd988b,
@@ -36368,6 +36332,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 690406860}
+        m_TargetAssemblyTypeName: InstantiateDevelopmentProgressBars, Assembly-CSharp
+        m_MethodName: UpdateBarPositions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &541173080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38104,6 +38080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576160075}
   - component: {fileID: 576160076}
+  - component: {fileID: 576160077}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -38139,8 +38116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worker: {fileID: 11400000, guid: 43010736e7d65c544965a57efabacc82, type: 2}
   assignedProjectName: 
-  lastName: Kaltwasser
-  firstName: Sascha
+  lastName: TV
+  firstName: WaDu
   workerProfession: Designer
   workerStatProgramming: 6
   workerStatSound: 4
@@ -38149,6 +38126,22 @@ MonoBehaviour:
   isAvailable: 0
   isAssignedToProject: 0
   currentProject: 
+--- !u!114 &576160077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576160074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2af008700dc1249b0fc63178ce8517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staffHandlerScript: {fileID: 576160076}
+  companyManager: {fileID: 0}
+  setupDone: 0
+  splitArray: []
 --- !u!4 &576518269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4272729969867668, guid: 80000c15c13d4674eacbb9ed528d2e94,
@@ -39884,6 +39877,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628393389}
   m_CullTransparentMesh: 1
+--- !u!84 &629348399
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 2048
+  m_Height: 2048
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &630379244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43170,11 +43199,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeProjectContainer: {fileID: 85358207}
+  finishedGamesContainer: {fileID: 674270185}
+  listHoder: {fileID: 1338371338}
   activeProjectsList: []
+  projectsInReviewList: []
   progressBarPrefab: {fileID: 1689859658560473846, guid: 55bdf22b3a9d4ad4798edc2738ab8763,
     type: 3}
   progressBarParent: {fileID: 690406856}
-  developmentOverview: {fileID: 0}
+  developmentOverview: {fileID: 1071453831}
+  index: 0
   progressBarList: []
 --- !u!1 &692818479
 GameObject:
@@ -51363,6 +51396,42 @@ MonoBehaviour:
   _temp: {fileID: 11400000, guid: 209788557289be5498a02d0ba13c9a3c, type: 2}
   gridBuildingSystem3D: {fileID: 0}
   objList: []
+--- !u!84 &864784377
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &870379672
 GameObject:
   m_ObjectHideFlags: 0
@@ -83046,42 +83115,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!84 &1263193206
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 2048
-  m_Height: 2048
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1263714557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92122,6 +92155,7 @@ GameObject:
   - component: {fileID: 1338371335}
   - component: {fileID: 1338371336}
   - component: {fileID: 1338371337}
+  - component: {fileID: 1338371338}
   m_Layer: 0
   m_Name: OtherManagers
   m_TagString: Untagged
@@ -92206,6 +92240,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desktopView: {fileID: 348956456}
   createNewGameView: {fileID: 124918872}
+--- !u!114 &1338371338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338371332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b11e96d222857549b36368571309afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeProjectsList: []
+  projectsInReviewList: []
+  progressBarList: []
 --- !u!4 &1342924601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4631730319309726, guid: 5a2b2aefafe7a2f4bb79271e2b6b2e62,
@@ -94478,7 +94527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1402725945
 Transform:
   m_ObjectHideFlags: 0
@@ -100574,7 +100623,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc31dbe0c45c534b93795a239bbd733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  developmentSumaryView: {fileID: 0}
+  developmentSumaryView: {fileID: 1071453831}
+  barName: 
+  projectName: 
+  progressBarContainer: {fileID: 690406856}
+  finishedGameContainer: {fileID: 674270185}
+  instantiateProgressbarsScript: {fileID: 690406860}
+  listHolder: {fileID: 1338371338}
+  activeProjectsList: []
+  projectsInReviewList: []
+  progressBarList: []
 --- !u!1 &1506326143
 GameObject:
   m_ObjectHideFlags: 0
@@ -121356,11 +121414,11 @@ MonoBehaviour:
   LST: 670.2833
   lastHourUpdate: 12
   hourTime: 0
-  cloudAnim: {x: 0.1, y: 0.093280874, z: -0.9702399}
-  cloudFlatBaseAnim: {x: 0, y: 0.7928386}
-  cloudFlatDetailAnim: {x: 0, y: -0.81935793}
-  cloudAnimNonScaled: {x: 0, y: -7.2080264}
-  cirrusAnim: {x: 0, y: 0.92468464}
+  cloudAnim: {x: 0.1, y: -0.6713207, z: -0.8340725}
+  cloudFlatBaseAnim: {x: 0, y: 0.3161128}
+  cloudFlatDetailAnim: {x: 0, y: -0.7261247}
+  cloudAnimNonScaled: {x: 0, y: -7.6848254}
+  cirrusAnim: {x: 0, y: 0.7212831}
   windIntensity: 0.24999999
   shadowIntensityMod: 0
   interiorMode: 0
@@ -121495,9 +121553,9 @@ MonoBehaviour:
   currentActiveCloudsQualityPreset: {fileID: 11400000, guid: a836f7605a4cd2b46977d5caf63945fc,
     type: 2}
   cloudsRenderTarget: {fileID: 0}
-  weatherMap: {fileID: 1880270939}
+  weatherMap: {fileID: 864784377}
   satRenderTarget: {fileID: 0}
-  cloudShadowMap: {fileID: 1263193206}
+  cloudShadowMap: {fileID: 629348399}
   skyMat: {fileID: 1935257501}
   skyReflectionMat: {fileID: 0}
   cloudsQualityList:
@@ -122079,42 +122137,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879796928}
   m_CullTransparentMesh: 1
---- !u!84 &1880270939
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1887425750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125314,6 +125336,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957395675}
   m_CullTransparentMesh: 1
+--- !u!84 &1957921892
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enviro Reflection Final Cubemap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 48
+  m_MipMap: 1
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 4
+  m_VolumeDepth: 1
 --- !u!4 &1957933616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 493038, guid: dab5db0c0226560499e1021898aafb64,
@@ -127506,7 +127564,7 @@ ReflectionProbe:
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
-  m_CustomBakedTexture: {fileID: 503934304}
+  m_CustomBakedTexture: {fileID: 1957921892}
 --- !u!1001 &2034170478
 PrefabInstance:
   m_ObjectHideFlags: 0
