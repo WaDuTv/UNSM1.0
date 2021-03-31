@@ -17,6 +17,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
     public List<GameObject> projectsInReviewList;
 
     public GameObject progressBarPrefab;
+    public GameObject reviewProgressBarPrefab;
     public Transform progressBarParent;
 
     public UIView developmentOverview;
@@ -115,7 +116,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
                 {                    
                     projectsInReviewList.Add(pir.gameObject);
                     activeProjectsList.Remove(pir.gameObject);
-                    GameObject progressBar = Instantiate(progressBarPrefab, progressBarParent);
+                    GameObject progressBar = Instantiate(reviewProgressBarPrefab, progressBarParent);
                     progressBar.transform.Find("ProgressBar").GetComponent<Image>().enabled = false;
                     progressBar.transform.Find("ProgressBar").GetComponent<ProgressBar>().enabled = false;
                     progressBar.transform.Find("ProgressBar").Find("Mask").Find("Fill").GetComponent<Image>().enabled = false;                    
@@ -135,7 +136,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
             Vector2 _positionOffset = new Vector2(0, index * -85f);
             Vector2 _newPosition = _defaultPosition + _positionOffset;
             Debug.Log("Position of " + bar.name + "should be " + (barTransform.GetComponent<RectTransform>().anchoredPosition += _positionOffset));
-            barTransform.GetComponent<RectTransform>().anchoredPosition = _newPosition;
+            barTransform.GetComponent<RectTransform>().anchoredPosition += _positionOffset;
             Debug.Log("But it is" + barTransform.GetComponent<RectTransform>().anchoredPosition);
             index++;
         }

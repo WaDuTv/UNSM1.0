@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d902aefc33274f88f63f9e891482b, type: 3}
   m_Name: Sports
   m_EditorClassIdentifier: 
-  gameGenre: 
-  optimumGraphics: 0
-  optimumSound: 0
-  optimumGameplay: 0
-  optimumContent: 0
-  optimumControls: 0
-  audienceRating_kids: 0
-  audienceRating_teenagers: 0
-  audienceRating_adults: 0
-  audienceRating_seniors: 0
+  gameGenre: Sports
+  optimumGraphics: 6
+  optimumSound: 8
+  optimumGameplay: 7
+  optimumContent: 4
+  optimumControls: 8
+  audienceRating_kids: 5
+  audienceRating_teenagers: 8
+  audienceRating_adults: 9
+  audienceRating_seniors: 6
   audienceRating_everyone: 0
   isBooming: 0
-  fittingSubgenres: []
+  fittingSubgenres:
+  - {fileID: 11400000, guid: 1f46f1e73886d9940b2f07c30e4f7377, type: 2}
   fittingThemes: []

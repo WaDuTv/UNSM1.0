@@ -6,6 +6,7 @@ public class AlwaysVisibleHolderScript : MonoBehaviour
 {
     public ListAvailableStaff listAvailableStaffScript;
     public GameObject developmentOverviewBodyView;
+    public GameObject reviewSplashScreen;
     // Start is called before the first frame update
     void Start()
     {

@@ -19,11 +19,15 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     public int currentDay;
     public int currentYear;
 
+    public int getReviewReadyDay;
+    public int getReviewReadyYear;
+
     public TMP_Text displayedName;
 
     public GameObject progressBarFill;
 
     public UIView developmentOverview;
+    public UIView reviewSplashScreen;
 
     public Button showDevelopmentOverviewButton;
     public UIButton showDevelopmentOverviewUIButton;
@@ -53,9 +57,12 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         displayedName.text = projectName;
         progressBarFill = this.transform.Find("ProgressBar").gameObject;
         developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
+        reviewSplashScreen = GameObject.Find("View - ReviewResultSplashScreen").GetComponent<UIView>();
         showDevelopmentOverviewUIButton.enabled = false;
         showDevelopmentOverviewButton.enabled = false;
         sendToReviewButton = GameObject.Find("Button - Send to Review").GetComponent<sendToReview>();
+        getReviewReadyDay = this.gameObject.GetComponent<developmentOverviewValues>().reviewReadyDay;
+        getReviewReadyYear = this.gameObject.GetComponent<developmentOverviewValues>().reviewReadyYear;
     }
 
     // Update is called once per frame
@@ -63,6 +70,7 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     {
         currentDay = EnviroSky.instance.GameTime.Days;
         currentYear = EnviroSky.instance.GameTime.Years;
+        
         if (progress < 100)
         { 
             CalculateProgress();
@@ -85,7 +93,7 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
             progressBarFill.GetComponent<ProgressBar>().color = Color.green;
             showDevelopmentOverviewUIButton.enabled = true;
             showDevelopmentOverviewButton.enabled = true;
-        }
+        }        
     }
 
     public void UpdateProgressBar()
@@ -125,5 +133,11 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         sendToReviewButton.projectName = projectName;
         developmentOverview.Show();
     }
-    
+    public void EnableReviewResultsView()
+    {
+        sendToReviewButton.barName = "In Review" + barName;
+        sendToReviewButton.projectName = projectName;
+        reviewSplashScreen.Show();
+    }
+
 }

@@ -15,4 +15,7 @@ MonoBehaviour:
   CategoryName: Others
   DatabaseType: 0
   Names:
+  - DisplayDevelopmentOverview
+  - DisplayDevelopmentOverview
+  - DisplayReviewResults
   - Send to Review

@@ -19,6 +19,9 @@ public class StaffHandler : MonoBehaviour
     public int workerStatGraphics;
     public int workerStatDesign;
 
+    public int workerStatGraphicsAndDesign;
+    public int workerStatProgrammingAndDesign;
+
     public bool isAvailable;
     public bool isAssignedToProject;
 
@@ -30,6 +33,8 @@ public class StaffHandler : MonoBehaviour
     void Awake() 
     {        
         this.gameObject.name = "worker_"+firstName + " " + lastName;
+        workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
+        workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;
     }
 
     // Update is called once per frame
