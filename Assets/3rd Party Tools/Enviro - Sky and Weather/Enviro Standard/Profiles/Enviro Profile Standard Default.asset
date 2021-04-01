@@ -845,7 +845,7 @@ MonoBehaviour:
     cloudsWorldScale: 250000
     cloudsHeightMod: 0
     cloudsSkyFogHeightBlending: 15000
-    depthBlending: 0
+    depthBlending: 1
     bilateralUpsampling: 0
     useWindZoneDirection: 1
     cloudsTimeScale: 1
@@ -1681,7 +1681,7 @@ MonoBehaviour:
   showPlayerSetup: 0
   showRenderingSetup: 0
   showComponentsSetup: 0
-  showTimeUI: 0
+  showTimeUI: 1
   showWeatherUI: 0
   showAudioUI: 1
   showEffectsUI: 1
