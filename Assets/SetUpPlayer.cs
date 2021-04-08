@@ -8,6 +8,8 @@ public class SetUpPlayer : MonoBehaviour
     public CompanyManager companyManager;
     public bool setupDone;
 
+    public GameObject playerModel;
+
     [SerializeField]
     private string[] splitArray;
     // Start is called before the first frame update
