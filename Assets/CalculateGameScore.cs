@@ -7,25 +7,18 @@ public class CalculateGameScore : MonoBehaviour
     public ProjectInDevelopment projectSettings;
     public AlwaysVisibleHolderScript alwaysVisibleHolderScript;
 
-    [SerializeField]
-    private float totalAmountoffStaffMembers;
-    [SerializeField]
-    private int staffTotalProgramming;
-    [SerializeField]
-    private int staffTotalSound;
-    [SerializeField]
-    private int staffTotalGraphics;
-    [SerializeField]
-    private int staffTotalDesign;
     
-    [SerializeField]
-    private float staffAverageProgramming;
-    [SerializeField]
-    private float staffAverageSound;
-    [SerializeField]
-    private float staffAverageGraphics;
-    [SerializeField]
-    private float staffAverageDesign;
+    public float totalAmountoffStaffMembers;
+    public int staffTotalProgramming;
+    public int staffTotalSound;
+    public int staffTotalGraphics;
+    public int staffTotalDesign;
+
+
+    public float staffAverageProgramming;
+    public float staffAverageSound;
+    public float staffAverageGraphics;
+    public float staffAverageDesign;
 
     
     public float maxGraphics;    

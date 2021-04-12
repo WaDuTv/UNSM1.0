@@ -418,9 +418,18 @@ MonoBehaviour:
   languageDropdown: {fileID: 0}
   saveName: {fileID: 0}
   HiredStaffContainer: {fileID: 0}
+  activeProjectsContainer: {fileID: 0}
+  myFinishedGamesContainer: {fileID: 0}
   workerPrefab: {fileID: 4112824406894923111, guid: 6c9cb237fbf3b1f4cbb7046d87b0cf58,
     type: 3}
+  workerPrefabParent: {fileID: 0}
+  projectsPrefab: {fileID: 3589714108457886874, guid: b0a7b4c2e10b38c43ab5e3a820c7107f,
+    type: 3}
+  activeProjectsParent: {fileID: 0}
+  finishedProjectsParent: {fileID: 0}
   hiredWorkers: []
+  activeProjectsList: []
+  finishedProjectsList: []
 --- !u!4 &1671981056
 Transform:
   m_ObjectHideFlags: 0

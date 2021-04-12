@@ -29,50 +29,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //activeProjectsList = listHoder.activeProjectsList;
-        //projectsInReviewList = listHoder.projectsInReviewList;
-        //progressBarList = listHoder.progressBarList;
-        //Transform[] activeProjects = activeProjectContainer.gameObject.GetComponentsInChildren<Transform>();
-        //Transform[] projectsinReview = finishedGamesContainer.gameObject.GetComponentsInChildren<Transform>();
-
-        //int index = 0;
-
-        //foreach (Transform project in activeProjects)
-        //{
-        //    if (project != null && project.name != "CurrentActiveProjects")
-        //    {
-        //        if (activeProjectsList.Contains(project.gameObject))
-        //        { }
-        //        else
-        //        {
-        //            activeProjectsList.Add(project.gameObject);
-        //            GameObject progressBar = Instantiate(progressBarPrefab, progressBarParent);
-        //            progressBar.name = "ProgressBar_" + project.name;
-        //            progressBarList.Add(progressBar);
-        //        }
-        //    }
-        //}
-
-        //foreach (Transform pir in projectsinReview)
-        //{
-        //    if (pir != null && pir.name != "MyFinishedGames" && pir.gameObject.GetComponent<ProjectInDevelopment>().isRated == false && pir.gameObject.GetComponent<ProjectInDevelopment>().hasBeenSent == true)
-        //    {
-        //        if (projectsInReviewList.Contains(pir.gameObject))
-        //        { }
-        //        else
-        //        {
-        //            projectsInReviewList.Add(pir.gameObject);
-        //            activeProjectsList.Remove(pir.gameObject);
-        //            GameObject progressBar = Instantiate(progressBarPrefab, progressBarParent);
-        //            progressBar.transform.Find("ProgressBar").GetComponent<Image>().enabled = false;
-        //            progressBar.transform.Find("ProgressBar").GetComponent<ProgressBar>().enabled = false;
-        //            progressBar.transform.Find("ProgressBar").Find("Mask").Find("Fill").GetComponent<Image>().enabled = false;
-        //            progressBar.transform.Find("ProgressBar").Find("GameName").GetComponent<TMP_Text>().text = "In Review: " + pir.name;
-        //            progressBar.name = "InReviewBar_" + pir.name;
-        //            progressBarList.Add(progressBar);
-        //        }
-        //    }
-        //}
+        
     }
 
     // Update is called once per frame
@@ -108,6 +65,23 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
 
         foreach (Transform pir in projectsinReview)
         {
+            if (pir != null && pir.name != "MyFinishedGames" && pir.gameObject.GetComponent<ProjectInDevelopment>().isRated == false && pir.gameObject.GetComponent<ProjectInDevelopment>().hasBeenSent == false)
+            {
+                if (projectsInReviewList.Contains(pir.gameObject))
+                { }
+                else
+                {
+                    projectsInReviewList.Add(pir.gameObject);
+                    activeProjectsList.Remove(pir.gameObject);
+                    GameObject progressBar = Instantiate(progressBarPrefab, progressBarParent);
+                    progressBar.transform.Find("ProgressBar").GetComponent<Image>().enabled = false;
+                    progressBar.transform.Find("ProgressBar").GetComponent<ProgressBar>().enabled = false;
+                    progressBar.transform.Find("ProgressBar").Find("Mask").Find("Fill").GetComponent<Image>().enabled = true;
+                    progressBar.name = "ProgressBar_" + pir.name;
+                    progressBarList.Add(progressBar);
+                }
+            }
+            
             if (pir != null && pir.name != "MyFinishedGames" && pir.gameObject.GetComponent<ProjectInDevelopment>().isRated == false && pir.gameObject.GetComponent<ProjectInDevelopment>().hasBeenSent == true)
             {
                 if (projectsInReviewList.Contains(pir.gameObject))
