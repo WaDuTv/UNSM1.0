@@ -37,6 +37,16 @@ public class CompanyManager : MonoBehaviour
     public TMP_Text graphicsValue;
     public TMP_Text designValue;
 
+    public GameObject playerModel;
+    public Material playerMaterial;
+
+    public int playerModelIndex;
+    public int playerMaterialIndex;
+
+    public List<GameObject> playerModels;
+
+    public List<Material> playerMaterials;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,9 +64,10 @@ public class CompanyManager : MonoBehaviour
 
     private void Start()
     {
+        playerMaterial = playerMaterials[playerMaterialIndex];
         country = 0;
         difficulty = 0;
-        startingMoney = 20000;
+        startingMoney = 20000;        
     }
 
     // Update is called once per frame

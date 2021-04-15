@@ -5,7 +5,7 @@ using TMPro;
 
 public class StaffHandler : MonoBehaviour
 {
-    public WorkersSO worker;
+    public WorkersSO worker;    
 
     public characterVisuals characterVisualsManager; 
 
@@ -39,6 +39,8 @@ public class StaffHandler : MonoBehaviour
 
     public string currentProject;
 
+    public bool isPlayer = false;
+
     [SerializeField]
     private GameObject workerMaterialHolder;
     
@@ -55,7 +57,8 @@ public class StaffHandler : MonoBehaviour
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
         workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;
         //SetUp Worker Model
-        
+        if(GetComponent<SetUpPlayer>() == null)
+        { 
         workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
         workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
 
@@ -79,9 +82,9 @@ public class StaffHandler : MonoBehaviour
         workerModel.name = "workerModel_" + firstName + " " + lastName;
         workerModel.transform.position = new Vector3(-7, 0, -5);
         workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
-
+        }
         //Set WorkerID
-        if(workerIDSet == false)
+        if (workerIDSet == false)
         {
             workerID = Random.Range(100000, 999999);
             workerIDSet = true;
