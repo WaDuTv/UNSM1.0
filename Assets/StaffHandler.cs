@@ -42,11 +42,16 @@ public class StaffHandler : MonoBehaviour
     public bool isPlayer = false;
 
     [SerializeField]
-    private GameObject workerMaterialHolder;
+    private GameObject workerMaterialHolder;    
     
     public GameObject workerModelprefab;
-    
+    public GameObject playerModel;
+
     public Material workerMaterial;
+
+    public Vector3 lastModelPosition;
+    public Quaternion lastModelRotation;
+
 
 
     // Start is called before the first frame update
@@ -55,34 +60,7 @@ public class StaffHandler : MonoBehaviour
         modelContainer = GameObject.Find("ModelContainer").transform;
         this.gameObject.name = "worker_"+firstName + " " + lastName;
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
-        workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;
-        //SetUp Worker Model
-        if(GetComponent<SetUpPlayer>() == null)
-        { 
-        workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
-        workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
-
-        workerModel = Instantiate(workerModelprefab, modelContainer);
-        if(workerModelprefab.name == "Developer_Female_01")
-        {
-            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_01").gameObject;
-        }
-        if (workerModelprefab.name == "Developer_Female_02")
-        {
-            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_02").gameObject;
-        }
-        if (workerModelprefab.name == "Developer_Male_01")
-        {
-            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_01").gameObject;
-        }
-        if (workerModelprefab.name == "Developer_Male_02")
-        {
-            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_02").gameObject;
-        }
-        workerModel.name = "workerModel_" + firstName + " " + lastName;
-        workerModel.transform.position = new Vector3(-7, 0, -5);
-        workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
-        }
+        workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;                
         //Set WorkerID
         if (workerIDSet == false)
         {
@@ -90,6 +68,43 @@ public class StaffHandler : MonoBehaviour
             workerIDSet = true;
         }
                 
+    }
+
+    private void Start()
+    {
+        if(GetComponent<SetUpPlayer>() == null)
+        {                                        
+            workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
+            workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
+
+            workerModel = Instantiate(workerModelprefab, modelContainer);
+            if (workerModelprefab.name == "Developer_Female_01")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_01").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Female_02")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_02").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Male_01")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_01").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Male_02")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_02").gameObject;
+            }
+            workerModel.name = "workerModel_" + firstName + " " + lastName;
+            workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
+            
+            workerModel.transform.position = lastModelPosition;
+            workerModel.transform.rotation = lastModelRotation;
+        }
+        if (GetComponent<SetUpPlayer>() != null)
+        {
+            playerModel.transform.position = lastModelPosition;
+            playerModel.transform.rotation = lastModelRotation;            
+        }
     }
 
     // Update is called once per frame

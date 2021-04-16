@@ -91,7 +91,8 @@ public class saveManager : MonoBehaviour
 
     public void SaveData()
     {
-        if(GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>() != null)
+        AlwaysVisibleHolderScript = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
+        if (GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>() != null)
         { 
         saveName = GameObject.FindGameObjectWithTag("SaveNameInputField").GetComponent<TMP_InputField>();
         }
@@ -131,13 +132,14 @@ public class saveManager : MonoBehaviour
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
 
-        //Save Player
+        //Save Player        
         playerContainer = GameObject.Find("PlayerContainer").transform;
-        GameObject _player = playerContainer.GetComponentInChildren<Transform>().gameObject;
+        GameObject _player = AlwaysVisibleHolderScript.playerPrefab;
         SetUpPlayer _setUpPlayerScript = _player.gameObject.GetComponent<SetUpPlayer>();
         StaffHandler _playerStaffHandler = _player.gameObject.GetComponent<StaffHandler>();
+        GameObject _playermodel = AlwaysVisibleHolderScript.playerModel;
 
-        if(_player != null && _player.gameObject != null && _player.transform != playerContainer)
+        if(_player != null)
         {                         
             saveData.Add("Player CharacterPrefab_" , _playerStaffHandler.workerModelprefabIndex);
             saveData.Add("Player CharacterPrefabMaterial_" , _playerStaffHandler.workerMaterialIndex);            
@@ -159,7 +161,10 @@ public class saveManager : MonoBehaviour
             saveData.Add("Player is asigned_" , _playerStaffHandler.isAssignedToProject);
 
             saveData.Add("PlayerSetUpIsDone", _setUpPlayerScript.setupDone);
+
+            saveData.Add("PlayerModel_Transform", _playermodel.transform);            
         }
+        
 
         //Save Hired Staff and Status/Stats
         HiredStaffContainer = GameObject.Find("CompanyStaff");
@@ -170,8 +175,7 @@ public class saveManager : MonoBehaviour
         {
             StaffHandler sh = worker.gameObject.GetComponent<StaffHandler>();
             if (worker != null && worker.gameObject != null && worker.gameObject != HiredStaffContainer)
-            {
-                Debug.Log(worker);                                                
+            {                                                                
                 saveData.Add("Worker CharacterPrefab_" + sh.firstName + "_" + sh.lastName, sh.workerModelprefabIndex);
                 saveData.Add("Worker CharacterPrefabMaterial_" + sh.firstName + "_" + sh.lastName, sh.workerMaterialIndex);                
 
@@ -189,7 +193,9 @@ public class saveManager : MonoBehaviour
 
                 saveData.Add("Worker assigned Project_" + sh.firstName + "_" + sh.lastName, sh.assignedProjectName);
                 saveData.Add("Worker is available_" + sh.firstName + "_" + sh.lastName, sh.isAvailable);
-                saveData.Add("Worker is asigned_" + sh.firstName + "_" + sh.lastName, sh.isAssignedToProject);                
+                saveData.Add("Worker is asigned_" + sh.firstName + "_" + sh.lastName, sh.isAssignedToProject);
+
+                saveData.Add("Worker Model_Transform_" + sh.firstName + "_" + sh.lastName, sh.workerModel.transform);
 
                 hiredWorkers.Add(sh.firstName + "_" + sh.lastName);
             }
@@ -432,9 +438,13 @@ public class saveManager : MonoBehaviour
 
             bool playerSetUpDone = saveData.GetBool("PlayerSetUpIsDone");
 
+            var playerModel = saveData.GetUnityTransform("PlayerModel_Transform");            
+
             GameObject _player = AlwaysVisibleHolderScript.playerPrefab;
             StaffHandler playerSh = _player.GetComponent<StaffHandler>();
             SetUpPlayer _setUpPlayerScript = _player.GetComponent<SetUpPlayer>();
+            PlayerPositionHolder playerPositionHolder = _player.GetComponent<PlayerPositionHolder>();
+            GameObject _playermodel = AlwaysVisibleHolderScript.playerModel;
 
             playerSh.workerModelprefabIndex = playerPrefabIndex;
             playerSh.workerMaterialIndex = playerMaterialIndex;
@@ -454,6 +464,9 @@ public class saveManager : MonoBehaviour
             playerSh.assignedProjectName = playerAssignedProject;
             playerSh.isAvailable = playerIsAvailable;
             playerSh.isAssignedToProject = playerIsAssigned;
+
+            playerSh.lastModelPosition = playerModel.position;
+            playerSh.lastModelRotation = playerModel.rotation;
 
             _setUpPlayerScript.setupDone= playerSetUpDone;
 
@@ -484,6 +497,8 @@ public class saveManager : MonoBehaviour
                 bool workerIsAvailable = saveData.GetBool("Worker is available_" + worker);
                 bool workerIsAssigned = saveData.GetBool("Worker is assigned_" + worker);
 
+                var workerModel = saveData.GetUnityTransform("Worker Model_Transform_" + worker);
+
                 bool _setUpDone = saveData.GetBool("PlayerSetUpIsDone");
 
                 //Instantiate hired Workers
@@ -512,6 +527,10 @@ public class saveManager : MonoBehaviour
 
                     sh.isAvailable = workerIsAvailable;
                     sh.isAssignedToProject = workerIsAssigned;
+
+                    sh.lastModelPosition = workerModel.position;
+                    sh.lastModelRotation = workerModel.rotation;
+
                     Debug.Log("Did instantiate existing worker" + workerLastName);
                 }
                 if (GameObject.Find("worker_" + workerFirstName + " " + workerLastName) == null) 
@@ -538,6 +557,9 @@ public class saveManager : MonoBehaviour
 
                     sh.isAvailable = workerIsAvailable;
                     sh.isAssignedToProject = workerIsAssigned;
+
+                    sh.lastModelPosition = workerModel.position;
+                    sh.lastModelRotation = workerModel.rotation;
 
                     newWorker.gameObject.name = "worker_" + workerFirstName + " " + workerLastName;                    
                 }                                                                           

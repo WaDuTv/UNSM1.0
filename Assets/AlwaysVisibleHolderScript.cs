@@ -8,6 +8,7 @@ public class AlwaysVisibleHolderScript : MonoBehaviour
     public GameObject developmentOverviewBodyView;
     public GameObject reviewSplashScreen;
     public GameObject playerPrefab;
+    public GameObject playerModel;
     // Start is called before the first frame update
     void Start()
     {

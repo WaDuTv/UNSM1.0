@@ -44,14 +44,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worker: {fileID: 11400000, guid: 4f770117af1e819419cbaded65fe29da, type: 2}
+  characterVisualsManager: {fileID: 0}
+  workerModelprefabIndex: 0
+  workerMaterialIndex: 0
+  workerModel: {fileID: 0}
+  modelContainer: {fileID: 0}
   assignedProjectName: 
   lastName: 
   firstName: 
   workerProfession: 
+  workerID: 0
+  workerIDSet: 0
   workerStatProgramming: 0
   workerStatSound: 0
   workerStatGraphics: 0
   workerStatDesign: 0
+  workerStatGraphicsAndDesign: 0
+  workerStatProgrammingAndDesign: 0
   isAvailable: 0
   isAssignedToProject: 0
   currentProject: 
+  isPlayer: 0
+  workerMaterialHolder: {fileID: 0}
+  workerModelprefab: {fileID: 0}
+  workerMaterial: {fileID: 0}
+  lastModelPosition: {x: -7, y: 0, z: -5}
