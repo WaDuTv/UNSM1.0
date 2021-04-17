@@ -12,11 +12,13 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
 
     public float developmentTime;
     public int startDay;
+    public int startMonth;
     public int startYear;
 
     public float progress;
 
     public int currentDay;
+    public int currentMonth;
     public int currentYear;
 
     public int getReviewReadyDay;
@@ -44,6 +46,8 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     private string[] splitArray;    
     [SerializeField]
     private int daysPast;
+    [SerializeField]
+    private Clock clock;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +62,7 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         progressBarFill = this.transform.Find("ProgressBar").gameObject;
         developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
         reviewSplashScreen = GameObject.Find("View - ReviewResultSplashScreen").GetComponent<UIView>();
+        clock = GameObject.Find("TimeManager").GetComponent<Clock>();
         showDevelopmentOverviewUIButton.enabled = false;
         showDevelopmentOverviewButton.enabled = false;
         sendToReviewButton = GameObject.Find("Button - Send to Review").GetComponent<sendToReview>();
@@ -67,9 +72,10 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        currentDay = EnviroSky.instance.GameTime.Days;
-        currentYear = EnviroSky.instance.GameTime.Years;
+    {        
+        currentMonth = clock.month;
+        currentDay = ((clock.month - 1) * 30) + clock.day;
+        currentYear = clock.year;
         
         if (progress < 100)
         { 
@@ -114,13 +120,14 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         foreach (GameObject g in activeProjectsList)
         {
             if (g.name == projectName)
-            {                
-                startDay = g.GetComponent<ProjectInDevelopment>().startDay;
+            {                                
+                startMonth = g.GetComponent<ProjectInDevelopment>().startMonth;
+                startDay = g.GetComponent<ProjectInDevelopment>().startDay + ((startMonth-1)*30);
                 startYear = g.GetComponent<ProjectInDevelopment>().startYear;
                 developmentTime = g.GetComponent<ProjectInDevelopment>().setDevelopmentTime;
             }
         }
-        daysPast = currentDay - startDay + (currentYear - startYear) * EnviroSky.instance.GameTime.DaysInYear;
+        daysPast = currentDay - startDay + (currentYear - startYear) * 360;
         if (developmentTime != 0)
         {
             progress = daysPast / developmentTime * 100;            

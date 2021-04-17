@@ -32,14 +32,18 @@ public class ProjectInDevelopment : MonoBehaviour
     public float optimumDevelopmentTime;
 
     public int startDay;
+    public int startMonth;
     public int startYear;
 
     public int endDay;
+    public int endMonth;
     public int endYear;
 
     public int sendAwayDay;
+    public int sendAwayMonth;
     public int sendAwayYear;
     public int reviewDay;
+    public int reviewMonth;
     public int reviewYear;
 
     public bool isFinished = false;
@@ -51,13 +55,17 @@ public class ProjectInDevelopment : MonoBehaviour
     public Transform finishedGameContainer;
     [SerializeField]
     private int developmentInYears;
+    [SerializeField]
+    private Clock clock;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartDevelopmentCycle();
         finishedGameContainer = GameObject.Find("MyFinishedGames").transform;
-        if(gameSize == "C")
+        clock = GameObject.Find("TimeManager").GetComponent<Clock>();
+        StartDevelopmentCycle();
+        
+        if (gameSize == "C")
         {
             defaultPrice = 10;
         }
@@ -90,13 +98,13 @@ public class ProjectInDevelopment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnviroSky.instance.GameTime.Days >= endDay && EnviroSky.instance.GameTime.Years >= endYear && isFinished == false && isRated == false)
+        if(clock.day >= endDay && clock.month >= endMonth && clock.year >= endYear && isFinished == false && isRated == false)
         {
             isFinished = true;            
             this.transform.parent = finishedGameContainer;
             GetComponent<CalculateGameScore>().GameScore();            
         }
-        if (EnviroSky.instance.GameTime.Days >= reviewDay && EnviroSky.instance.GameTime.Years >= reviewYear && isFinished ==true  && hasBeenSent == true)
+        if (clock.day >= reviewDay && clock.month >= reviewMonth  && clock.year >= reviewYear && isFinished ==true  && hasBeenSent == true)
         {
             isRated = true;            
         }
@@ -105,18 +113,21 @@ public class ProjectInDevelopment : MonoBehaviour
 
     public void StartDevelopmentCycle()
     {       
-        startDay = EnviroSky.instance.GameTime.Days;
-        startYear = EnviroSky.instance.GameTime.Years;
+        startDay = clock.day;
+        startMonth = clock.month;
+        startYear = clock.year;
 
-        developmentInYears = ((int)setDevelopmentTime + startDay) / 360;
+        developmentInYears = ((int)setDevelopmentTime + startDay + (startMonth-1)*30) / 360;
 
         if (developmentInYears <= 1)
         {
-            endDay = startDay + (int)setDevelopmentTime;
+            endDay = startDay;
+            endMonth = startMonth + (int)setDevelopmentTime / 30;
         }
-        if (startDay + (int)setDevelopmentTime >= 1)
+        if (developmentInYears >= 1)
         {
-            endDay = startDay + (int)setDevelopmentTime - 360*developmentInYears;
+            endDay = startDay;
+            endMonth = ((int)setDevelopmentTime / 30 + startMonth) - 12;
         }
         if (startDay + (int)setDevelopmentTime <= 1)
         {
@@ -130,18 +141,29 @@ public class ProjectInDevelopment : MonoBehaviour
 
     public void sendToRating()
     {
-        sendAwayDay = EnviroSky.instance.GameTime.Days;
-        sendAwayYear = EnviroSky.instance.GameTime.Years;
+        sendAwayDay = clock.day;
+        sendAwayMonth = clock.month;
+        sendAwayYear = clock.year;
 
         reviewDay = sendAwayDay + Random.Range(5, 11);
 
-        if(reviewDay < 360)
+        if(reviewDay <= 30)
+        {            
+            reviewMonth = sendAwayMonth; 
+        }
+        if(reviewDay > 30)
+        {
+            reviewDay = reviewDay - 30;
+            reviewMonth = sendAwayMonth + 1;         
+        }
+
+        if(reviewMonth <= 12 )
         {
             reviewYear = sendAwayYear;
         }
-        if(reviewDay > 360)
+        if(reviewMonth > 12)
         {
-            reviewDay = reviewDay - 360;
+            reviewMonth = reviewMonth - 12;
             reviewYear = sendAwayYear + 1;
         }
         hasBeenSent = true;

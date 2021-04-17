@@ -77,13 +77,33 @@ public class Clock : MonoBehaviour
         hr = EnviroSky.instance.GameTime.Hours;
         min = EnviroSky.instance.GameTime.Minutes;
 
-        day = 1+EnviroSky.instance.GameTime.Days - (30 * (month-1));
-        month = (int)Mathf.Ceil(1+EnviroSky.instance.GameTime.Days / 30);
-        year = EnviroSky.instance.GameTime.Years;        
+        //day = 1+EnviroSky.instance.GameTime.Days - (30 * (month-1));
+        //month = (int)Mathf.Ceil(1+EnviroSky.instance.GameTime.Days / 30);
+        //year = EnviroSky.instance.GameTime.Years;
+
+        year = EnviroSky.instance.GameTime.Years;
+        
+        month = (int)Mathf.Ceil((1 + EnviroSky.instance.GameTime.Hours / 8) + (EnviroSky.instance.GameTime.Days) * 3);
+        
+        if (EnviroSky.instance.GameTime.Hours >= 0 && EnviroSky.instance.GameTime.Hours < 8)
+        { day = (int)Mathf.Ceil(1 + (EnviroSky.instance.GameTime.Hours * 60 + EnviroSky.instance.GameTime.Minutes) / 16) ; }
+        if (EnviroSky.instance.GameTime.Hours >= 8 && EnviroSky.instance.GameTime.Hours <16)
+        { day = (int)Mathf.Ceil(1 + (EnviroSky.instance.GameTime.Hours * 60 + EnviroSky.instance.GameTime.Minutes) / 16) - 30; }
+        if (EnviroSky.instance.GameTime.Hours >= 16 && EnviroSky.instance.GameTime.Hours < 24)
+        { day = (int)Mathf.Ceil(1 + (EnviroSky.instance.GameTime.Hours * 60 + EnviroSky.instance.GameTime.Minutes) / 16) - 60; }    
+        
+        if (month >= 4 && month < 7)
+        { EnviroSky.instance.ChangeSeason(EnviroSeasons.Seasons.Spring); }
+        if (month >= 7 && month < 10)
+        { EnviroSky.instance.ChangeSeason(EnviroSeasons.Seasons.Summer); }
+        if (month >= 10 && month < 12)
+        { EnviroSky.instance.ChangeSeason(EnviroSeasons.Seasons.Autumn); }
+        if (month == 12)
+        { EnviroSky.instance.ChangeSeason(EnviroSeasons.Seasons.Winter); }
+        if (month >= 1 && month < 4)
+        { EnviroSky.instance.ChangeSeason(EnviroSeasons.Seasons.Winter); }
 
         SetTimeDateString();
-
-
     }
 
     void SetTimeDateString()
