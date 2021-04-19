@@ -182,10 +182,10 @@ Material:
     - _HighlightColorPower: 1
     - _LightAffectOutlineColor: 0
     - _LightAffectRimLightColor: 0
-    - _LightAffectShadow: 0
+    - _LightAffectShadow: 1
     - _LightFalloffAffectShadowT: 0
     - _LightFalloffSoftness: 1
-    - _LightIntensity: 1
+    - _LightIntensity: 4.76
     - _MCIALO: 0
     - _MCapIntensity: 1
     - _MVCOL: 0
@@ -231,7 +231,7 @@ Material:
     - _PSGLOTEX: 0
     - _PTexturePower: 1
     - _Parallax: 0.02
-    - _PointSpotlightIntensity: 0
+    - _PointSpotlightIntensity: 1
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1

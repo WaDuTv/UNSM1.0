@@ -19,6 +19,8 @@ TagManager:
   - SaveNameInputField
   - SaveManager
   - savedGamesView
+  - switchableLight
+  - switchableBuilding
   layers:
   - Default
   - TransparentFX

@@ -169,7 +169,7 @@ Material:
     - _EnvironmentReflections: 1
     - _EnvironmentalLightingIntensity: 1
     - _FarDistanceMaxWidth: 10
-    - _GIFlatShade: 0
+    - _GIFlatShade: 1
     - _GIShadeThreshold: 0
     - _GlossColorPower: 10
     - _GlossIntensity: 1
@@ -233,7 +233,7 @@ Material:
     - _PSGLOTEX: 0
     - _PTexturePower: 1
     - _Parallax: 0.02
-    - _PointSpotlightIntensity: 0
+    - _PointSpotlightIntensity: 11
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
