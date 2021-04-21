@@ -46,47 +46,55 @@ public class SetUpPlayer : MonoBehaviour
 
         if (companyManager.playerModelIndex == 1)
         {
+            staffHandlerScript.isMale = true;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject;
         }
         if (companyManager.playerModelIndex == 2)
         {
+            staffHandlerScript.isMale = true;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Male_02").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Male_02").gameObject;
         }
         if (companyManager.playerModelIndex == 3)
         {
+            staffHandlerScript.isMale = true;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Male_03").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Male_03").gameObject;
         }
         if (companyManager.playerModelIndex == 4)
         {
+            staffHandlerScript.isMale = true;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Male_04").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Male_04").gameObject;
         }
         if (companyManager.playerModelIndex == 5)
         {
+            staffHandlerScript.isMale = false;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Female_01").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Female_01").gameObject;
         }
         if (companyManager.playerModelIndex == 6)
         {
+            staffHandlerScript.isMale = false;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Female_02").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Female_02").gameObject;
         }
         if (companyManager.playerModelIndex == 7)
-        {                
+        {
+            staffHandlerScript.isMale = false;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Female_03").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Female_03").gameObject;
         }
         if (companyManager.playerModelIndex == 8)
         {
+            staffHandlerScript.isMale = false;
             playerModel.transform.Find("SM_Chr_Business_Male_01").gameObject.SetActive(false);
             playerModel.transform.Find("SM_Chr_Business_Female_04").gameObject.SetActive(true);
             _activeModel = playerModel.transform.Find("SM_Chr_Business_Female_04").gameObject;

@@ -16,6 +16,8 @@ public class StaffHandler : MonoBehaviour
 
     public Transform modelContainer;
 
+    public bool isMale;    
+
     public string assignedProjectName;
 
     public string lastName;
@@ -52,13 +54,16 @@ public class StaffHandler : MonoBehaviour
     public Vector3 lastModelPosition;
     public Quaternion lastModelRotation;
 
+    [SerializeField]
+    private GameObject companyStaffContainer;
+
 
 
     // Start is called before the first frame update
     void Awake() 
     {
         modelContainer = GameObject.Find("ModelContainer").transform;
-        this.gameObject.name = "worker_"+firstName + " " + lastName;
+        companyStaffContainer = GameObject.Find("CompanyStaff");
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
         workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;                
         //Set WorkerID
@@ -72,34 +77,8 @@ public class StaffHandler : MonoBehaviour
 
     private void Start()
     {
-        if(GetComponent<SetUpPlayer>() == null)
-        {                                        
-            workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
-            workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
-
-            workerModel = Instantiate(workerModelprefab, modelContainer);
-            if (workerModelprefab.name == "Developer_Female_01")
-            {
-                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_01").gameObject;
-            }
-            if (workerModelprefab.name == "Developer_Female_02")
-            {
-                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_02").gameObject;
-            }
-            if (workerModelprefab.name == "Developer_Male_01")
-            {
-                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_01").gameObject;
-            }
-            if (workerModelprefab.name == "Developer_Male_02")
-            {
-                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_02").gameObject;
-            }
-            workerModel.name = "workerModel_" + firstName + " " + lastName;
-            workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
-            
-            workerModel.transform.position = lastModelPosition;
-            workerModel.transform.rotation = lastModelRotation;
-        }
+        this.gameObject.name = "worker_" + firstName + " " + lastName;
+        InstantiateCharacterModel();
         if (GetComponent<SetUpPlayer>() != null)
         {
             playerModel.transform.position = lastModelPosition;
@@ -127,5 +106,38 @@ public class StaffHandler : MonoBehaviour
         isAssignedToProject = false;
 
         currentProject = "";
+    }
+
+    public void InstantiateCharacterModel()
+    {
+        if (GetComponent<SetUpPlayer>() == null && this.transform.parent == GameObject.Find("CompanyStaff").transform)
+        {
+            characterVisualsManager = GameObject.Find("CharacterVisualsManager").GetComponent<characterVisuals>();
+            workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
+            workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
+
+            workerModel = Instantiate(workerModelprefab, modelContainer);
+            if (workerModelprefab.name == "Developer_Female_01")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_01").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Female_02")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_02").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Male_01")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_01").gameObject;
+            }
+            if (workerModelprefab.name == "Developer_Male_02")
+            {
+                workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_02").gameObject;
+            }
+            workerModel.name = "workerModel_" + firstName + " " + lastName;
+            workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
+
+            workerModel.transform.position = lastModelPosition;
+            workerModel.transform.rotation = lastModelRotation;
+        }
     }
 }

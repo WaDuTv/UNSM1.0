@@ -20,6 +20,7 @@ public class saveManager : MonoBehaviour
 
     public TMP_InputField saveName;
 
+    public GameObject availableStaffContainer;
     public GameObject HiredStaffContainer;
 
     public GameObject activeProjectsContainer;
@@ -28,14 +29,17 @@ public class saveManager : MonoBehaviour
 
     public GameObject workerPrefab;
     public Transform workerPrefabParent;
+    public Transform availableWorkerPrefabParent;
 
     public GameObject projectsPrefab;
     public Transform activeProjectsParent;
     public Transform finishedProjectsParent;
 
     public List<SavableObject> SavableObjects { get; private set; }
+    public List<string> availableWorkers;
     public List<string> hiredWorkers;
     public List<string> currentHiredWorkers;
+    public List<string> currentAvailableWorkers;
     public List<string> activeProjectsList;
     public List<string> finishedProjectsList;
 
@@ -116,6 +120,10 @@ public class saveManager : MonoBehaviour
             saveData.Add("Set_PlayerModel", companyManager.GetComponent<CompanyManager>().playerModelIndex);
             saveData.Add("Set_PlayerMaterial", companyManager.GetComponent<CompanyManager>().playerMaterialIndex);
         }
+        //Save if it is a new Game
+
+        AvailableWorkerSpawner availableWorkerSpawner = GameObject.Find("StaffManager").GetComponent<AvailableWorkerSpawner>();
+        saveData.Add("availableWorkerSpawner isNewGame_", availableWorkerSpawner.isNewGame);
 
         //Save Date & Time
         saveData.Add("Current_Hour", EnviroSky.instance.GameTime.Hours);
@@ -148,6 +156,8 @@ public class saveManager : MonoBehaviour
             saveData.Add("Player Last Name_" , _playerStaffHandler.lastName);
             saveData.Add("Player Profession_" , _playerStaffHandler.workerProfession);
 
+            saveData.Add("Player isMale_", _playerStaffHandler.isMale);
+
             saveData.Add("Player ID_" , _playerStaffHandler.workerID);
             saveData.Add("Player IDIsSet_" , _playerStaffHandler.workerIDSet);
 
@@ -164,7 +174,47 @@ public class saveManager : MonoBehaviour
 
             saveData.Add("PlayerModel_Transform", _playermodel.transform);            
         }
-        
+
+        //Save unhired available Staff/Stats
+
+        availableStaffContainer = GameObject.Find("AvailableWorkers");
+        availableWorkers = new List<string>();
+        Transform[] availableWorkersArray = availableStaffContainer.GetComponentsInChildren<Transform>();
+
+        foreach (Transform worker in availableWorkersArray)
+        {
+            StaffHandler sh = worker.gameObject.GetComponent<StaffHandler>();
+            if (worker != null && worker.gameObject != null && worker.gameObject != availableStaffContainer)
+            {
+                saveData.Add("Available_Worker CharacterPrefab_" + sh.firstName + "_" + sh.lastName, sh.workerModelprefabIndex);
+                saveData.Add("Available_Worker CharacterPrefabMaterial_" + sh.firstName + "_" + sh.lastName, sh.workerMaterialIndex);
+
+                saveData.Add("Available_Worker First Name_" + sh.firstName + "_" + sh.lastName, sh.firstName);
+                saveData.Add("Available_Worker Last Name_" + sh.firstName + "_" + sh.lastName, sh.lastName);
+                saveData.Add("Available_Worker Profession_" + sh.firstName + "_" + sh.lastName, sh.workerProfession);
+
+                saveData.Add("Available_Worker isMale_" + sh.firstName + "_" + sh.lastName, sh.isMale);
+
+                saveData.Add("Available_Worker ID_" + sh.firstName + "_" + sh.lastName, sh.workerID);
+                saveData.Add("Available_Worker IDIsSet_" + sh.firstName + "_" + sh.lastName, sh.workerIDSet);
+
+                saveData.Add("Available_Worker Stat Programming_" + sh.firstName + "_" + sh.lastName, sh.workerStatProgramming);
+                saveData.Add("Available_Worker Stat Sound_" + sh.firstName + "_" + sh.lastName, sh.workerStatSound);
+                saveData.Add("Available_Worker Stat Graphics_" + sh.firstName + "_" + sh.lastName, sh.workerStatGraphics);
+                saveData.Add("Available_Worker Stat Design_" + sh.firstName + "_" + sh.lastName, sh.workerStatDesign);
+
+                saveData.Add("Available_Worker assigned Project_" + sh.firstName + "_" + sh.lastName, sh.assignedProjectName);
+                saveData.Add("Available_Worker is available_" + sh.firstName + "_" + sh.lastName, sh.isAvailable);
+                saveData.Add("Available_Worker is asigned_" + sh.firstName + "_" + sh.lastName, sh.isAssignedToProject);
+
+                saveData.Add("Available_Worker Model_Transform_" + sh.firstName + "_" + sh.lastName, sh.workerModel.transform);
+
+                availableWorkers.Add(sh.firstName + "_" + sh.lastName);
+            }
+
+        }
+
+        saveData.Add("AvailableWorkersList", hiredWorkers);
 
         //Save Hired Staff and Status/Stats
         HiredStaffContainer = GameObject.Find("CompanyStaff");
@@ -182,6 +232,8 @@ public class saveManager : MonoBehaviour
                 saveData.Add("Worker First Name_"+ sh.firstName+"_"+sh.lastName, sh.firstName);
                 saveData.Add("Worker Last Name_" + sh.firstName + "_" + sh.lastName, sh.lastName);
                 saveData.Add("Worker Profession_" + sh.firstName + "_" + sh.lastName, sh.workerProfession);
+
+                saveData.Add("Worker isMale_" + sh.firstName + "_" + sh.lastName, sh.isMale);
 
                 saveData.Add("Worker ID_" + sh.firstName + "_" + sh.lastName, sh.workerID);
                 saveData.Add("Worker IDIsSet_" + sh.firstName + "_" + sh.lastName, sh.workerIDSet);
@@ -402,6 +454,13 @@ public class saveManager : MonoBehaviour
             int playerModelIndex = saveData.GetInt("Set_PlayerModel");
             int _playerMaterialIndex = saveData.GetInt("Set_PlayerMaterial");
 
+            //Load "is new Game"-Checks
+
+            AvailableWorkerSpawner availableWorkerSpawner = GameObject.Find("StaffManager").GetComponent<AvailableWorkerSpawner>();
+            bool _availaiblewokerSpawnerIsNewGame = saveData.GetBool("availableWorkerSpawner isNewGame_");
+
+            availableWorkerSpawner.isNewGame = _availaiblewokerSpawnerIsNewGame;         
+
             //Load Time& Date
             int currentHour = saveData.GetInt("Current_Hour");
             int currentMinute = saveData.GetInt("Current_Minute");            
@@ -423,6 +482,8 @@ public class saveManager : MonoBehaviour
             string _playerFirstName = saveData.GetString("Player First Name_");
             string _playerLastName = saveData.GetString("Player Last Name_");
             string _playerProfession = saveData.GetString("Player Profession_");
+
+            bool _playerIsMale = saveData.GetBool("Player isMale_");
 
             int _playerID = saveData.GetInt("Player ID_");
             bool playerIDSet = saveData.GetBool("Player IDIsSet_");
@@ -453,6 +514,8 @@ public class saveManager : MonoBehaviour
             playerSh.lastName = _playerLastName;
             playerSh.workerProfession = _playerProfession;
 
+            playerSh.isMale = _playerIsMale;
+
             playerSh.workerID = _playerID;
             playerSh.workerIDSet = playerIDSet;
 
@@ -470,6 +533,81 @@ public class saveManager : MonoBehaviour
 
             _setUpPlayerScript.setupDone= playerSetUpDone;
 
+            //Load available Workers and Status/Stats
+            currentAvailableWorkers = saveData.GetList<string>("AvailableWorkersList");
+            availableWorkerPrefabParent = GameObject.Find("AvailableWorkers").transform;
+            Transform[] existingAvailableWorkers = availableWorkerPrefabParent.GetComponentsInChildren<Transform>();
+
+            foreach (Transform _existingworker in existingAvailableWorkers)
+            {
+                if (_existingworker !=null && _existingworker != availableWorkerPrefabParent)
+                {
+                    Destroy(_existingworker.gameObject);
+                }
+            }
+
+            foreach (string availableWorker in currentAvailableWorkers)
+            {
+                int workerPrefabIndex = saveData.GetInt("Available_Worker CharacterPrefab_" + availableWorker);
+                int workerMaterialIndex = saveData.GetInt("Available_Worker CharacterPrefabMaterial_" + availableWorker);
+
+                string workerFirstName = saveData.GetString("Available_Worker First Name_" + availableWorker);
+                string workerLastName = saveData.GetString("Available_Worker Last Name_" + availableWorker);
+                string workerProfession = saveData.GetString("Available_Worker Profession_" + availableWorker);
+
+                bool workerIsMale = saveData.GetBool("Available_Worker isMale_" + availableWorker);
+
+                float workerID = saveData.GetFloat("Available_Worker ID_" + availableWorker);
+                bool workerIDSet = saveData.GetBool("Available_Worker IDIsSet_" + availableWorker);
+
+                int workerStatProgramming = saveData.GetInt("Available_Worker Stat Programming_" + availableWorker);
+                int workerStatSound = saveData.GetInt("Available_Worker Stat Sound_" + availableWorker);
+                int workerStatGraphics = saveData.GetInt("Available_Worker Stat Graphics_" + availableWorker);
+                int workerStatDesign = saveData.GetInt("Available_Worker Stat Design_" + availableWorker);
+
+                string workerAssignedProject = saveData.GetString("Available_Worker assigned Project_" + availableWorker);
+
+                bool workerIsAvailable = saveData.GetBool("Available_Worker is available_" + availableWorker);
+                bool workerIsAssigned = saveData.GetBool("Available_Worker is assigned_" + availableWorker);
+
+                var workerModel = saveData.GetUnityTransform("Available_Worker Model_Transform_" + availableWorker);
+
+                bool _setUpDone = saveData.GetBool("PlayerSetUpIsDone");
+
+                //Instantiate available Workers
+                if (GameObject.Find("worker_" + workerFirstName + " " + workerLastName) == null)
+                {
+                    GameObject newWorker = Instantiate(workerPrefab, availableWorkerPrefabParent);
+                    StaffHandler sh = newWorker.GetComponent<StaffHandler>();
+
+                    sh.workerModelprefabIndex = workerPrefabIndex;
+                    sh.workerMaterialIndex = workerMaterialIndex;
+
+                    sh.firstName = workerFirstName;
+                    sh.lastName = workerLastName;
+                    sh.workerProfession = workerProfession;
+
+                    sh.isMale = workerIsMale;
+
+                    sh.workerID = workerID;
+                    sh.workerIDSet = workerIDSet;
+
+                    sh.workerStatProgramming = workerStatProgramming;
+                    sh.workerStatSound = workerStatSound;
+                    sh.workerStatGraphics = workerStatGraphics;
+                    sh.workerStatDesign = workerStatDesign;
+
+                    sh.assignedProjectName = workerAssignedProject;
+
+                    sh.isAvailable = workerIsAvailable;
+                    sh.isAssignedToProject = workerIsAssigned;
+
+                    sh.lastModelPosition = workerModel.position;
+                    sh.lastModelRotation = workerModel.rotation;
+
+                    newWorker.gameObject.name = "worker_" + workerFirstName + " " + workerLastName;
+                }
+            }
 
             //Load Hired Workers and Status/Stats
             currentHiredWorkers = saveData.GetList<string>("HiredWorkersList");
@@ -483,6 +621,8 @@ public class saveManager : MonoBehaviour
                 string workerFirstName = saveData.GetString("Worker First Name_" + worker);
                 string workerLastName = saveData.GetString("Worker Last Name_" + worker);
                 string workerProfession = saveData.GetString("Worker Profession_" + worker);
+
+                bool workerIsMale = saveData.GetBool("Worker isMale_" + worker);
 
                 float workerID = saveData.GetFloat("Worker ID_" + worker);
                 bool workerIDSet = saveData.GetBool("Worker IDIsSet_" + worker);
@@ -515,6 +655,8 @@ public class saveManager : MonoBehaviour
                     sh.lastName = workerLastName;
                     sh.workerProfession = workerProfession;
 
+                    sh.isMale = workerIsMale;
+
                     sh.workerID = workerID;
                     sh.workerIDSet = workerIDSet;
 
@@ -544,6 +686,8 @@ public class saveManager : MonoBehaviour
                     sh.firstName = workerFirstName;
                     sh.lastName = workerLastName;
                     sh.workerProfession = workerProfession;
+
+                    sh.isMale = workerIsMale;
 
                     sh.workerID = workerID;
                     sh.workerIDSet = workerIDSet;
