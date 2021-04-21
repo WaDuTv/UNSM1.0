@@ -16,7 +16,7 @@ public class Lightmanager : MonoBehaviour
     void Start()
     {
         switchableBuildings = GameObject.FindGameObjectsWithTag("switchableBuilding");
-        if (EnviroSky.instance.isNight)
+        if (EnviroSky.instance.isNight == true)
         {
             lightMapSwitcher.SetToNight();
             foreach (GameObject sb in switchableBuildings)

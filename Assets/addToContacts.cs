@@ -21,6 +21,13 @@ public class addToContacts : MonoBehaviour
         GameObject _attachedWorker = availableStaffContainer.Find("worker_" + workerName.text).gameObject;
         StaffHandler _sh = _attachedWorker.GetComponent<StaffHandler>();
 
+        if(!myContacts.contacts.Contains(_attachedWorker.name.ToString()))
+        { 
         myContacts.contacts.Add(_attachedWorker.name.ToString());
+        }
+        else
+        {
+            Debug.Log("Worker already in Contact-List!");
+        }
     }
 }
