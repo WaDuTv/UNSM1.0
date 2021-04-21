@@ -56,12 +56,16 @@ public class StaffHandler : MonoBehaviour
 
     [SerializeField]
     private GameObject companyStaffContainer;
+    [SerializeField]
+    
 
 
 
     // Start is called before the first frame update
     void Awake() 
     {
+        this.gameObject.name = "worker_" + firstName + " " + lastName;
+        Debug.Log("done renaming 1");
         modelContainer = GameObject.Find("ModelContainer").transform;
         companyStaffContainer = GameObject.Find("CompanyStaff");
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
@@ -78,6 +82,7 @@ public class StaffHandler : MonoBehaviour
     private void Start()
     {
         this.gameObject.name = "worker_" + firstName + " " + lastName;
+        Debug.Log("done renaming 2");
         InstantiateCharacterModel();
         if (GetComponent<SetUpPlayer>() != null)
         {

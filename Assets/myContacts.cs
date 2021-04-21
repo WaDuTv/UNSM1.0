@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class myContacts : MonoBehaviour
 {
+    public List<string> contacts;
     // Start is called before the first frame update
     void Start()
     {

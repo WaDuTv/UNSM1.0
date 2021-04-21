@@ -251,7 +251,12 @@ public class saveManager : MonoBehaviour
 
                 hiredWorkers.Add(sh.firstName + "_" + sh.lastName);
             }
-            
+
+            //Save Contacts
+
+            saveData.Add("Contacts_", GameObject.Find("ContactsLibray").GetComponent<myContacts>().contacts);
+
+
         }
 
         saveData.Add("HiredWorkersList", hiredWorkers);
@@ -988,6 +993,9 @@ public class saveManager : MonoBehaviour
 
             }
 
+            //Load Contacts
+            List<string> _contacts = saveData.GetList<string>("Contacts_");
+            GameObject.Find("ContactsLibray").GetComponent<myContacts>().contacts = _contacts;
 
             // Load Objects
             int currentObjects = saveData.GetInt("ObjectCount");
