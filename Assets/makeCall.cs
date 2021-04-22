@@ -28,6 +28,8 @@ public class makeCall : MonoBehaviour
     private GameObject workerModelContainer;
     [SerializeField]
     private HangUpCall hangUpCallButton;
+    [SerializeField]
+    private GameObject cellPhone;
 
     
 
@@ -74,5 +76,8 @@ public class makeCall : MonoBehaviour
         modelCam.targetTexture = TextureHolder.camTexture;
 
         hangUpCallButton.callerModel = workerModel;
+
+        cellPhone = workerModel.GetComponent<modelAttachmentsHolder>().cellPhone;
+        cellPhone.SetActive(true);
     }
 }

@@ -29,6 +29,8 @@ public void HangUp()
         if (callerModel.GetComponent<isTemporaryModel>().isTemporary_ != true)
         {
             callerModel.transform.Find("modelCam").GetComponent<Camera>().targetTexture = null;
+            GameObject _cellphone = callerModel.GetComponent<modelAttachmentsHolder>().cellPhone;
+            _cellphone.SetActive(false);
         }
 
     }
