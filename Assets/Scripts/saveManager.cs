@@ -140,6 +140,10 @@ public class saveManager : MonoBehaviour
         shopSystem = GameObject.Find("ShopManager");
         saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
 
+        //Save Company Values
+        CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
+        saveData.Add("Company_Reputation", _companyValuesManager.companyReputaion);
+
         //Save Player        
         playerContainer = GameObject.Find("PlayerContainer").transform;
         GameObject _player = AlwaysVisibleHolderScript.playerPrefab;
@@ -160,6 +164,8 @@ public class saveManager : MonoBehaviour
 
             saveData.Add("Player ID_" , _playerStaffHandler.workerID);
             saveData.Add("Player IDIsSet_" , _playerStaffHandler.workerIDSet);
+
+            saveData.Add("Player Mood_", _playerStaffHandler.workerMood);
 
             saveData.Add("Player Stat Programming_" , _playerStaffHandler.workerStatProgramming);
             saveData.Add("Player Stat Sound_" , _playerStaffHandler.workerStatSound);
@@ -197,6 +203,10 @@ public class saveManager : MonoBehaviour
 
                 saveData.Add("Available_Worker ID_" + sh.firstName + "_" + sh.lastName, sh.workerID);
                 saveData.Add("Available_Worker IDIsSet_" + sh.firstName + "_" + sh.lastName, sh.workerIDSet);
+                
+                saveData.Add("Available_Worker Mood_" + sh.firstName + "_" + sh.lastName, sh.workerMood);
+
+                saveData.Add("Available_Worker Salary_" + sh.firstName + "_" + sh.lastName, sh.workerSalary);
 
                 saveData.Add("Available_Worker Stat Programming_" + sh.firstName + "_" + sh.lastName, sh.workerStatProgramming);
                 saveData.Add("Available_Worker Stat Sound_" + sh.firstName + "_" + sh.lastName, sh.workerStatSound);
@@ -237,6 +247,10 @@ public class saveManager : MonoBehaviour
 
                 saveData.Add("Worker ID_" + sh.firstName + "_" + sh.lastName, sh.workerID);
                 saveData.Add("Worker IDIsSet_" + sh.firstName + "_" + sh.lastName, sh.workerIDSet);
+
+                saveData.Add("Worker Mood_" + sh.firstName + "_" + sh.lastName, sh.workerMood);
+
+                saveData.Add("Worker Salary_" + sh.firstName + "_" + sh.lastName, sh.workerSalary);
 
                 saveData.Add("Worker Stat Programming_" + sh.firstName + "_" + sh.lastName, sh.workerStatProgramming);
                 saveData.Add("Worker Stat Sound_" + sh.firstName + "_" + sh.lastName, sh.workerStatSound);
@@ -480,6 +494,12 @@ public class saveManager : MonoBehaviour
             //Load Money
             int currentMoney = saveData.GetInt("Money");
 
+            //Load & Set Company Values
+            CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
+            float _companyReputation = saveData.GetFloat("Company_Reputation");
+
+            _companyValuesManager.companyReputaion = _companyReputation;
+
             //Load & Instantiate Player
             int playerPrefabIndex = saveData.GetInt("Player CharacterPrefab_");
             int playerMaterialIndex = saveData.GetInt("Player CharacterPrefabMaterial_");
@@ -492,6 +512,8 @@ public class saveManager : MonoBehaviour
 
             int _playerID = saveData.GetInt("Player ID_");
             bool playerIDSet = saveData.GetBool("Player IDIsSet_");
+
+            float _playerMood = saveData.GetFloat("Player Mood_");
 
             int playerProgramming = saveData.GetInt("Player Stat Programming_");
             int playerSound = saveData.GetInt("Player Stat Sound_");
@@ -523,6 +545,8 @@ public class saveManager : MonoBehaviour
 
             playerSh.workerID = _playerID;
             playerSh.workerIDSet = playerIDSet;
+
+            playerSh.workerMood = _playerMood;
 
             playerSh.workerStatProgramming = playerProgramming;
             playerSh.workerStatSound = playerSound;
@@ -565,6 +589,10 @@ public class saveManager : MonoBehaviour
                 float workerID = saveData.GetFloat("Available_Worker ID_" + availableWorker);
                 bool workerIDSet = saveData.GetBool("Available_Worker IDIsSet_" + availableWorker);
 
+                float workerMood = saveData.GetFloat("Available_Worker Mood_" + availableWorker);
+
+                int workerSalary = saveData.GetInt("Available_Worker Salary_" + availableWorker);
+
                 int workerStatProgramming = saveData.GetInt("Available_Worker Stat Programming_" + availableWorker);
                 int workerStatSound = saveData.GetInt("Available_Worker Stat Sound_" + availableWorker);
                 int workerStatGraphics = saveData.GetInt("Available_Worker Stat Graphics_" + availableWorker);
@@ -596,6 +624,10 @@ public class saveManager : MonoBehaviour
 
                     sh.workerID = workerID;
                     sh.workerIDSet = workerIDSet;
+
+                    sh.workerMood = workerMood;
+                    
+                    sh.workerSalary = workerSalary;
 
                     sh.workerStatProgramming = workerStatProgramming;
                     sh.workerStatSound = workerStatSound;
@@ -632,6 +664,10 @@ public class saveManager : MonoBehaviour
                 float workerID = saveData.GetFloat("Worker ID_" + worker);
                 bool workerIDSet = saveData.GetBool("Worker IDIsSet_" + worker);
 
+                float workerMood =saveData.GetFloat("Worker Mood_" + worker);
+
+                int workerSalary = saveData.GetInt("Worker Salary_" + worker);
+
                 int workerStatProgramming = saveData.GetInt("Worker Stat Programming_" + worker);
                 int workerStatSound = saveData.GetInt("Worker Stat Sound_" + worker);
                 int workerStatGraphics = saveData.GetInt("Worker Stat Graphics_" + worker);
@@ -664,6 +700,10 @@ public class saveManager : MonoBehaviour
 
                     sh.workerID = workerID;
                     sh.workerIDSet = workerIDSet;
+
+                    sh.workerMood = workerMood;
+
+                    sh.workerSalary = workerSalary;
 
                     sh.workerStatProgramming = workerStatProgramming;
                     sh.workerStatSound = workerStatSound;

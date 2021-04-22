@@ -28,6 +28,8 @@ public class StaffHandler : MonoBehaviour
     public float workerID;
     public bool workerIDSet = false;
 
+    public float workerMood;
+
     public int workerStatProgramming;
     public int workerStatSound;
     public int workerStatGraphics;
@@ -35,6 +37,10 @@ public class StaffHandler : MonoBehaviour
 
     public int workerStatGraphicsAndDesign;
     public int workerStatProgrammingAndDesign;
+
+    public string workerGrade_;
+
+    public int workerSalary;
 
     public bool isAvailable;
     public bool isAssignedToProject;
@@ -69,14 +75,33 @@ public class StaffHandler : MonoBehaviour
         modelContainer = GameObject.Find("ModelContainer").transform;
         companyStaffContainer = GameObject.Find("CompanyStaff");
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
-        workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;                
+        workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;        
+
         //Set WorkerID
         if (workerIDSet == false)
         {
             workerID = Random.Range(100000, 999999);
             workerIDSet = true;
         }
-                
+
+        //Get WorkerGrade
+        float _workerStatValue = (workerStatProgramming + workerStatSound + workerStatGraphics + workerStatDesign) / 4f;
+        if(_workerStatValue >= 0 && _workerStatValue < 2.5)
+        {
+            workerGrade_ = "D";
+        }
+        if (_workerStatValue >= 2.5 && _workerStatValue < 5)
+        {
+            workerGrade_ = "C";
+        }
+        if (_workerStatValue >= 5 && _workerStatValue < 7.5)
+        {
+            workerGrade_ = "B";
+        }
+        if (_workerStatValue >= 7.5 && _workerStatValue <= 10)
+        {
+            workerGrade_ = "A";
+        }
     }
 
     private void Start()
@@ -144,5 +169,37 @@ public class StaffHandler : MonoBehaviour
             workerModel.transform.position = lastModelPosition;
             workerModel.transform.rotation = lastModelRotation;
         }
+    }
+
+    public void InstantiateTemporaryCharacterModel()
+    {        
+        characterVisualsManager = GameObject.Find("CharacterVisualsManager").GetComponent<characterVisuals>();
+        workerModelprefab = characterVisualsManager.characterModelPrefabs[workerModelprefabIndex];
+        workerMaterial = characterVisualsManager.characterModelMaterials[workerMaterialIndex];
+
+        workerModel = Instantiate(workerModelprefab, modelContainer);
+        if (workerModelprefab.name == "Developer_Female_01")
+        {
+            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_01").gameObject;
+        }
+        if (workerModelprefab.name == "Developer_Female_02")
+        {
+            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Female_02").gameObject;
+        }
+        if (workerModelprefab.name == "Developer_Male_01")
+        {
+            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_01").gameObject;
+        }
+        if (workerModelprefab.name == "Developer_Male_02")
+        {
+            workerMaterialHolder = workerModel.transform.Find("SM_Chr_Developer_Male_02").gameObject;
+        }
+        workerModel.name = "workerModel_" + firstName + " " + lastName;
+        workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
+        workerModel.GetComponent<isTemporaryModel>().isTemporary_ = true;
+
+        workerModel.transform.position = lastModelPosition;
+        workerModel.transform.rotation = lastModelRotation;
+        
     }
 }

@@ -92,6 +92,14 @@ public class AvailableWorkerSpawner : MonoBehaviour
                     randomNameHolder.LastNames _lastName = (randomNameHolder.LastNames)Random.Range(0, (int)randomNameHolder.LastNames._Max);
                     _sh.lastName = _lastName.ToString();
 
+                    //Set Mood
+
+                    _sh.workerMood = Random.Range(0.2f, 0.8f);
+
+                    //Set Salary
+
+                    _sh.workerSalary = Random.Range(1000, 2000);
+
                     //Set Profession & Stats
                     if (_sh.workerProfession == "Programmer")
                     {

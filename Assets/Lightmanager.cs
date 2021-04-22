@@ -12,6 +12,8 @@ public class Lightmanager : MonoBehaviour
     [SerializeField]
     private GameObject[] switchableBuildings;
 
+    private bool isNight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,27 +21,30 @@ public class Lightmanager : MonoBehaviour
         if (EnviroSky.instance.isNight == true)
         {
             lightMapSwitcher.SetToNight();
-            foreach (GameObject sb in switchableBuildings)
-            {
-                sb.GetComponent<MeshRenderer>().material = skyscraperMaterial_Emissive;
-            }
+            SwitchEmissiveMaterialsOn();
         }
         if (EnviroSky.instance.isNight == false)
         {
             lightMapSwitcher.SetToDay();
-            foreach (GameObject sb in switchableBuildings)
-            {
-                sb.GetComponent<MeshRenderer>().material = skyscraperMaterial_nonEmissive;
-            }
+            SwitchEmissiveMaterialsOff();
         }
-
 
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        if (EnviroSky.instance.isNight == true)
+        {
+            lightMapSwitcher.SetToNight();
+            SwitchEmissiveMaterialsOn ();
+        }
+        if (EnviroSky.instance.isNight == false)
+        {
+            lightMapSwitcher.SetToDay();
+            SwitchEmissiveMaterialsOff();
+        }
+
     }
 
     public void SwitchEmissiveMaterialsOn()

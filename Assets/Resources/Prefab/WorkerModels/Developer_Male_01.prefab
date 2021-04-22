@@ -1082,6 +1082,9 @@ GameObject:
   - component: {fileID: -3600928778503046538}
   - component: {fileID: -2555248802604254364}
   - component: {fileID: -5534621900317803832}
+  - component: {fileID: 5271097551165321181}
+  - component: {fileID: 4995849112313637139}
+  - component: {fileID: -7809428254849950042}
   m_Layer: 0
   m_Name: Developer_Male_01
   m_TagString: Untagged
@@ -1132,8 +1135,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295359657651894}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 318840a7e38980943bb4c508fa842265, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 2ac9ec64f1b2c6b44ba942c71cd03f10, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6b06126c59b7d7d408064f45a9428fcc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1208,7 +1211,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 0}
+  selectedDatabase: {fileID: 11400000, guid: cb424688196f269468361e0cf12381af, type: 2}
 --- !u!114 &-2555248802604254364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1250,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1075065, y: 2.3333302, z: 1}
   m_Center: {x: 0.112045676, y: 0.6666653, z: 0}
+--- !u!114 &5271097551165321181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295359657651894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e47785bd26d32459ab30a8c1cb330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTemporary_: 0
+--- !u!114 &4995849112313637139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295359657651894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f812f8761b16c304eacd5a900469e7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+--- !u!114 &-7809428254849950042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295359657651894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c61071b0a2b42c408b66579bc12abdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTexture: {fileID: 8400000, guid: ecac28cd11421cb47b5c3127f53f9ce0, type: 2}
 --- !u!1 &1340336096462418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,7 +4178,7 @@ GameObject:
   - component: {fileID: 1287553317808355478}
   - component: {fileID: 5838866317631689805}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: modelCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
