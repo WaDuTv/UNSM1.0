@@ -36,11 +36,11 @@ public class CalculateGameScore : MonoBehaviour
     public float setControls;
 
 
-    private float graphicsRatio;
-    private float soundRatio;
-    private float gameplayRatio;
-    private float contentRatio;
-    private float controlsRatio;
+    public  float graphicsRatio;
+    public  float soundRatio;
+    public float gameplayRatio;
+    public float contentRatio;
+    public float controlsRatio;
 
 
     public Transform staffContainer;
@@ -57,7 +57,17 @@ public class CalculateGameScore : MonoBehaviour
 
     public float priceRatio;
 
+    private float _graphicsAdjustment;
+    private float _soundAdjustment;
+    private float _gameplayAdjustment;
+    private float _contentAdjustment;
+    private float _controlsAdjustment;
+
+
     public float finalScore;
+    public float _adjustedFinalScore;
+
+    private GameObject player;
 
 
 
@@ -67,6 +77,7 @@ public class CalculateGameScore : MonoBehaviour
         staffContainer = GameObject.Find("CompanyStaff").transform;
         alwaysVisibleHolderScript = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         projectSettings = GetComponent<ProjectInDevelopment>();
+        player = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>().playerPrefab;
     }
 
     // Update is called once per frame
@@ -82,13 +93,28 @@ public class CalculateGameScore : MonoBehaviour
 
         foreach (string s in staffList)
         {
-            StaffHandler staffHandler = staffContainer.Find(s).GetComponent<StaffHandler>();
-            if (staffHandler != null)
+            if (s == player.name.ToString())
             {
-                staffTotalProgramming += staffHandler.workerStatProgramming;
-                staffTotalSound += staffHandler.workerStatSound;
-                staffTotalGraphics += staffHandler.workerStatGraphics;
-                staffTotalDesign += staffHandler.workerStatDesign;
+                StaffHandler staffHandler = player.GetComponent<StaffHandler>();
+                if (staffHandler != null)
+                {
+                    staffTotalProgramming += staffHandler.workerStatProgramming;
+                    staffTotalSound += staffHandler.workerStatSound;
+                    staffTotalGraphics += staffHandler.workerStatGraphics;
+                    staffTotalDesign += staffHandler.workerStatDesign;
+                }
+
+            }
+            if (s != player.name.ToString())
+            { 
+                StaffHandler staffHandler = staffContainer.Find(s).GetComponent<StaffHandler>();
+                if (staffHandler != null)
+                {
+                    staffTotalProgramming += staffHandler.workerStatProgramming;
+                    staffTotalSound += staffHandler.workerStatSound;
+                    staffTotalGraphics += staffHandler.workerStatGraphics;
+                    staffTotalDesign += staffHandler.workerStatDesign;
+                }
             }
 
         }
@@ -117,7 +143,7 @@ public class CalculateGameScore : MonoBehaviour
         {
             graphicsRatio = setGraphics / maxGraphics;
         }
-        if (setGraphics >= maxGraphics)
+        if (setGraphics > maxGraphics)
         {
             graphicsRatio = maxGraphics / setGraphics;
         }
@@ -125,7 +151,7 @@ public class CalculateGameScore : MonoBehaviour
         {
             soundRatio = setSound / maxSound;
         }
-        if (setSound >= maxSound)
+        if (setSound > maxSound)
         {
             soundRatio = maxSound / setSound;
         }
@@ -133,7 +159,7 @@ public class CalculateGameScore : MonoBehaviour
         {
             gameplayRatio = setGameplay / maxGameplay;
         }
-        if (setGameplay >= maxGameplay)
+        if (setGameplay > maxGameplay)
         {
             gameplayRatio = maxGameplay / setGameplay;
         }
@@ -141,7 +167,7 @@ public class CalculateGameScore : MonoBehaviour
         {
             contentRatio = setContent / maxContent;
         }
-        if (setContent >= maxContent)
+        if (setContent > maxContent)
         {
             contentRatio = maxContent / setContent;
         }
@@ -149,17 +175,62 @@ public class CalculateGameScore : MonoBehaviour
         {
             controlsRatio = setControls / maxControls;
         }
-        if (setControls >= maxControls)
+        if (setControls > maxControls)
         {
             controlsRatio = maxControls / setControls;
         }
 
+        if (projectSettings.optimumGraphics > projectSettings.setGraphics)
+        {
+            _graphicsAdjustment = projectSettings.setGraphics / projectSettings.optimumGraphics;
+        }
+        if (projectSettings.optimumGraphics <= projectSettings.setGraphics)
+        {
+            _graphicsAdjustment = projectSettings.optimumGraphics / projectSettings.setGraphics;
+        }
+
+        if (projectSettings.optimumSound > projectSettings.setSound)
+        {
+            _soundAdjustment = projectSettings.setSound / projectSettings.optimumSound;
+        }
+        if (projectSettings.optimumSound <= projectSettings.setSound)
+        {
+            _soundAdjustment = projectSettings.optimumSound / projectSettings.setSound;
+        }
+
+        if (projectSettings.optimumGameplay > projectSettings.setGameplay)
+        {
+            _gameplayAdjustment = projectSettings.setGameplay / projectSettings.optimumGameplay;
+        }
+        if (projectSettings.optimumGameplay <= projectSettings.setGameplay)
+        {
+            _gameplayAdjustment = projectSettings.optimumGameplay / projectSettings.setGameplay;
+        }
+
+        if (projectSettings.optimumContent > projectSettings.setContent)
+        {
+            _contentAdjustment = projectSettings.setContent / projectSettings.optimumContent;
+        }
+        if (projectSettings.optimumContent <= projectSettings.setContent)
+        {
+            _contentAdjustment = projectSettings.optimumContent / projectSettings.setContent;
+        }
+
+        if (projectSettings.optimumControls > projectSettings.setControls)
+        {
+            _controlsAdjustment = projectSettings.setControls / projectSettings.optimumControls;
+        }
+        if (projectSettings.optimumControls <= projectSettings.setControls)
+        {
+            _controlsAdjustment = projectSettings.optimumControls / projectSettings.setControls;
+        }
+
         //Calculate FinaleScores
-        graphicsScore = setGraphics * graphicsRatio;
-        soundScore = setSound * soundRatio;
-        gameplayScore = setGameplay * gameplayRatio;
-        contentScore = setContent * contentRatio;
-        controlsScore = setControls * controlsRatio;
+        graphicsScore = setGraphics * graphicsRatio * _graphicsAdjustment;
+        soundScore = setSound * soundRatio * _soundAdjustment;
+        gameplayScore = setGameplay * gameplayRatio * _gameplayAdjustment;
+        contentScore = setContent * contentRatio*_contentAdjustment;
+        controlsScore = setControls * controlsRatio*_controlsAdjustment;
 
         //Calculate BaseScore
         baseScore = (graphicsScore + soundScore + gameplayScore + controlsScore + controlsScore) / optimumSum;
@@ -171,17 +242,40 @@ public class CalculateGameScore : MonoBehaviour
         //adjust Score according to Price
 
         finalScore = baseScore - ((1 - priceRatio) / 20);
+        
+
+        float _overallAdjustment = (_graphicsAdjustment + _soundAdjustment + _gameplayAdjustment + _contentAdjustment + _controlsAdjustment) / 5;
+        if (_overallAdjustment == 1)
+        {
+            _adjustedFinalScore = finalScore * 1;
+        }
+        if(_overallAdjustment < 1)
+        {
+            _adjustedFinalScore = finalScore * _overallAdjustment;
+        }
+
+        finalScore = _adjustedFinalScore;
+        
 
         foreach (string s in staffList)
         {
-            StaffHandler staffHandler = staffContainer.Find(s).GetComponent<StaffHandler>();
-            if (staffHandler != null)
+            if(s == player.name.ToString())
             {
+                StaffHandler staffHandler = player.GetComponent<StaffHandler>();
                 staffHandler.isAvailable = true;
                 staffHandler.isAssignedToProject = false;
                 staffHandler.currentProject = "";
             }
-
+            if (s != player.name.ToString())
+            {
+                StaffHandler staffHandler = staffContainer.Find(s).GetComponent<StaffHandler>();
+                if (staffHandler != null)
+                {
+                    staffHandler.isAvailable = true;
+                    staffHandler.isAssignedToProject = false;
+                    staffHandler.currentProject = "";
+                }
+            }
         }
 
         alwaysVisibleHolderScript.listAvailableStaffScript.RefreshList();

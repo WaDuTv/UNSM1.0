@@ -94,7 +94,7 @@ public class AvailableWorkerSpawner : MonoBehaviour
 
                     //Set Mood
 
-                    _sh.workerMood = Random.Range(0.2f, 0.8f);
+                    _sh.workerMood = Random.Range(20, 80);
 
                     //Set Salary
 

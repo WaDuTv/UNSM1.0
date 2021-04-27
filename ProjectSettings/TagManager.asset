@@ -21,6 +21,9 @@ TagManager:
   - savedGamesView
   - switchableLight
   - switchableBuilding
+  - switchablePointLight
+  - switchableLamp
+  - switchableLightBulp
   layers:
   - Default
   - TransparentFX

@@ -62,7 +62,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Bld_Wall_Brick_Window_02_Glass","SM_Bld_Wall_Brick_Window_02"],"padding":[235,121],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

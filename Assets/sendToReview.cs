@@ -45,7 +45,6 @@ public class sendToReview : MonoBehaviour
         //Save values for this Game in instantiated GameObject with needed Stats-Script
         progressBarList.Remove(activeProgressBar);
         Destroy(activeProgressBar);        
-        instantiateProgressbarsScript.SetUpandRefresh();
-        instantiateProgressbarsScript.UpdateBarPositions();
+        instantiateProgressbarsScript.SetUpandRefresh();        
     }
 }

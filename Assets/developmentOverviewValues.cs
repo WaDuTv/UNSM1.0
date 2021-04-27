@@ -37,6 +37,8 @@ public class developmentOverviewValues : MonoBehaviour
     [SerializeField]
     private GameObject reviewSplashScreen;
 
+    private GameObject player;
+
     private List<int> programmingStats;
     private List<int> soundStats;
     private List<int> graphicStats;
@@ -57,6 +59,7 @@ public class developmentOverviewValues : MonoBehaviour
         holder = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         developmentOverviewView = holder.developmentOverviewBodyView;
         reviewSplashScreen = holder.reviewSplashScreen;
+        player = holder.playerPrefab;
 
         programmingStats = new List<int>();
         soundStats = new List<int>();
@@ -103,18 +106,19 @@ public class developmentOverviewValues : MonoBehaviour
         Transform _LeadingStaff = developmentOverviewView.transform.Find("Body").Find("Left").Find("StaffLists").transform;
         foreach (string worker in staffList)
         {
-
-            int _statProgramming = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgramming;
-            int _statSound = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatSound;
-            int _statGraphics = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphics;
-            int _statDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatDesign;
-            int _totalGraphicsDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
-            int _totalContent = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
+            if(worker == player.name.ToString())
+            { 
+            int _statProgramming = player.GetComponent<StaffHandler>().workerStatProgramming;
+            int _statSound = player.GetComponent<StaffHandler>().workerStatSound;
+            int _statGraphics = player.GetComponent<StaffHandler>().workerStatGraphics;
+            int _statDesign = player.GetComponent<StaffHandler>().workerStatDesign;
+            int _totalGraphicsDesign = player.GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
+            int _totalContent = player.GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
 
             int _totalValue = _statProgramming + _statSound + _statGraphics + _statDesign;
 
-            string _workerFirstName = staffContainer.Find(worker).GetComponent<StaffHandler>().firstName;
-            string _workerLastName = staffContainer.Find(worker).GetComponent<StaffHandler>().lastName;
+            string _workerFirstName = player.GetComponent<StaffHandler>().firstName;
+            string _workerLastName = player.GetComponent<StaffHandler>().lastName;
 
 
             programmingStats.Add(_statProgramming);
@@ -127,6 +131,33 @@ public class developmentOverviewValues : MonoBehaviour
 
             firstNames.Add(_workerFirstName);
             lastNames.Add(_workerLastName);
+            }
+            if(worker != player.name.ToString())
+            {
+                int _statProgramming = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgramming;
+                int _statSound = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatSound;
+                int _statGraphics = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphics;
+                int _statDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatDesign;
+                int _totalGraphicsDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
+                int _totalContent = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
+
+                int _totalValue = _statProgramming + _statSound + _statGraphics + _statDesign;
+
+                string _workerFirstName = staffContainer.Find(worker).GetComponent<StaffHandler>().firstName;
+                string _workerLastName = staffContainer.Find(worker).GetComponent<StaffHandler>().lastName;
+
+
+                programmingStats.Add(_statProgramming);
+                soundStats.Add(_statSound);
+                graphicStats.Add(_statGraphics);
+                designStats.Add(_statDesign);
+                totalStats.Add(_totalValue);
+                totalGraphics.Add(_totalGraphicsDesign);
+                totalContent.Add(_totalContent);
+
+                firstNames.Add(_workerFirstName);
+                lastNames.Add(_workerLastName);
+            }
 
         }
 
@@ -229,11 +260,46 @@ public class developmentOverviewValues : MonoBehaviour
         _barContainers.Find("ContentBarContainer").Find("Content Progress Bar").GetComponent<Slider>().value = _contentProgress;
         _barContainers.Find("ControlsBarContainer").Find("Controls Progress Bar").GetComponent<Slider>().value = _controlsProgress;
 
-        _barContainers.Find("GraphicsBarContainer").Find("Graphics%").GetComponent <TMP_Text>().text = Mathf.Round(_graphicsProgress).ToString() + "%";
-        _barContainers.Find("SoundBarContainer").Find("Sound%").GetComponent<TMP_Text>().text = Mathf.Round(_soundProgress).ToString() + "%";
-        _barContainers.Find("GameplayBarContainer").Find("Gameplay%").GetComponent<TMP_Text>().text = Mathf.Round(_gameplayProgress).ToString() + "%";
-        _barContainers.Find("ContentBarContainer").Find("Content%").GetComponent<TMP_Text>().text = Mathf.Round(_contentProgress).ToString() + "%";
-        _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = Mathf.Round(_controlsProgress).ToString() + "%";
+        if(_graphicsProgress > 100)
+        {
+            _barContainers.Find("GraphicsBarContainer").Find("Graphics%").GetComponent<TMP_Text>().text = "100%";            
+        }
+        if(_graphicsProgress<=100)
+        {
+            _barContainers.Find("GraphicsBarContainer").Find("Graphics%").GetComponent<TMP_Text>().text = Mathf.Round(_graphicsProgress).ToString() + "%";
+        }
+        if(_soundProgress >100)
+        {
+            _barContainers.Find("SoundBarContainer").Find("Sound%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if (_soundProgress <= 100)
+        {
+            _barContainers.Find("SoundBarContainer").Find("Sound%").GetComponent<TMP_Text>().text = Mathf.Round(_soundProgress).ToString() + "%";
+        }
+        if(_gameplayProgress>100)
+        {
+            _barContainers.Find("GameplayBarContainer").Find("Gameplay%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_gameplayProgress <= 100)
+        {
+            _barContainers.Find("GameplayBarContainer").Find("Gameplay%").GetComponent<TMP_Text>().text = Mathf.Round(_gameplayProgress).ToString() + "%";
+        }
+        if(_contentProgress >100)
+        {
+            _barContainers.Find("ContentBarContainer").Find("Content%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_contentProgress <= 100)
+        {
+            _barContainers.Find("ContentBarContainer").Find("Content%").GetComponent<TMP_Text>().text = Mathf.Round(_contentProgress).ToString() + "%";
+        }
+        if(_controlsProgress > 100)
+        {
+            _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_controlsProgress <= 100)
+        {
+            _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = Mathf.Round(_controlsProgress).ToString() + "%";
+        }
     }
 
     public void GetAndSetReviewValues()
@@ -257,7 +323,7 @@ public class developmentOverviewValues : MonoBehaviour
         { 
             _reviewScreen.Find("Center").Find("OverallRating").Find("PercentageText").GetComponent<Text>().text = _overallRatingRounded.ToString() + "%";
         }
-        if (_overallRating > 100)
+        if (_overallRatingRounded > 100)
         {
             _reviewScreen.Find("Center").Find("OverallRating").Find("PercentageText").GetComponent<Text>().text = "100%";
         }
@@ -265,22 +331,58 @@ public class developmentOverviewValues : MonoBehaviour
 
         //Set sub-ratings Box Values and Workers
         float _graphicsRating = thisProject.GetComponent<CalculateGameScore>().graphicsScore / thisProject.GetComponent<CalculateGameScore>().maxGraphics;
-        double _graphicsRatingRounded = Math.Round(_graphicsRating * 100, 0);
+        float _graphicsRatingRounded = Mathf.Round(_graphicsRating * 100f);
         float _soundRating = thisProject.GetComponent<CalculateGameScore>().soundScore / thisProject.GetComponent<CalculateGameScore>().maxSound;
-        double _soundRatingRounded = Math.Round(_soundRating * 100, 0);
+        float _soundRatingRounded = Mathf.Round(_soundRating * 100f);
         float _gameplayRating = thisProject.GetComponent<CalculateGameScore>().gameplayScore / thisProject.GetComponent<CalculateGameScore>().maxGameplay;
-        double _gameplayRatingRounded = Math.Round(_gameplayRating * 100, 0);
+        float _gameplayRatingRounded = Mathf.Round(_gameplayRating * 100f);
         float _contentRating = thisProject.GetComponent<CalculateGameScore>().contentScore / thisProject.GetComponent<CalculateGameScore>().maxContent;
-        double _contentRatingRounded = Math.Round(_contentRating * 100, 0);
+        float _contentRatingRounded = Mathf.Round(_contentRating * 100f);
         float _controlsRating = thisProject.GetComponent<CalculateGameScore>().controlsScore / thisProject.GetComponent<CalculateGameScore>().maxControls;
-        double _controlsRatingRounded = Math.Round(_controlsRating * 100, 0);
+        float _controlsRatingRounded = Mathf.Round(_controlsRating * 100f);
 
-        _ratingsBox.Find("GraphicsRating").Find("GraphicsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _graphicsRatingRounded.ToString() + "%";
-        _ratingsBox.Find("SoundRating").Find("SoundText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _soundRatingRounded.ToString() + "%";
-        _ratingsBox.Find("GameplayRating").Find("GameplayText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _gameplayRatingRounded.ToString() + "%";
-        _ratingsBox.Find("ContentRating").Find("ContentText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _contentRatingRounded.ToString() + "%";
-        _ratingsBox.Find("ControlsRating").Find("ControlsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _controlsRatingRounded.ToString() + "%";
-
+        
+        if(_graphicsRatingRounded > 100)
+        {
+            _ratingsBox.Find("GraphicsRating").Find("GraphicsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text =  "100%";
+        }
+        if (_graphicsRatingRounded <= 100)
+        {
+            _ratingsBox.Find("GraphicsRating").Find("GraphicsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _graphicsRatingRounded + "%";
+        }
+        if(_soundRatingRounded >100)
+        {
+            _ratingsBox.Find("SoundRating").Find("SoundText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_soundRatingRounded <=100) 
+        {
+            _ratingsBox.Find("SoundRating").Find("SoundText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _soundRatingRounded + "%";
+        }
+        if(_gameplayRatingRounded >100)
+        {
+            _ratingsBox.Find("GameplayRating").Find("GameplayText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_gameplayRatingRounded <=100)
+        {
+            _ratingsBox.Find("GameplayRating").Find("GameplayText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _gameplayRatingRounded + "%";
+        }
+        if(_contentRatingRounded > 100)
+        {
+            _ratingsBox.Find("ContentRating").Find("ContentText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_contentRatingRounded <= 100)
+        {
+            _ratingsBox.Find("ContentRating").Find("ContentText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _contentRatingRounded + "%";
+        }
+        if(_controlsRatingRounded >100)
+        {
+            _ratingsBox.Find("ControlsRating").Find("ControlsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = "100%";
+        }
+        if(_controlsRatingRounded <= 100)
+        {
+            _ratingsBox.Find("ControlsRating").Find("ControlsText").Find("Progress Bar").Find("%").GetComponent<TMP_Text>().text = _controlsRatingRounded + "%";
+        }
+        
         _ratingsBox.Find("GraphicsRating").Find("GraphicsText").Find("Progress Bar").GetComponent<Slider>().value = _graphicsRating;
         _ratingsBox.Find("SoundRating").Find("SoundText").Find("Progress Bar").GetComponent<Slider>().value = _soundRating;
         _ratingsBox.Find("GameplayRating").Find("GameplayText").Find("Progress Bar").GetComponent<Slider>().value = _gameplayRating;
@@ -292,30 +394,59 @@ public class developmentOverviewValues : MonoBehaviour
 
         foreach (string worker in staffList)
         {
+            if (worker == player.name.ToString())
+            {
+                int _statProgramming = player.GetComponent<StaffHandler>().workerStatProgramming;
+                int _statSound = player.GetComponent<StaffHandler>().workerStatSound;
+                int _statGraphics = player.GetComponent<StaffHandler>().workerStatGraphics;
+                int _statDesign = player.GetComponent<StaffHandler>().workerStatDesign;
+                int _totalGraphicsDesign = player.GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
+                int _totalContent = player.GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
 
-            int _statProgramming = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgramming;
-            int _statSound = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatSound;
-            int _statGraphics = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphics;
-            int _statDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatDesign;
-            int _totalGraphicsDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
-            int _totalContent = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
+                int _totalValue = _statProgramming + _statSound + _statGraphics + _statDesign;
 
-            int _totalValue = _statProgramming + _statSound + _statGraphics + _statDesign;
-
-            string _workerFirstName = staffContainer.Find(worker).GetComponent<StaffHandler>().firstName;
-            string _workerLastName = staffContainer.Find(worker).GetComponent<StaffHandler>().lastName;
+                string _workerFirstName = player.GetComponent<StaffHandler>().firstName;
+                string _workerLastName = player.GetComponent<StaffHandler>().lastName;
 
 
-            programmingStats.Add(_statProgramming);
-            soundStats.Add(_statSound);
-            graphicStats.Add(_statGraphics);
-            designStats.Add(_statDesign);
-            totalStats.Add(_totalValue);
-            totalGraphics.Add(_totalGraphicsDesign);
-            totalContent.Add(_totalContent);
+                programmingStats.Add(_statProgramming);
+                soundStats.Add(_statSound);
+                graphicStats.Add(_statGraphics);
+                designStats.Add(_statDesign);
+                totalStats.Add(_totalValue);
+                totalGraphics.Add(_totalGraphicsDesign);
+                totalContent.Add(_totalContent);
 
-            firstNames.Add(_workerFirstName);
-            lastNames.Add(_workerLastName);
+                firstNames.Add(_workerFirstName);
+                lastNames.Add(_workerLastName);
+            }
+            if (worker != player.name.ToString())
+            {
+                int _statProgramming = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgramming;
+                int _statSound = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatSound;
+                int _statGraphics = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphics;
+                int _statDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatDesign;
+                int _totalGraphicsDesign = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatGraphicsAndDesign;
+                int _totalContent = staffContainer.Find(worker).GetComponent<StaffHandler>().workerStatProgrammingAndDesign;
+
+                int _totalValue = _statProgramming + _statSound + _statGraphics + _statDesign;
+
+                string _workerFirstName = staffContainer.Find(worker).GetComponent<StaffHandler>().firstName;
+                string _workerLastName = staffContainer.Find(worker).GetComponent<StaffHandler>().lastName;
+
+
+                programmingStats.Add(_statProgramming);
+                soundStats.Add(_statSound);
+                graphicStats.Add(_statGraphics);
+                designStats.Add(_statDesign);
+                totalStats.Add(_totalValue);
+                totalGraphics.Add(_totalGraphicsDesign);
+                totalContent.Add(_totalContent);
+
+                firstNames.Add(_workerFirstName);
+                lastNames.Add(_workerLastName);
+            }
+
 
         }
 

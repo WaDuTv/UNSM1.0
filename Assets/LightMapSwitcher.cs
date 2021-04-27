@@ -6,8 +6,10 @@ public class LightMapSwitcher : MonoBehaviour
 {
     public Texture2D[] DayNear;
     public Texture2D[] DayFar;
+    //public Texture2D[] DayShadowmask;
     public Texture2D[] NightNear;
     public Texture2D[] NightFar;
+    //public Texture2D[] NightShadowmask;
 
     private LightmapData[] dayLightMaps;
     private LightmapData[] nightLightMaps;
@@ -23,8 +25,10 @@ public class LightMapSwitcher : MonoBehaviour
         // Sort the Day and Night arrays in numerical order, so you can just blindly drag and drop them into the inspector
         DayNear = DayNear.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
         DayFar = DayFar.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
+        //DayShadowmask = DayShadowmask.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
         NightNear = NightNear.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
         NightFar = NightFar.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
+        //NightShadowmask = NightShadowmask.OrderBy(t2d => t2d.name, new NaturalSortComparer<string>()).ToArray();
 
         // Put them in a LightMapData structure
         dayLightMaps = new LightmapData[DayNear.Length];
@@ -33,6 +37,7 @@ public class LightMapSwitcher : MonoBehaviour
             dayLightMaps[i] = new LightmapData();
             dayLightMaps[i].lightmapDir = DayNear[i];
             dayLightMaps[i].lightmapColor = DayFar[i];
+            //dayLightMaps[i].shadowMask = DayShadowmask[i];
         }
 
         nightLightMaps = new LightmapData[NightNear.Length];
@@ -41,6 +46,7 @@ public class LightMapSwitcher : MonoBehaviour
             nightLightMaps[i] = new LightmapData();
             nightLightMaps[i].lightmapDir = NightNear[i];
             nightLightMaps[i].lightmapColor = NightFar[i];
+            //nightLightMaps[i].shadowMask = NightShadowmask[i];
         }
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 2.3.1
   lightSettings:
-    directionalLightMode: 0
+    directionalLightMode: 1
     LightColor:
       serializedVersion: 2
       key0: {r: 0.29803923, g: 0.33333334, b: 0.4392157, a: 1}
@@ -66,8 +66,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.57828337
-        value: 1.9319247
+        time: 0.5947966
+        value: 1.6255747
         inSlope: 0.20075521
         outSlope: 0.20075521
         tangentMode: 0
@@ -75,8 +75,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9907926
-        value: 1.9724091
+        time: 1.0073059
+        value: 1.6660591
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.49583435
-        value: 0.6231171
+        value: 0.547428
         inSlope: 2
         outSlope: 2
         tangentMode: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1.0028801
+        value: 0.927191
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    directLightAngleOffset: 0
+    directLightAngleOffset: 172
     ambientMode: 3
     ambientIntensity:
       serializedVersion: 2
@@ -1679,10 +1679,10 @@ MonoBehaviour:
   viewMode: 12
   viewModeLW: 1
   showPlayerSetup: 0
-  showRenderingSetup: 0
-  showComponentsSetup: 0
+  showRenderingSetup: 1
+  showComponentsSetup: 1
   showTimeUI: 1
-  showWeatherUI: 0
+  showWeatherUI: 1
   showAudioUI: 1
   showEffectsUI: 1
   modified: 1

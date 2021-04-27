@@ -12,6 +12,9 @@
 /[Aa]ssets/Procedural Worlds/
 /[Aa]ssets/Enviro - Sky and Weather/
 /[Aa]ssets/beffio/
+/[Aa]ssets/Bakery/
+/[Aa]ssets/Magic Light Probes/
+/[Aa]ssets/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

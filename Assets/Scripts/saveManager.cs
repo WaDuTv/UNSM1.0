@@ -217,14 +217,17 @@ public class saveManager : MonoBehaviour
                 saveData.Add("Available_Worker is available_" + sh.firstName + "_" + sh.lastName, sh.isAvailable);
                 saveData.Add("Available_Worker is asigned_" + sh.firstName + "_" + sh.lastName, sh.isAssignedToProject);
 
+                if(sh.workerModel != null)
+                { 
                 saveData.Add("Available_Worker Model_Transform_" + sh.firstName + "_" + sh.lastName, sh.workerModel.transform);
+                }
 
                 availableWorkers.Add(sh.firstName + "_" + sh.lastName);
             }
 
         }
 
-        saveData.Add("AvailableWorkersList", hiredWorkers);
+        saveData.Add("AvailableWorkersList", availableWorkers);
 
         //Save Hired Staff and Status/Stats
         HiredStaffContainer = GameObject.Find("CompanyStaff");

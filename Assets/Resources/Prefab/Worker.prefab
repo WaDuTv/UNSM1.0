@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4112824406894923110}
   - component: {fileID: 4112824406894923105}
+  - component: {fileID: -2587714089365619339}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -49,23 +50,62 @@ MonoBehaviour:
   workerMaterialIndex: 0
   workerModel: {fileID: 0}
   modelContainer: {fileID: 0}
+  isMale: 0
   assignedProjectName: 
   lastName: 
   firstName: 
   workerProfession: 
   workerID: 0
   workerIDSet: 0
+  workerMood: 0
   workerStatProgramming: 0
   workerStatSound: 0
   workerStatGraphics: 0
   workerStatDesign: 0
   workerStatGraphicsAndDesign: 0
   workerStatProgrammingAndDesign: 0
+  workerGrade_: 
+  workerSalary: 0
   isAvailable: 0
   isAssignedToProject: 0
   currentProject: 
   isPlayer: 0
   workerMaterialHolder: {fileID: 0}
   workerModelprefab: {fileID: 0}
+  playerModel: {fileID: 0}
   workerMaterial: {fileID: 0}
   lastModelPosition: {x: -7, y: 0, z: -5}
+  lastModelRotation: {x: 0, y: 0, z: 0, w: 0}
+  companyStaffContainer: {fileID: 0}
+--- !u!114 &-2587714089365619339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112824406894923111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: NPC
+  persistentDataName: 
+  portrait: {fileID: 0}
+  spritePortrait: {fileID: 0}
+  barkUISettings:
+    barkUI: {fileID: 0}
+    barkUIOffset: {x: 0, y: 2, z: 0}
+  standardDialogueUISettings:
+    subtitlePanelNumber: 0
+    customSubtitlePanel: {fileID: 0}
+    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
+    menuPanelNumber: 0
+    customMenuPanel: {fileID: 0}
+    customMenuPanelOffset: {x: 0, y: 0, z: 0}
+    useMenuPanelFor: 0
+    portraitAnimatorController: {fileID: 0}
+    setSubtitleColor: 0
+    applyColorToPrependedName: 0
+    prependActorNameSeparator: ': '
+    subtitleColor: {r: 1, g: 1, b: 1, a: 1}

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Adventure
   m_EditorClassIdentifier: 
   gameGenre: Adventure
-  optimumGraphics: 6
-  optimumSound: 7
-  optimumGameplay: 5
-  optimumContent: 8
-  obtimumGameplay: 5
-  optimumControls: 5
+  optimumGraphics: 3
+  optimumSound: 5
+  optimumGameplay: 7
+  optimumContent: 7
+  optimumControls: 4
   audienceRating_kids: 7
   audienceRating_teenagers: 8
   audienceRating_adults: 8

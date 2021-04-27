@@ -9,8 +9,23 @@ public class Lightmanager : MonoBehaviour
     public Material skyscraperMaterial_nonEmissive;
     public Material skyscraperMaterial_Emissive;
 
+    public Material lampMaterial_nonEmissive;
+    public Material lampMaterial_Emissive;
+
+    public Material lightBulpMaterial_nonEmissive;
+    public Material lightBulpMaterial_Emissive;
+
     [SerializeField]
     private GameObject[] switchableBuildings;
+    [SerializeField]
+    private GameObject[] switchableLamps;
+    [SerializeField]
+    private GameObject[] switchableLightBulp;
+    [SerializeField]
+    private GameObject[] switchablePointLights;
+    [SerializeField]
+    private GameObject[] switchableLights;
+
 
     private bool isNight;
 
@@ -18,6 +33,10 @@ public class Lightmanager : MonoBehaviour
     void Start()
     {
         switchableBuildings = GameObject.FindGameObjectsWithTag("switchableBuilding");
+        switchablePointLights = GameObject.FindGameObjectsWithTag("switchablePointLight");
+        switchableLights = GameObject.FindGameObjectsWithTag("switchableLight");
+        switchableLamps = GameObject.FindGameObjectsWithTag("switchableLamp");
+        switchableLightBulp = GameObject.FindGameObjectsWithTag("switchableLightBulp");
         if (EnviroSky.instance.isNight == true)
         {
             lightMapSwitcher.SetToNight();
@@ -53,6 +72,24 @@ public class Lightmanager : MonoBehaviour
         {
             sb.GetComponent<MeshRenderer>().material = skyscraperMaterial_Emissive;
         }
+        foreach (GameObject sl in switchableLamps)
+        {
+            sl.GetComponent<MeshRenderer>().material = lampMaterial_Emissive;
+        }
+        foreach (GameObject slb in switchableLightBulp)
+        {
+            slb.GetComponent<MeshRenderer>().enabled = true;
+        }
+
+
+        foreach (GameObject pl in switchablePointLights)
+        {
+            pl.GetComponent<Light>().enabled = true;
+        }
+        foreach (GameObject sl in switchableLights)
+        {
+            sl.GetComponent<Light>().enabled = true;
+        }
     }
     public void SwitchEmissiveMaterialsOff()
     {        
@@ -60,6 +97,24 @@ public class Lightmanager : MonoBehaviour
         foreach (GameObject sb in switchableBuildings)
         {
             sb.GetComponent<MeshRenderer>().material = skyscraperMaterial_nonEmissive;
+
+        }
+        foreach (GameObject sl in switchableLamps)
+        {
+            sl.GetComponent<MeshRenderer>().material = lampMaterial_nonEmissive;
+        }
+        foreach (GameObject slb in switchableLightBulp)
+        {
+            slb.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        foreach (GameObject pl in switchablePointLights)
+        {
+            pl.GetComponent<Light>().enabled = false;
+        }
+        foreach (GameObject sl in switchableLights)
+        {
+            sl.GetComponent<Light>().enabled = false;
         }
     }
 

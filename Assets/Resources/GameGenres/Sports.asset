@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Sports
   m_EditorClassIdentifier: 
   gameGenre: Sports
-  optimumGraphics: 6
-  optimumSound: 8
-  optimumGameplay: 7
-  optimumContent: 4
-  optimumControls: 8
+  optimumGraphics: 5
+  optimumSound: 7
+  optimumGameplay: 4
+  optimumContent: 3
+  optimumControls: 5
   audienceRating_kids: 5
   audienceRating_teenagers: 8
   audienceRating_adults: 9

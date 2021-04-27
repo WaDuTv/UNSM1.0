@@ -54,12 +54,12 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     {
         activeProjectsContainer = GameObject.Find("CurrentActiveProjects").transform;
         activeProjectsList = GetComponentInParent<InstantiateDevelopmentProgressBars>().activeProjectsList;
-        displayedName = this.transform.Find("ProgressBar").Find("GameName").GetComponent<TMP_Text>();
+        displayedName = this.transform.Find("background").Find("GameName").GetComponent<TMP_Text>();
         barName = this.gameObject.name.ToString();
         splitArray = barName.Split('_');
         projectName = splitArray[1];
         displayedName.text = projectName;
-        progressBarFill = this.transform.Find("ProgressBar").gameObject;
+        progressBarFill = this.transform.Find("background").Find("ProgressBar").gameObject;
         developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
         reviewSplashScreen = GameObject.Find("View - ReviewResultSplashScreen").GetComponent<UIView>();
         clock = GameObject.Find("TimeManager").GetComponent<Clock>();

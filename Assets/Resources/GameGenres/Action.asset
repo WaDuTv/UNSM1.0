@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   gameGenre: Action
-  optimumGraphics: 8
+  optimumGraphics: 5
   optimumSound: 6
-  optimumGameplay: 7
-  optimumContent: 5
-  optimumControls: 8
+  optimumGameplay: 4
+  optimumContent: 6
+  optimumControls: 7
   audienceRating_kids: 3
   audienceRating_teenagers: 7
   audienceRating_adults: 8

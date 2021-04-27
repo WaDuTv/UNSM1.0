@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Doozy.Engine.UI;
+using TMPro;
 
 
 public class ReviewOverviewDisplay : MonoBehaviour
@@ -10,6 +11,12 @@ public class ReviewOverviewDisplay : MonoBehaviour
     public int reviewReadyDay;
     public int reviewReadyMonth;
     public int reviewReadyYear;
+
+    public float _sendAwayDay;
+    public float _timeForReview;
+    public float _dayPast;
+
+    public float reviewProgress;
 
     public string projectName;
 
@@ -26,6 +33,9 @@ public class ReviewOverviewDisplay : MonoBehaviour
 
     public GameObject finishedGameConatainer;
 
+    [SerializeField]
+    private ProgressBar progressBar;
+
 
     [SerializeField]
     private string barName;
@@ -39,6 +49,8 @@ public class ReviewOverviewDisplay : MonoBehaviour
     private int currentYear;
     [SerializeField]
     private Clock clock;
+    [SerializeField]
+    private TMP_Text gameName;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +66,10 @@ public class ReviewOverviewDisplay : MonoBehaviour
         finishedGameConatainer = GameObject.Find("MyFinishedGames");
         thisProject = finishedGameConatainer.transform.Find(projectName).gameObject;
 
+        gameName.text = projectName;
+
+        reviewProgress = 0;
+
         reviewReadyDay = thisProject.GetComponent<ProjectInDevelopment>().reviewDay;
         reviewReadyMonth = thisProject.GetComponent<ProjectInDevelopment>().reviewMonth;
         reviewReadyYear = thisProject.GetComponent<ProjectInDevelopment>().reviewYear;
@@ -67,8 +83,26 @@ public class ReviewOverviewDisplay : MonoBehaviour
         currentDay = clock.day;
         currentYear = clock.year;
 
-        if (reviewReadyDay != 0 && reviewReadyDay <= currentDay && reviewReadyMonth != null && reviewReadyMonth <= currentMonth && reviewReadyYear != 0 && reviewReadyYear <= currentYear)
+        if(reviewProgress < 100)
         {
+            CalculateProgress();            
+        }
+        UpdateProgressBar();
+        if (reviewProgress <= 33)
+        {
+            progressBar.color = Color.red;
+        }
+        if (reviewProgress > 33 && reviewProgress <= 66)
+        {
+            progressBar.color = new Color32(255, 152, 0, 255);
+        }
+        if (reviewProgress > 66 && reviewProgress <= 99)
+        {
+            progressBar.color = Color.yellow;
+        }
+        if (reviewProgress == 100)
+        {
+            progressBar.color = Color.green;
             showReviewButton.enabled = true;
             showReviewUIButton.enabled = true;
         }
@@ -79,5 +113,29 @@ public class ReviewOverviewDisplay : MonoBehaviour
         sendToReviewButton.barName = "In Review" + barName;
         sendToReviewButton.projectName = projectName;
         reviewSplashScreen.Show();
+    }
+
+    public void CalculateProgress()
+    {
+        _sendAwayDay = (thisProject.GetComponent<ProjectInDevelopment>().sendAwayMonth-1)*30 + thisProject.GetComponent<ProjectInDevelopment>().sendAwayDay;
+        _timeForReview = ((reviewReadyMonth - 1) * 30 + reviewReadyDay) - _sendAwayDay;
+
+        _dayPast = ((currentMonth-1)*30 + currentDay) - _sendAwayDay;
+
+        reviewProgress = _dayPast / _timeForReview * 100f;
+        
+    }
+
+    public void UpdateProgressBar()
+    {
+        if ((int)reviewProgress <= 100)
+        {
+            progressBar.current = (int)reviewProgress;
+        }
+        if ((int)reviewProgress > 100)
+        {
+            progressBar.current = 100;
+        }
+
     }
 }

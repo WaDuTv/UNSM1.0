@@ -2572,7 +2572,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: New Conversation 1
+  conversation: Jobinterview
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -5629,12 +5629,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2856a630ef797419bb26c61ef9075c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callView: {fileID: 0}
-  ringingView: {fileID: 0}
-  contactsView: {fileID: 0}
-  currentView: {fileID: 0}
   calledPerson: {fileID: 0}
+  workerModel: {fileID: 0}
+  TextureHolder: {fileID: 0}
+  modelCam: {fileID: 0}
+  workerModelanimator: {fileID: 0}
   dialogueSystemTrigger: {fileID: 2403119179445687335}
+  moodSlider: {fileID: 0}
+  calledPersonNameDisplay: {fileID: 0}
+  workerModelContainer: {fileID: 0}
+  hangUpCallButton: {fileID: 0}
+  cellPhone: {fileID: 0}
 --- !u!1 &4357059758009524911
 GameObject:
   m_ObjectHideFlags: 0
