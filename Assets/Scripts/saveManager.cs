@@ -134,15 +134,14 @@ public class saveManager : MonoBehaviour
 
         //Save CameraPosition
         saveData.Add("Camera_Position", GameObject.Find("MainCameraRig").transform.position);
-        saveData.Add("Camera_Rotation", GameObject.Find("MainCameraRig").transform.rotation);
+        saveData.Add("Camera_Rotation", GameObject.Find("MainCameraRig").transform.rotation);                        
 
-        //Save Money
-        shopSystem = GameObject.Find("ShopManager");
-        saveData.Add("Money", shopSystem.GetComponent<ShopScript>().bankamount);
+       
 
         //Save Company Values
         CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
         saveData.Add("Company_Reputation", _companyValuesManager.companyReputaion);
+        saveData.Add("Company_Money", _companyValuesManager.companyCash);
 
         //Save Player        
         playerContainer = GameObject.Find("PlayerContainer").transform;
@@ -493,15 +492,14 @@ public class saveManager : MonoBehaviour
             //Load Camera Position & Rotation
             Vector3 cameraPosition = saveData.GetUnityVector3("Camera_Position");
             Quaternion cameraRotation = saveData.GetUnityQuaternion("Camera_Rotation");
-
-            //Load Money
-            int currentMoney = saveData.GetInt("Money");
-
+            
             //Load & Set Company Values
             CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
             float _companyReputation = saveData.GetFloat("Company_Reputation");
+            float _companyMoney = saveData.GetFloat("CompanyMoney");
 
             _companyValuesManager.companyReputaion = _companyReputation;
+            _companyValuesManager.companyCash = _companyMoney;
 
             //Load & Instantiate Player
             int playerPrefabIndex = saveData.GetInt("Player CharacterPrefab_");
@@ -1068,10 +1066,7 @@ public class saveManager : MonoBehaviour
                     Time.timeScale = 0f;
 
                     GameObject.Find("MainCameraRig").GetComponent<CameraController>().newPosition = cameraPosition;
-                    GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;
-
-                    shopSystem = GameObject.Find("ShopManager");
-                    shopSystem.GetComponent<ShopScript>().bankamount = currentMoney;                    
+                    GameObject.Find("MainCameraRig").GetComponent<CameraController>().newRotation = cameraRotation;                    
 
                     saveData.Dispose();
 

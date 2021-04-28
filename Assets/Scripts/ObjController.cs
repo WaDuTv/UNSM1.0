@@ -65,7 +65,7 @@ public class ObjController : MonoBehaviour
             //indicators.SetActive(false);
             desktopGraph.SetActive(true);
             desktopView.Show();
-            overviewView.Show();
+            
             
             
             //GameObject.Find("MainCameraRig").GetComponent<CameraController>().enabled = false;

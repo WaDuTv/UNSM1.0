@@ -30,14 +30,14 @@ public class grabContacts : MonoBehaviour
         {
             if(contactButtonParent.Find("contact_" + _contact) == null)
             { 
-            GameObject _newButton = Instantiate(contactButtonPrefab, contactButtonParent);
-            _newButton.name = "contact_" + _contact;
+                    GameObject _newButton = Instantiate(contactButtonPrefab, contactButtonParent);
+                    _newButton.name = "contact_" + _contact;
             
-            StaffHandler _contactSH = GameObject.Find(_contact).GetComponent<StaffHandler>();
+                    StaffHandler _contactSH = GameObject.Find(_contact).GetComponent<StaffHandler>();
            
-            _newButton.transform.Find("Name").GetComponent<TMP_Text>().text = _contactSH.firstName+ " " + _contactSH.lastName + " - (0231421 - " + _contactSH.workerID + ")";
-            _newButton.transform.Find("Infos").GetComponent<TMP_Text>().text = _contactSH.workerProfession;
-            _newButton.transform.Find("ID").GetComponent<TMP_Text>().text = (myContacts.contacts.IndexOf(_contact)+1).ToString()+".";
+                    _newButton.transform.Find("Name").GetComponent<TMP_Text>().text = _contactSH.firstName+ " " + _contactSH.lastName + " - (0231421 - " + _contactSH.workerID + ")";
+                    _newButton.transform.Find("Infos").GetComponent<TMP_Text>().text = _contactSH.workerProfession;
+                    _newButton.transform.Find("ID").GetComponent<TMP_Text>().text = (myContacts.contacts.IndexOf(_contact)+1).ToString()+".";
             }
         }
     }

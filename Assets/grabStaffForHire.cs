@@ -29,7 +29,7 @@ public class grabStaffForHire : MonoBehaviour
     }
 
     public void UpdateContacts()
-    {
+    {        
         foreach (string _staff in availableWorkersLibraryManager.availableWorkers)
         {
             if (staffForHireButtonParent.Find("available_" + _staff) == null)
@@ -52,7 +52,13 @@ public class grabStaffForHire : MonoBehaviour
 
                 index = _newIndex;
             }
-            
+            if (staffForHireButtonParent.Find("available_" + _staff) != null)
+            {
+                staffForHireButtonParent.Find("available_" + _staff).Find("ID").GetComponent<TMP_Text>().text = (availableWorkersLibraryManager.availableWorkers.IndexOf(_staff) + 1).ToString() + ".";
+            }
+
+
+
         }
     }
 }

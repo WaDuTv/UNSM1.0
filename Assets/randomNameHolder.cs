@@ -7,25 +7,75 @@ public class randomNameHolder : MonoBehaviour
     
     public enum FirstNames_Male
     {
+        James,
+        John,
+        Robert,
+        Michael,
+        William,
+        David,
+        Richard,
+        Joseph,
+        Thomas,
+        Charles,
+        Christopher,
+        Daniel,
+        Matthew,
+        Anthony,
+        Donald,
         Mark,
-        Randy,
-        Joe,
+        Paul,
+        Steven,
+        Andrew,
+        Kenneth,
         _Max
     }
 
     public enum FirstNames_Female
     {
-        Anna,
-        Marie,
+        Mary,
+        Patricia,
+        Jennifer,
+        Linda,
+        Elizabeth,
+        Barbara,
+        Susan,
+        Jessica,
+        Sarah,
+        Karen,
+        Nancy,
+        Lisa,
+        Margaret,
+        Betty,
         Sandra,
-        Rita,
+        Ashley,
+        Dorothy,
+        Kimberly,
+        Emily,
+        Donna,
         _Max
     }
     public enum LastNames
     {
-        Henry,
-        Orton,
-        Samoa,
+        Smith,
+        Johnson,
+        Williams,
+        Brown,
+        Jones,
+        Garcia,
+        Miller,
+        Davis,
+        Rodriguez,
+        Martinez,
+        Hernandez,
+        Lopez,
+        Gonzales,
+        Wilson,
+        Anderson,
+        Thomas,
+        Taylor,
+        Moore,
+        Jackson,
+        Martin,
         _Max
     }
 

@@ -349,6 +349,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Search for staff","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 5a3c24f7-60c2-48fc-bc58-32cd11704cf5
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: ba14d56c-050b-452c-82ca-c06baa710dc2
+      m_outputSocketId: 7dc8fcb4-4c45-4d7d-8412-4c4deeae9674
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 158
+    m_id: 7dc8fcb4-4c45-4d7d-8412-4c4deeae9674
+    m_nodeId: ba14d56c-050b-452c-82ca-c06baa710dc2
+    m_socketName: OutputSocket_4
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -357,7 +383,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 200
+  m_height: 224
   m_width: 216
   m_x: -480
   m_y: 348
@@ -380,9 +406,6 @@ MonoBehaviour:
   - Category: Desktop
     InstantAction: 0
     Name: My Staff
-  - Category: Desktop
-    InstantAction: 0
-    Name: MyStaffList
 --- !u!114 &-7617664924869124348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,6 +620,33 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 8137be5f-88bb-41b8-9cb9-939218ed7c22
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 137ee377-3dcc-419c-a53a-e67323835643
+      m_outputSocketId: 917e28c5-a885-4dac-9d31-35b9d73053fb
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 182
+    m_id: 917e28c5-a885-4dac-9d31-35b9d73053fb
+    m_nodeId: 137ee377-3dcc-419c-a53a-e67323835643
+    m_socketName: OutputSocket_6
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Hire new Staff
+      Window","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -605,7 +655,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 224
+  m_height: 248
   m_width: 216
   m_x: -480
   m_y: 108
@@ -1279,6 +1329,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 5ed64634-e112-49e7-b82d-d2be8148db8b
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 56d1e24a-f81c-4413-a5f9-54c4114b5a91
+      m_outputSocketId: b30e92c2-ddd9-4fd5-a1d4-f92f166a5819
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 230
+    m_id: b30e92c2-ddd9-4fd5-a1d4-f92f166a5819
+    m_nodeId: 56d1e24a-f81c-4413-a5f9-54c4114b5a91
+    m_socketName: OutputSocket_7
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Button","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -1287,7 +1363,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 272
+  m_height: 296
   m_width: 216
   m_x: 36
   m_y: -480
@@ -1409,7 +1485,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: 1fb63123-eb05-4afa-8f7a-543771656883
-  m_lastModified: 132639799646339403
+  m_lastModified: 132640737831198427
 --- !u!114 &314162911059378043
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1850,6 +1926,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 8722ce3c-b0ce-4ba0-9e7d-477bff1d1533
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 6bf15509-c723-4932-afcc-c597f674c411
+      m_outputSocketId: a5d19362-4b8e-4358-a4d0-9f3779fd4a43
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 182
+    m_id: a5d19362-4b8e-4358-a4d0-9f3779fd4a43
+    m_nodeId: 6bf15509-c723-4932-afcc-c597f674c411
+    m_socketName: OutputSocket_1
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Button","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -1858,7 +1960,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 224
+  m_height: 248
   m_width: 216
   m_x: -480
   m_y: -480
@@ -2099,6 +2201,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 74b2df38-2cd3-4c76-80de-ee4d522a720c
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 33b0c8a2-9281-4765-a1d2-2012aeab81fb
+      m_outputSocketId: 2dcbdf22-8ea6-4878-b927-5018b416e3b4
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 182
+    m_id: 2dcbdf22-8ea6-4878-b927-5018b416e3b4
+    m_nodeId: 33b0c8a2-9281-4765-a1d2-2012aeab81fb
+    m_socketName: OutputSocket_5
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Button","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -2107,7 +2235,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 224
+  m_height: 248
   m_width: 216
   m_x: -480
   m_y: -132
@@ -2335,6 +2463,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Staffoverview","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 871ddc7c-ba52-4f89-82b0-892c30633aed
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: dbd61959-7963-496d-9d3e-037826fe7a92
+      m_outputSocketId: 8806c6c3-90c6-438f-8f23-3a3879508c5d
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 206
+    m_id: 8806c6c3-90c6-438f-8f23-3a3879508c5d
+    m_nodeId: dbd61959-7963-496d-9d3e-037826fe7a92
+    m_socketName: OutputSocket_6
+    m_value: '{"ButtonCategory":"DeskTopButtons","ButtonName":"Close Button","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -2343,7 +2497,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 248
+  m_height: 272
   m_width: 216
   m_x: -228
   m_y: -480
@@ -2429,6 +2583,48 @@ MonoBehaviour:
       m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
       m_outputNodeId: ba14d56c-050b-452c-82ca-c06baa710dc2
       m_outputSocketId: d4ea3543-d0d2-45b6-89e3-9b075bac951e
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 8137be5f-88bb-41b8-9cb9-939218ed7c22
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 137ee377-3dcc-419c-a53a-e67323835643
+      m_outputSocketId: 917e28c5-a885-4dac-9d31-35b9d73053fb
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 5a3c24f7-60c2-48fc-bc58-32cd11704cf5
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: ba14d56c-050b-452c-82ca-c06baa710dc2
+      m_outputSocketId: 7dc8fcb4-4c45-4d7d-8412-4c4deeae9674
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 74b2df38-2cd3-4c76-80de-ee4d522a720c
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 33b0c8a2-9281-4765-a1d2-2012aeab81fb
+      m_outputSocketId: 2dcbdf22-8ea6-4878-b927-5018b416e3b4
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 8722ce3c-b0ce-4ba0-9e7d-477bff1d1533
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 6bf15509-c723-4932-afcc-c597f674c411
+      m_outputSocketId: a5d19362-4b8e-4358-a4d0-9f3779fd4a43
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 871ddc7c-ba52-4f89-82b0-892c30633aed
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: dbd61959-7963-496d-9d3e-037826fe7a92
+      m_outputSocketId: 8806c6c3-90c6-438f-8f23-3a3879508c5d
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 5ed64634-e112-49e7-b82d-d2be8148db8b
+      m_inputNodeId: a30f0dab-3fdf-4690-bfe9-4dfa02ffa323
+      m_inputSocketId: 159902ac-8e2d-4c94-b96e-2799ad604cfd
+      m_outputNodeId: 56d1e24a-f81c-4413-a5f9-54c4114b5a91
+      m_outputSocketId: b30e92c2-ddd9-4fd5-a1d4-f92f166a5819
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -2592,15 +2788,9 @@ MonoBehaviour:
   - Category: Desktop
     InstantAction: 0
     Name: MainDesktop
-  - Category: Desktop
-    InstantAction: 0
-    Name: Overview
   m_onEnterHideViews: []
   m_onExitShowViews: []
-  m_onExitHideViews:
-  - Category: Desktop
-    InstantAction: 0
-    Name: Overview
+  m_onExitHideViews: []
 --- !u!114 &7083478791386637087
 MonoBehaviour:
   m_ObjectHideFlags: 1

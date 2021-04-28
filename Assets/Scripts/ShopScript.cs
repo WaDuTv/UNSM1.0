@@ -17,14 +17,13 @@ public class ShopScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bankamount = bankamount + GameObject.Find("CompanyManager").GetComponent<CompanyManager>().startingMoney;
-        bankAmountText.text = bankamount.ToString();
+        
     }
 
     // Update is called once per frame
     void Update()
     {        
-        bankAmountText.text = bankamount.ToString();        
+                
     }
 
     public void BuyFromShop(int price)
