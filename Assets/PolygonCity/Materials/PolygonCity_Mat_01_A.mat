@@ -251,7 +251,7 @@ Material:
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
-    - _ReduceShadowSpotDirectionalLight: 0.5
+    - _ReduceShadowSpotDirectionalLight: 1
     - _RefMetallic: 0
     - _RefVal: 0
     - _ReflectionIntensity: 0

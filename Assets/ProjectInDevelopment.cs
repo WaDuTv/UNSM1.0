@@ -9,6 +9,8 @@ public class ProjectInDevelopment : MonoBehaviour
     public string subGenre;
     public string Theme;
 
+    public string system;
+
     public string gameSize;
     public string targetAudience;
 

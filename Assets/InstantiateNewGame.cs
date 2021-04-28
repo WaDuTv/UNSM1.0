@@ -15,6 +15,7 @@ public class InstantiateNewGame : MonoBehaviour
     public TMP_Text theme;
     public TMP_Text gameSize;
     public TMP_Text targetAudience;
+    public TMP_Text delopmentSystem;
     public TMP_InputField price;
 
     public Slider setGraphics;
@@ -52,6 +53,10 @@ public class InstantiateNewGame : MonoBehaviour
     {
         GameObject activeProject = Instantiate(newActiveProjectPrefab, prefabParent);
         projectSettings = activeProject.GetComponent<ProjectInDevelopment>();
+        string[] _systemNameArray1 = delopmentSystem.text.Split('(');        
+        string _systemName1 = _systemNameArray1[0];
+        string[] _systemNameArray2 = _systemName1.Split(' ');
+        string _systemName2 = _systemNameArray2[0];
 
         projectSettings.projectName = projectName.text;
         activeProject.name = projectName.text;
@@ -59,6 +64,7 @@ public class InstantiateNewGame : MonoBehaviour
         projectSettings.subGenre = subGenre.text;
         projectSettings.Theme = theme.text;
         projectSettings.gameSize = gameSize.text;
+        projectSettings.system = _systemName2;
         projectSettings.targetAudience = targetAudience.text;
         string priceString = price.text.ToString();
         projectSettings.setPrice = int.Parse(priceString);

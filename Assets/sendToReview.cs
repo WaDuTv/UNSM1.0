@@ -9,6 +9,7 @@ public class sendToReview : MonoBehaviour
     public UIView developmentSumaryView;
     public string barName;
     public string projectName;
+    public string systemName;
 
     public Transform progressBarContainer;
     public Transform finishedGameContainer;

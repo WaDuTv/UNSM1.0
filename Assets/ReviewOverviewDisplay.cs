@@ -51,6 +51,8 @@ public class ReviewOverviewDisplay : MonoBehaviour
     private Clock clock;
     [SerializeField]
     private TMP_Text gameName;
+    [SerializeField]
+    private TMP_Text developmentEndText;
 
     // Start is called before the first frame update
     void Start()
@@ -66,13 +68,15 @@ public class ReviewOverviewDisplay : MonoBehaviour
         finishedGameConatainer = GameObject.Find("MyFinishedGames");
         thisProject = finishedGameConatainer.transform.Find(projectName).gameObject;
 
-        gameName.text = projectName;
+        gameName.text = projectName + " ("+ thisProject.GetComponent<ProjectInDevelopment>().system;        
 
         reviewProgress = 0;
 
         reviewReadyDay = thisProject.GetComponent<ProjectInDevelopment>().reviewDay;
         reviewReadyMonth = thisProject.GetComponent<ProjectInDevelopment>().reviewMonth;
         reviewReadyYear = thisProject.GetComponent<ProjectInDevelopment>().reviewYear;
+
+        developmentEndText.text = "Review ready on " + reviewReadyDay + "." + reviewReadyMonth + "." + reviewReadyYear;
 
     }
 

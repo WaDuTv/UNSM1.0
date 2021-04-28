@@ -24,6 +24,12 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     public int getReviewReadyDay;
     public int getReviewReadyYear;
 
+    public int endDay;
+    public int endMonth;
+    public int endYear;
+
+    public string systemName;
+
     public TMP_Text displayedName;
 
     public GameObject progressBarFill;
@@ -48,17 +54,29 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     private int daysPast;
     [SerializeField]
     private Clock clock;
+    [SerializeField]
+    private bool systemIsSet;
 
     // Start is called before the first frame update
     void Start()
     {
         activeProjectsContainer = GameObject.Find("CurrentActiveProjects").transform;
-        activeProjectsList = GetComponentInParent<InstantiateDevelopmentProgressBars>().activeProjectsList;
+        Transform _finishedProjectcontainer = GameObject.Find("MyFinishedGames").transform;
+        activeProjectsList = GetComponentInParent<InstantiateDevelopmentProgressBars>().activeProjectsList;        
         displayedName = this.transform.Find("background").Find("GameName").GetComponent<TMP_Text>();
         barName = this.gameObject.name.ToString();
         splitArray = barName.Split('_');
         projectName = splitArray[1];
-        displayedName.text = projectName;
+        if(activeProjectsContainer.Find(projectName) != null)
+        { 
+            systemName = activeProjectsContainer.Find(projectName).gameObject.GetComponent<ProjectInDevelopment>().system;
+            
+        }
+        if (activeProjectsContainer.Find(projectName) == null)
+        {
+            systemName = _finishedProjectcontainer.Find(projectName).gameObject.GetComponent<ProjectInDevelopment>().system;
+        }
+        displayedName.text = projectName+" ("+systemName+")";
         progressBarFill = this.transform.Find("background").Find("ProgressBar").gameObject;
         developmentOverview = GameObject.Find("View - DevelopmentOverview").GetComponent<UIView>();
         reviewSplashScreen = GameObject.Find("View - ReviewResultSplashScreen").GetComponent<UIView>();
@@ -68,6 +86,10 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
         sendToReviewButton = GameObject.Find("Button - Send to Review").GetComponent<sendToReview>();
         getReviewReadyDay = this.gameObject.GetComponent<developmentOverviewValues>().reviewReadyDay;
         getReviewReadyYear = this.gameObject.GetComponent<developmentOverviewValues>().reviewReadyYear;
+        endDay = activeProjectsContainer.Find(projectName).gameObject.GetComponent<ProjectInDevelopment>().endDay;
+        endMonth = activeProjectsContainer.Find(projectName).gameObject.GetComponent<ProjectInDevelopment>().endMonth;
+        endYear = activeProjectsContainer.Find(projectName).gameObject.GetComponent<ProjectInDevelopment>().endYear;
+        this.transform.Find("background").Find("DevelopemtEndTest").GetComponent<TMP_Text>().text = "Done on "+endDay+"/"+endMonth+"/"+endYear;
     }
 
     // Update is called once per frame
@@ -144,6 +166,7 @@ public class GameDevelopmentProgressbarCalculation : MonoBehaviour
     {
         sendToReviewButton.barName = "In Review" + barName;
         sendToReviewButton.projectName = projectName;
+        sendToReviewButton.systemName = systemName;
         reviewSplashScreen.Show();
     }
 

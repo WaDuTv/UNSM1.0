@@ -22,6 +22,12 @@ public class developmentOverviewValues : MonoBehaviour
     public string reviewGraphicsLead;
     public string reviewContentLead;
 
+    public int endDay;
+    public int endMonth;
+    public int endYear;
+
+    public string systemName;
+
     [SerializeField]
     private AlwaysVisibleHolderScript holder;
     [SerializeField]
@@ -89,7 +95,11 @@ public class developmentOverviewValues : MonoBehaviour
         staffList = thisProject.GetComponent<ProjectInDevelopment>().assignedStaff;
         reviewReadyDay = thisProject.GetComponent<ProjectInDevelopment>().reviewDay;
         reviewReadyYear = thisProject.GetComponent<ProjectInDevelopment>().reviewYear;
-        
+        endDay = thisProject.GetComponent<ProjectInDevelopment>().endDay;
+        endMonth = thisProject.GetComponent<ProjectInDevelopment>().endMonth;
+        endYear = thisProject.GetComponent<ProjectInDevelopment>().endYear;
+        systemName = thisProject.GetComponent<ProjectInDevelopment>().system;
+
 
         // Set Header Text
         developmentOverviewView.transform.Find("Header").Find("HeaderText").GetComponent<TMP_Text>().text = "Development-Report for: ''" + gameInProgressStats.projectName + "''";
@@ -311,6 +321,9 @@ public class developmentOverviewValues : MonoBehaviour
         finishedGamesContainer = GameObject.Find("MyFinishedGames").transform;
         thisProject = finishedGamesContainer.Find(reviewStats.projectName).gameObject;
         staffList = thisProject.GetComponent<ProjectInDevelopment>().assignedStaff;
+        endDay = thisProject.GetComponent<ProjectInDevelopment>().endDay;
+        endMonth = thisProject.GetComponent<ProjectInDevelopment>().endMonth;
+        endYear = thisProject.GetComponent<ProjectInDevelopment>().endYear;
 
         //Set Header Text
         _reviewScreen.Find("Image").Find("HeaderText").GetComponent<TMP_Text>().text = "Reviewresults for " + thisProject.name;
