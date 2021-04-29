@@ -191,7 +191,7 @@ namespace PixelCrushers
         /// <summary>
         /// An empty StringField, similar to string.Empty.
         /// </summary>
-        public static StringField empty = new StringField();
+        public static readonly StringField empty = new StringField();
 
         /// <summary>
         /// Similar to string.IsNullOrEmpty.

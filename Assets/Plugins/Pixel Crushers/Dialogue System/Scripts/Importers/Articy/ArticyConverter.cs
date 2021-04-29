@@ -1323,13 +1323,21 @@ namespace PixelCrushers.DialogueSystem.Articy
             s = s.Replace("||", " or ");
             s = s.Replace("!=", "~=");
 
+            var incDecMatchEvaluator = new MatchEvaluator(IncDecMatchEvaluator);
+
             // Convert variable names: (fixed to use regex to handle variable names that are subsets of other variable names)
             foreach (string fullVariableName in fullVariableNames)
             {
                 if (s.Contains(fullVariableName))
                 {
+                    // Convert variable++ to variable = variable + 1:
+                    string pattern = @"\b" + fullVariableName + @"\b\s*(\+\+|\-\-)";
+                    s = Regex.Replace(s, pattern, incDecMatchEvaluator);
+
+                    // Convert expresso variable name to Lua:
+                    pattern = @"\b" + fullVariableName + @"\b";
                     string luaVariableReference = string.Format("Variable[\"{0}\"]", fullVariableName);
-                    s = Regex.Replace(s, @"\b" + fullVariableName + @"\b", luaVariableReference);
+                    s = Regex.Replace(s, pattern, luaVariableReference);
                 }
             }
 
@@ -1353,6 +1361,13 @@ namespace PixelCrushers.DialogueSystem.Articy
             }
 
             return s;
+        }
+
+        public static string IncDecMatchEvaluator(Match match)
+        {
+            var variableName = match.Value.Substring(0, match.Value.Length - 2).Trim();
+            var operation = match.Value.Substring(match.Value.Length - 1);
+            return variableName + " = " + variableName + " " + operation + " 1";
         }
 
         private static bool ContainsArithmeticAssignment(string s)

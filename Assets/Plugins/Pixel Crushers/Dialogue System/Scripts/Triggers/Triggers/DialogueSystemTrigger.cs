@@ -627,7 +627,7 @@ namespace PixelCrushers.DialogueSystem
         {
             if (DialogueDebug.logInfo) Debug.Log("Dialogue System: Dialogue System Trigger is firing " + trigger + ".", this);
             DoQuestAction();
-            DoLuaAction();
+            DoLuaAction(actor);
             DoSequenceAction(actor);
             DoAlertAction();
             DoSendMessageActions();
@@ -654,6 +654,18 @@ namespace PixelCrushers.DialogueSystem
         #endregion
 
         #region Lua Action
+
+        protected virtual void DoLuaAction(Transform actor)
+        {
+            if (actor != null)
+            {
+                var dialogueActor = actor.GetComponent<DialogueActor>();
+                var actorName = (dialogueActor != null) ? dialogueActor.actor : actor.name;
+                DialogueLua.SetVariable("ActorIndex", actorName);
+                DialogueLua.SetVariable("Actor", DialogueActor.GetActorName(actor));
+            }
+            DoLuaAction();
+        }
 
         protected virtual void DoLuaAction()
         {

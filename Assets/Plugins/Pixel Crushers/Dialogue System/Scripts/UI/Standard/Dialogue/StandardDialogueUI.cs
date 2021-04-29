@@ -33,6 +33,8 @@ namespace PixelCrushers.DialogueSystem
 
         protected Queue<QueuedUIAlert> alertQueue { get { return m_alertQueue; } }
 
+        protected Coroutine closeCoroutine;
+
         #endregion
 
         #region Initialization
@@ -88,6 +90,7 @@ namespace PixelCrushers.DialogueSystem
 
         public override void Open()
         {
+            if (closeCoroutine != null) StopCoroutine(closeCoroutine);
             base.Open();
             conversationUIElements.OpenSubtitlePanelsOnStart();
         }
@@ -96,7 +99,7 @@ namespace PixelCrushers.DialogueSystem
         {
             if (conversationUIElements.waitForClose && AreAnyPanelsClosing())
             {
-                StartCoroutine(CloseAfterPanelsAreClosed());
+                closeCoroutine = StartCoroutine(CloseAfterPanelsAreClosed());
             }
             else
             {
@@ -129,6 +132,7 @@ namespace PixelCrushers.DialogueSystem
             {
                 if (panel != null && panel.panelState == UIPanel.PanelState.Closing) return true;
             }
+            if (conversationUIElements.mainPanel != null && conversationUIElements.mainPanel.panelState == UIPanel.PanelState.Closing) return true;
             return false;
         }
 
@@ -240,6 +244,11 @@ namespace PixelCrushers.DialogueSystem
             conversationUIElements.standardSubtitleControls.OverrideActorPanel(actor, subtitlePanelNumber);
         }
 
+        public virtual void ForceOverrideSubtitlePanel(StandardUISubtitlePanel customPanel)
+        {
+            conversationUIElements.standardSubtitleControls.ForceOverrideSubtitlePanel(customPanel);
+        }
+
         #endregion
 
         #region Response Menu
@@ -264,6 +273,11 @@ namespace PixelCrushers.DialogueSystem
         public virtual void OverrideActorMenuPanel(Actor actor, MenuPanelNumber menuPanelNumber, StandardUIMenuPanel customPanel)
         {
             conversationUIElements.standardMenuControls.OverrideActorMenuPanel(actor, menuPanelNumber, customPanel ?? conversationUIElements.defaultMenuPanel);
+        }
+
+        public virtual void ForceOverrideMenuPanel(StandardUIMenuPanel customPanel)
+        {
+            conversationUIElements.standardMenuControls.ForceOverrideMenuPanel(customPanel);
         }
 
         #endregion

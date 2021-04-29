@@ -90,7 +90,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_DeskLamp_05_Lamp_01","SM_Prop_DeskLamp_05_Arm_02","SM_Prop_DeskLamp_05_Arm_01","SM_Prop_DeskLamp_05"],"padding":[256,256,256,256],"unwrapper":[0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_DeskLamp_05","SM_Prop_DeskLamp_05_Arm_01","SM_Prop_DeskLamp_05_Arm_02","SM_Prop_DeskLamp_05_Lamp_01"],"padding":[256,256,256,256],"unwrapper":[0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

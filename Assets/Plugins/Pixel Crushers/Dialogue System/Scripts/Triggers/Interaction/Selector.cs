@@ -490,6 +490,7 @@ namespace PixelCrushers.DialogueSystem
             }
             else
             {
+                if (this.usable != null && this.usable != usable) DeselectTarget();
                 this.usable = usable;
                 selection = usable.gameObject;
                 heading = string.Empty;

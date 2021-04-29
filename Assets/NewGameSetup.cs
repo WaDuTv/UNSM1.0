@@ -127,7 +127,11 @@ public class NewGameSetup : MonoBehaviour
         }
         subGenreDropdown.ClearOptions();
         subGenreDropdown.AddOptions(subGenreOptions);
-        subGenreDropdown.RefreshShownValue();
+        if (mainGenreDropdown.transform.Find("Label").GetComponent<TextMeshProUGUI>().text == subGenreDropdown.transform.Find("Label").GetComponent<TextMeshProUGUI>().text)
+        {
+            subGenreDropdown.RefreshShownValue();
+        }
+
     }
     public void checkDoubleMainGenres()
     {
@@ -142,8 +146,11 @@ public class NewGameSetup : MonoBehaviour
 
         }
         mainGenreDropdown.ClearOptions();
-        mainGenreDropdown.AddOptions(subGenreOptions);
-        mainGenreDropdown.RefreshShownValue();
+        mainGenreDropdown.AddOptions(subGenreOptions);      
+        if(subGenreDropdown.transform.Find("Label").GetComponent<TextMeshProUGUI>().text == mainGenreDropdown.transform.Find("Label").GetComponent<TextMeshProUGUI>().text  )
+        {
+            mainGenreDropdown.RefreshShownValue();
+        }
     }
 
 }

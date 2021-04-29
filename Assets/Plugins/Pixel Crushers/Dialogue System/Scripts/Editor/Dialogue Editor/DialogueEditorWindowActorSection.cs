@@ -390,9 +390,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
                 var fieldTitle = field.title;
                 if (string.IsNullOrEmpty(fieldTitle)) continue;
                 if (!template.actorPrimaryFieldTitles.Contains(field.title)) continue;
-                EditorGUILayout.BeginHorizontal();
-                DrawField(field, false, false);
-                EditorGUILayout.EndHorizontal();
+                DrawMainSectionField(field);
             }
         }
 

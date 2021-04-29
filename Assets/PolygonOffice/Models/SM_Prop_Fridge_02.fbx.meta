@@ -78,7 +78,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Fridge_02_Door_02","SM_Prop_Fridge_02_Door_01","SM_Prop_Fridge_02"],"padding":[256,183,81],"unwrapper":[0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Fridge_02","SM_Prop_Fridge_02_Door_01","SM_Prop_Fridge_02_Door_02"],"padding":[81,183,256],"unwrapper":[0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

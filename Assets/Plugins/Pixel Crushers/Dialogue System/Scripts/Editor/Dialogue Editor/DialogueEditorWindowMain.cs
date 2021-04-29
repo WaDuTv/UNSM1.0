@@ -292,6 +292,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
         {
             try
             {
+                if (instance == null) instance = this;
                 RecordUndo();
                 var isInNodeEditor = (toolbar.Current == Toolbar.Tab.Conversations) && showNodeEditor;
                 if (!isInNodeEditor) DrawDatabaseName(); // Node editor draws name after grid.

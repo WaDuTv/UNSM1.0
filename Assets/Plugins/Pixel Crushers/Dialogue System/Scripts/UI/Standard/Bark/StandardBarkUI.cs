@@ -123,7 +123,6 @@ namespace PixelCrushers.DialogueSystem
                 if (waitForContinueButton && (canvas.worldCamera == null)) canvas.worldCamera = UnityEngine.Camera.main;
                 canvas.enabled = false;
                 originalCanvasLocalPosition = canvas.GetComponent<RectTransform>().localPosition;
-                //originalCanvasLocalPosition = canvas.transform.localPosition;
             }
             if (nameText != null) nameText.SetActive(includeName);
             Tools.SetGameObjectActive(portraitImage, false);
@@ -131,7 +130,11 @@ namespace PixelCrushers.DialogueSystem
 
         protected virtual void Update()
         {
-            if (keepInView && isPlaying)
+            if (!waitUntilSequenceEnds && doneTime > 0 && DialogueTime.time >= doneTime)
+            {
+                Hide();
+            }
+            else if (keepInView && isPlaying)
             {
                 var mainCamera = Camera.main;
                 if (mainCamera == null) return;
@@ -203,9 +206,10 @@ namespace PixelCrushers.DialogueSystem
                 }
                 if (typewriter != null) typewriter.StartTyping(subtitleText);
 
-                CancelInvoke("Hide");
+                //--- We now observe DialogueTime.time instead of using Invoke.
+                //CancelInvoke("Hide");
                 var barkDuration = Mathf.Approximately(0, duration) ? DialogueManager.GetBarkDuration(subtitleText) : duration;
-                if (!(waitUntilSequenceEnds || waitForContinueButton)) Invoke("Hide", barkDuration);
+                //if (!(waitUntilSequenceEnds || waitForContinueButton)) Invoke("Hide", barkDuration);
                 if (waitUntilSequenceEnds) numSequencesActive++;
                 doneTime = waitForContinueButton ? Mathf.Infinity : (DialogueTime.time + barkDuration);
             }

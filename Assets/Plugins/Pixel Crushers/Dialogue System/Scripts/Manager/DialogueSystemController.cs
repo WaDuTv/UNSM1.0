@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
 #if USE_ADDRESSABLES
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -147,6 +148,7 @@ namespace PixelCrushers.DialogueSystem
         private bool m_isOverrideUIPrefab = false;
         private ConversationController m_conversationController = null;
         private IsDialogueEntryValidDelegate m_isDialogueEntryValid = null;
+        private System.Action m_customResponseTimeoutHandler = null;
         private GetInputButtonDownDelegate m_savedGetInputButtonDownDelegate = null;
         private LuaWatchers m_luaWatchers = new LuaWatchers();
         private PixelCrushers.DialogueSystem.AssetBundleManager m_assetBundleManager = new PixelCrushers.DialogueSystem.AssetBundleManager();
@@ -216,6 +218,15 @@ namespace PixelCrushers.DialogueSystem
         }
 
         /// <summary>
+        /// If response timeout action is set to Custom and menu times out, call this method.
+        /// </summary>
+        public System.Action customResponseTimeoutHandler
+        {
+            get { return m_customResponseTimeoutHandler; }
+            set { m_customResponseTimeoutHandler = value; }
+        }
+
+        /// <summary>
         /// The GetInputButtonDown delegate. Overrides calls to the standard Unity 
         /// Input.GetButtonDown function.
         /// </summary>
@@ -266,7 +277,15 @@ namespace PixelCrushers.DialogueSystem
 
         public ConversationView conversationView { get { return (m_conversationController != null) ? m_conversationController.conversationView : null; } }
 
+        /// <summary>
+        /// List of conversations that are currently active.
+        /// </summary>
         public List<ActiveConversationRecord> activeConversations { get { return m_activeConversations; } }
+
+        /// <summary>
+        /// Conversation that is currently being examined by Conditions, Scripts, OnConversationLine, etc.
+        /// </summary>
+        public ActiveConversationRecord activeConversation { get; set; }
 
         /// @cond FOR_V1_COMPATIBILITY
         public DatabaseManager DatabaseManager { get { return databaseManager; } }
@@ -900,18 +919,21 @@ namespace PixelCrushers.DialogueSystem
                 view.SetPCPortrait(model.GetPCSprite(), model.GetPCName());
                 m_conversationController.Initialize(model, view, displaySettings.inputSettings.alwaysForceResponseMenu, OnEndConversation);
                 if (needToSetRandomizeNextEntryAgain) RandomizeNextEntry();
-                var target = (actor != null) ? actor : this.transform;
-                if (actor != this.transform) gameObject.BroadcastMessage(DialogueSystemMessages.OnConversationStart, target, SendMessageOptions.DontRequireReceiver);
 
                 // Add an active conversation record to the list:
                 var record = new ActiveConversationRecord();
                 record.actor = actor;
                 record.conversant = conversant;
                 record.conversationController = m_conversationController;
+                record.conversationController.activeConversationRecord = record;
                 record.originalDialogueUI = m_originalDialogueUI;
                 record.originalDisplaySettings = m_originalDisplaySettings;
                 record.isOverrideUIPrefab = m_isOverrideUIPrefab;
                 m_activeConversations.Add(record);
+                activeConversation = record;
+
+                var target = (actor != null) ? actor : this.transform;
+                if (actor != this.transform) gameObject.BroadcastMessage(DialogueSystemMessages.OnConversationStart, target, SendMessageOptions.DontRequireReceiver);
             }
         }
 
@@ -1299,6 +1321,7 @@ namespace PixelCrushers.DialogueSystem
                         m_conversationController.GotoLastResponse();
                         break;
                     case ResponseTimeoutAction.Custom:
+                        if (customResponseTimeoutHandler != null) customResponseTimeoutHandler();
                         break;
                 }
             }
@@ -2067,7 +2090,62 @@ namespace PixelCrushers.DialogueSystem
             return m_assetBundleManager.Load(name, type);
         }
 
-        protected AssetLoadedDelegate m_assetLoaded = null;
+        // This section is for Addressables support:
+
+        protected Dictionary<string, List<AssetLoadedDelegate>> m_assetsBeingLoaded = new Dictionary<string, List<AssetLoadedDelegate>>();
+
+        protected void AddDelegateForAssetBeingLoaded(string name, AssetLoadedDelegate assetLoaded)
+        {
+            if (!m_assetsBeingLoaded.ContainsKey(name))
+            {
+                m_assetsBeingLoaded.Add(name, new List<AssetLoadedDelegate>());
+            }
+            m_assetsBeingLoaded[name].Add(assetLoaded);
+        }
+
+        protected void RemoveDelegatesForAssetBeingLoaded(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                // If empty, remove first/only delegate:
+                if (m_assetsBeingLoaded.Count > 0)
+                {
+                    m_assetsBeingLoaded.Remove(m_assetsBeingLoaded.First().Key);
+                }
+            }
+            else
+            {
+                m_assetsBeingLoaded.Remove(name);
+            }
+        }
+
+        protected void CallDelegatesForAssetBeingLoaded(string name, UnityEngine.Object asset)
+        {
+            List<AssetLoadedDelegate> delegates = null;
+            if (string.IsNullOrEmpty(name))
+            {
+                // If empty, call first/only delegate:
+                if (m_assetsBeingLoaded.Count > 0)
+                {
+                    delegates = m_assetsBeingLoaded.First().Value;
+                }
+            }
+            else
+            {
+                if (!m_assetsBeingLoaded.TryGetValue(name, out delegates))
+                {
+                    delegates = null;
+                }
+            }
+            if (delegates != null)
+            {
+                var count = delegates.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    delegates[i](asset);
+                }
+            }
+        }
 
         /// <summary>
         /// Loads a named asset from the registered asset bundles, Resources, or
@@ -2085,7 +2163,7 @@ namespace PixelCrushers.DialogueSystem
                 return;
             }
 #if USE_ADDRESSABLES
-            m_assetLoaded = assetLoaded;
+            AddDelegateForAssetBeingLoaded(name, assetLoaded);
             Addressables.LoadResourceLocationsAsync(name).Completed += (loc) =>
             {
                 // If we have a result, load it. Otherwise return null;
@@ -2095,6 +2173,7 @@ namespace PixelCrushers.DialogueSystem
                 }
                 else
                 {
+                    RemoveDelegatesForAssetBeingLoaded(name);
                     assetLoaded(null);
                     return;
                 }
@@ -2112,19 +2191,17 @@ namespace PixelCrushers.DialogueSystem
 
         private void LoadCompleted(AsyncOperationHandle<UnityEngine.Object> obj)
         {
-            if (m_assetLoaded != null)
+            string name = null;
+            UnityEngine.Object result = null;
+            if (obj.Result != null)
             {
-                if (obj.Result != null)
-                {
-                    loadedAddressables.Add(obj.Result);
-                    loadedAddressableHashes.Add(obj.Result.GetHashCode());
-                    m_assetLoaded(obj.Result);
-                }
-                else
-                {
-                    m_assetLoaded(null);
-                }
+                result = obj.Result;
+                loadedAddressables.Add(result);
+                loadedAddressableHashes.Add(result.GetHashCode());
+                name = result.name;
             }
+            CallDelegatesForAssetBeingLoaded(name, result);
+            RemoveDelegatesForAssetBeingLoaded(name);
         }
 #endif
 

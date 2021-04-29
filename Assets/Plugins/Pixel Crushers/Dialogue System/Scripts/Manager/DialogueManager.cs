@@ -114,6 +114,15 @@ namespace PixelCrushers.DialogueSystem
         }
 
         /// <summary>
+        /// If response timeout action is set to Custom and menu times out, call this method.
+        /// </summary>
+        public static System.Action customResponseTimeoutHandler
+        {
+            get { return hasInstance ? instance.customResponseTimeoutHandler : null; }
+            set { instance.customResponseTimeoutHandler = value; }
+        }
+
+        /// <summary>
         /// The GetInputButtonDown delegate. Overrides calls to the standard Unity 
         /// Input.GetButtonDown function.
         /// </summary>

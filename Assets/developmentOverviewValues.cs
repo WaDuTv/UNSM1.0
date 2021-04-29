@@ -42,6 +42,8 @@ public class developmentOverviewValues : MonoBehaviour
     private List<string> staffList;
     [SerializeField]
     private GameObject reviewSplashScreen;
+    [SerializeField]
+    private sellGameButtonScript sellGameButtonScript;
 
     private GameObject player;
 
@@ -327,6 +329,10 @@ public class developmentOverviewValues : MonoBehaviour
 
         //Set Header Text
         _reviewScreen.Find("Image").Find("HeaderText").GetComponent<TMP_Text>().text = "Reviewresults for " + thisProject.name;
+
+        //Send Project name to Sell Game Button Script
+        sellGameButtonScript = GameObject.Find("Button - sellGameButton").GetComponent<sellGameButtonScript>();
+        sellGameButtonScript.project = thisProject;
 
         //Set Overall-Rating Radial Display               
         float _overallRating = thisProject.GetComponent<CalculateGameScore>().finalScore;

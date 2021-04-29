@@ -295,7 +295,7 @@ namespace PixelCrushers.DialogueSystem
             this.m_sequencerCameraSource = sequencerCamera;
             this.m_alternateSequencerCameraObject = alternateSequencerCameraObject;
             this.m_cameraAngles = cameraAngles;
-            GetCamera();
+            //--- Delay until/ needed: GetCamera();
             GetCameraAngles();
         }
 
@@ -409,6 +409,7 @@ namespace PixelCrushers.DialogueSystem
         /// </summary>
         public void TakeCameraControl()
         {
+            GetCamera();
             if (m_hasCameraControl) return;
             m_hasCameraControl = true;
             if (m_alternateSequencerCameraObject != null)
@@ -465,7 +466,7 @@ namespace PixelCrushers.DialogueSystem
         public void Open()
         {
             entrytag = string.Empty;
-            GetCamera();
+            //--- Delay until/ needed: GetCamera();
             m_hasCameraControl = false;
             GetCameraAngles();
         }
@@ -494,7 +495,18 @@ namespace PixelCrushers.DialogueSystem
             {
                 CheckQueuedCommands();
                 CheckActiveCommands();
-                if (m_delayTimeLeft > 0) m_delayTimeLeft -= Time.unscaledDeltaTime;
+                if (m_delayTimeLeft > 0)
+                {
+                    switch (DialogueTime.mode)
+                    {
+                        case DialogueTime.TimeMode.Realtime:
+                            m_delayTimeLeft -= Time.unscaledDeltaTime;
+                            break;
+                        case DialogueTime.TimeMode.Gameplay:
+                            m_delayTimeLeft -= Time.deltaTime;
+                            break;
+                    }                    
+                }
                 if ((m_queuedCommands.Count == 0) && (m_activeCommands.Count == 0) && m_delayTimeLeft <= 0)
                 {
                     FinishSequence();
@@ -1487,6 +1499,7 @@ namespace PixelCrushers.DialogueSystem
                 }
                 else
                 {
+                    if (!animator.gameObject.activeSelf) animator.gameObject.SetActive(true);
                     if (Tools.ApproximatelyZero(crossfadeDuration))
                     {
                         animator.Play(stateName, layer);
@@ -2472,7 +2485,10 @@ namespace PixelCrushers.DialogueSystem
                 }
                 if (DialogueManager.conversationView != null)
                 {
-                    DialogueManager.conversationView.displaySettings.conversationOverrideSettings.continueButton = DialogueManager.displaySettings.subtitleSettings.continueButton;
+                    if (DialogueManager.conversationView.displaySettings.conversationOverrideSettings != null)
+                    {
+                        DialogueManager.conversationView.displaySettings.conversationOverrideSettings.continueButton = DialogueManager.displaySettings.subtitleSettings.continueButton;
+                    }
                     DialogueManager.conversationView.SetupContinueButton();
                 }
                 return true;

@@ -511,7 +511,7 @@ namespace PixelCrushers.DialogueSystem
             }
         }
 
-        protected GameObject InstantiateButton()
+        protected virtual GameObject InstantiateButton()
         {
             // Try to pull from pool first:
             if (m_instantiatedButtonPool.Count > 0)

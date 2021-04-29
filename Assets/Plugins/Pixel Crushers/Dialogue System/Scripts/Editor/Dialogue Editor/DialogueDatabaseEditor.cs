@@ -198,11 +198,18 @@ namespace PixelCrushers.DialogueSystem
                 else if (selectionType == typeof(Conversation))
                 {
                     DrawInspectorSelectionTitle("Conversation");
-                    if (DialogueEditor.DialogueEditorWindow.instance.DrawConversationProperties())
+                    if (DialogueEditor.DialogueEditorWindow.instance.showNodeEditor)
                     {
-                        DialogueEditor.DialogueEditorWindow.instance.UpdateConversationTitles();
+                        if (DialogueEditor.DialogueEditorWindow.instance.DrawConversationProperties())
+                        {
+                            DialogueEditor.DialogueEditorWindow.instance.UpdateConversationTitles();
+                        }
+                        DialogueEditor.DialogueEditorWindow.instance.DrawConversationFieldsFoldout();
                     }
-                    DialogueEditor.DialogueEditorWindow.instance.DrawConversationFieldsFoldout();
+                    else
+                    {
+                        DialogueEditor.DialogueEditorWindow.instance.DrawConversationOutline();
+                    }
                 }
                 else if (selectionType == typeof(DialogueEntry))
                 {

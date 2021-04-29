@@ -387,6 +387,7 @@ namespace PixelCrushers.DialogueSystem
 
         public virtual void SetCurrentUsable(Usable usable)
         {
+            if (currentUsable != null && currentUsable != usable) OnDeselectedUsableObject(currentUsable);
             currentUsable = usable;
             if (usable != null)
             {

@@ -108,7 +108,7 @@ namespace PixelCrushers.DialogueSystem
         private string m_accumulatedText = string.Empty;
         public string accumulatedText { get { return m_accumulatedText; } set { m_accumulatedText = value; } }
         private Animator m_animator = null;
-        protected Animator animator { get { if (m_animator == null && portraitImage != null) m_animator = portraitImage.GetComponent<Animator>(); return m_animator; } }
+        protected Animator animator { get { if (m_animator == null && portraitImage != null) m_animator = portraitImage.GetComponent<Animator>(); return m_animator; } set { m_animator = value; } }
         private bool m_isDefaultNPCPanel = false;
         public bool isDefaultNPCPanel { get { return m_isDefaultNPCPanel; } set { m_isDefaultNPCPanel = value; } }
         private bool m_isDefaultPCPanel = false;
@@ -274,7 +274,7 @@ namespace PixelCrushers.DialogueSystem
         protected override void OnHidden()
         {
             base.OnHidden();
-            DeactivateUIElements();
+            if (deactivateOnHidden) DeactivateUIElements();
         }
 
         /// <summary>
@@ -515,7 +515,7 @@ namespace PixelCrushers.DialogueSystem
             Tools.SetGameObjectActive(portraitImage, sprite != null);
         }
 
-        public void CheckSubtitleAnimator(Subtitle subtitle)
+        public virtual void CheckSubtitleAnimator(Subtitle subtitle)
         {
             if (subtitle != null && useAnimatedPortraits && animator != null)
             {
@@ -541,7 +541,7 @@ namespace PixelCrushers.DialogueSystem
             }
         }
 
-        protected void CheckDialogueActorAnimator(DialogueActor dialogueActor)
+        protected virtual void CheckDialogueActorAnimator(DialogueActor dialogueActor)
         {
             if (dialogueActor != null && useAnimatedPortraits && animator != null &&
                 dialogueActor.standardDialogueUISettings.portraitAnimatorController != null)
@@ -550,11 +550,15 @@ namespace PixelCrushers.DialogueSystem
             }
         }
 
-        private IEnumerator SetAnimatorAtEndOfFrame(RuntimeAnimatorController animatorController)
+        protected virtual IEnumerator SetAnimatorAtEndOfFrame(RuntimeAnimatorController animatorController)
         {
             if (animator.runtimeAnimatorController != animatorController)
             {
                 animator.runtimeAnimatorController = animatorController;
+            }
+            if (animatorController != null)
+            {
+                Tools.SetGameObjectActive(portraitImage, true);
             }
             yield return new WaitForEndOfFrame();
             if (animator.runtimeAnimatorController != animatorController)

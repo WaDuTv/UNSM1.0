@@ -90,7 +90,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Toilet_01_Seat","SM_Prop_Toilet_01_Lid","SM_Prop_Toilet_01_Buttons","SM_Prop_Toilet_01"],"padding":[256,256,256,256],"unwrapper":[0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Toilet_01","SM_Prop_Toilet_01_Buttons","SM_Prop_Toilet_01_Lid","SM_Prop_Toilet_01_Seat"],"padding":[256,256,256,256],"unwrapper":[0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

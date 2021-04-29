@@ -54,6 +54,10 @@ public class ProjectInDevelopment : MonoBehaviour
     
     public List<string> assignedStaff;
 
+    public string publisher;
+    public int numberOfCopiesAvailable;
+    public bool isOnMarket;
+
     public Transform finishedGameContainer;
     [SerializeField]
     private int developmentInYears;

@@ -20,6 +20,7 @@ namespace PixelCrushers.DialogueSystem
         private List<StandardUISubtitlePanel> m_customPanels = new List<StandardUISubtitlePanel>();
         private StandardUISubtitlePanel m_defaultNPCPanel = null;
         private StandardUISubtitlePanel m_defaultPCPanel = null;
+        private StandardUISubtitlePanel m_forcedOverridePanel = null;
 
         // The panel that's currently focused:
         private StandardUISubtitlePanel m_focusedPanel = null;
@@ -39,6 +40,17 @@ namespace PixelCrushers.DialogueSystem
 
         // Cache of actors that want to use bark UIs:
         private List<Transform> m_useBarkUIs = new List<Transform>();
+
+        public StandardUISubtitlePanel defaultNPCPanel
+        {
+            get { return m_defaultNPCPanel; }
+            set { m_defaultNPCPanel = value; }
+        }
+        public StandardUISubtitlePanel defaultPCPanel
+        {
+            get { return m_defaultPCPanel; }
+            set { m_defaultPCPanel = value; }
+        }
 
         #endregion
 
@@ -79,21 +91,62 @@ namespace PixelCrushers.DialogueSystem
             m_useBarkUIs.Clear();
         }
 
+        public void ForceOverrideSubtitlePanel(StandardUISubtitlePanel customPanel)
+        {
+            m_forcedOverridePanel = customPanel;
+        }
+
         /// <summary>
         /// For speakers who do not have DialogueActor components, this method overrides the
         /// actor's default panel.
         /// </summary>
-        public void OverrideActorPanel(Actor actor, SubtitlePanelNumber subtitlePanelNumber)
+        public void OverrideActorPanel(Actor actor, SubtitlePanelNumber subtitlePanelNumber, StandardUISubtitlePanel customPanel = null)
         {
             if (actor == null) return;
-            var customPanel = actor.IsPlayer ? m_defaultPCPanel : m_defaultNPCPanel;
+            if (customPanel == null) customPanel = actor.IsPlayer ? m_defaultPCPanel : m_defaultNPCPanel;
             m_actorIdOverridePanel[actor.id] = GetPanelFromNumber(subtitlePanelNumber, customPanel);
+        }
+
+        /// <summary>
+        /// Overrides a DialogueActor's subtitle panel.
+        /// </summary>
+        /// <param name="dialogueActor">DialogueActor whose panel to override for this conversation.</param>
+        /// <param name="subtitlePanelNumber">New subtitle panel number.</param>
+        /// <param name="customPanel">Only used if subtitlePanelNumber is Custom.</param>
+        public void OverrideActorPanel(DialogueActor dialogueActor, SubtitlePanelNumber subtitlePanelNumber, StandardUISubtitlePanel customPanel = null)
+        {
+            if (dialogueActor == null) return;
+            var actor = DialogueManager.masterDatabase.GetActor(dialogueActor.actor);
+            StandardUISubtitlePanel panel = null;
+            switch (subtitlePanelNumber)
+            {
+                case SubtitlePanelNumber.Default:
+                    panel = (actor != null && actor.IsPlayer) ? m_defaultPCPanel : m_defaultNPCPanel;
+                    break;
+                case SubtitlePanelNumber.UseBarkUI:
+                    break;
+                default:
+                case SubtitlePanelNumber.Custom:
+                    panel = GetPanelFromNumber(subtitlePanelNumber, customPanel);
+                    break;
+            }
+            if (panel != null)
+            {
+                m_actorPanelCache[dialogueActor.transform] = panel;
+                if (actor != null && m_actorIdOverridePanel.ContainsKey(actor.id))
+                {
+                    m_actorIdOverridePanel.Remove(actor.id);
+                }
+            }
         }
 
         public virtual StandardUISubtitlePanel GetPanel(Subtitle subtitle, out DialogueActor dialogueActor)
         {
             dialogueActor = null;
             if (subtitle == null) return m_defaultNPCPanel;
+
+            // Check if we have a forced override:
+            if (m_forcedOverridePanel != null) return m_forcedOverridePanel;
 
             // Check [panel=#] tag:
             var overrideIndex = subtitle.formattedText.subtitlePanelNumber;
