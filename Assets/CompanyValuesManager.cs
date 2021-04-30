@@ -5,7 +5,9 @@ using TMPro;
 
 public class CompanyValuesManager : MonoBehaviour
 {
-    public float companyCash;
+    public decimal companyCash;
+    [SerializeField]
+    private int companyCashDisplay;
     
 
     public float companyReputaion;
@@ -43,9 +45,10 @@ public class CompanyValuesManager : MonoBehaviour
         numberOfCurrentWorkers = hiredStaffLibraryScript.hiredWorkers.Count;        
         if(clock.day == 1 && hasBeenCalculated == false)
         {
-            float _currentCash = companyCash;
-            float _newCash = _currentCash - expenses.monthlyExpenses;
+            decimal _currentCash = (decimal)companyCash;
+            decimal _newCash = _currentCash - (decimal)expenses.monthlyExpenses;
             companyCash = _newCash;
+            companyCashDisplay = (int)_newCash;
             
             hasBeenCalculated = true;
         }
@@ -53,6 +56,6 @@ public class CompanyValuesManager : MonoBehaviour
         {
             hasBeenCalculated = false;
         }
-        bankAmount.text = companyCash + "$";
+        bankAmount.text = System.Math.Round(companyCash,2) + "$";
     }
 }

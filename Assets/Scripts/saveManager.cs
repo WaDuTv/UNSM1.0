@@ -499,7 +499,7 @@ public class saveManager : MonoBehaviour
             float _companyMoney = saveData.GetFloat("CompanyMoney");
 
             _companyValuesManager.companyReputaion = _companyReputation;
-            _companyValuesManager.companyCash = _companyMoney;
+            _companyValuesManager.companyCash = (decimal)_companyMoney;
 
             //Load & Instantiate Player
             int playerPrefabIndex = saveData.GetInt("Player CharacterPrefab_");

@@ -1314,7 +1314,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 334
-        y: 677.6707
+        y: 679.1632
         width: 160
         height: 30
     canvasScrollPosition: {x: 48.884968, y: 52.693172}

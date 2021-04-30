@@ -11,6 +11,12 @@ public class EconomyManager : MonoBehaviour
     public int consumersUSA;
     public int consumersRussia;
 
+    public float consumerRatioKids;
+    public float consumerRatioTeens;
+    public float consumerRatioAdults;
+    public float consumerRatioSeniors;
+    public float consumerRatioEveryone;
+
     [SerializeField]
     private Clock clock;
 
@@ -36,4 +42,6 @@ public class EconomyManager : MonoBehaviour
         }
 
     }
+
+
 }

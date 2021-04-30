@@ -58,6 +58,24 @@ public class ProjectInDevelopment : MonoBehaviour
     public int numberOfCopiesAvailable;
     public bool isOnMarket;
 
+    public int customersKids;
+    public int customersTeens;
+    public int customersAdults;
+    public int customersSeniors;
+    public int customersEveryone;
+    public bool initialCustomersSet;
+
+    public int pastMonthsCustomersKids;
+    public int pastMonthsCustomersTeens;
+    public int pastMonthsCustomersAdults;
+    public int pastMonthsCustomersSeniors;
+    public int pastMonthsCustomersEveryone;
+
+    public float initalInterest;
+    public float interestDecline;
+    public float currentInterest;
+    public int monthsOnMarket;
+
     public Transform finishedGameContainer;
     [SerializeField]
     private int developmentInYears;
