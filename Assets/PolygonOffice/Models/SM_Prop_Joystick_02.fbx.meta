@@ -59,7 +59,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_Joystick_02_Stick_01","SM_Prop_Joystick_02"],"padding":[256,256],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -63,25 +63,25 @@ public class CameraController : MonoBehaviour
         }
         if (transform.position.x <= maxLeft)
         {
-            newPosition.x = newPosition.x = -43;
+            newPosition.x = newPosition.x = -2.34f;
             normalSpeed = 0.2f;
             fastSpeed = 0.5f;
         }
         if (transform.position.x >= maxRight)
         {
-            newPosition.x = newPosition.x = 59;
+            newPosition.x = newPosition.x = 20.54f;
             normalSpeed = 0.2f;
             fastSpeed = 0.5f;
         }
         if (transform.position.z <= maxDown)
         {
-            newPosition.z = newPosition.z = -45;
+            newPosition.z = newPosition.z = -16.60f;
             normalSpeed = 0.2f;
             fastSpeed = 0.5f;
         }
         if (transform.position.z >= maxUp)
         {
-            newPosition.z = newPosition.z = 43;
+            newPosition.z = newPosition.z = 11.66f;
             normalSpeed = 0.2f;
             fastSpeed = 0.5f;
         }

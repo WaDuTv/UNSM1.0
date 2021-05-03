@@ -119,7 +119,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_DeskToy_NewtownsCradle_01_Ball_05","SM_Prop_DeskToy_NewtownsCradle_01_Ball_04","SM_Prop_DeskToy_NewtownsCradle_01_Ball_03","SM_Prop_DeskToy_NewtownsCradle_01_Ball_02","SM_Prop_DeskToy_NewtownsCradle_01_Ball_01","SM_Prop_DeskToy_NewtownsCradle_01"],"padding":[256,256,256,256,256,256],"unwrapper":[0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

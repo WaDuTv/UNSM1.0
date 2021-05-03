@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class CompanyValuesManager : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class CompanyValuesManager : MonoBehaviour
     private Clock clock;
     [SerializeField]
     private myCompanyExpenses expenses;
+    [SerializeField]
+    private playfabManager playfabManager;
 
     private bool hasBeenCalculated;
     // Start is called before the first frame update
@@ -49,7 +53,9 @@ public class CompanyValuesManager : MonoBehaviour
             decimal _newCash = _currentCash - (decimal)expenses.monthlyExpenses;
             companyCash = _newCash;
             companyCashDisplay = (int)_newCash;
-            
+
+            SendScoreToLeaderboard();
+
             hasBeenCalculated = true;
         }
         if (clock.day == 2)
@@ -57,5 +63,12 @@ public class CompanyValuesManager : MonoBehaviour
             hasBeenCalculated = false;
         }
         bankAmount.text = System.Math.Round(companyCash,2) + "$";
+    }
+
+     private void SendScoreToLeaderboard()
+    {
+        int _cash = (int)companyCash;
+        playfabManager.SendCashboard(_cash);
+
     }
 }

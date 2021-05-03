@@ -92,7 +92,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_Fridge_01_Door_03","SM_Prop_Fridge_01_Door_02","SM_Prop_Fridge_01_Door_01","SM_Prop_Fridge_01"],"padding":[256,174,256,87],"unwrapper":[0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

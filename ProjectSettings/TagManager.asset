@@ -24,6 +24,10 @@ TagManager:
   - switchablePointLight
   - switchableLamp
   - switchableLightBulp
+  - WorldCofiner
+  - switchableSkyscraper
+  - switchableObjects
+  - waypoint
   layers:
   - Default
   - TransparentFX
@@ -40,7 +44,7 @@ TagManager:
   - MousePlane
   - Ghost
   - UI Indicators
-  - 
+  - GameWorldBounds
   - 
   - 
   - 

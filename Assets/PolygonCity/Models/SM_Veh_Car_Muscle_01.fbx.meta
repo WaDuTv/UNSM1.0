@@ -152,7 +152,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Veh_Car_Muscle_Wheel_rr","SM_Veh_Car_Muscle_Wheel_rl","SM_Veh_Car_Muscle_Wheel_fr","SM_Veh_Car_Muscle_Wheel_fl","SM_Veh_Car_Muscle_SteeringW","SM_Veh_Car_Muscle_Plates","SM_Veh_Car_Muscle_Glass","SM_Veh_Car_Muscle_01"],"padding":[241,241,256,256,256,256,219,45],"unwrapper":[0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -62,7 +62,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_Computer_Tower_Modern_Glass_01","SM_Prop_Computer_Tower_Modern_01"],"padding":[256,222],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

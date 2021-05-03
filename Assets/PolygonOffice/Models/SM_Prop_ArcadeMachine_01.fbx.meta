@@ -74,7 +74,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_ArcadeMachine_01_Stick_02","SM_Prop_ArcadeMachine_01_Stick_01","SM_Prop_ArcadeMachine_01"],"padding":[256,256,125],"unwrapper":[0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -168,7 +168,7 @@ Material:
     - _DstBlend: 0
     - _DynamicNoisyOutline: 0
     - _EnvironmentReflections: 1
-    - _EnvironmentalLightingIntensity: 1
+    - _EnvironmentalLightingIntensity: 2
     - _FarDistanceMaxWidth: 10
     - _GIFlatShade: 0
     - _GIShadeThreshold: 0
@@ -188,7 +188,7 @@ Material:
     - _LightAffectShadow: 0
     - _LightFalloffAffectShadowT: 0
     - _LightFalloffSoftness: 1
-    - _LightIntensity: 1
+    - _LightIntensity: 0.53
     - _MCIALO: 0
     - _MCapIntensity: 1
     - _MVCOL: 0
@@ -234,7 +234,7 @@ Material:
     - _PSGLOTEX: 0
     - _PTexturePower: 1
     - _Parallax: 0.02
-    - _PointSpotlightIntensity: 0
+    - _PointSpotlightIntensity: 1
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1

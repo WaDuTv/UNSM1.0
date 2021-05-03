@@ -74,7 +74,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Prop_DeskToy_Orbiter_01_Piece_02","SM_Prop_DeskToy_Orbiter_01_Piece_01","SM_Prop_DeskToy_Orbiter_01"],"padding":[256,256,256],"unwrapper":[0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
