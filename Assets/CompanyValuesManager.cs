@@ -29,6 +29,8 @@ public class CompanyValuesManager : MonoBehaviour
     private myCompanyExpenses expenses;
     [SerializeField]
     private playfabManager playfabManager;
+    [SerializeField]
+    private highscoreHolder highscoreHolder;
 
     private bool hasBeenCalculated;
     // Start is called before the first frame update
@@ -68,7 +70,19 @@ public class CompanyValuesManager : MonoBehaviour
      private void SendScoreToLeaderboard()
     {
         int _cash = (int)companyCash;
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = companyManager.companyName + " (" + highscoreHolder.highscoringGame + ")" }, OnDisplayName, OnError);
         playfabManager.SendCashboard(_cash);
 
+    }
+
+    void OnDisplayName(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log("Your Score will be saved under this Name!");
+    }
+
+    void OnError(PlayFabError error)
+    {
+        Debug.Log("Error while logging in/ creating accoung!");
+        Debug.Log(error.GenerateErrorReport());
     }
 }
