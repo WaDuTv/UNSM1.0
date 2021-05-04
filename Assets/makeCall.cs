@@ -52,6 +52,7 @@ public class makeCall : MonoBehaviour
         CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
         companyStandartsManager _companyStandartsManager = GameObject.Find("CompanyValuesManager").GetComponent<companyStandartsManager>();
         conversationManagerScript _conversationManagerScript = GameObject.Find("ConversationManager").GetComponent<conversationManagerScript>();
+        highscoreHolder _highscoreHolder = GameObject.Find("GameDevelopmentManager").GetComponent<highscoreHolder>();
         string[] _nameArray = this.name.ToString().Split(char.Parse("_"));        
         string _calledPersonName = "worker_" + _nameArray[2] + " " + _nameArray[3];
         string _playername = _holder.playerPrefab.GetComponent<StaffHandler>().firstName + " " + _holder.playerPrefab.GetComponent<StaffHandler>().lastName;
@@ -69,7 +70,17 @@ public class makeCall : MonoBehaviour
         DialogueLua.SetVariable("CompanyReputation", _companyValuesManager.companyReputaion);
         DialogueLua.SetVariable("CompanyNumberOfWorkers", _companyValuesManager.numberOfCurrentWorkers);
         DialogueLua.SetVariable("CompanyNumberOfWorkers", _companyValuesManager.numberOfCurrentWorkers);
-        
+
+        if(_highscoreHolder.highestScore != 0)
+        { 
+            DialogueLua.SetVariable("CompanyBestGame", _highscoreHolder.highscoringGame);
+            DialogueLua.SetVariable("CompanyBestGameScore", _highscoreHolder.highestScore);
+        }
+        if (_highscoreHolder.highestScore == 0)
+        {
+            DialogueLua.SetVariable("CompanyBestGame", "None");
+        }
+
         DialogueLua.SetVariable("minHiringSkillProgramming", _companyStandartsManager.minimumHiringStatProgramming);
         DialogueLua.SetVariable("minHiringSkillGraphics", _companyStandartsManager.minimumHiringStatGraphics);
         DialogueLua.SetVariable("minHiringSkillSound", _companyStandartsManager.minimumHiringStatSound);
