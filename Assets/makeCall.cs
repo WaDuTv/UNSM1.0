@@ -50,6 +50,7 @@ public class makeCall : MonoBehaviour
         AlwaysVisibleHolderScript _holder = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         CompanyManager _companyManager = GameObject.Find("CompanyManager").GetComponent<CompanyManager>();
         CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
+        companyStandartsManager _companyStandartsManager = GameObject.Find("CompanyValuesManager").GetComponent<companyStandartsManager>();
         conversationManagerScript _conversationManagerScript = GameObject.Find("ConversationManager").GetComponent<conversationManagerScript>();
         string[] _nameArray = this.name.ToString().Split(char.Parse("_"));        
         string _calledPersonName = "worker_" + _nameArray[2] + " " + _nameArray[3];
@@ -67,8 +68,24 @@ public class makeCall : MonoBehaviour
         DialogueLua.SetVariable("CompanyName", _companyManager.companyName);
         DialogueLua.SetVariable("CompanyReputation", _companyValuesManager.companyReputaion);
         DialogueLua.SetVariable("CompanyNumberOfWorkers", _companyValuesManager.numberOfCurrentWorkers);
-
+        DialogueLua.SetVariable("CompanyNumberOfWorkers", _companyValuesManager.numberOfCurrentWorkers);
         
+        DialogueLua.SetVariable("minHiringSkillProgramming", _companyStandartsManager.minimumHiringStatProgramming);
+        DialogueLua.SetVariable("minHiringSkillGraphics", _companyStandartsManager.minimumHiringStatGraphics);
+        DialogueLua.SetVariable("minHiringSkillSound", _companyStandartsManager.minimumHiringStatSound);
+        DialogueLua.SetVariable("minHiringSkillDesign", _companyStandartsManager.minimumHiringStatDesign);
+
+        int _averageSkill = (_calledPersonStaffHandler.workerStatGraphics + _calledPersonStaffHandler.workerStatSound + _calledPersonStaffHandler.workerStatProgramming + _calledPersonStaffHandler.workerStatDesign) / 4;
+        DialogueLua.SetVariable("AverageSkill", _averageSkill);
+
+        DialogueLua.SetVariable("ConversantSkillProgramming", _calledPersonStaffHandler.workerStatProgramming);
+        DialogueLua.SetVariable("ConversantSkillGraphics", _calledPersonStaffHandler.workerStatGraphics);
+        DialogueLua.SetVariable("ConversantSkillSound", _calledPersonStaffHandler.workerStatSound);
+        DialogueLua.SetVariable("ConversantSkillDesign", _calledPersonStaffHandler.workerStatDesign);
+
+        DialogueLua.SetVariable("ConversantProffession", _calledPersonStaffHandler.workerProfession);
+
+
         dialogueSystemTrigger.conversationConversant = calledPerson.transform;
 
         
