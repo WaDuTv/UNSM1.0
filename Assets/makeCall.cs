@@ -30,7 +30,11 @@ public class makeCall : MonoBehaviour
     private HangUpCall hangUpCallButton;
     [SerializeField]
     private GameObject cellPhone;
+    [SerializeField]
+    GameObject callerwindow;
 
+    private GameObject[] phoneCallSpawns;
+    
     
 
 
@@ -42,11 +46,15 @@ public class makeCall : MonoBehaviour
         workerModelContainer = GameObject.Find("ModelContainer");
         hangUpCallButton = GameObject.Find("Button - Hangup Phone").GetComponent<HangUpCall>();
 
+        phoneCallSpawns = GameObject.FindGameObjectsWithTag("phoneCallSpawn");
+
+        callerwindow = GameObject.Find("Contact_Caller_Window");
+
 
     }
     public void MakeCall()
     {
-        
+        callerwindow.GetComponent<RawImage>().enabled = true;
         AlwaysVisibleHolderScript _holder = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         CompanyManager _companyManager = GameObject.Find("CompanyManager").GetComponent<CompanyManager>();
         CompanyValuesManager _companyValuesManager = GameObject.Find("CompanyValuesManager").GetComponent<CompanyValuesManager>();
@@ -99,7 +107,7 @@ public class makeCall : MonoBehaviour
 
         dialogueSystemTrigger.conversationConversant = calledPerson.transform;
 
-        
+        int _index = Random.Range(0, phoneCallSpawns.Length);
 
         moodSlider.value = _calledPersonStaffHandler.workerMood;
         calledPersonNameDisplay.text = _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName;
@@ -108,8 +116,8 @@ public class makeCall : MonoBehaviour
         {
             _calledPersonStaffHandler.InstantiateTemporaryCharacterModel();                        
             workerModel = workerModelContainer.transform.Find("workerModel_" + _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName).gameObject;
-            workerModel.transform.position = new Vector3(-15.243f, 0, -18.696f);
-            workerModel.transform.eulerAngles = new Vector3(0, -47.278f, 0);
+            workerModel.transform.position = phoneCallSpawns[_index].transform.position;            
+            workerModel.transform.eulerAngles = phoneCallSpawns[_index].transform.eulerAngles;
         }
         if (workerModelContainer.transform.Find("workerModel_" + _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName) != null)
         {

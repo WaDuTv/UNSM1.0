@@ -5,6 +5,7 @@ using UnityEngine;
 public class isTemporaryModel : MonoBehaviour
 {
     public bool isTemporary_;
+    public bool wasHired;
     // Start is called before the first frame update
     void Start()
     {

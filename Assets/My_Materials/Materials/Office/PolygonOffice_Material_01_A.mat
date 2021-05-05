@@ -23,7 +23,7 @@ Material:
   m_Name: PolygonOffice_Material_01_A
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
   m_ShaderKeywords: N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA
-    N_F_TRANSAFFSHA_ON
+    N_F_TRANSAFFSHA_ON _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

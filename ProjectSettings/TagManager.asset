@@ -28,6 +28,8 @@ TagManager:
   - switchableSkyscraper
   - switchableObjects
   - waypoint
+  - phoneCallSpawn
+  - newWorkerSpawn
   layers:
   - Default
   - TransparentFX
