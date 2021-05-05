@@ -49,32 +49,32 @@ public class Lightmanager : MonoBehaviour
         switchableLamps = GameObject.FindGameObjectsWithTag("switchableLamp");
         switchableLightBulp = GameObject.FindGameObjectsWithTag("switchableLightBulp");
         switchableObjects = GameObject.FindGameObjectsWithTag("switchableObjects");
-        if (EnviroSky.instance.isNight == true)
-        {
-            lightMapSwitcher.SetToNight();
-            SwitchEmissiveMaterialsOn();
-        }
-        if (EnviroSky.instance.isNight == false)
-        {
-            lightMapSwitcher.SetToDay();
-            SwitchEmissiveMaterialsOff();
-        }
+        //if (EnviroSky.instance.isNight == true)
+        //{
+        //    lightMapSwitcher.SetToNight();
+        //    SwitchEmissiveMaterialsOn();
+        //}
+        //if (EnviroSky.instance.isNight == false)
+        //{
+        //    lightMapSwitcher.SetToDay();
+        //    SwitchEmissiveMaterialsOff();
+        //}
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EnviroSky.instance.isNight == true)
-        {
-            lightMapSwitcher.SetToNight();
-            SwitchEmissiveMaterialsOn ();
-        }
-        if (EnviroSky.instance.isNight == false)
-        {
-            lightMapSwitcher.SetToDay();
-            SwitchEmissiveMaterialsOff();
-        }
+        //if (EnviroSky.instance.isNight == true)
+        //{
+        //    lightMapSwitcher.SetToNight();
+        //    SwitchEmissiveMaterialsOn ();
+        //}
+        //if (EnviroSky.instance.isNight == false)
+        //{
+        //    lightMapSwitcher.SetToDay();
+        //    SwitchEmissiveMaterialsOff();
+        //}
 
     }
 
