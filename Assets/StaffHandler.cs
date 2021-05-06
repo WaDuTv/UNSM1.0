@@ -135,6 +135,7 @@ public class StaffHandler : MonoBehaviour
     {
         isAvailable = true;
         isAssignedToProject = false;
+        gameObject.GetComponent<stateChanger>().isIdle = true;
 
         currentProject = "";
     }

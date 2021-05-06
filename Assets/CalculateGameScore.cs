@@ -264,6 +264,7 @@ public class CalculateGameScore : MonoBehaviour
                 StaffHandler staffHandler = player.GetComponent<StaffHandler>();
                 staffHandler.isAvailable = true;
                 staffHandler.isAssignedToProject = false;
+                player.GetComponent<stateChanger>().isIdle = true;
                 staffHandler.currentProject = "";
             }
             if (s != player.name.ToString())
@@ -273,6 +274,7 @@ public class CalculateGameScore : MonoBehaviour
                 {
                     staffHandler.isAvailable = true;
                     staffHandler.isAssignedToProject = false;
+                    staffContainer.Find(s).GetComponent<stateChanger>().isIdle = true;
                     staffHandler.currentProject = "";
                 }
             }

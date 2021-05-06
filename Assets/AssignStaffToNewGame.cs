@@ -42,8 +42,10 @@ public class AssignStaffToNewGame : MonoBehaviour
         foreach (string s in assignedStaff)
         {
             StaffHandler staffInfo = GameObject.Find(s).GetComponent<StaffHandler>();
+            stateChanger stateChanger = GameObject.Find(s).GetComponent<stateChanger>();
             staffInfo.isAvailable = false;
             staffInfo.isAssignedToProject = true;
+            stateChanger.isIdle = false;
             staffInfo.currentProject = projectName.text;
 
         }
