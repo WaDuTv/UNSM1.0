@@ -74,7 +74,7 @@ MonoBehaviour:
   workerModelprefab: {fileID: 0}
   playerModel: {fileID: 0}
   workerMaterial: {fileID: 0}
-  lastModelPosition: {x: -7, y: 0, z: -5}
+  lastModelPosition: {x: 0, y: 0, z: 0}
   lastModelRotation: {x: 0, y: 0, z: 0, w: 0}
   companyStaffContainer: {fileID: 0}
 --- !u!114 &-2587714089365619339

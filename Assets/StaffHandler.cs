@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 public class StaffHandler : MonoBehaviour
 {
@@ -196,7 +197,7 @@ public class StaffHandler : MonoBehaviour
         }
         workerModel.name = "workerModel_" + firstName + " " + lastName;
         workerMaterialHolder.GetComponent<SkinnedMeshRenderer>().material = workerMaterial;
-        workerModel.GetComponent<isTemporaryModel>().isTemporary_ = true;
+        workerModel.GetComponent<isTemporaryModel>().isTemporary_ = true;        
 
         workerModel.transform.position = lastModelPosition;
         workerModel.transform.rotation = lastModelRotation;

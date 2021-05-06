@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Doozy.Engine.UI;
 using PixelCrushers.DialogueSystem;
 
@@ -25,6 +26,7 @@ public void HangUp()
         }
 
         _modelAnimator.SetBool("callHasEnded", true);
+        _modelAnimator.SetBool("isBeingCalled", false);
 
         SetUpWorkerModelAfterCall();
     }
@@ -54,9 +56,11 @@ public void HangUp()
 
             staffHandler.lastModelPosition = _modelspawnPositions[_index].transform.position;
             callerModel.transform.position = _modelspawnPositions[_index].transform.position;
+            callerModel.GetComponent<NavMeshAgent>().Warp(_modelspawnPositions[_index].transform.position);
             callerModel.transform.eulerAngles = _modelspawnPositions[_index].transform.eulerAngles;
 
             _modelAnimator.SetBool("isIdle", true);
+            _modelAnimator.SetBool("callHasEnded", false);
         }
     }
 }

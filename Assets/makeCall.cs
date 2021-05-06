@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Doozy.Engine.UI;
 using PixelCrushers.DialogueSystem;
 using TMPro;
+using UnityEngine.AI;
 
 public class makeCall : MonoBehaviour
 {    
@@ -32,7 +33,7 @@ public class makeCall : MonoBehaviour
     private GameObject cellPhone;
     [SerializeField]
     GameObject callerwindow;
-
+    [SerializeField]
     private GameObject[] phoneCallSpawns;
     
     
@@ -118,6 +119,7 @@ public class makeCall : MonoBehaviour
             workerModel = workerModelContainer.transform.Find("workerModel_" + _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName).gameObject;
             workerModel.transform.position = phoneCallSpawns[_index].transform.position;            
             workerModel.transform.eulerAngles = phoneCallSpawns[_index].transform.eulerAngles;
+            workerModel.GetComponent<NavMeshAgent>().Warp(phoneCallSpawns[_index].transform.position);
         }
         if (workerModelContainer.transform.Find("workerModel_" + _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName) != null)
         {
@@ -126,6 +128,7 @@ public class makeCall : MonoBehaviour
 
         workerModelanimator = workerModel.GetComponent<Animator>();        
         workerModelanimator.SetBool("isBeingCalled", true);
+        workerModelanimator.SetBool("isIdle", true);
         TextureHolder = workerModel.GetComponent<textureHolder>();
         modelCam = workerModel.transform.Find("modelCam").GetComponent<Camera>();
         modelCam.targetTexture = TextureHolder.camTexture;

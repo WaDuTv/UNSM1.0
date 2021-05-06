@@ -3121,6 +3121,7 @@ GameObject:
   - component: {fileID: 561123296842008910}
   - component: {fileID: 3997368405517878417}
   - component: {fileID: 4911944912731045523}
+  - component: {fileID: -6122346546574952329}
   m_Layer: 0
   m_Name: Developer_Male_02
   m_TagString: Untagged
@@ -3299,6 +3300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTemporary_: 0
+  wasHired: 0
 --- !u!114 &561123296842008910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,6 +3340,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPhone: {fileID: 747423564680048171}
+--- !u!195 &-6122346546574952329
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742387174060844}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.2
+  m_Speed: 1.5
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 90
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1749209387404640
 GameObject:
   m_ObjectHideFlags: 0
