@@ -16944,8 +16944,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6271.7476
-        y: 646.8808
+        x: 6755.264
+        y: 609.5181
         width: 160
         height: 30
     - id: 234
@@ -17097,11 +17097,11 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 235
         destinationConversationID: 1
-        destinationDialogueID: 236
+        destinationDialogueID: 317
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["ConversantMood"] = 80
+      userScript: Variable["ConversantMood"] = Variable["ConversantMood"] + 20
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -17109,71 +17109,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 5939.438
         y: 700.4265
-        width: 160
-        height: 30
-    - id: 236
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Pictures
-        value: '[]'
-        type: 3
-        typeString: CustomFieldType_Files
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: Thank you, THANK you, THANK YOU! ... See you tomorrow, "boss"!
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Parenthetical
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Audio Files
-        value: '[]'
-        type: 3
-        typeString: CustomFieldType_Files
-      - title: Video File
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 1
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 5939.438
-        y: 750.4265
         width: 160
         height: 30
     - id: 237
@@ -18456,8 +18391,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6167.747
-        y: 699.8808
+        x: 6651.2637
+        y: 662.5181
         width: 160
         height: 30
     - id: 255
@@ -18534,8 +18469,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6368.7476
-        y: 699.8808
+        x: 6852.264
+        y: 662.5181
         width: 160
         height: 30
     - id: 256
@@ -18617,8 +18552,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6660.7476
-        y: 752.8808
+        x: 7144.264
+        y: 715.5181
         width: 160
         height: 30
     - id: 257
@@ -18682,8 +18617,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6522.7476
-        y: 816.88086
+        x: 7006.264
+        y: 779.5182
         width: 160
         height: 30
     - id: 258
@@ -18747,8 +18682,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6709.7476
-        y: 816.88086
+        x: 7193.264
+        y: 779.5182
         width: 160
         height: 30
     - id: 259
@@ -18812,8 +18747,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6897.7476
-        y: 818.88086
+        x: 7381.264
+        y: 781.5182
         width: 160
         height: 30
     - id: 260
@@ -18895,8 +18830,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6280.7476
-        y: 753.8808
+        x: 6764.264
+        y: 716.5181
         width: 160
         height: 30
     - id: 261
@@ -18966,8 +18901,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5987.747
-        y: 815.8808
+        x: 6451.4834
+        y: 781.8149
         width: 160
         height: 30
     - id: 262
@@ -19037,8 +18972,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6171.7476
-        y: 816.8808
+        x: 6655.264
+        y: 779.5181
         width: 160
         height: 30
     - id: 263
@@ -19108,8 +19043,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6347.7476
-        y: 816.88086
+        x: 6831.264
+        y: 779.5182
         width: 160
         height: 30
     - id: 264
@@ -19185,8 +19120,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6171.7476
-        y: 866.8808
+        x: 6655.264
+        y: 829.5181
         width: 160
         height: 30
     - id: 265
@@ -19267,8 +19202,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6039.7476
-        y: 920.8808
+        x: 6955.727
+        y: 937.99335
         width: 160
         height: 30
     - id: 266
@@ -19334,8 +19269,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6829.7476
-        y: 918.8808
+        x: 7313.264
+        y: 881.5181
         width: 160
         height: 30
     - id: 267
@@ -19411,8 +19346,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6035.4575
-        y: 998.75183
+        x: 6951.437
+        y: 1015.8644
         width: 160
         height: 30
     - id: 268
@@ -19488,8 +19423,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6823.071
-        y: 1017.1389
+        x: 7306.5874
+        y: 979.7763
         width: 160
         height: 30
     - id: 269
@@ -19575,8 +19510,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6715.071
-        y: 1087.1389
+        x: 7468.964
+        y: 1102.8245
         width: 160
         height: 30
     - id: 270
@@ -19650,8 +19585,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7082.071
-        y: 1088.1389
+        x: 7835.964
+        y: 1103.8245
         width: 160
         height: 30
     - id: 271
@@ -19721,8 +19656,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6481.07
-        y: 1154.1389
+        x: 7234.963
+        y: 1169.8245
         width: 160
         height: 30
     - id: 272
@@ -19792,8 +19727,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6678.071
-        y: 1151.1389
+        x: 7431.964
+        y: 1166.8245
         width: 160
         height: 30
     - id: 273
@@ -19863,8 +19798,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6859.071
-        y: 1150.1389
+        x: 7612.964
+        y: 1165.8245
         width: 160
         height: 30
     - id: 274
@@ -19999,8 +19934,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6682.071
-        y: 1224.139
+        x: 7435.964
+        y: 1239.8246
         width: 160
         height: 30
     - id: 276
@@ -20075,8 +20010,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6681.332
-        y: 1271.6606
+        x: 7435.225
+        y: 1287.3462
         width: 160
         height: 30
     - id: 277
@@ -20140,8 +20075,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6682.071
-        y: 1324.139
+        x: 7435.964
+        y: 1339.8246
         width: 160
         height: 30
     - id: 278
@@ -20211,8 +20146,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7082.071
-        y: 1138.1389
+        x: 7835.964
+        y: 1153.8245
         width: 160
         height: 30
     - id: 279
@@ -20295,8 +20230,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7082.071
-        y: 1188.1389
+        x: 7835.964
+        y: 1203.8245
         width: 160
         height: 30
     - id: 280
@@ -20367,8 +20302,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6936.747
-        y: 1243.8943
+        x: 7690.64
+        y: 1259.5798
         width: 160
         height: 30
     - id: 281
@@ -20438,8 +20373,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7125.2363
-        y: 1243.8943
+        x: 7879.1294
+        y: 1259.5798
         width: 160
         height: 30
     - id: 282
@@ -20509,8 +20444,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7317.3228
-        y: 1243.8943
+        x: 7733.716
+        y: 1220.9435
         width: 160
         height: 30
     - id: 283
@@ -20580,8 +20515,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7104.373
-        y: 1299.6497
+        x: 7858.266
+        y: 1315.3352
         width: 160
         height: 30
     - id: 284
@@ -20651,8 +20586,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7104.373
-        y: 1349.6497
+        x: 7858.266
+        y: 1365.3352
         width: 160
         height: 30
     - id: 285
@@ -20721,8 +20656,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7104.373
-        y: 1399.6497
+        x: 7858.266
+        y: 1415.3352
         width: 160
         height: 30
     - id: 286
@@ -20792,8 +20727,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5994.328
-        y: 1087.4615
+        x: 6759.548
+        y: 1090.3676
         width: 160
         height: 30
     - id: 287
@@ -20869,8 +20804,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5798.1167
-        y: 1262.6051
+        x: 6542.025
+        y: 1275.3473
         width: 160
         height: 30
     - id: 288
@@ -20944,8 +20879,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1335.893
+        x: 6407.7783
+        y: 1348.6351
         width: 160
         height: 30
     - id: 289
@@ -21019,8 +20954,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5891.267
-        y: 1338.6326
+        x: 6656.487
+        y: 1341.5386
         width: 160
         height: 30
     - id: 290
@@ -21090,8 +21025,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1385.893
+        x: 6407.7783
+        y: 1398.6351
         width: 160
         height: 30
     - id: 291
@@ -21162,8 +21097,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1435.893
+        x: 6407.7783
+        y: 1448.6351
         width: 160
         height: 30
     - id: 292
@@ -21233,8 +21168,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1485.893
+        x: 6407.7783
+        y: 1498.6351
         width: 160
         height: 30
     - id: 293
@@ -21305,8 +21240,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1535.893
+        x: 6407.7783
+        y: 1548.6351
         width: 160
         height: 30
     - id: 294
@@ -21376,8 +21311,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5663.87
-        y: 1585.893
+        x: 6407.7783
+        y: 1598.6351
         width: 160
         height: 30
     - id: 295
@@ -21453,8 +21388,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5891.267
-        y: 1388.6326
+        x: 6656.487
+        y: 1391.5386
         width: 160
         height: 30
     - id: 296
@@ -21524,8 +21459,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5891.267
-        y: 1438.6326
+        x: 6656.487
+        y: 1441.5386
         width: 160
         height: 30
     - id: 297
@@ -21596,8 +21531,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6070.719
-        y: 1438.6326
+        x: 6835.939
+        y: 1441.5386
         width: 160
         height: 30
     - id: 298
@@ -21662,8 +21597,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5995.377
-        y: 1510.5504
+        x: 6760.5967
+        y: 1513.4564
         width: 160
         height: 30
     - id: 299
@@ -21737,8 +21672,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6297.101
-        y: 1104.9161
+        x: 7050.994
+        y: 1120.6017
         width: 160
         height: 30
     - id: 300
@@ -21814,8 +21749,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6297.101
-        y: 1154.9161
+        x: 7050.994
+        y: 1170.6017
         width: 160
         height: 30
     - id: 301
@@ -21889,8 +21824,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1217.2449
+        x: 6941.4053
+        y: 1232.9304
         width: 160
         height: 30
     - id: 302
@@ -21965,8 +21900,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6375.183
-        y: 1214.5051
+        x: 7129.076
+        y: 1230.1907
         width: 160
         height: 30
     - id: 303
@@ -22031,8 +21966,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6375.183
-        y: 1264.5051
+        x: 7129.076
+        y: 1280.1907
         width: 160
         height: 30
     - id: 304
@@ -22109,8 +22044,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1267.2449
+        x: 6941.4053
+        y: 1282.9304
         width: 160
         height: 30
     - id: 305
@@ -22184,8 +22119,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1317.2449
+        x: 6941.4053
+        y: 1332.9304
         width: 160
         height: 30
     - id: 306
@@ -22260,8 +22195,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6380.663
-        y: 1317.2449
+        x: 7134.556
+        y: 1332.9304
         width: 160
         height: 30
     - id: 307
@@ -22337,8 +22272,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1367.2449
+        x: 6941.4053
+        y: 1382.9304
         width: 160
         height: 30
     - id: 308
@@ -22409,8 +22344,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1492.5874
+        x: 6941.4053
+        y: 1508.273
         width: 160
         height: 30
     - id: 309
@@ -22480,8 +22415,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1542.5874
+        x: 6941.4053
+        y: 1558.273
         width: 160
         height: 30
     - id: 310
@@ -22552,8 +22487,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6187.512
-        y: 1592.5874
+        x: 6941.4053
+        y: 1608.273
         width: 160
         height: 30
     - id: 311
@@ -22630,8 +22565,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6380.663
-        y: 1367.2449
+        x: 7134.556
+        y: 1382.9304
         width: 160
         height: 30
     - id: 312
@@ -22706,8 +22641,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6316.28
-        y: 1428.2039
+        x: 7070.173
+        y: 1443.8894
         width: 160
         height: 30
     - id: 313
@@ -22781,8 +22716,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6495.7314
-        y: 1428.2039
+        x: 7249.6245
+        y: 1443.8894
         width: 160
         height: 30
     - id: 314
@@ -22853,8 +22788,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6413.54
-        y: 1491.9026
+        x: 7167.433
+        y: 1507.5881
         width: 160
         height: 30
     - id: 315
@@ -22924,8 +22859,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6413.54
-        y: 1541.9026
+        x: 7167.433
+        y: 1557.5881
         width: 160
         height: 30
     - id: 316
@@ -22989,11 +22924,1403 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6413.54
-        y: 1591.9026
+        x: 7167.433
+        y: 1607.5881
         width: 160
         height: 30
-    canvasScrollPosition: {x: 2803.274, y: 280.26328}
+    - id: 317
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Hold on for a moment. First, i wanna know for WHO i might work. Tell
+          me a something ybout youself.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 317
+        destinationConversationID: 1
+        destinationDialogueID: 318
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 317
+        destinationConversationID: 1
+        destinationDialogueID: 319
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 5939.438
+        y: 750.4265
+        width: 160
+        height: 30
+    - id: 318
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I'm looking for employees for a company. Shouldn't that be enough?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 967ab887-4cb3-4eef-a07a-14d9bf33e691
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 318
+        destinationConversationID: 1
+        destinationDialogueID: 320
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = Variable["ConversantMood"] - 20
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 5938.4067
+        y: 828.26154
+        width: 160
+        height: 30
+    - id: 319
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: You are right, i might have skipped something.... My name is [var=Actor],
+          we produce videogames.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 8c4c473b-10c4-4f40-8fab-6f0737e0da25
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 319
+        destinationConversationID: 1
+        destinationDialogueID: 323
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 319
+        destinationConversationID: 1
+        destinationDialogueID: 324
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = Variable["ConversantMood"] + 10
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6238.407
+        y: 830.3234
+        width: 160
+        height: 30
+    - id: 320
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Yeah, right. And in the end i wind up in the pornindustrie or - even
+          worse - end up working for an indian tech-scammer. I don't take people
+          as serious, if they aren't even polite enough to introduce themselves properly.
+          I don't even know your name!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 320
+        destinationConversationID: 1
+        destinationDialogueID: 321
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 5938.4067
+        y: 878.26154
+        width: 160
+        height: 30
+    - id: 321
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: '*Sigh*... allright, allright... my name is [var=Actor]. Better?'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 321
+        destinationConversationID: 1
+        destinationDialogueID: 322
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 5938.4067
+        y: 928.26154
+        width: 160
+        height: 30
+    - id: 322
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: ... *Click*
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 5938.4067
+        y: 978.26154
+        width: 160
+        height: 30
+    - id: 323
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Hmm... [var=CompanyBestGame] was a small breakthrough for you i guess...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 323
+        destinationConversationID: 1
+        destinationDialogueID: 325
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 323
+        destinationConversationID: 1
+        destinationDialogueID: 328
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["CompanyBestGame"] ~= "None"
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6122.943
+        y: 879.2925
+        width: 160
+        height: 30
+    - id: 324
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: How come i've never heard of your company?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 324
+        destinationConversationID: 1
+        destinationDialogueID: 327
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 324
+        destinationConversationID: 1
+        destinationDialogueID: 331
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6516.9463
+        y: 913.78174
+        width: 160
+        height: 30
+    - id: 325
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: And that was just the start. Do you wanna whitness live and in color,
+          how the story of [var=CompanyName] continues?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 9bc4b7a5-c5a6-4913-8a5b-8b899488665b
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 325
+        destinationConversationID: 1
+        destinationDialogueID: 326
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = 82
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6122.943
+        y: 929.2925
+        width: 160
+        height: 30
+    - id: 326
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Sure, i'd be glad to work for you! Just send me a contract and i'll
+          be at work in no time. Gotta hang up, see you in a few!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 61b1e38b-09f8-4701-96f9-37964a96ae1d
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6122.943
+        y: 980.32336
+        width: 160
+        height: 30
+    - id: 327
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Then you should inform youself better. I don't want employees who
+          are not up-to-date with the current market and trends...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: a7cd5c1a-6353-4ba7-bda7-c8988841b381
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 327
+        destinationConversationID: 1
+        destinationDialogueID: 330
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = 12
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6649.7827
+        y: 969.4635
+        width: 160
+        height: 30
+    - id: 328
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: SMALL? How much did YOU accomplish in life so far!?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 2c8aaab2-0018-4f31-801d-4ac9b6a1e2fd
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 328
+        destinationConversationID: 1
+        destinationDialogueID: 329
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = 45
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6298.2007
+        y: 930.3235
+        width: 160
+        height: 30
+    - id: 329
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: '*sigh* not... nice... *Click*'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6298.2007
+        y: 980.3235
+        width: 160
+        height: 30
+    - id: 330
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Why is it MY fault now, that noone knows about your damn company?
+          Pfff.... *Click*
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6649.7827
+        y: 1019.4635
+        width: 160
+        height: 30
+    - id: 331
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: And that is exactly what we want to change. That's why we hire new
+          employees right now.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 18a84fff-9bee-4401-aeb7-8298cb2648e2
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 331
+        destinationConversationID: 1
+        destinationDialogueID: 332
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = Variable["ConversantMood"] + 10
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6476.037
+        y: 971.7363
+        width: 160
+        height: 30
+    - id: 332
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Well, that comes during the perfect point in time... i am just look
+          for a new challenge.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 332
+        destinationConversationID: 1
+        destinationDialogueID: 333
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 332
+        destinationConversationID: 1
+        destinationDialogueID: 334
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6476.037
+        y: 1021.7363
+        width: 160
+        height: 30
+    - id: 333
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Well, then accept THIS challenge and sign the contract. It's already
+          in your mail. See you at work! *Click*
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: c97e208d-e260-4dd9-a7a2-e7c1122c2a78
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = 81
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6354.4463
+        y: 1076.2817
+        width: 160
+        height: 30
+    - id: 334
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Well,  this wasn't a direct invitation per se...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: f89af691-c3ab-43c6-93ae-ead8ec4da6d8
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 334
+        destinationConversationID: 1
+        destinationDialogueID: 335
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["ConversantMood"] = 20
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6533.9917
+        y: 1077.418
+        width: 160
+        height: 30
+    - id: 335
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: It wasn't? Then.... bye. I don't fancy a conversation leading to no
+          where. *Click*
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6533.9917
+        y: 1127.418
+        width: 160
+        height: 30
+    canvasScrollPosition: {x: 4614.567, y: 0}
     canvasZoom: 0.18999997
   - id: 2
     fields:

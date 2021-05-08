@@ -153,7 +153,9 @@ public class saveManager : MonoBehaviour
         if(_player != null)
         {                         
             saveData.Add("Player CharacterPrefab_" , _playerStaffHandler.workerModelprefabIndex);
-            saveData.Add("Player CharacterPrefabMaterial_" , _playerStaffHandler.workerMaterialIndex);            
+            saveData.Add("Player CharacterPrefabMaterial_" , _playerStaffHandler.workerMaterialIndex);
+
+            saveData.Add("Player AssignedWorkspace_", _playerStaffHandler.assignedWorkspace);
 
             saveData.Add("Player First Name_" , _playerStaffHandler.firstName);
             saveData.Add("Player Last Name_" , _playerStaffHandler.lastName);
@@ -239,7 +241,9 @@ public class saveManager : MonoBehaviour
             if (worker != null && worker.gameObject != null && worker.gameObject != HiredStaffContainer)
             {                                                                
                 saveData.Add("Worker CharacterPrefab_" + sh.firstName + "_" + sh.lastName, sh.workerModelprefabIndex);
-                saveData.Add("Worker CharacterPrefabMaterial_" + sh.firstName + "_" + sh.lastName, sh.workerMaterialIndex);                
+                saveData.Add("Worker CharacterPrefabMaterial_" + sh.firstName + "_" + sh.lastName, sh.workerMaterialIndex);
+
+                saveData.Add("Worker AssignedWorkspace_" + sh.firstName + "_" + sh.lastName, sh.assignedWorkspace);
 
                 saveData.Add("Worker First Name_"+ sh.firstName+"_"+sh.lastName, sh.firstName);
                 saveData.Add("Worker Last Name_" + sh.firstName + "_" + sh.lastName, sh.lastName);
@@ -267,15 +271,13 @@ public class saveManager : MonoBehaviour
 
                 hiredWorkers.Add(sh.firstName + "_" + sh.lastName);
             }
-
-            //Save Contacts
-
-            saveData.Add("Contacts_", GameObject.Find("ContactsLibray").GetComponent<myContacts>().contacts);
-
-
         }
 
         saveData.Add("HiredWorkersList", hiredWorkers);
+
+        //Save Contacts
+
+        saveData.Add("Contacts_", GameObject.Find("ContactsLibray").GetComponent<myContacts>().contacts);
 
         //Save current active Projects
         activeProjectsContainer = GameObject.Find("CurrentActiveProjects");
@@ -437,6 +439,34 @@ public class saveManager : MonoBehaviour
 
         saveData.Add("MyFinishedGamesList", finishedProjectsList);
 
+        //Save Highscoring Game
+        highscoreHolder highscoreHolder = GameObject.Find("GameDevelopmentManager").GetComponent<highscoreHolder>();
+
+        saveData.Add("highscore_game", highscoreHolder.highscoringGame);
+        saveData.Add("highscore_score", highscoreHolder.highestScore);
+
+        //Save WorkspaceInformations
+        GameObject[] workSpaces = GameObject.FindGameObjectsWithTag("workspace");
+        foreach (GameObject workspace in workSpaces)
+        {
+            saveData.Add("workspace_" + workspace.name, workspace.GetComponent<workspaceInformations>().isOccupied);
+        }
+        saveData.Add("workSpaceArray", workSpaces);
+
+        //Save StateChangerSettings
+
+        //Transform[] workerModels = GameObject.Find("ModelContainer").GetComponentsInChildren<Transform>();
+
+        //foreach (Transform t in workerModels)
+        //{
+        //    if (GameObject.Find(t.gameObject.name).transform != GameObject.Find("ModelContainer").transform)
+        //    {
+        //        saveData.Add("state_isIdle" + t.name, GameObject.Find(t.gameObject.name).GetComponent<stateChanger>().isIdle);
+        //        saveData.Add("state_isAssignedToProject" + t.name, GameObject.Find(t.gameObject.name).GetComponent<stateChanger>().isAssignedToProject);
+        //        saveData.Add("state_isOnPhone" + t.name, GameObject.Find(t.gameObject.name).GetComponent<stateChanger>().isOnPhone);
+        //    }
+        //}
+        //saveData.Add("workerModelArray", workerModels);
 
         //Save Objects
         saveData.Add("ObjectCount", SavableObjects.Count);
@@ -504,7 +534,9 @@ public class saveManager : MonoBehaviour
             //Load & Instantiate Player
             int playerPrefabIndex = saveData.GetInt("Player CharacterPrefab_");
             int playerMaterialIndex = saveData.GetInt("Player CharacterPrefabMaterial_");
-            
+
+            string _assignedWorkspace = saveData.GetString("Player AssignedWorkspace_");
+
             string _playerFirstName = saveData.GetString("Player First Name_");
             string _playerLastName = saveData.GetString("Player Last Name_");
             string _playerProfession = saveData.GetString("Player Profession_");
@@ -537,6 +569,8 @@ public class saveManager : MonoBehaviour
 
             playerSh.workerModelprefabIndex = playerPrefabIndex;
             playerSh.workerMaterialIndex = playerMaterialIndex;
+
+            playerSh.assignedWorkspace = GameObject.Find(_assignedWorkspace);
 
             playerSh.firstName = _playerFirstName;
             playerSh.lastName = _playerLastName;
@@ -654,7 +688,9 @@ public class saveManager : MonoBehaviour
             foreach (string worker in currentHiredWorkers)
             {                                
                 int workerPrefabIndex = saveData.GetInt("Worker CharacterPrefab_" + worker);
-                int workerMaterialIndex = saveData.GetInt("Worker CharacterPrefabMaterial_" + worker);                
+                int workerMaterialIndex = saveData.GetInt("Worker CharacterPrefabMaterial_" + worker);
+
+                string _assigned_workspace = saveData.GetString("Worker AssignedWorkspace_" + worker);
 
                 string workerFirstName = saveData.GetString("Worker First Name_" + worker);
                 string workerLastName = saveData.GetString("Worker Last Name_" + worker);
@@ -692,6 +728,8 @@ public class saveManager : MonoBehaviour
                     
                     sh.workerModelprefabIndex = workerPrefabIndex;
                     sh.workerMaterialIndex = workerMaterialIndex;
+
+                    sh.assignedWorkspace = GameObject.Find(_assigned_workspace);
 
                     sh.firstName = workerFirstName;
                     sh.lastName = workerLastName;
@@ -1037,6 +1075,46 @@ public class saveManager : MonoBehaviour
             //Load Contacts
             List<string> _contacts = saveData.GetList<string>("Contacts_");
             GameObject.Find("ContactsLibray").GetComponent<myContacts>().contacts = _contacts;
+
+            //Load Highscoring Game
+            highscoreHolder highscoreHolder = GameObject.Find("GameDevelopmentManager").GetComponent<highscoreHolder>();
+
+            string _highscore_game = saveData.GetString("highscore_game");
+            int _highscore_score = saveData.GetInt("highscore_score");
+
+
+            highscoreHolder.highscoringGame = _highscore_game;
+            highscoreHolder.highestScore = _highscore_score;
+
+            //Load WorkspaceInformations
+            GameObject[] workSpaces = saveData.GetArray<GameObject>("workSpaceArray");
+            foreach (GameObject workspace in workSpaces)
+            {
+                bool _isOccupied = saveData.GetBool("workspace_" + workspace.name);
+                workspace.GetComponent<workspaceInformations>().isOccupied = _isOccupied;
+            }
+
+            ////Load StatChanger Settings
+            //Transform[] workerModels = saveData.GetArray<Transform>("workerModelArray");
+            
+            //foreach (Transform t in workerModels)
+            //{
+            //    if (t != GameObject.Find("ModelContainer").transform)
+            //    {
+            //        bool _isIdle = saveData.GetBool("state_isIdle" + t.name);
+            //        bool _isAssignedToProject = saveData.GetBool("state_isAssignedToProject" + t.name);
+            //        bool _isOnPhone = saveData.GetBool("state_isOnPhone" + t.name);
+
+            //        GameObject.Find(t.name).GetComponent<stateChanger>().isIdle = _isIdle;
+            //        GameObject.Find(t.name).GetComponent<stateChanger>().isAssignedToProject = _isAssignedToProject;
+            //        GameObject.Find(t.name).GetComponent<stateChanger>().isOnPhone = _isOnPhone;
+            //    }
+
+            //}
+            //saveData.Add("workerModelArray", workerModels);
+
+
+
 
             // Load Objects
             int currentObjects = saveData.GetInt("ObjectCount");

@@ -35,6 +35,8 @@ public class makeCall : MonoBehaviour
     GameObject callerwindow;
     [SerializeField]
     private GameObject[] phoneCallSpawns;
+    [SerializeField]
+    AlwaysVisibleHolderScript alwaysVisibleHolderScript;
     
     
 
@@ -46,6 +48,7 @@ public class makeCall : MonoBehaviour
         calledPersonNameDisplay = GameObject.Find("CalledPerson_Name").GetComponent<TMP_Text>();
         workerModelContainer = GameObject.Find("ModelContainer");
         hangUpCallButton = GameObject.Find("Button - Hangup Phone").GetComponent<HangUpCall>();
+        alwaysVisibleHolderScript = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
 
         phoneCallSpawns = GameObject.FindGameObjectsWithTag("phoneCallSpawn");
 
@@ -126,9 +129,13 @@ public class makeCall : MonoBehaviour
             workerModel = workerModelContainer.transform.Find("workerModel_" + _calledPersonStaffHandler.firstName + " " + _calledPersonStaffHandler.lastName).gameObject;
         }
 
-        workerModelanimator = workerModel.GetComponent<Animator>();        
-        workerModelanimator.SetBool("isBeingCalled", true);
-        workerModelanimator.SetBool("isIdle", true);
+        workerModelanimator = workerModel.GetComponent<Animator>();
+        //workerModelanimator.SetBool("isBeingCalled", true);
+        //workerModelanimator.SetBool("isIdle", true);
+        workerModel.GetComponent<stateChanger>().isIdle = false;
+        workerModel.GetComponent<stateChanger>().isOnPhone = true;
+        alwaysVisibleHolderScript.playerModel.GetComponent<stateChanger>().isIdle = false;
+        alwaysVisibleHolderScript.playerModel.GetComponent<stateChanger>().isOnPhone = true;
         TextureHolder = workerModel.GetComponent<textureHolder>();
         modelCam = workerModel.transform.Find("modelCam").GetComponent<Camera>();
         modelCam.targetTexture = TextureHolder.camTexture;

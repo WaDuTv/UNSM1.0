@@ -30,6 +30,7 @@ TagManager:
   - waypoint
   - phoneCallSpawn
   - newWorkerSpawn
+  - workspace
   layers:
   - Default
   - TransparentFX

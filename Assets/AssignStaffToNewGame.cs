@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using BehaviorDesigner.Runtime;
 
 public class AssignStaffToNewGame : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class AssignStaffToNewGame : MonoBehaviour
     public TMP_InputField projectName;
     
     public List<string> assignedStaff;
+
+    private
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +45,22 @@ public class AssignStaffToNewGame : MonoBehaviour
         foreach (string s in assignedStaff)
         {
             StaffHandler staffInfo = GameObject.Find(s).GetComponent<StaffHandler>();
-            stateChanger stateChanger = GameObject.Find(s).GetComponent<stateChanger>();
+            if(staffInfo.isPlayer == true)
+            {
+                GameObject.Find("PlayerModel").GetComponent<stateChanger>().isIdle = false;
+                GameObject.Find("PlayerModel").GetComponent<stateChanger>().isAssignedToProject = true;
+            }
+            if(staffInfo.isPlayer == false)
+            {
+                GameObject.Find("workerModel_" + staffInfo.firstName + " " + staffInfo.lastName).GetComponent<stateChanger>().isIdle = false;
+                GameObject.Find("workerModel_" + staffInfo.firstName + " " + staffInfo.lastName).GetComponent<stateChanger>().isAssignedToProject = true;
+                BehaviorTree _behaviorTree = GameObject.Find("workerModel_" + staffInfo.firstName + " " + staffInfo.lastName).GetComponent<BehaviorTree>();
+                _behaviorTree.SetVariableValue("AssignedWorkspace", staffInfo.assignedWorkspace);
+
+            }
+
             staffInfo.isAvailable = false;
-            staffInfo.isAssignedToProject = true;
-            stateChanger.isIdle = false;
+            staffInfo.isAssignedToProject = true;            
             staffInfo.currentProject = projectName.text;
 
         }

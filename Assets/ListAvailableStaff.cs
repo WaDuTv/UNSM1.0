@@ -67,11 +67,12 @@ public class ListAvailableStaff : MonoBehaviour
         }
 
         Transform btnTemplate = staffMemberPrefab.transform;
-
-        int index = 0;
+        
 
         foreach (GameObject o in availableStaff)
         {
+            if(o.GetComponent<StaffHandler>().assignedWorkspace != null)
+            { 
             Transform btnTransform = Instantiate(btnTemplate, transform);
             btnTransform.gameObject.SetActive(true);
             btnTransform.gameObject.name = "current_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
@@ -89,7 +90,7 @@ public class ListAvailableStaff : MonoBehaviour
 
             btnTransform.Find("StaffName").GetComponent<TextMeshProUGUI>().text = o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName;
             btnTransform.Find("Staffinfo").GetComponent<TextMeshProUGUI>().text = "- " + o.GetComponent<StaffHandler>().workerProfession + " , Stats: Programming: " + o.GetComponent<StaffHandler>().workerStatProgramming.ToString() + ", Sound: " + o.GetComponent<StaffHandler>().workerStatSound.ToString() + ", Graphics: " + o.GetComponent<StaffHandler>().workerStatGraphics.ToString() + ", Design:" + o.GetComponent<StaffHandler>().workerStatDesign.ToString();
-
+            }
 
 
         }

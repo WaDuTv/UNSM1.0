@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Doozy.Engine.UI;
 using PixelCrushers.DialogueSystem;
+using BehaviorDesigner.Runtime;
 
 public class HangUpCall : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class HangUpCall : MonoBehaviour
     private UIView phoneCallView;
     [SerializeField]
     private UIView contacts;
+    private AlwaysVisibleHolderScript alwaysVisibleHolderScript;
 
     public GameObject callerModel;
 
 public void HangUp()
     {
+        alwaysVisibleHolderScript = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         string[] calledPersonNameArray = callerModel.name.Split(char.Parse("_"));
         string calledPerson = calledPersonNameArray[1];
         StaffHandler staffHandler = GameObject.Find("worker_" + calledPerson).GetComponent<StaffHandler>();
@@ -25,8 +28,9 @@ public void HangUp()
             DialogueManager.StopConversation();
         }
 
-        _modelAnimator.SetBool("callHasEnded", true);
-        _modelAnimator.SetBool("isBeingCalled", false);
+        alwaysVisibleHolderScript.playerModel.GetComponent<stateChanger>().isIdle = true;        
+        //_modelAnimator.SetBool("callHasEnded", true);
+        //_modelAnimator.SetBool("isBeingCalled", false);
 
         SetUpWorkerModelAfterCall();
     }
@@ -59,8 +63,11 @@ public void HangUp()
             callerModel.GetComponent<NavMeshAgent>().Warp(_modelspawnPositions[_index].transform.position);
             callerModel.transform.eulerAngles = _modelspawnPositions[_index].transform.eulerAngles;
 
-            _modelAnimator.SetBool("isIdle", true);
-            _modelAnimator.SetBool("callHasEnded", false);
+            callerModel.GetComponent<stateChanger>().isOnPhone = false;
+            callerModel.GetComponent<stateChanger>().isIdle = true;
+            
+            //_modelAnimator.SetBool("isIdle", true);
+            //_modelAnimator.SetBool("callHasEnded", false);
         }
     }
 }

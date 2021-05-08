@@ -76,11 +76,19 @@ public class ProjectInDevelopment : MonoBehaviour
     public float currentInterest;
     public int monthsOnMarket;
 
+    public int wentToMarketIn;
+
+    public int lastMonthsSales;
+    public List<int> salesOver12Months;
+
     public Transform finishedGameContainer;
     [SerializeField]
     private int developmentInYears;
     [SerializeField]
     private Clock clock;
+
+    private bool statisticsUpdated;
+    private int index;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +125,8 @@ public class ProjectInDevelopment : MonoBehaviour
         {
             defaultPrice = 60;
         }
+        salesOver12Months = new List<int>();
+        salesOver12Months.Capacity = 12;
     }
 
     // Update is called once per frame
@@ -131,6 +141,15 @@ public class ProjectInDevelopment : MonoBehaviour
         if (clock.day >= reviewDay && clock.month >= reviewMonth  && clock.year >= reviewYear && isFinished ==true  && hasBeenSent == true)
         {
             isRated = true;            
+        }
+        if(clock.day == 1 && statisticsUpdated == false)
+        {
+            UpdateStatistics();
+            statisticsUpdated = true;
+        }
+        if (clock.day == 2 && statisticsUpdated == true)
+        {            
+            statisticsUpdated = false;
         }
 
     }
@@ -191,5 +210,23 @@ public class ProjectInDevelopment : MonoBehaviour
             reviewYear = sendAwayYear + 1;
         }
         hasBeenSent = true;
+    }
+
+    private void UpdateStatistics()
+    {        
+        if (clock.month - 1 <=0)
+        {
+            index = 12;
+        }
+        if (clock.month - 1 > 0)
+        {
+            index = clock.month - 1;
+        }
+        if(salesOver12Months.Count > index)
+        { 
+            salesOver12Months.RemoveAt(index);
+            salesOver12Months.Insert(index, lastMonthsSales);
+        }
+        
     }
 }

@@ -44,6 +44,7 @@ public class CalculateGameScore : MonoBehaviour
 
 
     public Transform staffContainer;
+    public Transform modelContainer;
     public List<string> staffList;
 
 
@@ -75,6 +76,7 @@ public class CalculateGameScore : MonoBehaviour
     void Start()
     {
         staffContainer = GameObject.Find("CompanyStaff").transform;
+        modelContainer = GameObject.Find("ModelContainer").transform;
         alwaysVisibleHolderScript = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>();
         projectSettings = GetComponent<ProjectInDevelopment>();
         player = GameObject.Find("AlwaysVisibleHolder").GetComponent<AlwaysVisibleHolderScript>().playerPrefab;
@@ -264,7 +266,8 @@ public class CalculateGameScore : MonoBehaviour
                 StaffHandler staffHandler = player.GetComponent<StaffHandler>();
                 staffHandler.isAvailable = true;
                 staffHandler.isAssignedToProject = false;
-                player.GetComponent<stateChanger>().isIdle = true;
+                modelContainer.Find("PlayerModel").GetComponent<stateChanger>().isIdle = true;
+                modelContainer.Find("PlayerModel").GetComponent<stateChanger>().isAssignedToProject = false;
                 staffHandler.currentProject = "";
             }
             if (s != player.name.ToString())
@@ -274,7 +277,8 @@ public class CalculateGameScore : MonoBehaviour
                 {
                     staffHandler.isAvailable = true;
                     staffHandler.isAssignedToProject = false;
-                    staffContainer.Find(s).GetComponent<stateChanger>().isIdle = true;
+                    modelContainer.Find("workerModel_" + staffHandler.firstName + " " + staffHandler.lastName).GetComponent<stateChanger>().isIdle = true;
+                    modelContainer.Find("workerModel_" + staffHandler.firstName + " " + staffHandler.lastName).GetComponent<stateChanger>().isAssignedToProject = false;
                     staffHandler.currentProject = "";
                 }
             }

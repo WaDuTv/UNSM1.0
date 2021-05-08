@@ -17,6 +17,8 @@ public class StaffHandler : MonoBehaviour
 
     public Transform modelContainer;
 
+    public GameObject assignedWorkspace;
+
     public bool isMale;    
 
     public string assignedProjectName;
@@ -64,7 +66,7 @@ public class StaffHandler : MonoBehaviour
     [SerializeField]
     private GameObject companyStaffContainer;
     [SerializeField]
-    
+    workspaceManager workspaceManager;
 
 
 
@@ -75,6 +77,7 @@ public class StaffHandler : MonoBehaviour
         Debug.Log("done renaming 1");
         modelContainer = GameObject.Find("ModelContainer").transform;
         companyStaffContainer = GameObject.Find("CompanyStaff");
+        workspaceManager = GameObject.Find("WorkspaceManager").GetComponent<workspaceManager>();
         workerStatGraphicsAndDesign = workerStatGraphics + workerStatDesign;
         workerStatProgrammingAndDesign = workerStatProgramming + workerStatDesign;        
 
@@ -106,7 +109,7 @@ public class StaffHandler : MonoBehaviour
     }
 
     private void Start()
-    {
+    {      
         this.gameObject.name = "worker_" + firstName + " " + lastName;
         Debug.Log("done renaming 2");
         InstantiateCharacterModel();
@@ -114,6 +117,11 @@ public class StaffHandler : MonoBehaviour
         {
             playerModel.transform.position = lastModelPosition;
             playerModel.transform.rotation = lastModelRotation;            
+        }
+        for (int i = 0; i < workspaceManager.availableWorkspaces.Count; i++)
+        {
+            assignedWorkspace = workspaceManager.availableWorkspaces[i];
+            break;
         }
     }
 
@@ -125,18 +133,47 @@ public class StaffHandler : MonoBehaviour
 
     public void ProjectAssignement()
     {
+        stateChanger _stateChanger;
+        if(isPlayer != true)
+        { 
+            _stateChanger = modelContainer.Find("workerModel_"+firstName+ " " +lastName).GetComponent<stateChanger>();
+            _stateChanger.isIdle = false;
+            _stateChanger.isAssignedToProject = true;
+
+        }
+        if(isPlayer == true)
+        {
+            _stateChanger = modelContainer.Find("PlayerModel").GetComponent<stateChanger>(); 
+            _stateChanger.isIdle = false;
+            _stateChanger.isAssignedToProject = true;
+        }
+
         isAvailable = false;
         isAssignedToProject = true;
+        
 
         currentProject = assignedProjectName;
     }
 
     public void isRemovedFromProject()
     {
-        isAvailable = true;
-        isAssignedToProject = false;
-        gameObject.GetComponent<stateChanger>().isIdle = true;
+        stateChanger _stateChanger;
+        if (isPlayer == false)
+        {
+            _stateChanger = modelContainer.Find("workerModel_" + firstName + " " + lastName).GetComponent<stateChanger>();
+            _stateChanger.isIdle = true;
+            _stateChanger.isAssignedToProject = false;
 
+        }
+        if (isPlayer == true)
+        {
+            _stateChanger = modelContainer.Find("PlayerModel").GetComponent<stateChanger>();
+            _stateChanger.isIdle = true;
+            _stateChanger.isAssignedToProject = false;
+        }
+
+        isAvailable = true;
+        isAssignedToProject = false;        
         currentProject = "";
     }
 
@@ -170,6 +207,8 @@ public class StaffHandler : MonoBehaviour
 
             workerModel.transform.position = lastModelPosition;
             workerModel.transform.rotation = lastModelRotation;
+
+            
         }
     }
 
