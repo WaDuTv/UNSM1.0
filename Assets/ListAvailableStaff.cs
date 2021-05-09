@@ -11,14 +11,15 @@ public class ListAvailableStaff : MonoBehaviour
     public GameObject staffMemberPrefab;
     public GameObject player;
     public TMP_InputField newGameName;
+    public Transform assignedStaffContainer;
 
     private Image _backgroundImage;
     private VerticalLayoutGroup _mainGroup;
     private TMP_Text _staffNametext;
-    private TMP_Text _staffInfotext;
+    private TMP_Text _staffInfotext;    
 
-    
     public List<GameObject> availableStaff = null;
+    public List<GameObject> assignedStaff = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +40,7 @@ public class ListAvailableStaff : MonoBehaviour
         foreach (Transform transform in staff)
         {            
             if (transform != null && transform.gameObject != staffContainer && transform.gameObject.GetComponent<StaffHandler>().isAssignedToProject == false)
-            {
-                Debug.Log(transform.gameObject.GetComponent<StaffHandler>().isAssignedToProject);
+            {                
                 availableStaff.Add(transform.gameObject);
 
             }
@@ -71,7 +71,8 @@ public class ListAvailableStaff : MonoBehaviour
 
         foreach (GameObject o in availableStaff)
         {
-            if(o.GetComponent<StaffHandler>().assignedWorkspace != null)
+
+            if (o.GetComponent<StaffHandler>().assignedWorkspace != null && assignedStaffContainer.Find("current_" + o.GetComponent<StaffHandler>().firstName + " " + o.GetComponent<StaffHandler>().lastName) == null)
             { 
             Transform btnTransform = Instantiate(btnTemplate, transform);
             btnTransform.gameObject.SetActive(true);

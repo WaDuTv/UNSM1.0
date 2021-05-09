@@ -67,7 +67,11 @@ public class CompanyManager : MonoBehaviour
         playerMaterial = playerMaterials[playerMaterialIndex];
         country = 0;
         difficulty = 0;
-        startingMoney = 20000;        
+        startingMoney = 20000;
+        playerStatProgramming = 5;
+        playerStatSound = 5;
+        playerStatGraphics = 5;
+        playerStatDesign = 5;
     }
 
     // Update is called once per frame
