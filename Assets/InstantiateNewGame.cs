@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Doozy.Engine.UI;
 
 public class InstantiateNewGame : MonoBehaviour
 {
@@ -33,9 +34,18 @@ public class InstantiateNewGame : MonoBehaviour
 
     [SerializeField]
     private ProjectInDevelopment projectSettings;
+    [SerializeField]
+    private Transform activeProjectsContainer;
+    [SerializeField]
+    private Transform finishedGamesContainer;
+    [SerializeField]
+    private UIView assignStaffView;
+    [SerializeField]
+    private UIView projectSetUpView;
 
     public AssignStaffToNewGame getStaffListfromHere;
 
+   
 
     // Start is called before the first frame update
     void Start()
@@ -51,42 +61,75 @@ public class InstantiateNewGame : MonoBehaviour
 
     public void SetUpNewGame()
     {
-        GameObject activeProject = Instantiate(newActiveProjectPrefab, prefabParent);
-        projectSettings = activeProject.GetComponent<ProjectInDevelopment>();
-        string[] _systemNameArray1 = delopmentSystem.text.Split('(');        
-        string _systemName1 = _systemNameArray1[0];
-        string[] _systemNameArray2 = _systemName1.Split(' ');
-        string _systemName2 = _systemNameArray2[0];
+        if (projectName.text=="")
+        {
+            ErrorHandler.ThrowError(3);
+            //projectSetUpView.Show(instantAction: true);
+            //assignStaffView.Hide(instantAction:true);
+            return;
+        }
+        if (price.text=="")
+        {
+            ErrorHandler.ThrowError(4);
+            //projectSetUpView.Show(instantAction: true);
+            //assignStaffView.Hide(instantAction: true);
+            return;
+        }
+        if (projectName.text != "" && finishedGamesContainer.Find(projectName.text) != null)
+        {
+            ErrorHandler.ThrowError(0);
+            return;
+        }
+        if (projectName.text != "" && activeProjectsContainer.Find(projectName.text) != null)
+        {
+            ErrorHandler.ThrowError(1);
+            return;
+        }
+        if (getStaffListfromHere.assignedStaff.Count == 0)
+        {
+            ErrorHandler.ThrowError(2);
+            return;
+        }        
+        else
+        { 
+            GameObject activeProject = Instantiate(newActiveProjectPrefab, prefabParent);
+            projectSettings = activeProject.GetComponent<ProjectInDevelopment>();
+            string[] _systemNameArray1 = delopmentSystem.text.Split('(');        
+            string _systemName1 = _systemNameArray1[0];
+            string[] _systemNameArray2 = _systemName1.Split(' ');
+            string _systemName2 = _systemNameArray2[0];
+        
+            projectSettings.projectName = projectName.text;
+            activeProject.name = projectName.text;
+            projectSettings.mainGenre = mainGenre.text;
+            projectSettings.subGenre = subGenre.text;
+            projectSettings.Theme = theme.text;
+            projectSettings.gameSize = gameSize.text;
+            projectSettings.system = _systemName2;
+            projectSettings.targetAudience = targetAudience.text;
+            string priceString = price.text.ToString();
+            projectSettings.setPrice = int.Parse(priceString);
+            //projectSettings.setPrice = System.Convert.ToInt32(priceString);
 
-        projectSettings.projectName = projectName.text;
-        activeProject.name = projectName.text;
-        projectSettings.mainGenre = mainGenre.text;
-        projectSettings.subGenre = subGenre.text;
-        projectSettings.Theme = theme.text;
-        projectSettings.gameSize = gameSize.text;
-        projectSettings.system = _systemName2;
-        projectSettings.targetAudience = targetAudience.text;
-        string priceString = price.text.ToString();
-        projectSettings.setPrice = int.Parse(priceString);
-        //projectSettings.setPrice = System.Convert.ToInt32(priceString);
+            projectSettings.setGraphics = setGraphics.value;
+            projectSettings.setSound = setSound.value;
+            projectSettings.setGameplay = setGameplay.value;
+            projectSettings.setContent = setContent.value;
+            projectSettings.setControls = setControls.value;
+            projectSettings.setDevelopmentTime = setDevelopmentTime.value*30;
 
-        projectSettings.setGraphics = setGraphics.value;
-        projectSettings.setSound = setSound.value;
-        projectSettings.setGameplay = setGameplay.value;
-        projectSettings.setContent = setContent.value;
-        projectSettings.setControls = setControls.value;
-        projectSettings.setDevelopmentTime = setDevelopmentTime.value*30;
+            projectSettings.optimumGraphics = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumGraphics;
+            projectSettings.optimumSound = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumSound;
+            projectSettings.optimumGameplay = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumGameplay;
+            projectSettings.optimumContent = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumContent;
+            projectSettings.optimumControls = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumControls;
 
-        projectSettings.optimumGraphics = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumGraphics;
-        projectSettings.optimumSound = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumSound;
-        projectSettings.optimumGameplay = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumGameplay;
-        projectSettings.optimumContent = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumContent;
-        projectSettings.optimumControls = gameGenreContainer.Find(projectSettings.mainGenre).GetComponent<GameGenreHandler>().gameTypeSO.optimumControls;
+            CalculateOptimumDevelopmentTime();
+            projectSettings.optimumDevelopmentTime = OptimumDevelopmentTime;
 
-        CalculateOptimumDevelopmentTime();
-        projectSettings.optimumDevelopmentTime = OptimumDevelopmentTime;
-
-        projectSettings.assignedStaff = getStaffListfromHere.assignedStaff;
+            projectSettings.assignedStaff = getStaffListfromHere.assignedStaff;
+            assignStaffView.Hide();
+        }
     }
 
     public void CalculateOptimumDevelopmentTime()

@@ -636,7 +636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 05/10
+  m_text: 5/10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cab170e430687a41b7e22b39b8b8160, type: 2}
   m_sharedMaterial: {fileID: -2674507762746348496, guid: 2cab170e430687a41b7e22b39b8b8160,
@@ -7524,7 +7524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 05/10
+  m_text: 5/10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cab170e430687a41b7e22b39b8b8160, type: 2}
   m_sharedMaterial: {fileID: -2674507762746348496, guid: 2cab170e430687a41b7e22b39b8b8160,
@@ -11366,7 +11366,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.7207288e-15, z: 0, w: 4.016e-42}
+  m_BoundingSphereOverride: {x: 0, y: -1.0237195e+22, z: 4.5905e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -45635,7 +45635,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -49045,7 +49045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 05/10
+  m_text: 5/10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cab170e430687a41b7e22b39b8b8160, type: 2}
   m_sharedMaterial: {fileID: -2674507762746348496, guid: 2cab170e430687a41b7e22b39b8b8160,
@@ -67933,7 +67933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 05/10
+  m_text: 5/10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cab170e430687a41b7e22b39b8b8160, type: 2}
   m_sharedMaterial: {fileID: -2674507762746348496, guid: 2cab170e430687a41b7e22b39b8b8160,
@@ -70693,7 +70693,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 5.050952e-39, z: 4.1004997e-19, w: 2.2e-44}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.83

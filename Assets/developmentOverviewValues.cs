@@ -312,6 +312,8 @@ public class developmentOverviewValues : MonoBehaviour
         {
             _barContainers.Find("ControlsBarContainer").Find("Controls%").GetComponent<TMP_Text>().text = Mathf.Round(_controlsProgress).ToString() + "%";
         }
+
+        thisProject.GetComponent<ProjectInDevelopment>().valuesHaveBeenCalculated = true;
     }
 
     public void GetAndSetReviewValues()

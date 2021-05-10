@@ -34,4 +34,5 @@ public class selectLanguage : MonoBehaviour
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
     }
+    
 }

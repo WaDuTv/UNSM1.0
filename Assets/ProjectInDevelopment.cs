@@ -48,6 +48,7 @@ public class ProjectInDevelopment : MonoBehaviour
     public int reviewMonth;
     public int reviewYear;
 
+    public bool valuesHaveBeenCalculated;
     public bool isFinished = false;
     public bool isRated = false;
     public bool hasBeenSent = false;
@@ -170,7 +171,7 @@ public class ProjectInDevelopment : MonoBehaviour
         if (developmentInYears >= 1)
         {
             endDay = startDay;
-            endMonth = ((int)setDevelopmentTime / 30 + startMonth) - 12;
+            endMonth = ((int)setDevelopmentTime / 30 + startMonth) - developmentInYears*12;
         }
         if (startDay + (int)setDevelopmentTime <= 1)
         {

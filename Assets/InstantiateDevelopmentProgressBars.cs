@@ -47,7 +47,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
         Transform[] projectsinReview = finishedGamesContainer.gameObject.GetComponentsInChildren<Transform>();        
 
         foreach (Transform project in activeProjects)
-        {
+        {            
             if (project != null && project.name != "CurrentActiveProjects")
             {
                 if (activeProjectsList.Contains(project.gameObject))
@@ -65,7 +65,7 @@ public class InstantiateDevelopmentProgressBars : MonoBehaviour
 
         foreach (Transform pir in projectsinReview)
         {
-            if (pir != null && pir.name != "MyFinishedGames" && pir.gameObject.GetComponent<ProjectInDevelopment>().isRated == false && pir.gameObject.GetComponent<ProjectInDevelopment>().hasBeenSent == false)
+            if (pir != null && pir.name != "MyFinishedGames" && pir.gameObject.GetComponent<ProjectInDevelopment>().isRated == false && pir.gameObject.GetComponent<ProjectInDevelopment>().hasBeenSent == false && pir.gameObject.GetComponent<ProjectInDevelopment>().valuesHaveBeenCalculated == true)
             {
                 if (projectsInReviewList.Contains(pir.gameObject))
                 { }

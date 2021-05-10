@@ -82,7 +82,7 @@ public class CompanyValuesManager : MonoBehaviour
 
     void OnError(PlayFabError error)
     {
-        Debug.Log("Error while logging in/ creating accoung!");
+        Debug.Log("Error while logging in/ creating account!");
         Debug.Log(error.GenerateErrorReport());
     }
 }

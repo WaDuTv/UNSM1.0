@@ -406,6 +406,7 @@ MonoBehaviour:
   endDay: 0
   endMonth: 0
   endYear: 0
+  systemName: 
   displayedName: {fileID: 0}
   progressBarFill: {fileID: 0}
   developmentOverview: {fileID: 0}
@@ -419,6 +420,7 @@ MonoBehaviour:
   splitArray: []
   daysPast: 0
   clock: {fileID: 0}
+  systemIsSet: 0
 --- !u!114 &6774427266291151298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,7 +2781,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 0
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 0}
 --- !u!114 &5396729147144938209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,6 +2807,7 @@ MonoBehaviour:
   endDay: 0
   endMonth: 0
   endYear: 0
+  systemName: 
   holder: {fileID: 0}
   developmentOverviewView: {fileID: 0}
   finishedGamesContainer: {fileID: 0}
@@ -2813,6 +2815,7 @@ MonoBehaviour:
   staffContainer: {fileID: 0}
   staffList: []
   reviewSplashScreen: {fileID: 0}
+  sellGameButtonScript: {fileID: 0}
 --- !u!1 &2170294702344980485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,15 +2909,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 20
+  m_fontSize: 14.45
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 16
+  m_fontSizeMin: 10
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
