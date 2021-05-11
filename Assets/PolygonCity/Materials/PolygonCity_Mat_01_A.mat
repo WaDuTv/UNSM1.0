@@ -22,13 +22,14 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonCity_Mat_01_A
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
-  m_ShaderKeywords: N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA
+  m_ShaderKeywords: NOKEWO N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA
     N_F_TRANSAFFSHA_ON _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -145,6 +146,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_2A455339: 0.5
     - Vector1_2b094c3a10cc4d0d8c574c9f38928e4e: 0.1
@@ -251,7 +253,7 @@ Material:
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
-    - _ReduceShadowSpotDirectionalLight: 1
+    - _ReduceShadowSpotDirectionalLight: 0
     - _RefMetallic: 0
     - _RefVal: 0
     - _ReflectionIntensity: 0
@@ -269,12 +271,12 @@ Material:
     - _SelfLitHighContrast: 0
     - _SelfLitIntensity: 1
     - _SelfLitPower: 35.1
-    - _SelfShadowAffectedByLightShadowStrength: 0
-    - _SelfShadowHardness: 1
+    - _SelfShadowAffectedByLightShadowStrength: 1
+    - _SelfShadowHardness: 0
     - _SelfShadowRealTimeShadowColorPower: 1
     - _SelfShadowRealtimeShadowIntensity: 1
     - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.93
+    - _SelfShadowThreshold: 1
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 0
     - _ShadowTColorPower: 1

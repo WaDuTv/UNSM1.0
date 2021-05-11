@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using PlayFab;
-using PlayFab.ClientModels;
 
 public class CompanyValuesManager : MonoBehaviour
 {
@@ -28,14 +26,14 @@ public class CompanyValuesManager : MonoBehaviour
     [SerializeField]
     private myCompanyExpenses expenses;
     [SerializeField]
-    private playfabManager playfabManager;
-    [SerializeField]
     private highscoreHolder highscoreHolder;
 
     private bool hasBeenCalculated;
     // Start is called before the first frame update
     void Start()
     {
+        hasBeenCalculated = true;
+
         companyManager = GameObject.Find("CompanyManager").GetComponent<CompanyManager>();
 
         if (availableWorkerSpawner.isNewGame == false)
@@ -56,7 +54,7 @@ public class CompanyValuesManager : MonoBehaviour
             companyCash = _newCash;
             companyCashDisplay = (int)_newCash;
 
-            SendScoreToLeaderboard();
+            //SendScoreToLeaderboard();
 
             hasBeenCalculated = true;
         }
@@ -67,22 +65,22 @@ public class CompanyValuesManager : MonoBehaviour
         bankAmount.text = System.Math.Round(companyCash,2) + "$";
     }
 
-     private void SendScoreToLeaderboard()
-    {
-        int _cash = (int)companyCash;
-        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = companyManager.companyName + " (" + highscoreHolder.highscoringGame + ")" }, OnDisplayName, OnError);
-        playfabManager.SendCashboard(_cash);
+    // private void SendScoreToLeaderboard()
+    //{
+    //    int _cash = (int)companyCash;
+    //    PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = companyManager.companyName + " (" + highscoreHolder.highscoringGame + ")" }, OnDisplayName, OnError);
+    //    playfabManager.SendCashboard(_cash);
 
-    }
+    //}
 
-    void OnDisplayName(UpdateUserTitleDisplayNameResult result)
-    {
-        Debug.Log("Your Score will be saved under this Name!");
-    }
+    //void OnDisplayName(UpdateUserTitleDisplayNameResult result)
+    //{
+    //    Debug.Log("Your Score will be saved under this Name!");
+    //}
 
-    void OnError(PlayFabError error)
-    {
-        Debug.Log("Error while logging in/ creating account!");
-        Debug.Log(error.GenerateErrorReport());
-    }
+    //void OnError(PlayFabError error)
+    //{
+    //    Debug.Log("Error while logging in/ creating account!");
+    //    Debug.Log(error.GenerateErrorReport());
+    //}
 }

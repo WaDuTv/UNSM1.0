@@ -102,10 +102,10 @@ public class Lightmanager : MonoBehaviour
         {
             so.GetComponent<MeshRenderer>().material = objectMaterial_Emissive;
         }
-        foreach (GameObject slb in switchableLightBulp)
-        {
-            slb.GetComponent<MeshRenderer>().enabled = true;
-        }
+        //foreach (GameObject slb in switchableLightBulp)
+        //{
+        //    slb.GetComponent<MeshRenderer>().enabled = true;
+        //}
         foreach (GameObject so in switchableStreetlamps)
         {
             so.GetComponent<MeshRenderer>().material = streetlampMaterial_Emissive;
@@ -142,10 +142,10 @@ public class Lightmanager : MonoBehaviour
         {
             so.GetComponent<MeshRenderer>().material = objectMaterial_nonEmissive;
         }
-        foreach (GameObject slb in switchableLightBulp)
-        {
-            slb.GetComponent<MeshRenderer>().enabled = false;
-        }
+        //foreach (GameObject slb in switchableLightBulp)
+        //{
+        //    slb.GetComponent<MeshRenderer>().enabled = false;
+        //}
         foreach (GameObject so in switchableStreetlamps)
         {
             so.GetComponent<MeshRenderer>().material = streetlampMaterial_nonEmissive;

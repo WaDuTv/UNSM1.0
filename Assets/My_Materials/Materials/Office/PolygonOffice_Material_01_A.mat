@@ -259,7 +259,7 @@ Material:
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
-    - _ReduceShadowSpotDirectionalLight: 0.26
+    - _ReduceShadowSpotDirectionalLight: 0
     - _RefMetallic: 0
     - _RefVal: 0
     - _ReflectionIntensity: 0
@@ -278,11 +278,11 @@ Material:
     - _SelfLitIntensity: 1
     - _SelfLitPower: 2
     - _SelfShadowAffectedByLightShadowStrength: 1
-    - _SelfShadowHardness: 1
+    - _SelfShadowHardness: 0
     - _SelfShadowRealTimeShadowColorPower: 1
-    - _SelfShadowRealtimeShadowIntensity: 0.89
+    - _SelfShadowRealtimeShadowIntensity: 1
     - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.93
+    - _SelfShadowThreshold: 0.97
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 1
     - _ShadowTColorPower: 1
