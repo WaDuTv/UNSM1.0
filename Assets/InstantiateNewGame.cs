@@ -30,8 +30,8 @@ public class InstantiateNewGame : MonoBehaviour
 
     public float OptimumDevelopmentTime;
 
-    
-
+    [SerializeField]
+    Transform assignedStaffListHolder;
     [SerializeField]
     private ProjectInDevelopment projectSettings;
     [SerializeField]
@@ -42,6 +42,8 @@ public class InstantiateNewGame : MonoBehaviour
     private UIView assignStaffView;
     [SerializeField]
     private UIView projectSetUpView;
+    [SerializeField]
+    private clearAssignedWorkers clearAssignedWorkers;
 
     public AssignStaffToNewGame getStaffListfromHere;
 
@@ -85,7 +87,8 @@ public class InstantiateNewGame : MonoBehaviour
             ErrorHandler.ThrowError(1);
             return;
         }
-        if (getStaffListfromHere.assignedStaff.Count == 0)
+        Transform[] assignedWorkerArray = assignedStaffListHolder.GetComponentsInChildren<Transform>();
+        if (assignedWorkerArray.Length <= 1)
         {
             ErrorHandler.ThrowError(2);
             return;
@@ -126,6 +129,8 @@ public class InstantiateNewGame : MonoBehaviour
 
             CalculateOptimumDevelopmentTime();
             projectSettings.optimumDevelopmentTime = OptimumDevelopmentTime;
+            getStaffListfromHere.AssignStaffToNewProject();
+            clearAssignedWorkers.ClearWorkers();
 
             projectSettings.assignedStaff = getStaffListfromHere.assignedStaff;
             assignStaffView.Hide();

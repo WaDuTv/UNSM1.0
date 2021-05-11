@@ -86,7 +86,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskSelfLit:
-        m_Texture: {fileID: 2800000, guid: 682e1e3fb0480964798a1fedbc52f695, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5b180a3347057294a826ebec48642b81, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTransparency:
@@ -145,6 +145,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_2A455339: 0.5
     - Vector1_2b094c3a10cc4d0d8c574c9f38928e4e: 0.1
@@ -268,7 +269,7 @@ Material:
     - _Saturation: 1
     - _SelfLitHighContrast: 0
     - _SelfLitIntensity: 1
-    - _SelfLitPower: 161.95
+    - _SelfLitPower: 29.9
     - _SelfShadowAffectedByLightShadowStrength: 0
     - _SelfShadowHardness: 1
     - _SelfShadowRealTimeShadowColorPower: 1
@@ -332,7 +333,7 @@ Material:
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _PTCol: {r: 0, g: 0, b: 0, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SelfLitColor: {r: 1, g: 0.055385813, b: 0, a: 1}
+    - _SelfLitColor: {r: 1, g: 0.532947, b: 0.07232696, a: 1}
     - _SelfShadowRealTimeShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

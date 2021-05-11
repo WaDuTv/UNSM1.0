@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonOffice_Material_01_A
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
-  m_ShaderKeywords: N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA
+  m_ShaderKeywords: NOKEWO N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA
     N_F_TRANSAFFSHA_ON _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -153,6 +153,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_2A455339: 0.5
     - Vector1_2b094c3a10cc4d0d8c574c9f38928e4e: 0.1
@@ -274,7 +275,7 @@ Material:
     - _SampleGI: 0
     - _Saturation: 1
     - _SelfLitHighContrast: 1
-    - _SelfLitIntensity: 0
+    - _SelfLitIntensity: 1
     - _SelfLitPower: 2
     - _SelfShadowAffectedByLightShadowStrength: 1
     - _SelfShadowHardness: 1

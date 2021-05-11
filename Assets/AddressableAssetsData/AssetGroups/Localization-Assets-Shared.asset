@@ -19,7 +19,7 @@ MonoBehaviour:
   m_SerializeEntries:
   - m_GUID: ca1684ff379d9f444a7b703cbd10e614
     m_Address: UI Text Shared Data
-    m_ReadOnly: 0
+    m_ReadOnly: 1
     m_SerializedLabels:
     - default
     m_MainAsset: {fileID: 0}
