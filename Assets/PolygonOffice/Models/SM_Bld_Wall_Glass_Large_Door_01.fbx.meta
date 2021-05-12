@@ -123,7 +123,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Bld_Wall_Glass_Large_Door_01_Glass","SM_Bld_Wall_Glass_Large_Door_01"],"padding":[128,119],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["SM_Bld_Wall_Glass_Large_Door_01_Glass","SM_Bld_Wall_Glass_Large_Door_01"],"padding":[103,95],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

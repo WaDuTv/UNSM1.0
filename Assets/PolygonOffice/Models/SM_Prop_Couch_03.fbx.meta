@@ -63,7 +63,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Couch_Pillows_01","SM_Prop_Couch_03"],"padding":[256,105],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Couch_Pillows_01","SM_Prop_Couch_03"],"padding":[242,84],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

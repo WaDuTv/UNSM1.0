@@ -48,7 +48,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Bld_Floor_Grass_01"],"padding":[137],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_Bld_Floor_Grass_01"],"padding":[109],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

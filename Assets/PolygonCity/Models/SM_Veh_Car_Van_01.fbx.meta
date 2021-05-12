@@ -213,7 +213,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Veh_Car_Van_Wheel_rr","SM_Veh_Car_Van_Wheel_rl","SM_Veh_Car_Van_Wheel_fr","SM_Veh_Car_Van_Wheel_fl","SM_Veh_Car_Van_SteeringW","SM_Veh_Car_Van_Plates","SM_Veh_Car_Van_Glass","SM_Veh_Car_Van_Door_r_Glass","SM_Veh_Car_Van_Door_r","SM_Veh_Car_Van_Door_l_Glass","SM_Veh_Car_Van_Door_l","SM_Veh_Car_Van_01"],"padding":[238,238,238,238,256,256,256,256,256,256,256,42],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Veh_Car_Van_Wheel_rr","SM_Veh_Car_Van_Wheel_rl","SM_Veh_Car_Van_Wheel_fr","SM_Veh_Car_Van_Wheel_fl","SM_Veh_Car_Van_SteeringW","SM_Veh_Car_Van_Plates","SM_Veh_Car_Van_Glass","SM_Veh_Car_Van_Door_r_Glass","SM_Veh_Car_Van_Door_r","SM_Veh_Car_Van_Door_l_Glass","SM_Veh_Car_Van_Door_l","SM_Veh_Car_Van_01"],"padding":[191,191,191,191,256,256,210,256,237,256,237,34],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

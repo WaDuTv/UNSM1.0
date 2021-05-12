@@ -48,7 +48,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Env_Sidewalk_Corner_01"],"padding":[130],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_Env_Sidewalk_Corner_01"],"padding":[104],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

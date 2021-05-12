@@ -48,7 +48,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Plant_04"],"padding":[237],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Plant_04"],"padding":[190],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

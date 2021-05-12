@@ -63,7 +63,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Bld_Shop_03_Glass","SM_Bld_Shop_03"],"padding":[97,22],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["SM_Bld_Shop_03_Glass","SM_Bld_Shop_03"],"padding":[77,17],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

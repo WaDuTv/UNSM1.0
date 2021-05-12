@@ -63,7 +63,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_WaterCooler_Glass_01","SM_Prop_WaterCooler_01"],"padding":[256,211],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_WaterCooler_Glass_01","SM_Prop_WaterCooler_01"],"padding":[256,169],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -93,7 +93,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Kitchen_Counter_01","SM_Prop_Kitchen_Counter_01_Door_01","SM_Prop_Kitchen_Counter_01_Door_02","SM_Prop_Kitchen_Counter_01_Drawer_01"],"padding":[115,256,256,225],"unwrapper":[0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Kitchen_Counter_01","SM_Prop_Kitchen_Counter_01_Door_01","SM_Prop_Kitchen_Counter_01_Door_02","SM_Prop_Kitchen_Counter_01_Drawer_01"],"padding":[92,256,256,180],"unwrapper":[0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

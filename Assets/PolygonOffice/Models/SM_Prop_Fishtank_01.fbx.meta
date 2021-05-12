@@ -78,7 +78,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Fishtank_Glass_01","SM_Prop_Fishtank_01"],"padding":[256,120],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Fishtank_Glass_01","SM_Prop_Fishtank_01"],"padding":[211,96],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

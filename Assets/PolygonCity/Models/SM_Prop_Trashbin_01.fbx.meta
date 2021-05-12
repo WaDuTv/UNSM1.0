@@ -48,7 +48,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_Trashbin_01"],"padding":[183],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_Prop_Trashbin_01"],"padding":[146],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -153,7 +153,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Veh_Car_Muscle_Wheel_rr","SM_Veh_Car_Muscle_Wheel_rl","SM_Veh_Car_Muscle_Wheel_fr","SM_Veh_Car_Muscle_Wheel_fl","SM_Veh_Car_Muscle_SteeringW","SM_Veh_Car_Muscle_Plates","SM_Veh_Car_Muscle_Glass","SM_Veh_Car_Muscle_01"],"padding":[241,241,256,256,256,256,219,37],"unwrapper":[0,0,0,0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_Veh_Car_Muscle_Wheel_rr","SM_Veh_Car_Muscle_Wheel_rl","SM_Veh_Car_Muscle_Wheel_fr","SM_Veh_Car_Muscle_Wheel_fl","SM_Veh_Car_Muscle_SteeringW","SM_Veh_Car_Muscle_Plates","SM_Veh_Car_Muscle_Glass","SM_Veh_Car_Muscle_01"],"padding":[193,193,209,209,256,256,175,29],"unwrapper":[0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

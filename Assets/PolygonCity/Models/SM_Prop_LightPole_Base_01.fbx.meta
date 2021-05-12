@@ -48,7 +48,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_Prop_LightPole_Base_01"],"padding":[186],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_Prop_LightPole_Base_01"],"padding":[149],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
