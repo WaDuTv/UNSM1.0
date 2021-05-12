@@ -137,7 +137,8 @@ public class makeCall : MonoBehaviour
         alwaysVisibleHolderScript.playerModel.GetComponent<stateChanger>().isIdle = false;
         alwaysVisibleHolderScript.playerModel.GetComponent<stateChanger>().isOnPhone = true;
         TextureHolder = workerModel.GetComponent<textureHolder>();
-        modelCam = workerModel.transform.Find("modelCam").GetComponent<Camera>();
+        modelCam = workerModel.GetComponent<textureHolder>().modelCamera;
+        modelCam.enabled = true;
         modelCam.targetTexture = TextureHolder.camTexture;
 
         hangUpCallButton.callerModel = workerModel;

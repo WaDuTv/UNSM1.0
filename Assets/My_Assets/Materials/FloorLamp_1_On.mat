@@ -134,6 +134,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaBaseCutout: 1
     - _AlphaClip: 0
@@ -220,7 +221,7 @@ Material:
     - _OutlineWidth: 0.1
     - _OutlineWidthAffectedByViewDistance: 0
     - _OutlineZPostionInCamera: 0
-    - _OverallShadowColorPower: 0
+    - _OverallShadowColorPower: 1
     - _PSGLOTEX: 0
     - _PTexturePower: 1
     - _Parallax: 0.02
@@ -228,7 +229,7 @@ Material:
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
-    - _ReduceShadowSpotDirectionalLight: 0.5
+    - _ReduceShadowSpotDirectionalLight: 0
     - _RefMetallic: 0
     - _RefVal: 0
     - _ReflectionIntensity: 0
@@ -246,11 +247,11 @@ Material:
     - _SelfLitIntensity: 1
     - _SelfLitPower: 241.06
     - _SelfShadowAffectedByLightShadowStrength: 0
-    - _SelfShadowHardness: 1
+    - _SelfShadowHardness: 0.25
     - _SelfShadowRealTimeShadowColorPower: 1
-    - _SelfShadowRealtimeShadowIntensity: 1
+    - _SelfShadowRealtimeShadowIntensity: 0.8
     - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.93
+    - _SelfShadowThreshold: 1
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 0
     - _ShadowTColorPower: 1

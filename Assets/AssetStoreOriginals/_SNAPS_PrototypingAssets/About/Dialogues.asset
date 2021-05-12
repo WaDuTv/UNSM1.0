@@ -22956,7 +22956,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Hold on for a moment. First, i wanna know for WHO i might work. Tell
-          me a something ybout youself.
+          me a something about youself.
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -24320,8 +24320,8 @@ MonoBehaviour:
         y: 1127.418
         width: 160
         height: 30
-    canvasScrollPosition: {x: 4614.567, y: 0}
-    canvasZoom: 0.18999997
+    canvasScrollPosition: {x: 5188.5474, y: 378.16873}
+    canvasZoom: 0.9999998
   - id: 2
     fields:
     - title: Title

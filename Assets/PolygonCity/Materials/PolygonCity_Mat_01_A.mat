@@ -182,10 +182,10 @@ Material:
     - _DynamicNoisyOutline: 0
     - _EmissionScaleUI: 0
     - _EnvironmentReflections: 1
-    - _EnvironmentalLightingIntensity: 1
+    - _EnvironmentalLightingIntensity: 2
     - _FarDistanceMaxWidth: 10
     - _GIFlatShade: 0
-    - _GIShadeThreshold: 0
+    - _GIShadeThreshold: 1
     - _GlossColorPower: 10
     - _GlossIntensity: 1
     - _GlossMapScale: 1
@@ -249,7 +249,7 @@ Material:
     - _PSGLOTEX: 0
     - _PTexturePower: 1
     - _Parallax: 0.02
-    - _PointSpotlightIntensity: 19.93
+    - _PointSpotlightIntensity: 1
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
@@ -272,9 +272,9 @@ Material:
     - _SelfLitIntensity: 1
     - _SelfLitPower: 35.1
     - _SelfShadowAffectedByLightShadowStrength: 1
-    - _SelfShadowHardness: 0
+    - _SelfShadowHardness: 0.25
     - _SelfShadowRealTimeShadowColorPower: 1
-    - _SelfShadowRealtimeShadowIntensity: 1
+    - _SelfShadowRealtimeShadowIntensity: 0.8
     - _SelfShadowShadowTAtViewDirection: 0
     - _SelfShadowThreshold: 1
     - _ShadowColorTexturePower: 0

@@ -36,14 +36,14 @@ MonoBehaviour:
   m_AdditionalLightsShadowResolutionTierLow: 256
   m_AdditionalLightsShadowResolutionTierMedium: 512
   m_AdditionalLightsShadowResolutionTierHigh: 1024
-  m_ShadowDistance: 65
-  m_ShadowCascadeCount: 2
+  m_ShadowDistance: 61
+  m_ShadowCascadeCount: 4
   m_Cascade2Split: 0.44
   m_Cascade3Split: {x: 0.1, y: 0.3}
-  m_Cascade4Split: {x: 0.043, y: 0.138, z: 0.667}
-  m_ShadowDepthBias: 0
+  m_Cascade4Split: {x: 0.5, y: 0.65599996, z: 1}
+  m_ShadowDepthBias: 1
   m_ShadowNormalBias: 0
-  m_SoftShadowsSupported: 0
+  m_SoftShadowsSupported: 1
   m_UseSRPBatcher: 1
   m_SupportsDynamicBatching: 0
   m_MixedLightingSupported: 1

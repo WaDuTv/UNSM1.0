@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 0587789bb16355d4aa188664ab803968
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable:
   - first:
       1: 100000
@@ -47,7 +47,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["SM_Bld_Roof_Side_Corner_01"],"padding":[256],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

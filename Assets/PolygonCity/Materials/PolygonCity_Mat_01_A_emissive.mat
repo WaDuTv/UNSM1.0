@@ -271,11 +271,11 @@ Material:
     - _SelfLitIntensity: 1
     - _SelfLitPower: 29.9
     - _SelfShadowAffectedByLightShadowStrength: 0
-    - _SelfShadowHardness: 0
+    - _SelfShadowHardness: 0.25
     - _SelfShadowRealTimeShadowColorPower: 1
     - _SelfShadowRealtimeShadowIntensity: 1
     - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.97
+    - _SelfShadowThreshold: 1
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 0
     - _ShadowTColorPower: 1

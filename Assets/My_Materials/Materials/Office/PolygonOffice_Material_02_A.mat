@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonOffice_Material_02_A
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
-  m_ShaderKeywords: NOKEWO N_F_EAL_ON N_F_O_ON N_F_RELGI_ON N_F_SS_ON N_F_TRANSAFFSHA
+  m_ShaderKeywords: N_F_EAL_ON N_F_NLASOBF_ON N_F_O_ON N_F_RELGI_ON N_F_SS_ON N_F_TRANSAFFSHA
     N_F_TRANSAFFSHA_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -168,10 +168,10 @@ Material:
     - _DstBlend: 0
     - _DynamicNoisyOutline: 0
     - _EnvironmentReflections: 1
-    - _EnvironmentalLightingIntensity: 1
+    - _EnvironmentalLightingIntensity: 9.9
     - _FarDistanceMaxWidth: 10
     - _GIFlatShade: 0
-    - _GIShadeThreshold: 0
+    - _GIShadeThreshold: 1
     - _GlossColorPower: 10
     - _GlossIntensity: 1
     - _GlossMapScale: 1
@@ -207,7 +207,7 @@ Material:
     - _N_F_HPSS: 0
     - _N_F_MC: 0
     - _N_F_MSSOLTFO: 0
-    - _N_F_NLASOBF: 0
+    - _N_F_NLASOBF: 1
     - _N_F_NM: 0
     - _N_F_O: 1
     - _N_F_OFLMB: 0
@@ -256,9 +256,9 @@ Material:
     - _SelfLitIntensity: 0
     - _SelfLitPower: 2
     - _SelfShadowAffectedByLightShadowStrength: 1
-    - _SelfShadowHardness: 0
+    - _SelfShadowHardness: 0.25
     - _SelfShadowRealTimeShadowColorPower: 1
-    - _SelfShadowRealtimeShadowIntensity: 1
+    - _SelfShadowRealtimeShadowIntensity: 0.8
     - _SelfShadowShadowTAtViewDirection: 0
     - _SelfShadowThreshold: 1
     - _ShadowColorTexturePower: 0

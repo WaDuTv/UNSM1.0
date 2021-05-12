@@ -58,6 +58,7 @@ public class ProjectInDevelopment : MonoBehaviour
     public string publisher;
     public int numberOfCopiesAvailable;
     public bool isOnMarket;
+    public bool SellingHasStarted;
 
     public int customersKids;
     public int customersTeens;

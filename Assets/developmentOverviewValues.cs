@@ -468,6 +468,7 @@ public class developmentOverviewValues : MonoBehaviour
                 lastNames.Add(_workerLastName);
             }
 
+            GameObject.Find("View - ReviewResultSplashScreen").GetComponent<deactiveateSellGameButtonScript>().project = thisProject;
 
         }
 

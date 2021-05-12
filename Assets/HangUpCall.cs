@@ -65,6 +65,8 @@ public void HangUp()
 
             callerModel.GetComponent<stateChanger>().isOnPhone = false;
             callerModel.GetComponent<stateChanger>().isIdle = true;
+
+            callerModel.GetComponent<textureHolder>().modelCamera.enabled = false;
             
             //_modelAnimator.SetBool("isIdle", true);
             //_modelAnimator.SetBool("callHasEnded", false);

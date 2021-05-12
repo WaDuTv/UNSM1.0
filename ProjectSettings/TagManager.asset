@@ -32,6 +32,7 @@ TagManager:
   - newWorkerSpawn
   - workspace
   - switchableStreetlamps
+  - Roof
   layers:
   - Default
   - TransparentFX
