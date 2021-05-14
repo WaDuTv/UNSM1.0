@@ -39,6 +39,6 @@ public class Zoom : MonoBehaviour
     {
         float fov = virtualCamera.m_Lens.FieldOfView;
         float target = Mathf.Clamp(fov + increment, zoomInMax, zoomOutMax);
-        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, zoomSpeed * Time.deltaTime);
+        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, zoomSpeed * Time.unscaledDeltaTime);
     }
 }

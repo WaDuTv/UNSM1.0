@@ -20,7 +20,7 @@ public class CursorController : MonoBehaviour
     {
 
         controls = new MouseControls();
-        ChangeCursor(cursor);
+        //ChangeCursor(cursor);
         Cursor.lockState = CursorLockMode.None;
         mainCamera = Camera.main;
 
@@ -49,12 +49,12 @@ public class CursorController : MonoBehaviour
 
     private void StartedClick()
     {
-        ChangeCursor(cursorClicked);
+        //ChangeCursor(cursorClicked);
     }
 
     private void EndedClick()
     {
-        ChangeCursor(cursor);
+        //ChangeCursor(cursor);
         DetectObject();
     }
 
@@ -77,7 +77,7 @@ public class CursorController : MonoBehaviour
                //     deskcam.SetActive(true);
                    
                // }
-                 Debug.Log("3d Hit:" + hit.collider.gameObject.name);
+                 
             }
         }
     }

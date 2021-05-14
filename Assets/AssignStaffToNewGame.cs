@@ -56,6 +56,7 @@ public class AssignStaffToNewGame : MonoBehaviour
                 GameObject.Find("workerModel_" + staffInfo.firstName + " " + staffInfo.lastName).GetComponent<stateChanger>().isAssignedToProject = true;
                 BehaviorTree _behaviorTree = GameObject.Find("workerModel_" + staffInfo.firstName + " " + staffInfo.lastName).GetComponent<BehaviorTree>();
                 _behaviorTree.SetVariableValue("AssignedWorkspace", staffInfo.assignedWorkspace);
+                _behaviorTree.SetVariableValue("WorkSpaceRotation", staffInfo.assignedWorkspace.transform.localEulerAngles);
 
             }
 
